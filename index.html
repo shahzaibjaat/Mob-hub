@@ -3,169 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobi-Hub - Shahzaib Shafiq - Pattoki</title>
-<meta name="copyright" content="Mobi-Hub - Shahzaib Shafiq">
+<title>Mobi Hub - All Phones</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f8fafc}
-.header{background:#01411C;color:white;padding:12px;position:sticky;top:0;z-index:100}
-.nav{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center}
-.nav-links{display:flex;gap:6px}
-.nav-links a{background:white;color:#01411C;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:700;text-decoration:none}
-.search{width:95%;max-width:1100px;margin:10px auto;display:block;padding:11px 14px;border-radius:25px;border:2px solid #bbf7d0;outline:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;padding:10px;max-width:1100px;margin:auto}
-.product{background:white;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;position:relative}
-.product img{width:100%;height:160px;object-fit:contain;background:white;padding:8px}
-.info{padding:8px}.price{color:#01411C;font-weight:800;font-size:13px}
-.stock{font-size:9px;background:#dcfce7;color:#166534;padding:2px 6px;border-radius:10px}
-.footer{background:#001a00;color:#a7f3d0;text-align:center;padding:22px 10px;font-size:11px;margin-top:15px}
-
-/* PRO AI - 2 OPTIONS WALA */
-#aiBtn{position:fixed!important;bottom:20px!important;right:20px!important;width:64px!important;height:64px!important;background:linear-gradient(135deg,#01411C,#16a34a)!important;color:white!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:28px!important;cursor:pointer!important;z-index:999999!important;box-shadow:0 6px 22px rgba(0,0,0,0.5)!important;border:3px solid white!important}
-#aiBox{position:fixed!important;bottom:90px!important;right:10px!important;width:390px!important;max-width:96%!important;height:540px!important;background:white!important;border-radius:18px!important;box-shadow:0 12px 40px rgba(0,0,0,0.4)!important;z-index:999999!important;display:none!important;flex-direction:column!important;border:3px solid #01411C!important}
-#aiBox.show{display:flex!important}
-#aiHeader{background:linear-gradient(135deg,#01411C,#16a34a);color:white;padding:12px;display:flex;justify-content:space-between}
-#aiMsgs{flex:1;overflow-y:auto;padding:12px;background:#f0fdf4;display:flex;flex-direction:column;gap:10px}
-.bot{background:white;border:1px solid #e2e8f0;padding:12px;border-radius:14px;font-size:11.5px;line-height:1.6;box-shadow:0 2px 6px rgba(0,0,0,0.05)}
-.user{background:#01411C;color:white;padding:10px 12px;border-radius:14px;font-size:11.5px;align-self:flex-end;max-width:85%}
-.optBox{background:#f8fafc;border:1px solid #bbf7d0;border-left:4px solid #01411C;padding:8px;border-radius:8px;margin:6px 0}
-.optTitle{font-weight:800;color:#01411C;font-size:11px}
-.quick{display:flex;gap:4px;flex-wrap:wrap;padding:8px;background:white;border-top:1px solid #eee}
-.quick button{font-size:9.5px;padding:5px 8px;border-radius:12px;border:1px solid #bbf7d0;background:#f0fdf4;cursor:pointer;font-weight:700}
-.inputArea{display:flex;padding:8px;border-top:1px solid #ddd;background:white;gap:6px}
-.inputArea input{flex:1;padding:11px 14px;border-radius:24px;border:1.5px solid #bbf7d0;outline:none;font-size:11px}
-.inputArea button{background:#01411C;color:white;border:none;padding:11px 16px;border-radius:24px;cursor:pointer}
+*{margin:0; padding:0; box-sizing:border-box; font-family:Arial}
+body{background:#f2f2f2}
+header{background:#000; color:#fff; padding:12px; display:flex; justify-content:space-between; align-items:center}
+header h1{font-size:20px}
+header a{color:#fff; text-decoration:none; margin-left:12px; background:#222; padding:6px 10px; border-radius:6px}
+.hero{background:#fff; padding:15px; text-align:center; margin:10px; border-radius:12px}
+.phones{display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; padding:12px}
+@media(min-width:600px){ .phones{grid-template-columns: repeat(4, 1fr)} }
+.card{background:#fff; border-radius:12px; padding:10px; text-align:center; box-shadow:0 2px 5px rgba(0,0,0,0.1)}
+.card img{width:100%; height:150px; object-fit:contain}
+.card h3{font-size:14px; margin:6px 0}
+.card .price{color:green; font-weight:bold}
+.card button{width:100%; margin-top:6px; padding:8px; background:#000; color:#fff; border:none; border-radius:8px}
+.tabs{display:flex; justify-content:center; gap:10px; margin:12px}
+.tabs button{padding:10px 18px; border:none; border-radius:20px; background:#ddd; cursor:pointer}
+.tabs button.active{background:#000; color:#fff}
+.demand-section{background:#fff; margin:12px; padding:15px; border-radius:12px; display:none}
+.demand-section.active{display:block}
+.demand-section input, .demand-section textarea{width:100%; padding:10px; margin:6px 0; border:1px solid #ccc; border-radius:8px}
+.demand-section .btn{background:green; color:#fff; padding:12px; border:none; width:100%; border-radius:8px; font-size:16px}
+.demand-list{margin-top:15px}
+.demand-item{background:#f9f9f9; padding:10px; border-radius:8px; margin:6px 0; border-left:4px solid green}
 </style>
 </head>
 <body>
 
-<div class="header">
-<div class="nav">
-<div style="display:flex;gap:8px;align-items:center"><div style="width:36px;height:36px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center">📱</div><div><b>Mobi-Hub</b><br><small style="font-size:8px">Shahzaib Shafiq - Pattoki</small></div></div>
-<div class="nav-links"><a href="#">Shop</a><a href="#">Cart</a><a href="#">Payment</a></div>
-</div>
+<header>
+  <h1>MOBI HUB</h1>
+  <div>
+    <a href="#" onclick="showTab('phones')">All Phones</a>
+    <a href="#" onclick="showTab('demand')">Demand</a>
+  </div>
+</header>
+
+<div class="hero">
+  <h2 id="tabTitle">All Phones - Sare Models</h2>
 </div>
 
-<input class="search" id="search" placeholder="Search GT 6, 14T Pro, V60..." onkeyup="filterM()">
-
-<div class="grid" id="grid"></div>
-
-<div class="footer">
-<b style="color:white">Mobi-Hub © 2026 - All Rights Reserved</b><br>
-Owned & Developed by <b style="color:white">Shahzaib Shafiq</b><br>
-Pattoki Mobile Market, District Kasur, Punjab, Pakistan<br>
-Contact: 0312-6165602 | WhatsApp: 0312-6165602<br>
-JazzCash: <b style="color:white">SHAH ZAIB SHAFIQUE - 03264492997</b><br>
-<span style="background:white;color:#001a00;padding:4px 10px;border-radius:20px;margin-top:8px;display:inline-block;font-size:8px">🇵🇰 Made in Pakistan - Mobi-Hub® 2026</span>
+<div class="tabs">
+  <button id="btn-phones" class="active" onclick="showTab('phones')">📱 All Phones</button>
+  <button id="btn-demand" onclick="showTab('demand')">🔍 Demand List</button>
 </div>
 
-<!-- PRO AI BUTTON -->
-<div id="aiBtn" onclick="toggleAI()">🤖</div>
+<!-- ALL PHONES SECTION -->
+<div id="phonesSection" class="phones"></div>
 
-<div id="aiBox">
-<div id="aiHeader">
-<div><b>🤖 Mobi-Hub PRO AI</b><br><small style="font-size:9px">Trained - Hamesha 2 Options Dega!</small></div>
-<div onclick="toggleAI()" style="cursor:pointer;font-size:22px">✕</div>
-</div>
-<div id="aiMsgs"></div>
-<div class="quick">
-<button onclick="ask('Gaming ke liye best konsa?')">🎮 Gaming - 2 Options</button>
-<button onclick="ask('Camera best?')">📸 Camera - 2 Options</button>
-<button onclick="ask('1 lakh me best?')">💰 Budget - 2 Options</button>
-<button onclick="ask('Battery best?')">🔋 Battery - 2 Options</button>
-</div>
-<div class="inputArea">
-<input id="aiInput" placeholder="Poocho... e.g. Gaming best kaunsa hai?" onkeydown="if(event.key==='Enter')send()">
-<button onclick="send()">➤</button>
-</div>
+<!-- DEMAND SECTION -->
+<div id="demandSection" class="demand-section">
+  <h3>Phone Nahi Mila? Demand Bhejo</h3>
+  <input type="text" id="cName" placeholder="Apka Naam">
+  <input type="text" id="cMobile" placeholder="WhatsApp Number">
+  <input type="text" id="cModel" placeholder="Kaunsa Phone Chahiye? Ex: iPhone 13">
+  <input type="text" id="cBudget" placeholder="Budget? Ex: 60000">
+  <button class="btn" onclick="saveDemand()">Demand Bhejo</button>
+
+  <div class="demand-list">
+    <h3 style="margin-top:20px">📋 Sari Demands (Yahan Ayengi)</h3>
+    <div id="demandList"></div>
+  </div>
 </div>
 
 <script>
-const mobiles=[
-{id:1,name:"GT Neo 6 SE",price:94999,brand:"REALME",ram:"12/256",chip:"Snapdragon 7+ Gen 3",battery:"5500mAh",cam:"50MP Sony",type:"Gaming Value",img:"https://wsrv.nl/?url=https://fdn2.gsmarena.com/vv/bigpic/realme-gt-neo6-se.jpg&w=400"},
-{id:2,name:"GT 6 Global 16/512",price:134999,brand:"REALME",ram:"16/512",chip:"Snapdragon 8s Gen 3",battery:"5500mAh",cam:"50MP",type:"Flagship Gaming",img:"https://wsrv.nl/?url=https://fdn2.gsmarena.com/vv/bigpic/realme-gt-6.jpg&w=400"},
-{id:3,name:"Xiaomi 14T Pro",price:174999,brand:"XIAOMI",ram:"12/512",chip:"Dimensity 9300+",battery:"5000mAh",cam:"50MP Leica",type:"Camera King",img:"https://wsrv.nl/?url=https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14t-pro.jpg&w=400"},
-{id:4,name:"Vivo V60 Flagship",price:134999,brand:"VIVO",ram:"12/256",chip:"Snapdragon 7 Gen 3",battery:"5500mAh",cam:"50MP Zeiss",type:"Camera Battery",img:"https://wsrv.nl/?url=https://fdn2.gsmarena.com/vv/bigpic/vivo-v60.jpg&w=400"},
-{id:5,name:"Redmi Note 13 Pro 200MP",price:64999,brand:"REDMI",ram:"8/256",chip:"Snapdragon 7s Gen 2",battery:"5100mAh",cam:"200MP",type:"Budget Camera",img:"https://wsrv.nl/?url=https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13-pro.jpg&w=400"},
-{id:6,name:"Poco X6 Pro",price:84999,brand:"POCO",ram:"8/256",chip:"Dimensity 8300",battery:"5000mAh",cam:"64MP",type:"Gaming Budget",img:"https://wsrv.nl/?url=https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x6-pro.jpg&w=400"}
+// --- YAHAN SARE PHONES ADD KARO - JITNE MARZI - 6 KI LIMIT KHATAM ---
+const allPhones = [
+  {name:"iPhone 14 Pro Max", price:"285000", img:"https://via.placeholder.com/200?text=iPhone+14+Pro"},
+  {name:"Samsung S23 Ultra", price:"245000", img:"https://via.placeholder.com/200?text=S23+Ultra"},
+  {name:"Infinix Hot 40", price:"35000", img:"https://via.placeholder.com/200?text=Hot+40"},
+  {name:"Tecno Spark 20", price:"32000", img:"https://via.placeholder.com/200?text=Spark+20"},
+  {name:"Redmi Note 12", price:"45000", img:"https://via.placeholder.com/200?text=Note+12"},
+  {name:"Vivo Y17s", price:"38000", img:"https://via.placeholder.com/200?text=Y17s"},
+  {name:"iPhone 11", price:"95000", img:"https://via.placeholder.com/200?text=iPhone+11"},
+  {name:"Samsung A32", price:"55000", img:"https://via.placeholder.com/200?text=A32"},
+  {name:"Realme C53", price:"36000", img:"https://via.placeholder.com/200?text=C53"},
+  {name:"iPhone 13", price:"165000", img:"https://via.placeholder.com/200?text=iPhone+13"},
+  {name:"Samsung A54", price:"85000", img:"https://via.placeholder.com/200?text=A54"},
+  {name:"Oppo A78", price:"62000", img:"https://via.placeholder.com/200?text=A78"},
+  // Yahan aur phones add karte jao, koi limit nahi
 ];
-document.getElementById('grid').innerHTML=mobiles.map(m=>`<div class="product"><div style="position:absolute;top:6px;left:6px;background:#01411C;color:white;font-size:7px;padding:2px 5px;border-radius:4px">© Mobi-Hub</div><img src="${m.img}"><div class="info"><small style="background:#dcfce7;padding:2px 4px;border-radius:4px;font-size:8px">${m.brand}</small><h4 style="font-size:11px;height:28px">${m.name}</h4><div class="price">Rs.${m.price.toLocaleString()}</div><span class="stock">${m.type}</span><br><button onclick="ask('${m.name} ke bare me batao - 2 options do')" style="margin-top:5px;width:100%;background:#001a00;color:white;border:none;padding:5px;border-radius:6px;font-size:9px">🤖 Compare - 2 Options</button></div></div>`).join('');
-function filterM(){let v=document.getElementById('search').value.toLowerCase();document.querySelectorAll('.product').forEach((p,i)=>{p.style.display=mobiles[i].name.toLowerCase().includes(v)||mobiles[i].brand.toLowerCase().includes(v)?'':'none';});}
 
-// PRO AI LOGIC - 2 OPTIONS TRAINED
-function toggleAI(){
- let b=document.getElementById('aiBox');
- b.classList.toggle('show');
- if(b.classList.contains('show')&&!b.dataset.init){
-   document.getElementById('aiMsgs').innerHTML=`<div class="bot">Salam! 👋 Main <b>Mobi-Hub PRO Trained AI</b> hun!<br><br>🎯 Main hamesha <b>2 BEST Options</b> dunga taake aap asaani se faisla kar saken!<br><br>Poocho:<br>• Gaming best? → 2 Options<br>• Camera best? → 2 Options<br>• 1 lakh me best? → 2 Options<br>• GT 6 vs V60? → 2 Options Comparison<br><br>Try karo: <b>"Gaming ke liye best konsa hai?"</b></div>`;
-   b.dataset.init=1;
- }
+function loadPhones(){
+  let html = "";
+  allPhones.forEach(p => {
+    html += `<div class="card">
+      <img src="${p.img}">
+      <h3>${p.name}</h3>
+      <div class="price">Rs. ${p.price}</div>
+      <button>View Details</button>
+    </div>`;
+  });
+  document.getElementById("phonesSection").innerHTML = html;
 }
-function ask(q){document.getElementById('aiInput').value=q;send();}
-function send(){
- let inp=document.getElementById('aiInput');
- let q=inp.value.trim(); if(!q)return;
- let box=document.getElementById('aiMsgs');
- box.innerHTML+=`<div class="user">${q}</div>`;
- inp.value='';
- let ans=getPROAnswer(q);
- setTimeout(()=>{box.innerHTML+=`<div class="bot">${ans}</div>`;box.scrollTop=box.scrollHeight;},400);
- box.scrollTop=box.scrollHeight;
-}
-function getPROAnswer(q){
- let l=q.toLowerCase();
- // GAMING - 2 OPTIONS
- if(l.includes('gaming')||l.includes('pubg')||l.includes('game')){
-  return `🎮 <b>Gaming ke liye 2 BEST Options - Trained AI:</b><br><br>
-  <div class="optBox"><div class="optTitle">OPTION 1: Budget Gaming King 👑 - Rs.94,999</div>GT Neo 6 SE - 12GB/256GB<br>Snapdragon 7+ Gen 3 - PUBG 90FPS<br>5500mAh - 7hr gaming backup<br>Best Value - Pattoki me sab se zyada sale</div>
-  <div class="optBox"><div class="optTitle">OPTION 2: Flagship Gaming Beast 🚀 - Rs.134,999</div>GT 6 Global 16GB/512GB<br>Snapdragon 8s Gen 3 - PUBG 120FPS<br>16GB RAM - Heavy gaming, no lag<br>Youtubers / Pro Gamers choice</div>
-  💡 <b>Mera Mashwara:</b> Budget kam hai to Option 1, Best chahiye to Option 2<br>📞 Order: 0312-6165602`;
- }
- // CAMERA - 2 OPTIONS
- if(l.includes('camera')||l.includes('photo')||l.includes('pic')){
-  return `📸 <b>Camera ke liye 2 BEST Options:</b><br><br>
-  <div class="optBox"><div class="optTitle">OPTION 1: Budget Camera King - Rs.64,999</div>Redmi Note 13 Pro - 200MP<br>200MP - Is range me sab se zyada<br>Best for Students / TikTok</div>
-  <div class="optBox"><div class="optTitle">OPTION 2: DSLR Level - Rs.174,999</div>Xiaomi 14T Pro - Leica 50MP<br>Leica lens - Portrait + Video best<br>Best for Vlogging / Photography</div>
-  💡 Mashwara: TikTok ke liye Opt1, Professional ke liye Opt2<br>📞 0312-6165602`;
- }
- // BUDGET / PRICE
- if(l.includes('1 lakh')||l.includes('100000')||l.includes('90000')||l.includes('95000')){
-  return `💰 <b>1 Lakh Budget me 2 Options:</b><br><br>
-  <div class="optBox"><div class="optTitle">OPTION 1: Rs.94,999 - Gaming Best</div>GT Neo 6 SE - 12/256 - SD 7+ Gen3<br>PUBG 90FPS + 5500mAh</div>
-  <div class="optBox"><div class="optTitle">OPTION 2: Rs.84,999 - Balanced</div>Poco X6 Pro - 8/256 - Dimensity 8300<br>Gaming + Battery + Price kam</div>
-  Mobi-Hub Pattoki - COD Free`;
- }
- if(l.includes('50000')||l.includes('60000')||l.includes('70000')){
-  return `💰 <b>50k-70k me 2 Options:</b><br><br>
-  <div class="optBox"><div class="optTitle">OPTION 1: Rs.64,999 - Camera</div>Note 13 Pro 200MP - 200MP Camera King</div>
-  <div class="optBox"><div class="optTitle">OPTION 2: Rs.84,999 - Gaming</div>Poco X6 Pro - Gaming + 5000mAh</div>
-  Dono PTA Approved - 0312-6165602`;
- }
- // BATTERY
- if(l.includes('battery')||l.includes('backup')){
-  return `🔋 <b>Battery ke liye 2 Options:</b><br><br>
-  <div class="optBox"><div class="optTitle">OPTION 1: Rs.94,999 - 5500mAh King</div>GT Neo 6 SE - 1.5 din backup - 100W fast</div>
-  <div class="optBox"><div class="optTitle">OPTION 2: Rs.134,999 - Style + Battery</div>Vivo V60 - 5500mAh + Zeiss Camera</div>
-  Dono 30min me full charge!`;
- }
- // COMPARISON
- if(l.includes('gt 6')||l.includes('v60')||l.includes('14t')){
-  let m=mobiles.find(x=>l.includes(x.name.toLowerCase().split(' ')[0]))||mobiles[0];
-  return `📱 <b>${m.name} - 2 Options Comparison:</b><br><br>
-  <div class="optBox"><div class="optTitle">OPTION 1: ${m.name} - Rs.${m.price.toLocaleString()}</div>${m.ram} | ${m.chip}<br>${m.battery} | ${m.cam}<br>Type: ${m.type}</div>
-  <div class="optBox"><div class="optTitle">OPTION 2: Alternative Best</div>${m.price>100000?mobiles[0].name+' - Rs.'+mobiles[0].price.toLocaleString()+' - Budget me same power':mobiles[1].name+' - Rs.'+mobiles[1].price.toLocaleString()+' - Thora mehenga lekin flagship'}<br>Compare karke faisla karo!</div>
-  Order: 0312-6165602 - Mobi-Hub`;
- }
- // COD / PAYMENT
- if(l.includes('cod')||l.includes('delivery')) return `📦 <b>2 Delivery Options:</b><br><div class="optBox"><div class="optTitle">OPTION 1: COD - Cash on Delivery</div>Pattoki FREE - Other Rs.300-500 - Box open karke check</div><div class="optBox"><div class="optTitle">OPTION 2: JazzCash Advance</div>03264492997 SHAH ZAIB SHAFIQUE - Screenshot bhejo - Fast delivery</div>`;
- if(l.includes('jazzcash')||l.includes('payment')) return `💳 <b>2 Payment Options:</b><br><div class="optBox"><div class="optTitle">OPTION 1: JazzCash - 03264492997</div>SHAH ZAIB SHAFIQUE - Advance - Trusted</div><div class="optBox"><div class="optTitle">OPTION 2: COD</div>Cash on Delivery - Pattoki Free</div>🚫 No Qist`;
 
- // DEFAULT - ALWAYS 2 OPTIONS
- return `🤖 <b>Aapne poocha: "${q}"</b><br><br>Mobi-Hub PRO AI aapke liye <b>2 Best Options</b> de raha hai:<br><br>
- <div class="optBox"><div class="optTitle">OPTION 1: Best Value - Rs.94,999</div>GT Neo 6 SE - Gaming + Battery - 12/256 - Most Popular in Pattoki</div>
- <div class="optBox"><div class="optTitle">OPTION 2: Best Premium - Rs.134,999</div>GT 6 Global 16/512 - Flagship Power - 120FPS Gaming + 512GB</div>
- 💡 <b>Mashwara:</b> Daily use + Gaming ke liye Option 1 best hai, Heavy user ke liye Option 2<br><br>📞 Detail: 0312-6165602 - Mobi-Hub - Shahzaib Shafiq`;
+function showTab(type){
+  if(type === 'phones'){
+    document.getElementById("phonesSection").style.display = "grid";
+    document.getElementById("demandSection").classList.remove("active");
+    document.getElementById("btn-phones").classList.add("active");
+    document.getElementById("btn-demand").classList.remove("active");
+    document.getElementById("tabTitle").innerText = "All Phones - Sare Models ("+allPhones.length+")";
+  } else {
+    document.getElementById("phonesSection").style.display = "none";
+    document.getElementById("demandSection").classList.add("active");
+    document.getElementById("btn-demand").classList.add("active");
+    document.getElementById("btn-phones").classList.remove("active");
+    document.getElementById("tabTitle").innerText = "Customer Demands";
+    showDemands();
+  }
 }
+
+function saveDemand(){
+  const name = document.getElementById("cName").value;
+  const mobile = document.getElementById("cMobile").value;
+  const model = document.getElementById("cModel").value;
+  const budget = document.getElementById("cBudget").value;
+  if(!name || !mobile || !model){ alert("Naam, Mobile aur Model likhna zaruri hai"); return; }
+  
+  let demands = JSON.parse(localStorage.getItem("mobiDemands") || "[]");
+  demands.push({name, mobile, model, budget, date: new Date().toLocaleString()});
+  localStorage.setItem("mobiDemands", JSON.stringify(demands));
+  alert("Demand Save Ho Gayi!");
+  document.getElementById("cName").value = "";
+  document.getElementById("cMobile").value = "";
+  document.getElementById("cModel").value = "";
+  document.getElementById("cBudget").value = "";
+  showDemands();
+}
+
+function showDemands(){
+  let demands = JSON.parse(localStorage.getItem("mobiDemands") || "[]");
+  let html = "";
+  if(demands.length === 0) html = "<p>Abhi koi demand nahi hai</p>";
+  demands.reverse().forEach(d => {
+    html += `<div class="demand-item">
+      <b>${d.name}</b> - ${d.mobile}<br>
+      Model: ${d.model} | Budget: ${d.budget}<br>
+      <small>${d.date}</small> - <a href="https://wa.me/${d.mobile}" target="_blank">WhatsApp Karo</a>
+    </div>`;
+  });
+  document.getElementById("demandList").innerHTML = html;
+}
+
+loadPhones();
 </script>
+
 </body>
 </html>
