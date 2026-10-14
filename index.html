@@ -1,115 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobi-Hub | Shahzaib Jatt - All Latest Mobiles</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Mobi-Hub - Pattoki Mobile Market | Shahzaib Jatt</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#f6f7fb;color:#111}
-.header{background:linear-gradient(135deg,#0b0b0b 0%,#14532d 100%);color:white;text-align:center;padding:28px 16px 22px;position:sticky;top:0;z-index:10}
-.logo{width:80px;height:80px;background:#22c55e;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:40px;border:3px solid #fff;box-shadow:0 8px 25px rgba(34,197,94,0.4)}
-.header h1{font-size:28px;letter-spacing:1px}
-.header h1 span{color:#22c55e}
-.search-bar{margin:16px auto 0;max-width:600px;position:relative}
-.search-bar input{width:100%;padding:14px 45px 14px 18px;border-radius:30px;border:none;outline:none;font-size:14px;box-shadow:0 4px 15px rgba(0,0,0,0.15)}
-.search-bar span{position:absolute;right:18px;top:13px;font-size:18px}
-.container{max-width:900px;margin:0 auto;padding:16px}
-.cat{margin:22px 0 12px;display:flex;align-items:center;gap:8px}
-.cat h2{font-size:18px;background:#111;color:#fff;padding:6px 16px;border-radius:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
-.product{background:#fff;border-radius:14px;padding:14px;border:1px solid #eee;transition:0.2s}
-.product:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(0,0,0,0.08);border-color:#22c55e}
-.brand{font-size:10px;background:#e8f5e9;color:#15803d;padding:3px 8px;border-radius:10px;display:inline-block;font-weight:700;margin-bottom:6px}
-.product h3{font-size:13.5px;font-weight:700;line-height:1.3;height:36px;overflow:hidden}
-.price{color:#16a34a;font-weight:800;font-size:15px;margin-top:8px}
-.old-price{font-size:11px;color:#999}
-.btn{margin-top:10px;display:block;background:#111;color:#fff;text-align:center;padding:9px;border-radius:8px;text-decoration:none;font-size:12.5px;font-weight:600}
-.btn-wa{background:#22c55e}
-.footer{background:#0b0b0b;color:#aaa;text-align:center;padding:30px 15px;margin-top:30px;font-size:13px}
-.float{position:fixed;bottom:18px;right:14px;background:#22c55e;color:#fff;padding:12px 22px;border-radius:30px;text-decoration:none;font-weight:800;box-shadow:0 6px 22px rgba(34,197,94,0.6);z-index:99}
+body{background:#f0fdf4;color:#111}
+:root{--green:#006400;--light-green:#22c55e;--white:#fff}
+.top-bar{background:var(--green);color:white;text-align:center;padding:6px;font-size:12px}
+.header{background:linear-gradient(135deg,#01411C,#15803d);color:white;padding:14px 16px;position:sticky;top:0;z-index:100;box-shadow:0 4px 15px rgba(0,0,0,0.2)}
+.nav{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto}
+.logo-area{display:flex;align-items:center;gap:10px}
+.logo-circle{width:50px;height:50px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;border:2px solid #22c55e}
+.nav-links{display:flex;gap:8px;overflow-x:auto;white-space:nowrap}
+.nav-links a{color:white;text-decoration:none;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.3)}
+.nav-links a.active,.nav-links a:hover{background:white;color:var(--green)}
+.container{max-width:1100px;margin:0 auto;padding:16px}
+.page{display:none}.page.active{display:block}
+.hero{background:linear-gradient(135deg,white 0%,#dcfce7 100%);border-radius:20px;padding:25px;text-align:center;border:2px solid #bbf7d0;margin-bottom:18px}
+.hero h1{font-size:28px;color:var(--green)} .hero h1 span{color:#111}
+.badge-pk{display:inline-block;background:var(--green);color:white;padding:5px 15px;border-radius:20px;font-size:12px;margin:8px 4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px}
+.product{background:white;border-radius:14px;padding:13px;border:1px solid #dcfce7;transition:0.2s}
+.product:hover{transform:translateY(-4px);box-shadow:0 12px 25px rgba(0,100,0,0.12);border-color:var(--light-green)}
+.brand{font-size:9px;background:#dcfce7;color:var(--green);padding:3px 7px;border-radius:10px;font-weight:800}
+.product h3{font-size:13px;font-weight:700;height:34px;margin-top:5px}
+.price{color:var(--green);font-weight:800;margin-top:6px}
+.btn{display:block;background:#111;color:white;text-align:center;padding:8px;border-radius:8px;text-decoration:none;font-size:12px;margin-top:8px;font-weight:600}
+.btn-green{background:var(--green)}
+.card{background:white;border-radius:16px;padding:18px;margin-bottom:14px;box-shadow:0 4px 18px rgba(0,0,0,0.05);border:1px solid #e5e7eb}
+.card h2{color:var(--green);font-size:17px;margin-bottom:10px}
+.info-box{background:#f0fdf4;border:1px dashed var(--green);border-radius:12px;padding:14px;margin:10px 0}
+.jazz-box{background:linear-gradient(135deg,#ff0000,#ff6b00);color:white;border-radius:14px;padding:16px;text-align:center}
+.map iframe{width:100%;height:280px;border:0;border-radius:12px}
+.footer{background:#001a00;color:#a7f3d0;text-align:center;padding:30px 15px;margin-top:30px;font-size:13px;line-height:1.8}
+.float{position:fixed;bottom:18px;right:14px;background:var(--green);color:white;padding:12px 22px;border-radius:30px;text-decoration:none;font-weight:800;z-index:99;box-shadow:0 6px 20px rgba(0,100,0,0.4)}
+.search{width:100%;padding:13px 18px;border-radius:30px;border:2px solid #bbf7d0;outline:none;margin-bottom:15px}
+@media(max-width:600px){.nav-links{font-size:11px}.hero h1{font-size:22px}}
 </style>
 </head>
 <body>
+<div class="top-bar">🇵🇰 پاکستان کی نمبر 1 موبائل شاپ | Mobi-Hub Pattoki | COD All Pakistan Available</div>
 <div class="header">
-<div class="logo">📱</div>
-<h1><span>Mobi</span>-Hub</h1>
-<p style="font-size:13px;opacity:0.9">Shahzaib Jatt | 0312-6165602 | PTA Approved - Best Price</p>
-<div class="search-bar">
-<input type="text" id="search" placeholder="Search... GT 6, 14T Pro, Vivo v50" onkeyup="searchMobile()">
-<span>🔍</span>
+<div class="nav">
+<div class="logo-area"><div class="logo-circle">📱</div><div><b>Mobi-Hub</b><br><small style="font-size:10px">Pattoki Mobile Market</small></div></div>
+<div class="nav-links">
+<a href="#" onclick="showPage('home')" id="link-home" class="active">Home</a>
+<a href="#" onclick="showPage('shop')" id="link-shop">Shop</a>
+<a href="#" onclick="showPage('about')" id="link-about">About</a>
+<a href="#" onclick="showPage('contact')" id="link-contact">Contact</a>
+<a href="#" onclick="showPage('warranty')" id="link-warranty">Warranty</a>
+<a href="#" onclick="showPage('payment')" id="link-payment">Payment</a>
 </div>
 </div>
+</div>
+
 <div class="container">
 
-<div class="cat"><h2>🔥 Realme GT Series</h2></div>
-<div class="grid">
-<div class="product"><span class="brand">REALME</span><h3>Realme GT Neo 6 SE</h3><div class="price">Rs. 94,999</div><div class="old-price">12/256GB PTA</div><a class="btn btn-wa" href="https://wa.me/923126165602?text=GT Neo 6 SE ka rate?">WhatsApp</a></div>
-<div class="product"><span class="brand">REALME</span><h3>Realme GT 6 Global</h3><div class="price">Rs. 134,999</div><div class="old-price">16/512GB SD 8s Gen3</div><a class="btn" href="https://wa.me/923126165602?text=Realme GT 6 ka rate?">Buy Now</a></div>
-<div class="product"><span class="brand">REALME</span><h3>Realme GT 6 China</h3><div class="price">Rs. 109,999</div><div class="old-price">12/256GB - Best Value</div><a class="btn" href="https://wa.me/923126165602?text=GT 6 China ka rate?">Buy Now</a></div>
-<div class="product"><span class="brand">REALME</span><h3>Realme Neo 7</h3><div class="price">Rs. 114,999</div><div class="old-price">Dimensity 9300+</div><a class="btn" href="https://wa.me/923126165602?text=Realme Neo 7 available?">Buy Now</a></div>
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+<div class="hero">
+<h1><span>Mobi</span>-Hub 🇵🇰</h1>
+<p style="margin:10px 0">Pattoki Mobile Market ki Shan - Shahzaib Jatt</p>
+<span class="badge-pk">✅ COD Available</span><span class="badge-pk">✅ PTA Approved</span><span class="badge-pk">🚫 No Installment</span><span class="badge-pk">📞 0312-6165602</span>
+<p style="margin-top:12px;font-size:13px">Realme | Xiaomi | Vivo | Oppo | iPhone | Samsung - Wholesale Rate par!</p>
+<a href="#" onclick="showPage('shop')" class="btn btn-green" style="max-width:200px;margin:15px auto 0">🛒 Shop Now</a>
+</div>
+<div class="card"><h2>🔥 Latest Arrival</h2><div class="grid">
+<div class="product"><span class="brand">REALME</span><h3>Realme GT 6 Global</h3><div class="price">Rs.134,999</div><a class="btn btn-green" href="https://wa.me/923126165602">WhatsApp</a></div>
+<div class="product"><span class="brand">XIAOMI</span><h3>Xiaomi 14T Pro</h3><div class="price">Rs.174,999</div><a class="btn btn-green" href="https://wa.me/923126165602">Buy</a></div>
+<div class="product"><span class="brand">VIVO</span><h3>Vivo V60</h3><div class="price">Rs.134,999</div><a class="btn btn-green" href="https://wa.me/923126165602">Buy</a></div>
+</div></div>
 </div>
 
-<div class="cat"><h2>⚡ Xiaomi | Poco | Redmi</h2></div>
+<!-- SHOP PAGE -->
+<div id="shop" class="page">
+<input type="text" id="search" class="search" placeholder="Search mobile... GT 6, 14T Pro, V50" onkeyup="searchM()">
 <div class="grid">
-<div class="product"><span class="brand">XIAOMI</span><h3>Xiaomi 13 Ultra</h3><div class="price">Rs. 209,999</div><div class="old-price">Leica Camera King</div><a class="btn" href="https://wa.me/923126165602?text=13 Ultra rate?">Buy Now</a></div>
-<div class="product"><span class="brand">POCO</span><h3>Poco X6 Pro</h3><div class="price">Rs. 84,999</div><div class="old-price">Dimensity 8300-Ultra</div><a class="btn" href="https://wa.me/923126165602?text=X6 Pro rate?">Buy Now</a></div>
-<div class="product"><span class="brand">REDMI</span><h3>Redmi K70 Ultra</h3><div class="price">Rs. 104,999</div><div class="old-price">Gaming Beast</div><a class="btn" href="https://wa.me/923126165602?text=K70 Ultra rate?">Buy Now</a></div>
-<div class="product"><span class="brand">REDMI</span><h3>Redmi Note 13 Pro</h3><div class="price">Rs. 64,999</div><div class="old-price">200MP Camera</div><a class="btn" href="https://wa.me/923126165602?text=Note 13 Pro?">Buy Now</a></div>
-<div class="product"><span class="brand">XIAOMI</span><h3>Xiaomi 14T</h3><div class="price">Rs. 124,999</div><div class="old-price">Leica | Dimensity 8300</div><a class="btn" href="https://wa.me/923126165602?text=14T rate?">Buy Now</a></div>
-<div class="product"><span class="brand">XIAOMI</span><h3>Xiaomi 14T Pro</h3><div class="price">Rs. 174,999</div><div class="old-price">Dimensity 9300+ | Leica</div><a class="btn" href="https://wa.me/923126165602?text=14T Pro rate?">Buy Now</a></div>
-<div class="product"><span class="brand">REDMI</span><h3>Redmi Note 14 Pro</h3><div class="price">Rs. 77,999</div><div class="old-price">New Arrival 2025</div><a class="btn" href="https://wa.me/923126165602?text=Note 14 Pro?">Buy Now</a></div>
-<div class="product"><span class="brand">POCO</span><h3>Poco X7 Pro</h3><div class="price">Rs. 94,999</div><div class="old-price">Dimensity 8400-Ultra</div><a class="btn" href="https://wa.me/923126165602?text=X7 Pro rate?">Buy Now</a></div>
-<div class="product"><span class="brand">POCO</span><h3>Poco F7 Pro</h3><div class="price">Rs. 129,999</div><div class="old-price">Snapdragon 8 Gen3</div><a class="btn" href="https://wa.me/923126165602?text=F7 Pro rate?">Buy Now</a></div>
-<div class="product"><span class="brand">REDMI</span><h3>Redmi Turbo 4 Pro</h3><div class="price">Rs. 87,999</div><div class="old-price">PUBG 120FPS</div><a class="btn" href="https://wa.me/923126165602?text=Turbo 4 Pro?">Buy Now</a></div>
+<div class="product"><span class="brand">REALME</span><h3>GT Neo 6 SE</h3><div class="price">Rs.94,999</div><a class="btn btn-green" href="https://wa.me/923126165602">WhatsApp</a></div>
+<div class="product"><span class="brand">REALME</span><h3>GT 6 Global</h3><div class="price">Rs.134,999</div><a class="btn btn-green" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">REALME</span><h3>GT 6 China</h3><div class="price">Rs.109,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">REALME</span><h3>Realme Neo 7</h3><div class="price">Rs.114,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">XIAOMI</span><h3>Xiaomi 13 Ultra</h3><div class="price">Rs.209,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">POCO</span><h3>Poco X6 Pro</h3><div class="price">Rs.84,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">REDMI</span><h3>K70 Ultra</h3><div class="price">Rs.104,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">REDMI</span><h3>Note 13 Pro</h3><div class="price">Rs.64,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">XIAOMI</span><h3>Xiaomi 14T</h3><div class="price">Rs.124,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">XIAOMI</span><h3>14T Pro</h3><div class="price">Rs.174,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">REDMI</span><h3>Note 14 Pro</h3><div class="price">Rs.77,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">POCO</span><h3>X7 Pro</h3><div class="price">Rs.94,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">POCO</span><h3>F7 Pro</h3><div class="price">Rs.129,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">REDMI</span><h3>Turbo 4 Pro</h3><div class="price">Rs.87,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">VIVO</span><h3>Vivo X100s</h3><div class="price">Rs.164,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">VIVO</span><h3>Vivo V40</h3><div class="price">Rs.114,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">VIVO</span><h3>V40e</h3><div class="price">Rs.81,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">VIVO</span><h3>V50</h3><div class="price">Rs.124,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">VIVO</span><h3>V60</h3><div class="price">Rs.134,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">VIVO</span><h3>V60 Lite 5G</h3><div class="price">Rs.67,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">OPPO</span><h3>Reno 11F</h3><div class="price">Rs.84,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">OPPO</span><h3>Reno 11</h3><div class="price">Rs.91,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">OPPO</span><h3>Reno 12F 5G</h3><div class="price">Rs.77,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">OPPO</span><h3>Reno 13</h3><div class="price">Rs.117,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">OPPO</span><h3>Reno 14</h3><div class="price">Rs.134,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">APPLE</span><h3>iPhone SE 2022</h3><div class="price">Rs.94,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">APPLE</span><h3>iPhone 13 Mini</h3><div class="price">Rs.134,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">SAMSUNG</span><h3>Galaxy A54</h3><div class="price">Rs.97,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">SAMSUNG</span><h3>S24 FE</h3><div class="price">Rs.184,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+<div class="product"><span class="brand">SAMSUNG</span><h3>Galaxy A36</h3><div class="price">Rs.94,999</div><a class="btn" href="https://wa.me/923126165602">Order</a></div>
+</div>
 </div>
 
-<div class="cat"><h2>📸 Vivo Flagships</h2></div>
-<div class="grid">
-<div class="product"><span class="brand">VIVO</span><h3>Vivo X100s</h3><div class="price">Rs. 164,999</div><div class="old-price">Zeiss Camera</div><a class="btn" href="https://wa.me/923126165602?text=X100s rate?">Buy Now</a></div>
-<div class="product"><span class="brand">VIVO</span><h3>Vivo V40</h3><div class="price">Rs. 114,999</div><div class="old-price">Zeiss Portrait</div><a class="btn" href="https://wa.me/923126165602?text=V40 rate?">Buy Now</a></div>
-<div class="product"><span class="brand">VIVO</span><h3>Vivo V40e</h3><div class="price">Rs. 81,999</div><div class="old-price">Slim Design</div><a class="btn" href="https://wa.me/923126165602?text=V40e rate?">Buy Now</a></div>
-<div class="product"><span class="brand">VIVO</span><h3>Vivo V50</h3><div class="price">Rs. 124,999</div><div class="old-price">New Launch</div><a class="btn" href="https://wa.me/923126165602?text=V50 rate?">Buy Now</a></div>
-<div class="product"><span class="brand">VIVO</span><h3>Vivo V60</h3><div class="price">Rs. 134,999</div><div class="old-price">Flagship Killer</div><a class="btn" href="https://wa.me/923126165602?text=V60 rate?">Buy Now</a></div>
-<div class="product"><span class="brand">VIVO</span><h3>Vivo V60 Lite 5G</h3><div class="price">Rs. 67,999</div><div class="old-price">5G Budget King</div><a class="btn" href="https://wa.me/923126165602?text=V60 Lite 5G rate?">Buy Now</a></div>
+<!-- ABOUT PAGE -->
+<div id="about" class="page">
+<div class="card"><h2>🇵🇰 About Mobi-Hub - Hamari Kahani</h2>
+<p style="font-size:14px;line-height:1.8;margin-top:10px"><b>Assalam-o-Alaikum!</b><br><br>
+Main <b>Shahzaib Jatt</b>, Mobi-Hub ka owner. Pattoki Mobile Market me hamari dukan pichle kai saalon se aapki khidmat me hai. Hamara maqsad hai ke Pattoki ke logon ko <b>Lahore jaisa rate</b> Pattoki me hi mile.<br><br>
+<b>Hamari Khasoosiyat:</b><br>
+✅ 100% Original & PTA Approved Mobiles<br>
+✅ Wholesale Rate - Market se sasta<br>
+✅ COD All Pakistan<br>
+✅ No Fraud - Shop par aa kar tasalli karen<br>
+✅ Har Mobile ke sath proper Raseed & Warranty<br><br>
+<b>Address:</b> Pattoki Mobile Market, Main Bazaar, Pattoki, District Kasur<br>
+<b>Owner:</b> Shahzaib Jatt - 0312-6165602<br><br>
+<b>Made in Pakistan, For Pakistan! 🇵🇰</b></p>
+</div>
 </div>
 
-<div class="cat"><h2>✨ Oppo Reno Series</h2></div>
-<div class="grid">
-<div class="product"><span class="brand">OPPO</span><h3>Oppo Reno 11F</h3><div class="price">Rs. 84,999</div><div class="old-price">8/256GB</div><a class="btn" href="https://wa.me/923126165602?text=Reno 11F?">Buy Now</a></div>
-<div class="product"><span class="brand">OPPO</span><h3>Oppo Reno 11</h3><div class="price">Rs. 91,999</div><div class="old-price">Flagship Design</div><a class="btn" href="https://wa.me/923126165602?text=Reno 11?">Buy Now</a></div>
-<div class="product"><span class="brand">OPPO</span><h3>Oppo Reno 12F 5G</h3><div class="price">Rs. 77,999</div><div class="old-price">AI Features</div><a class="btn" href="https://wa.me/923126165602?text=Reno 12F 5G?">Buy Now</a></div>
-<div class="product"><span class="brand">OPPO</span><h3>Oppo Reno 13</h3><div class="price">Rs. 117,999</div><div class="old-price">New Arrival</div><a class="btn" href="https://wa.me/923126165602?text=Reno 13?">Buy Now</a></div>
-<div class="product"><span class="brand">OPPO</span><h3>Oppo Reno 14</h3><div class="price">Rs. 134,999</div><div class="old-price">Latest 2025</div><a class="btn" href="https://wa.me/923126165602?text=Reno 14?">Buy Now</a></div>
+<!-- CONTACT PAGE -->
+<div id="contact" class="page">
+<div class="card"><h2>📍 Contact & Location</h2>
+<div class="info-box">
+<b>🏪 Shop Address:</b><br>
+Mobi-Hub, Pattoki Mobile Market,<br>
+Main Bazaar, Pattoki, District Kasur, Punjab, Pakistan<br><br>
+<b>📞 Owner:</b> Shahzaib Jatt<br>
+<b>📱 WhatsApp / Call:</b> 0312-6165602<br>
+<b>⏰ Timing:</b> Subah 10 se Raat 10 baje tak (Jumma 3 baje ke baad)
+</div>
+<div class="jazz-box">
+<h3>💳 JazzCash / EasyPaisa</h3>
+<p style="margin-top:8px">Account Title: <b>SHAH ZAIB SHAFIQUE</b><br>Account Number: <b>03264492997</b><br><br>Payment ka screenshot WhatsApp par lazmi bhejen!</p>
+</div>
+<div class="map" style="margin-top:15px"><iframe src="https://www.google.com/maps?q=Pattoki+Mobile+Market&z=16&output=embed"></iframe></div>
+<a class="btn btn-green" style="margin-top:12px" href="https://wa.me/923126165602?text=Salam Shahzaib bhai, Shop ka location bhejen">📲 WhatsApp Location Mangwain</a>
+</div>
 </div>
 
-<div class="cat"><h2>🍎 iPhone | Samsung</h2></div>
-<div class="grid">
-<div class="product"><span class="brand">APPLE</span><h3>iPhone SE 2022</h3><div class="price">Rs. 94,999</div><div class="old-price">A15 Bionic | PTA</div><a class="btn" href="https://wa.me/923126165602?text=SE 2022?">Buy Now</a></div>
-<div class="product"><span class="brand">APPLE</span><h3>iPhone 13 Mini</h3><div class="price">Rs. 134,999</div><div class="old-price">Compact Flagship</div><a class="btn" href="https://wa.me/923126165602?text=13 Mini?">Buy Now</a></div>
-<div class="product"><span class="brand">SAMSUNG</span><h3>Samsung A54</h3><div class="price">Rs. 97,999</div><div class="old-price">8/256GB | IP67</div><a class="btn" href="https://wa.me/923126165602?text=A54?">Buy Now</a></div>
-<div class="product"><span class="brand">SAMSUNG</span><h3>Samsung S24 FE</h3><div class="price">Rs. 184,999</div><div class="old-price">Fan Edition | AI</div><a class="btn" href="https://wa.me/923126165602?text=S24 FE?">Buy Now</a></div>
-<div class="product"><span class="brand">SAMSUNG</span><h3>Samsung A36</h3><div class="price">Rs. 94,999</div><div class="old-price">New 2025 Model</div><a class="btn" href="https://wa.me/923126165602?text=A36?">Buy Now</a></div>
+<!-- WARRANTY PAGE -->
+<div id="warranty" class="page">
+<div class="card"><h2>📜 Warranty Policy - Raseed Policy</h2>
+<p style="font-size:13px;line-height:1.9">
+<b>1. PTA & Original Warranty:</b> Company ki official warranty hogi (7-10 days checking warranty hamari taraf se).<br>
+<b>2. Physical Damage:</b> Tootne, Paani girne, Jal jane ki surat me warranty khatam.<br>
+<b>3. Raseed Lazmi:</b> Warranty claim ke liye original raseed sath lana lazmi hai.<br>
+<b>4. Software:</b> Software, Root, Update ki warranty nahi.<br>
+<b>5. No Installment:</b> Ham qiston par mobile nahi dete - Full Cash Payment.<br>
+<b>6. COD Policy:</b> Parcel khol kar check kar sakte hain, pasand na aye to delivery charges de kar wapis.<br>
+<b>7. 24 Hours:</b> Koi bhi masla ho to 24 ghante me rabta karen.<br><br>
+<b style="color:red">Note: Warranty sirf hamari dukan se kharide gaye mobile par hai.</b>
+</p>
+</div>
+</div>
+
+<!-- PAYMENT PAGE -->
+<div id="payment" class="page">
+<div class="card"><h2>💰 Payment Methods</h2>
+<div class="info-box" style="background:#dcfce7"><b>✅ 1. Cash on Delivery (COD)</b><br>All Pakistan me ghar bethe mobile hasil karen. TCS / Leopard ke zariye. Delivery 1-2 din me.<br><b>Charges:</b> Pattoki Free, Other City Rs.300-500</div>
+<div class="jazz-box" style="margin-top:12px"><b>✅ 2. JazzCash / EasyPaisa Advance</b><br><br>Title: SHAH ZAIB SHAFIQUE<br>Number: 03264492997<br><br>Advance payment par special discount!</div>
+<div class="info-box" style="margin-top:12px"><b>✅ 3. Shop Visit</b><br>Dukan par aa kar cash payment - Best Rate milega!</div>
+<div class="info-box" style="background:#fef2f2;border-color:red"><b>🚫 No Installment / No Qist</b><br>Ham qiston par mobile nahi dete. Full payment par hi mobile milega.</div>
+</div>
 </div>
 
 </div>
+
 <div class="footer">
-<h3 style="color:#fff">Mobi-Hub</h3>
-Owner: Shahzaib Jatt | 📞 0312-6165602<br>
-All Mobiles PTA Approved | Best Price Guarantee<br><br>
-<span style="color:#22c55e;font-weight:700">WhatsApp for Best Deal - 0312-6165602</span>
+<h3 style="color:white">Mobi-Hub 🇵🇰</h3>
+Pattoki Mobile Market, Main Bazaar, Pattoki<br>
+Owner: Shahzaib Jatt | 0312-6165602 | JazzCash: 03264492997 (SHAH ZAIB SHAFIQUE)<br>
+COD Available All Pakistan | PTA Approved | No Installment<br><br>
+<b style="color:#22c55e">Pakistan Zindabad! 🇵🇰</b><br>
+© 2026 Mobi-Hub - All Rights Reserved
 </div>
-<a class="float" href="https://wa.me/923126165602?text=Salam Shahzaib bhai, Mobile chahiye Mobi-Hub se">WhatsApp 0312-6165602</a>
+<a class="float" href="https://wa.me/923126165602">WhatsApp 0312-6165602</a>
+
 <script>
-function searchMobile(){
- let input=document.getElementById('search').value.toLowerCase();
- let products=document.getElementsByClassName('product');
- for(let i=0;i<products.length;i++){
-   let name=products[i].innerText.toLowerCase();
-   products[i].style.display = name.includes(input)? 'block' : 'none';
- }
+function showPage(id){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+ document.getElementById('link-'+id).classList.add('active');
+ window.scrollTo(0,0);
 }
+function searchM(){
+ let input=document.getElementById('search').value.toLowerCase();
+ let products=document.querySelectorAll('#shop .product');
+ products.forEach(p=>{
+   let name=p.innerText.toLowerCase();
+   p.style.display=name.includes(input)?'block':'none';
+ });
+}
+</script>
+</body>
+</html>
 </script>
 </body>
 </html>
