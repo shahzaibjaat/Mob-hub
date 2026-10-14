@@ -6,110 +6,135 @@
 <title>Mobi-Hub - Shahzaib Shafiq</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:#f5f7fb}
-.header{background:#01411C;color:white;padding:14px;position:sticky;top:0;z-index:100}
-.nav{max-width:1100px;margin:auto;display:flex;justify-content:space-between}
-.nav a{color:white;text-decoration:none;margin-left:8px;font-size:11px;font-weight:700;padding:5px 10px;border:1px solid rgba(255,255,255,0.5);border-radius:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:10px;padding:10px;max-width:1100px;margin:auto}
-.product{background:white;border-radius:12px;overflow:hidden;border:1px solid #ddd}
-.product img{width:100%;height:150px;object-fit:contain;background:white}
-.info{padding:8px}
-.price{color:#01411C;font-weight:800}
-.card{background:white;padding:12px;border-radius:12px;margin:10px auto;max-width:1100px}
+body{background:#f8fafc}
+.header{background:#01411C;color:white;padding:12px;position:sticky;top:0;z-index:50}
+.nav{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.nav-links{display:flex;gap:6px}
+.nav-links a{background:white;color:#01411C;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:700;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;padding:10px;max-width:1100px;margin:auto}
+.product{background:white;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;position:relative}
+.product img{width:100%;height:160px;object-fit:contain;background:white;padding:8px}
+.info{padding:8px}.price{color:#01411C;font-weight:800;font-size:13px}
+.stock{font-size:9px;background:#dcfce7;color:#166534;padding:2px 6px;border-radius:10px}
+.footer{background:#001a00;color:#a7f3d0;text-align:center;padding:20px;font-size:11px;margin-top:15px}
+.search{width:95%;max-width:1100px;margin:10px auto;display:block;padding:10px 14px;border-radius:25px;border:2px solid #bbf7d0;outline:none}
 
-/* AI AGENT - PAKKA DIKHEGA */
-#aiBtn{position:fixed;bottom:20px;right:20px;width:60px;height:60px;background:linear-gradient(135deg,#01411C,#16a34a);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;z-index:99999;box-shadow:0 5px 20px rgba(0,0,0,0.4);border:3px solid white;animation: pulse 2s infinite}
-@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
-#aiBox{position:fixed;bottom:90px;right:10px;width:95%;max-width:360px;height:480px;background:white;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.3);z-index:99999;display:none;flex-direction:column;overflow:hidden;border:2px solid #01411C}
-#aiHeader{background:#01411C;color:white;padding:12px;display:flex;justify-content:space-between}
+/* AI AGENT - IS BAAR PAKKA DIKHEGA */
+#aiBtn{
+position:fixed !important;
+bottom:20px !important;
+right:20px !important;
+width:62px !important;
+height:62px !important;
+background:#01411C !important;
+color:white !important;
+border-radius:50% !important;
+display:flex !important;
+align-items:center !important;
+justify-content:center !important;
+font-size:30px !important;
+cursor:pointer !important;
+z-index:999999 !important;
+box-shadow:0 6px 20px rgba(0,0,0,0.4) !important;
+border:3px solid white !important;
+}
+#aiBox{
+position:fixed !important;
+bottom:90px !important;
+right:10px !important;
+width:360px !important;
+max-width:95% !important;
+height:480px !important;
+background:white !important;
+border-radius:16px !important;
+box-shadow:0 10px 30px rgba(0,0,0,0.4) !important;
+z-index:999999 !important;
+display:none !important;
+flex-direction:column !important;
+border:3px solid #01411C !important;
+}
+#aiBox.show{display:flex !important;}
+#aiHeader{background:#01411C;color:white;padding:12px;display:flex;justify-content:space-between;font-size:13px}
 #aiMsgs{flex:1;overflow-y:auto;padding:10px;background:#f0fdf4}
-.bot{background:white;border:1px solid #ddd;padding:8px 10px;border-radius:12px;margin-bottom:8px;font-size:12px}
-.user{background:#01411C;color:white;padding:8px 10px;border-radius:12px;margin-bottom:8px;font-size:12px;margin-left:auto;max-width:80%}
-#aiInputArea{display:flex;padding:8px;border-top:1px solid #ddd}
-#aiInputArea input{flex:1;padding:10px;border-radius:20px;border:1px solid #ccc;outline:none}
-#aiInputArea button{background:#01411C;color:white;border:none;padding:10px 14px;border-radius:20px;margin-left:6px;cursor:pointer}
+.msg-bot{background:white;border:1px solid #ddd;padding:8px;border-radius:10px;margin-bottom:8px;font-size:11.5px}
+.msg-user{background:#01411C;color:white;padding:8px;border-radius:10px;margin-bottom:8px;font-size:11.5px;margin-left:20%;text-align:right}
+#aiInputArea{display:flex;padding:8px;border-top:1px solid #ddd;background:white}
+#aiInputArea input{flex:1;padding:10px;border-radius:20px;border:1px solid #ccc}
+#aiInputArea button{background:#01411C;color:white;border:none;padding:10px 14px;border-radius:20px;margin-left:5px}
 </style>
 </head>
 <body>
 
 <div class="header">
 <div class="nav">
-<div><b>Mobi-Hub</b> - Shahzaib Shafiq</div>
-<div><a href="#shop">Shop</a><a href="#cart">Cart <span id="cartCount">0</span></a></div>
+<div style="display:flex;gap:8px;align-items:center"><div style="width:36px;height:36px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center">📱</div><div><b>Mobi-Hub</b><br><small style="font-size:8px">Shahzaib Shafiq - Pattoki</small></div></div>
+<div class="nav-links"><a href="#">Shop</a><a href="#">Cart</a><a href="#">Payment</a></div>
 </div>
 </div>
 
-<div class="grid" id="shopGrid"></div>
+<input class="search" placeholder="Search GT 6, 14T Pro, V60...">
 
-<div class="card">
-<h3>👤 Customer Details</h3>
-<input id="cName" placeholder="Name" style="width:100%;padding:10px;margin:5px 0;border:1px solid #ccc;border-radius:8px">
-<input id="cPhone" placeholder="Phone 03xx" style="width:100%;padding:10px;margin:5px 0;border:1px solid #ccc;border-radius:8px">
-<input id="cCity" placeholder="City" style="width:100%;padding:10px;margin:5px 0;border:1px solid #ccc;border-radius:8px">
-<button onclick="orderWA()" style="width:100%;background:#25D366;color:white;padding:10px;border:none;border-radius:8px;font-weight:700">Order via WhatsApp 0312-6165602</button>
+<div class="grid">
+<div class="product"><div style="position:absolute;top:6px;left:6px;background:#01411C;color:white;font-size:7px;padding:2px 5px;border-radius:4px">© Mobi-Hub</div><img src="https://wsrv.nl/?url=https://fdn2.gsmarena.com/vv/bigpic/realme-gt-neo6-se.jpg&w=400"><div class="info"><small style="background:#dcfce7;padding:2px 4px;border-radius:4px;font-size:8px">REALME</small><h4 style="font-size:11px">GT Neo 6 SE</h4><div class="price">Rs.94,999</div><span class="stock">In Stock</span></div></div>
+<div class="product"><div style="position:absolute;top:6px;left:6px;background:#01411C;color:white;font-size:7px;padding:2px 5px;border-radius:4px">© Mobi-Hub</div><img src="https://wsrv.nl/?url=https://fdn2.gsmarena.com/vv/bigpic/realme-gt-6.jpg&w=400"><div class="info"><small style="background:#dcfce7;padding:2px 4px;border-radius:4px;font-size:8px">REALME</small><h4 style="font-size:11px">GT 6 Global 16/512</h4><div class="price">Rs.134,999</div><span class="stock">In Stock</span></div></div>
+<div class="product"><div style="position:absolute;top:6px;left:6px;background:#01411C;color:white;font-size:7px;padding:2px 5px;border-radius:4px">© Mobi-Hub</div><img src="https://wsrv.nl/?url=https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14t-pro.jpg&w=400"><div class="info"><small style="background:#dcfce7;padding:2px 4px;border-radius:4px;font-size:8px">XIAOMI</small><h4 style="font-size:11px">Xiaomi 14T Pro</h4><div class="price">Rs.174,999</div><span class="stock">In Stock</span></div></div>
+<div class="product"><div style="position:absolute;top:6px;left:6px;background:#01411C;color:white;font-size:7px;padding:2px 5px;border-radius:4px">© Mobi-Hub</div><img src="https://wsrv.nl/?url=https://fdn2.gsmarena.com/vv/bigpic/vivo-v60.jpg&w=400"><div class="info"><small style="background:#dcfce7;padding:2px 4px;border-radius:4px;font-size:8px">VIVO</small><h4 style="font-size:11px">Vivo V60 Flagship</h4><div class="price">Rs.134,999</div><span class="stock">In Stock</span></div></div>
 </div>
 
-<div style="background:#001a00;color:#a7f3d0;text-align:center;padding:20px;font-size:11px">
-<b style="color:white">Mobi-Hub © 2026 - Shahzaib Shafiq</b><br>
-Pattoki | JazzCash 03264492997 SHAH ZAIB SHAFIQUE<br>
-🇵🇰 All Rights Reserved
+<div class="footer">
+<b style="color:white">Mobi-Hub © 2026 - All Rights Reserved</b><br>
+Owned & Developed by <b style="color:white">Shahzaib Shafiq</b><br>
+Pattoki Mobile Market, District Kasur, Punjab, Pakistan<br>
+Contact: 0312-6165602 | WhatsApp: 0312-6165602<br>
+JazzCash: <b style="color:white">SHAH ZAIB SHAFIQUE - 03264492997</b><br><br>
+<span style="font-size:9px">© Copyright Notice: This website content, design, logo, prices are property of Shahzaib Shafiq.</span><br>
+<span style="background:white;color:#001a00;padding:4px 10px;border-radius:20px;margin-top:8px;display:inline-block;font-size:8px">🇵🇰 Made in Pakistan - Pattoki - Mobi-Hub® 2026</span>
 </div>
 
-<!-- AI BUTTON - YE PAKKA DIKHEGA -->
+<!-- AI AGENT - AB PAKKA AYEGA -->
 <div id="aiBtn" onclick="toggleAI()">🤖</div>
 
-<!-- AI CHAT BOX -->
 <div id="aiBox">
-<div id="aiHeader"><div><b>🤖 Mobi-Hub AI</b><br><small>Ask anything!</small></div><span onclick="toggleAI()" style="cursor:pointer;font-size:20px">✕</span></div>
+<div id="aiHeader"><div><b>🤖 Mobi-Hub AI Assistant</b><br><small style="font-size:9px">Shahzaib Shafiq - Pattoki</small></div><div onclick="toggleAI()" style="cursor:pointer;font-size:20px">✕</div></div>
 <div id="aiMsgs">
-<div class="bot">Salam Shahzaib bhai! 👋 Main Mobi-Hub AI hun<br><br>Poocho:<br>• Gaming mobile kaunsa best hai?<br>• Price list?<br>• COD hai?<br>• JazzCash number?<br>• Warranty?</div>
+<div class="msg-bot">Salam! 👋 Main Mobi-Hub ka AI Assistant hun.<br><br>Mujhse poocho:<br>• Best gaming mobile?<br>• Price kya hai?<br>• COD available?<br>• JazzCash number?<br>• Warranty kitni?</div>
 </div>
-<div style="padding:6px;display:flex;gap:4px;flex-wrap:wrap;background:white">
-<button onclick="quickAsk('Gaming mobile kaunsa hai?')" style="font-size:9px;padding:4px 7px;border-radius:10px;border:1px solid #bbf7d0;background:#f0fdf4">🎮 Gaming</button>
-<button onclick="quickAsk('Price list batao')" style="font-size:9px;padding:4px 7px;border-radius:10px;border:1px solid #bbf7d0;background:#f0fdf4">💰 Price</button>
-<button onclick="quickAsk('COD available hai?')" style="font-size:9px;padding:4px 7px;border-radius:10px;border:1px solid #bbf7d0;background:#f0fdf4">📦 COD</button>
-<button onclick="quickAsk('JazzCash number?')" style="font-size:9px;padding:4px 7px;border-radius:10px;border:1px solid #bbf7d0;background:#f0fdf4">💳 JazzCash</button>
+<div style="padding:6px;display:flex;gap:4px;flex-wrap:wrap;background:#fff;border-top:1px solid #eee">
+<button onclick="askQ('Gaming mobile kaunsa best hai?')" style="font-size:9px;padding:4px 7px;border-radius:12px;border:1px solid #bbf7d0;background:#f0fdf4">🎮 Gaming</button>
+<button onclick="askQ('Price list batao')" style="font-size:9px;padding:4px 7px;border-radius:12px;border:1px solid #bbf7d0;background:#f0fdf4">💰 Price</button>
+<button onclick="askQ('COD available hai?')" style="font-size:9px;padding:4px 7px;border-radius:12px;border:1px solid #bbf7d0;background:#f0fdf4">📦 COD</button>
+<button onclick="askQ('JazzCash number kya hai?')" style="font-size:9px;padding:4px 7px;border-radius:12px;border:1px solid #bbf7d0;background:#f0fdf4">💳 JazzCash</button>
 </div>
-<div id="aiInputArea"><input id="aiInput" placeholder="Sawal likho..." onkeydown="if(event.key==='Enter')sendAI()"><button onclick="sendAI()">➤</button></div>
+<div id="aiInputArea"><input id="aiInput" placeholder="Sawal likho..." onkeydown="if(event.key==='Enter')sendMsg()"><button onclick="sendMsg()">➤</button></div>
 </div>
 
 <script>
-const products=[
-{name:"GT Neo 6 SE",price:94999,brand:"REALME"},
-{name:"GT 6 Global 16/512",price:134999,brand:"REALME"},
-{name:"Xiaomi 14T Pro",price:174999,brand:"XIAOMI"},
-{name:"Vivo V60",price:134999,brand:"VIVO"},
-{name:"Redmi Note 13 Pro 200MP",price:64999,brand:"REDMI"}
-];
-let cart=[];
-document.getElementById('shopGrid').innerHTML=products.map((p,i)=>`<div class="product"><img src="https://via.placeholder.com/200?text=${encodeURIComponent(p.name)}"><div class="info"><small>${p.brand}</small><h4 style="font-size:11px">${p.name}</h4><div class="price">Rs.${p.price.toLocaleString()}</div><button onclick="addCart(${i})" style="margin-top:5px;width:100%;background:#01411C;color:white;border:none;padding:6px;border-radius:6px;font-size:11px">Add to Cart</button><button onclick="quickAsk('${p.name} ke bare me batao')" style="margin-top:4px;width:100%;background:#001a00;color:white;border:none;padding:5px;border-radius:6px;font-size:10px">🤖 Ask AI</button></div></div>`).join('');
-function addCart(i){cart.push(products[i]);document.getElementById('cartCount').innerText=cart.length;alert(products[i].name+' Added!');}
-function orderWA(){let n=document.getElementById('cName').value;let ph=document.getElementById('cPhone').value;let city=document.getElementById('cCity').value;if(!n||!ph){alert('Name Phone likho');return;}let items=cart.map(c=>c.name).join(', ');let msg=`Order Mobi-Hub - Name:${n} Phone:${ph} City:${city} Items:${items}`;window.open(`https://wa.me/923126165602?text=${encodeURIComponent(msg)}`,'_blank');}
-
-// AI FUNCTIONS
-function toggleAI(){let box=document.getElementById('aiBox');box.style.display=box.style.display==='flex'?'none':'flex';}
-function quickAsk(q){document.getElementById('aiInput').value=q;sendAI();}
-function sendAI(){
- let input=document.getElementById('aiInput');
- let q=input.value.trim(); if(!q)return;
- let msgs=document.getElementById('aiMsgs');
- msgs.innerHTML+=`<div class="user">${q}</div>`;
- input.value='';
- let ans=getAns(q);
- setTimeout(()=>{msgs.innerHTML+=`<div class="bot">${ans}</div>`;msgs.scrollTop=msgs.scrollHeight;},300);
- msgs.scrollTop=msgs.scrollHeight;
+function toggleAI(){
+ let b=document.getElementById('aiBox');
+ if(b.classList.contains('show')){b.classList.remove('show');}
+ else{b.classList.add('show');}
 }
-function getAns(q){
+function askQ(q){document.getElementById('aiInput').value=q;sendMsg();}
+function sendMsg(){
+ let inp=document.getElementById('aiInput');
+ let q=inp.value.trim(); if(!q)return;
+ let box=document.getElementById('aiMsgs');
+ box.innerHTML+=`<div class="msg-user">${q}</div>`;
+ inp.value='';
+ let a=getAnswer(q);
+ setTimeout(()=>{box.innerHTML+=`<div class="msg-bot">${a}</div>`;box.scrollTop=box.scrollHeight;},300);
+ box.scrollTop=box.scrollHeight;
+}
+function getAnswer(q){
  q=q.toLowerCase();
- if(q.includes('gaming')) return "🎮 Gaming BEST:<br>1. GT 6 Global 16/512 - Rs.134,999 - Snapdragon 8s Gen 3 - PUBG 120FPS<br>2. GT Neo 6 SE - Rs.94,999 - Best Value<br><br>PTA Approved - 0312-6165602 pe order karo!";
- if(q.includes('price')||q.includes('rate')) return "💰 Price List:<br>• GT Neo 6 SE: Rs.94,999<br>• GT 6 Global: Rs.134,999<br>• Xiaomi 14T Pro: Rs.174,999<br>• Vivo V60: Rs.134,999<br>• Redmi Note 13 Pro: Rs.64,999<br><br>COD All Pakistan!";
- if(q.includes('cod')||q.includes('delivery')) return "📦 COD Info:<br>✅ Pattoki: FREE<br>✅ Lahore/Kasur: Rs.300<br>✅ Other: Rs.500<br>1-2 Days Delivery - Mobi-Hub Shahzaib";
- if(q.includes('jazzcash')||q.includes('payment')) return "💳 JazzCash: 03264492997<br>Title: SHAH ZAIB SHAFIQUE<br>✅ COD Available<br>🚫 No Installment - Full Payment Only";
- if(q.includes('warranty')) return "🛡️ Warranty: 7-10 Days Checking + Raseed<br>PTA Approved Original Box Pack<br>Contact: 0312-6165602";
- if(q.includes('contact')||q.includes('shahzaib')||q.includes('number')) return "👤 Shahzaib Shafiq<br>Pattoki Mobile Market<br>📞 0312-6165602<br>JazzCash 03264492997";
- if(q.includes('gt 6')) return "GT 6 - 16GB/512GB - Rs.134,999 - Snapdragon 8s Gen 3 - Gaming Flagship - In Stock!";
- return "🤖 Mobi-Hub AI:<br>Aapne poocha: '"+q+"'<br><br>Hamare pas Realme, Xiaomi, Vivo PTA mobiles hain Rs.64,999-174,999 tak<br>✅ COD All Pakistan<br>✅ JazzCash 03264492997<br>Likho: 'Gaming mobile?', 'Price?', 'COD?', 'JazzCash?'";
+ if(q.includes('gaming')||q.includes('pubg')) return "🎮 Gaming BEST:<br>1. GT 6 Global 16/512 - Rs.134,999 - Snapdragon 8s Gen 3 - 120FPS<br>2. GT Neo 6 SE - Rs.94,999 - Best Value Gaming<br><br>Order: 0312-6165602";
+ if(q.includes('price')||q.includes('kitne')) return "💰 Prices:<br>• GT Neo 6 SE: Rs.94,999<br>• GT 6 Global: Rs.134,999<br>• 14T Pro: Rs.174,999<br>• V60: Rs.134,999<br><br>COD All Pakistan!";
+ if(q.includes('cod')||q.includes('delivery')) return "📦 COD:<br>✅ Pattoki FREE<br>✅ Lahore/Kasur Rs.300<br>✅ Other Rs.500<br>1-2 Days Delivery!";
+ if(q.includes('jazzcash')||q.includes('payment')) return "💳 JazzCash: 03264492997<br>Title: SHAH ZAIB SHAFIQUE<br>✅ COD Also<br>🚫 No Qist";
+ if(q.includes('warranty')) return "🛡️ 7-10 Days Checking Warranty + Raseed<br>PTA Approved Box Pack<br>Contact 0312-6165602";
+ return "🤖 Mobi-Hub AI:<br>Aapne: '"+q+"'<br><br>Realme, Xiaomi, Vivo PTA Mobiles Rs.64,999-174,999<br>✅ COD All Pak<br>✅ JazzCash 03264492997<br>Likho: Gaming? Price? COD?";
 }
 </script>
+
 </body>
 </html>
