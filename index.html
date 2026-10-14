@@ -3,151 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobi Hub - All Phones</title>
+<title>Mobi-Hub - Shahzaib Shafiq - Pattoki Mobile Store</title>
+<meta name="copyright" content="Mobi-Hub - Shahzaib Shafiq - All Rights Reserved">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0; padding:0; box-sizing:border-box; font-family:Arial}
-body{background:#f2f2f2}
-header{background:#000; color:#fff; padding:12px; display:flex; justify-content:space-between; align-items:center}
-header h1{font-size:20px}
-header a{color:#fff; text-decoration:none; margin-left:12px; background:#222; padding:6px 10px; border-radius:6px}
-.hero{background:#fff; padding:15px; text-align:center; margin:10px; border-radius:12px}
-.phones{display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; padding:12px}
-@media(min-width:600px){ .phones{grid-template-columns: repeat(4, 1fr)} }
-.card{background:#fff; border-radius:12px; padding:10px; text-align:center; box-shadow:0 2px 5px rgba(0,0,0,0.1)}
-.card img{width:100%; height:150px; object-fit:contain}
-.card h3{font-size:14px; margin:6px 0}
-.card .price{color:green; font-weight:bold}
-.card button{width:100%; margin-top:6px; padding:8px; background:#000; color:#fff; border:none; border-radius:8px}
-.tabs{display:flex; justify-content:center; gap:10px; margin:12px}
-.tabs button{padding:10px 18px; border:none; border-radius:20px; background:#ddd; cursor:pointer}
-.tabs button.active{background:#000; color:#fff}
-.demand-section{background:#fff; margin:12px; padding:15px; border-radius:12px; display:none}
-.demand-section.active{display:block}
-.demand-section input, .demand-section textarea{width:100%; padding:10px; margin:6px 0; border:1px solid #ccc; border-radius:8px}
-.demand-section .btn{background:green; color:#fff; padding:12px; border:none; width:100%; border-radius:8px; font-size:16px}
-.demand-list{margin-top:15px}
-.demand-item{background:#f9f9f9; padding:10px; border-radius:8px; margin:6px 0; border-left:4px solid green}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f8fafc;color:#111}
+.header{background:linear-gradient(135deg,#01411C,#16a34a);color:white;padding:12px;position:sticky;top:0;z-index:100}
+.nav{max-width:1150px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-links{display:flex;gap:4px;overflow-x:auto}
+.nav-links a{color:white;text-decoration:none;font-size:10.5px;font-weight:700;padding:5px 10px;border-radius:20px;border:1px solid rgba(255,255,255,0.4)}
+.nav-links a.active{background:white;color:#01411C}
+.container{max-width:1150px;margin:0 auto;padding:10px}
+.page{display:none}.page.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.product{background:white;border-radius:13px;overflow:hidden;border:1px solid #e2e8f0;cursor:pointer;position:relative}
+.product img{width:100%;height:160px;object-fit:contain;background:#fff;padding:8px}
+.info{padding:8px 10px}.brand{font-size:7.5px;background:#dcfce7;color:#01411C;padding:2px 5px;border-radius:6px;font-weight:800}
+.product h3{font-size:11px;font-weight:700;height:26px}.price{color:#01411C;font-weight:800;font-size:12.5px}
+.stock{font-size:9px;padding:2px 6px;border-radius:10px;display:inline-block}.instock{background:#dcfce7;color:#166534}.lowstock{background:#fef9c3;color:#854d0e}
+.card{background:white;border-radius:14px;padding:14px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+.btn{background:#01411C;color:white;text-align:center;padding:9px;border-radius:8px;font-size:12px;font-weight:700;display:block;border:none;width:100%;cursor:pointer}
+.input{width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:8px;margin:6px 0;font-size:13px}
+.footer-pro{background:#001a00;color:#a7f3d0;text-align:center;padding:24px 10px;margin-top:20px;font-size:11px;line-height:1.8;border-top:4px solid #16a34a}
+
+/* AI AGENT STYLES */
+.ai-float{position:fixed;bottom:14px;right:14px;background:linear-gradient(135deg,#01411C,#16a34a);color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;z-index:999;box-shadow:0 4px 15px rgba(0,0,0,0.3);border:2px solid white}
+.ai-chat{position:fixed;bottom:80px;right:10px;width:92%;max-width:360px;height:460px;background:white;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.2);z-index:1000;display:none;flex-direction:column;overflow:hidden;border:1px solid #e2e8f0}
+.ai-header{background:linear-gradient(135deg,#01411C,#16a34a);color:white;padding:12px;display:flex;justify-content:space-between;align-items:center}
+.ai-messages{flex:1;overflow-y:auto;padding:12px;background:#f8fafc}
+.ai-msg{max-width:85%;padding:9px 12px;border-radius:14px;margin-bottom:8px;font-size:12px;line-height:1.4}
+.ai-bot{background:white;border:1px solid #e2e8f0;align-self:flex-start}
+.ai-user{background:#01411C;color:white;align-self:flex-end;margin-left:auto}
+.ai-input-area{display:flex;gap:6px;padding:10px;border-top:1px solid #e2e8f0;background:white}
+.ai-input{flex:1;padding:9px 12px;border-radius:20px;border:1px solid #cbd5e1;outline:none;font-size:12px}
+.ai-quick{display:flex;gap:4px;flex-wrap:wrap;padding:6px 10px;background:white;border-top:1px solid #f1f5f9}
+.ai-quick button{font-size:9px;padding:4px 8px;border-radius:12px;border:1px solid #bbf7d0;background:#f0fdf4;cursor:pointer}
 </style>
 </head>
 <body>
 
-<header>
-  <h1>MOBI HUB</h1>
-  <div>
-    <a href="#" onclick="showTab('phones')">All Phones</a>
-    <a href="#" onclick="showTab('demand')">Demand</a>
-  </div>
-</header>
-
-<div class="hero">
-  <h2 id="tabTitle">All Phones - Sare Models</h2>
+<div class="header">
+<div class="nav">
+<div style="display:flex;align-items:center;gap:8px"><div style="width:42px;height:42px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px">📱</div><div><b>Mobi-Hub</b><br><small style="font-size:8px">Shahzaib Shafiq - Pattoki</small></div></div>
+<div class="nav-links">
+<a href="#" onclick="showPage('shop')" id="link-shop" class="active">Shop</a>
+<a href="#" onclick="showPage('cart')" id="link-cart">🛒 Cart <span id="cartCount" style="background:red;color:white;font-size:9px;padding:1px 5px;border-radius:10px">0</span></a>
+<a href="#" onclick="showPage('payment')" id="link-payment">Payment</a>
+</div>
+</div>
 </div>
 
-<div class="tabs">
-  <button id="btn-phones" class="active" onclick="showTab('phones')">📱 All Phones</button>
-  <button id="btn-demand" onclick="showTab('demand')">🔍 Demand List</button>
+<div class="container">
+<div id="shop" class="page active">
+<input type="text" id="search" style="width:100%;padding:10px 14px;border-radius:26px;border:2px solid #bbf7d0;outline:none;margin-bottom:10px" placeholder="Search mobile...">
+<div id="shopGrid" class="grid"></div>
+</div>
+<div id="detail" class="page"><a class="btn" style="background:#e2e8f0;color:#111;max-width:120px;margin-bottom:10px" onclick="showPage('shop')">← Back</a><div id="detailContent"></div></div>
+<div id="cart" class="page"><div class="card"><h2>🛒 Your Cart</h2><div id="cartItems"></div><div id="cartTotal" style="font-weight:800;color:#01411C"></div></div>
+<div class="card"><h3>👤 Customer Details</h3><input class="input" id="custName" placeholder="Full Name"><input class="input" id="custPhone" placeholder="Mobile - 03xx-xxxxxxx"><input class="input" id="custCity" placeholder="City"><input class="input" id="custAddress" placeholder="Address"><select class="input" id="payMethod"><option>COD</option><option>JazzCash - 03264492997 SHAH ZAIB SHAFIQUE</option></select><a class="btn" style="background:#25D366" onclick="checkoutWhatsApp()">✅ Order via WhatsApp 0312-6165602</a></div></div>
+<div id="payment" class="page"><div class="card"><h2>💰 Payment</h2><p style="font-size:12px">✅ COD - Pattoki Free, Other Rs.300-500<br>✅ JazzCash 03264492997 SHAH ZAIB SHAFIQUE<br>🚫 No Installment - Full Payment Only</p></div></div>
 </div>
 
-<!-- ALL PHONES SECTION -->
-<div id="phonesSection" class="phones"></div>
+<!-- FOOTER WITHOUT GCUF -->
+<div class="footer-pro">
+<b style="color:white;font-size:14px">Mobi-Hub © 2026 - All Rights Reserved</b><br>
+Owned & Developed by <b style="color:white">Shahzaib Shafiq</b><br>
+Pattoki Mobile Market, Punjab, Pakistan<br>
+Contact: 0312-6165602 | WhatsApp: 0312-6165602<br>
+JazzCash: <b style="color:white">SHAH ZAIB SHAFIQUE - 03264492997</b><br>
+<span style="font-size:8.5px;background:white;color:#001a00;padding:4px 12px;border-radius:20px;margin-top:10px;display:inline-block">🇵🇰 Mobi-Hub® Pattoki 2026</span>
+</div>
 
-<!-- DEMAND SECTION -->
-<div id="demandSection" class="demand-section">
-  <h3>Phone Nahi Mila? Demand Bhejo</h3>
-  <input type="text" id="cName" placeholder="Apka Naam">
-  <input type="text" id="cMobile" placeholder="WhatsApp Number">
-  <input type="text" id="cModel" placeholder="Kaunsa Phone Chahiye? Ex: iPhone 13">
-  <input type="text" id="cBudget" placeholder="Budget? Ex: 60000">
-  <button class="btn" onclick="saveDemand()">Demand Bhejo</button>
+<!-- AI AGENT BUTTON -->
+<div class="ai-float" onclick="toggleAI()">🤖</div>
 
-  <div class="demand-list">
-    <h3 style="margin-top:20px">📋 Sari Demands (Yahan Ayengi)</h3>
-    <div id="demandList"></div>
-  </div>
+<!-- AI CHAT BOX -->
+<div class="ai-chat" id="aiChat">
+<div class="ai-header"><div><b>🤖 Mobi-Hub AI Assistant</b><br><small style="font-size:9px">Shahzaib Shafiq - Ask anything!</small></div><span style="cursor:pointer;font-size:18px" onclick="toggleAI()">✕</span></div>
+<div class="ai-messages" id="aiMessages">
+<div class="ai-msg ai-bot">Salam! 👋 Main Mobi-Hub AI Assistant hun!<br><br>Mujhse poocho:<br>• Kaunsa mobile best hai?<br>• Price kya hai?<br>• COD available hai?<br>• JazzCash number?<br>• Warranty kitni hai?<br>• Gaming ke liye kaunsa?</div>
+</div>
+<div class="ai-quick">
+<button onclick="askAI('Best gaming mobile kaunsa hai?')">🎮 Gaming Mobile</button>
+<button onclick="askAI('COD available hai?')">📦 COD?</button>
+<button onclick="askAI('JazzCash number kya hai?')">💳 JazzCash</button>
+<button onclick="askAI('Pattoki delivery free hai?')">🚚 Delivery</button>
+<button onclick="askAI('Warranty kitni hai?')">🛡️ Warranty</button>
+</div>
+<div class="ai-input-area"><input class="ai-input" id="aiInput" placeholder="Sawal likho... e.g. GT 6 ki price?" onkeypress="if(event.key==='Enter')sendAI()"><button class="btn" style="width:50px;border-radius:20px" onclick="sendAI()">➤</button></div>
 </div>
 
 <script>
-// --- YAHAN SARE PHONES ADD KARO - JITNE MARZI - 6 KI LIMIT KHATAM ---
-const allPhones = [
-  {name:"iPhone 14 Pro Max", price:"285000", img:"https://via.placeholder.com/200?text=iPhone+14+Pro"},
-  {name:"Samsung S23 Ultra", price:"245000", img:"https://via.placeholder.com/200?text=S23+Ultra"},
-  {name:"Infinix Hot 40", price:"35000", img:"https://via.placeholder.com/200?text=Hot+40"},
-  {name:"Tecno Spark 20", price:"32000", img:"https://via.placeholder.com/200?text=Spark+20"},
-  {name:"Redmi Note 12", price:"45000", img:"https://via.placeholder.com/200?text=Note+12"},
-  {name:"Vivo Y17s", price:"38000", img:"https://via.placeholder.com/200?text=Y17s"},
-  {name:"iPhone 11", price:"95000", img:"https://via.placeholder.com/200?text=iPhone+11"},
-  {name:"Samsung A32", price:"55000", img:"https://via.placeholder.com/200?text=A32"},
-  {name:"Realme C53", price:"36000", img:"https://via.placeholder.com/200?text=C53"},
-  {name:"iPhone 13", price:"165000", img:"https://via.placeholder.com/200?text=iPhone+13"},
-  {name:"Samsung A54", price:"85000", img:"https://via.placeholder.com/200?text=A54"},
-  {name:"Oppo A78", price:"62000", img:"https://via.placeholder.com/200?text=A78"},
-  // Yahan aur phones add karte jao, koi limit nahi
+const products=[
+{id:1,name:"GT Neo 6 SE",brand:"REALME",price:94999,stock:"In Stock",ram:"12GB/256GB",chip:"Snapdragon 7+ Gen 3",battery:"5500mAh",camera:"50MP",use:"Gaming Best"},
+{id:2,name:"GT 6 Global 16/512",brand:"REALME",price:134999,stock:"In Stock - 3 Left",ram:"16GB/512GB",chip:"Snapdragon 8s Gen 3",battery:"5500mAh",camera:"50MP",use:"Flagship Gaming"},
+{id:3,name:"Xiaomi 14T Pro",brand:"XIAOMI",price:174999,stock:"In Stock",ram:"12GB/512GB",chip:"Dimensity 9300+",battery:"5000mAh",camera:"50MP Leica",use:"Camera King"},
+{id:4,name:"Vivo V60",brand:"VIVO",price:134999,stock:"In Stock",ram:"12GB/256GB",chip:"Snapdragon 7 Gen 3",battery:"5500mAh",camera:"50MP Zeiss",use:"Camera + Battery"},
+{id:5,name:"Redmi Note 13 Pro",brand:"REDMI",price:64999,stock:"In Stock",ram:"8GB/256GB",chip:"Snapdragon 7s Gen 2",battery:"5100mAh",camera:"200MP",use:"Budget Camera"},
 ];
+let cart=JSON.parse(localStorage.getItem('mobi_cart')||'[]');
+function renderShop(){document.getElementById('shopGrid').innerHTML=products.map(p=>`<div class="product" onclick="openDetail(${p.id})"><img src="https://wsrv.nl/?url=https://fdn2.gsmarena.com/vv/bigpic/${p.name.toLowerCase().replace(/ /g,'-')}.jpg&w=400" onerror="this.src='https://via.placeholder.com/200?text=${p.name}'"><div class="info"><span class="brand">${p.brand}</span><h3>${p.name}</h3><div class="price">Rs.${p.price.toLocaleString()}</div><span class="stock instock">${p.stock}</span></div></div>`).join('');updateCartCount();}
+function openDetail(id){let p=products.find(x=>x.id==id);document.getElementById('detailContent').innerHTML=`<div class="card"><h2>${p.name}</h2><div style="font-size:22px;font-weight:800;color:#01411C">Rs.${p.price.toLocaleString()}</div><p style="font-size:11px;margin:8px 0">${p.ram} | ${p.chip} | ${p.battery} | ${p.camera}<br>Best for: ${p.use}<br>Stock: ${p.stock}</p><button class="btn" onclick="addToCart(${p.id})">🛒 Add to Cart</button><button class="btn" style="background:#25D366;margin-top:6px" onclick="addToCart(${p.id});showPage('cart')">⚡ Buy Now</button><button class="btn" style="background:#001a00;margin-top:6px" onclick="askAI('${p.name} ke bare me batao')">🤖 Ask AI about ${p.name}</button></div>`;showPage('detail');}
+function addToCart(id){let p=products.find(x=>x.id==id);let e=cart.find(x=>x.id==id);if(e){e.qty++}else{cart.push({...p,qty:1})}localStorage.setItem('mobi_cart',JSON.stringify(cart));updateCartCount();alert(p.name+" added!");}
+function renderCart(){let c=document.getElementById('cartItems');if(cart.length==0){c.innerHTML='<p>Cart empty</p>';document.getElementById('cartTotal').innerText='';return;}c.innerHTML=cart.map((x,i)=>`<div style="display:flex;gap:10px;background:#f8fafc;padding:8px;border-radius:10px;margin-bottom:6px"><div style="flex:1"><b style="font-size:11px">${x.name}</b><br>Rs.${x.price.toLocaleString()} x ${x.qty}</div><button onclick="changeQty(${i},1)">+</button><button onclick="changeQty(${i},-1)">-</button></div>`).join('');let t=cart.reduce((s,c)=>s+c.price*c.qty,0);document.getElementById('cartTotal').innerText='Total: Rs.'+t.toLocaleString();}
+function changeQty(i,d){cart[i].qty+=d;if(cart[i].qty<=0)cart.splice(i,1);localStorage.setItem('mobi_cart',JSON.stringify(cart));renderCart();updateCartCount();}
+function updateCartCount(){document.getElementById('cartCount').innerText=cart.reduce((s,c)=>s+c.qty,0);}
+function checkoutWhatsApp(){let n=document.getElementById('custName').value;let p=document.getElementById('custPhone').value;let city=document.getElementById('custCity').value;if(!n||!p){alert('Name Phone lazmi');return;}let items=cart.map(c=>`${c.name} x${c.qty}`).join(', ');let total=cart.reduce((s,c)=>s+c.price*c.qty,0);let msg=`NEW ORDER Mobi-Hub%0AName: ${n}%0APhone: ${p}%0ACity: ${city}%0AItems: ${items}%0ATotal: Rs.${total}`;window.open(`https://wa.me/923126165602?text=${msg}`,'_blank');}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));let l=document.getElementById('link-'+id);if(l)l.classList.add('active');if(id=='cart')renderCart();}
 
-function loadPhones(){
-  let html = "";
-  allPhones.forEach(p => {
-    html += `<div class="card">
-      <img src="${p.img}">
-      <h3>${p.name}</h3>
-      <div class="price">Rs. ${p.price}</div>
-      <button>View Details</button>
-    </div>`;
-  });
-  document.getElementById("phonesSection").innerHTML = html;
+// ===== AI AGENT LOGIC =====
+function toggleAI(){let chat=document.getElementById('aiChat');chat.style.display=chat.style.display==='flex'?'none':'flex';}
+function askAI(q){document.getElementById('aiInput').value=q;sendAI();}
+function sendAI(){
+ let input=document.getElementById('aiInput');
+ let q=input.value.trim();
+ if(!q)return;
+ let msgs=document.getElementById('aiMessages');
+ msgs.innerHTML+=`<div class="ai-msg ai-user">${q}</div>`;
+ input.value='';
+ setTimeout(()=>{
+  let ans=getAIAnswer(q);
+  msgs.innerHTML+=`<div class="ai-msg ai-bot">${ans}</div>`;
+  msgs.scrollTop=msgs.scrollHeight;
+ },400);
+ msgs.scrollTop=msgs.scrollHeight;
 }
-
-function showTab(type){
-  if(type === 'phones'){
-    document.getElementById("phonesSection").style.display = "grid";
-    document.getElementById("demandSection").classList.remove("active");
-    document.getElementById("btn-phones").classList.add("active");
-    document.getElementById("btn-demand").classList.remove("active");
-    document.getElementById("tabTitle").innerText = "All Phones - Sare Models ("+allPhones.length+")";
-  } else {
-    document.getElementById("phonesSection").style.display = "none";
-    document.getElementById("demandSection").classList.add("active");
-    document.getElementById("btn-demand").classList.add("active");
-    document.getElementById("btn-phones").classList.remove("active");
-    document.getElementById("tabTitle").innerText = "Customer Demands";
-    showDemands();
-  }
+function getAIAnswer(q){
+ q=q.toLowerCase();
+ if(q.includes('gaming')||q.includes('game')||q.includes('pubg')||q.includes('free fire')){
+  return "🎮 Gaming ke liye BEST:<br><br>1. <b>GT 6 Global 16/512 - Rs.134,999</b> - Snapdragon 8s Gen 3 - PUBG 120FPS<br>2. <b>GT Neo 6 SE - Rs.94,999</b> - Best Value Gaming<br><br>Sab PTA Approved - 0312-6165602 pe WhatsApp karo!";
+ }
+ if(q.includes('price')||q.includes('paisa')||q.includes('kitne')||q.includes('rate')){
+  let list=products.map(p=>`• ${p.name}: Rs.${p.price.toLocaleString()}`).join('<br>');
+  return `💰 Mobi-Hub Prices (© Shahzaib):<br><br>${list}<br><br>COD Available - Pattoki Free Delivery!`;
+ }
+ if(q.includes('cod')||q.includes('delivery')||q.includes('pattoki')||q.includes('cargo')){
+  return "📦 COD / Delivery Info:<br><br>✅ Pattoki: FREE Delivery<br>✅ Lahore/Kasur/Chunian: Rs.300<br>✅ Karachi/Other: Rs.500<br>✅ 1-2 Days me delivery<br><br>Shop Visit bhi kar sakte ho - Pattoki Mobile Market!";
+ }
+ if(q.includes('jazzcash')||q.includes('easypaisa')||q.includes('payment')||q.includes('advance')){
+  return "💳 Payment Methods:<br><br>✅ JazzCash: <b>03264492997</b><br>Title: SHAH ZAIB SHAFIQUE<br>✅ EasyPaisa: Same number<br>✅ COD - Cash on Delivery<br>✅ Shop Visit - Cash<br><br>🚫 No Installment / Qist - Full Payment Only!";
+ }
+ if(q.includes('warranty')||q.includes('guarantee')||q.includes('kharab')){
+  return "🛡️ Warranty Info:<br><br>✅ 7-10 Days Checking Warranty + Raseed<br>✅ PTA Approved Original<br>✅ Box Pack with all accessories<br>✅ Agar masla ho to 0312-6165602 pe rabta karo<br><br>Mobi-Hub © Shahzaib Shafiq";
+ }
+ if(q.includes('camera')||q.includes('photo')||q.includes('video')){
+  return "📸 Camera Best Mobiles:<br><br>1. <b>Xiaomi 14T Pro - Rs.174,999</b> - Leica 50MP - Best Camera<br>2. <b>Vivo V60 - Rs.134,999</b> - Zeiss Camera<br>3. <b>Redmi Note 13 Pro - Rs.64,999</b> - 200MP - Budget Camera King<br><br>Kis range me chahiye? Batao!";
+ }
+ if(q.includes('battery')||q.includes('charge')){
+  return "🔋 Battery King:<br><br>• <b>Vivo V60 / GT Neo 6 SE - 5500mAh</b> - 1.5 Day Backup<br>• Fast Charging 100W+ - 30 min me full<br>• Gaming me bhi 6-7 ghante backup<br><br>Sab original battery!";
+ }
+ if(q.includes('gt 6')||q.includes('gt6')){
+  return "📱 GT 6 Details:<br><br>• GT 6 Global 16/512 - Rs.134,999 - Snapdragon 8s Gen 3 - Flagship<br>• GT Neo 6 SE - Rs.94,999 - Best Value<br><br>Both Gaming + 5500mAh - In Stock - 0312-6165602 pe order karo!";
+ }
+ if(q.includes('owner')||q.includes('shahzaib')||q.includes('contact')||q.includes('number')){
+  return "👤 Owner Info:<br><br>Shahzaib Shafiq<br>Pattoki Mobile Market<br>📞 0312-6165602 (Call + WhatsApp)<br>JazzCash: 03264492997 SHAH ZAIB SHAFIQUE<br><br>Mobi-Hub © 2026";
+ }
+ return "🤖 Mobi-Hub AI Assistant:<br><br>Main samajh gaya! Aapne poocha: '"+q+"'<br><br>📱 Hamare pas Realme, Xiaomi, Vivo, Redmi PTA Approved mobiles hain - Rs.64,999 se Rs.174,999 tak.<br><br>✅ COD All Pakistan<br>✅ JazzCash 03264492997<br>✅ Pattoki Free Delivery<br><br>Detail ke liye:<br>• 'Gaming mobile kaunsa?'<br>• 'Price list?'<br>• 'COD?'<br>• Kisi mobile ka naam likho - e.g. 'GT 6'<br><br>Ya direct WhatsApp karo: 0312-6165602";
 }
-
-function saveDemand(){
-  const name = document.getElementById("cName").value;
-  const mobile = document.getElementById("cMobile").value;
-  const model = document.getElementById("cModel").value;
-  const budget = document.getElementById("cBudget").value;
-  if(!name || !mobile || !model){ alert("Naam, Mobile aur Model likhna zaruri hai"); return; }
-  
-  let demands = JSON.parse(localStorage.getItem("mobiDemands") || "[]");
-  demands.push({name, mobile, model, budget, date: new Date().toLocaleString()});
-  localStorage.setItem("mobiDemands", JSON.stringify(demands));
-  alert("Demand Save Ho Gayi!");
-  document.getElementById("cName").value = "";
-  document.getElementById("cMobile").value = "";
-  document.getElementById("cModel").value = "";
-  document.getElementById("cBudget").value = "";
-  showDemands();
-}
-
-function showDemands(){
-  let demands = JSON.parse(localStorage.getItem("mobiDemands") || "[]");
-  let html = "";
-  if(demands.length === 0) html = "<p>Abhi koi demand nahi hai</p>";
-  demands.reverse().forEach(d => {
-    html += `<div class="demand-item">
-      <b>${d.name}</b> - ${d.mobile}<br>
-      Model: ${d.model} | Budget: ${d.budget}<br>
-      <small>${d.date}</small> - <a href="https://wa.me/${d.mobile}" target="_blank">WhatsApp Karo</a>
-    </div>`;
-  });
-  document.getElementById("demandList").innerHTML = html;
-}
-
-loadPhones();
+renderShop();
 </script>
-
 </body>
 </html>
