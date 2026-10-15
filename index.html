@@ -1,206 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobi-Hub Pattoki 🇵🇰 - Final Working</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-<style>body{font-family:Inter,sans-serif}.pak-green{background:#01411C}</style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobi-Hub Shahzaib Pattoki - All Latest Phones</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#f5f7f9}
+.header{background:linear-gradient(90deg,#0a5a0a,#16a34a);color:#fff;padding:12px 16px;position:sticky;top:0;z-index:99;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.nav{display:flex;gap:6px}
+.nav button{border:none;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;background:#fff;color:#0a5a0a}
+.container{max-width:1200px;margin:auto;padding:12px}
+.card{background:#fff;border-radius:12px;padding:14px;margin-bottom:12px;border:1px solid #e5e7eb}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:768px){.grid{grid-template-columns:repeat(4,1fr)}}
+.pcard{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:10px;position:relative;cursor:pointer}
+.pcard img{width:100%;height:120px;object-fit:contain;background:#f9fafb;border-radius:8px}
+.badge{position:absolute;top:8px;right:8px;background:#dcfce7;color:#166534;font-size:9px;padding:3px 7px;border-radius:999px;font-weight:700}
+.brand{font-size:9px;color:#16a34a;font-weight:800;margin-top:8px}
+.model{font-size:12px;font-weight:600}
+.price{font-size:13px;font-weight:800}
+.stock{font-size:9px;color:#16a34a;background:#f0fdf4;padding:2px 6px;border-radius:999px;border:1px solid #bbf7d0}
+.btn{border:none;border-radius:8px;padding:10px 14px;font-weight:700;cursor:pointer;width:100%}
+.btn-green{background:#16a34a;color:#fff}
+.btn-dark{background:#0f2e1a;color:#fff;padding:12px}
+.input{width:100%;padding:10px;border:1px solid #d1d5db;border-radius:8px;margin-bottom:10px}
+.footer{background:#3b82f6;color:#fff;padding:20px 16px;margin-top:20px;display:grid;grid-template-columns:1fr 1fr 1.5fr;gap:20px;font-size:12px}
+.footer a{color:#dbeafe;text-decoration:none;display:block;margin:4px 0;cursor:pointer}
+.pay{display:inline-block;background:#fff;color:#000;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:800;margin:3px}
+.pay.green{background:#22c55e;color:#fff}
+.pay.yellow{background:#fde047}
+.hidden{display:none}
+.receipt-box{border:2px dashed #16a34a;padding:16px;border-radius:12px;background:#fafffb}
+.r-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #e5e7eb;font-size:13px}
+</style>
 </head>
-<body class="bg-[#f5f7f0]">
-<header class="pak-green sticky top-0 z-50">
-<div class="max-w-[1600px] mx-auto px-3 py-3 flex items-center gap-2">
-<h1 class="text-white font-black">🇵🇰 Mobi-Hub</h1>
-<div class="flex-1 bg-white rounded-full flex items-center px-3 py-2.5 ml-3">
-<i class="fas fa-search text-[#01411C] mr-2"></i>
-<input id="searchInput" oninput="searchProducts()" placeholder="Search mobiles..." class="w-full outline-none text-xs">
-</div>
-<button onclick="toggleCart()" class="bg-white text-[#01411C] px-3 py-1.5 rounded-full text-xs font-black ml-2">Cart <span id="cartCount">0</span></button>
-</div>
-<div class="bg-white px-2 py-2 flex gap-2 overflow-x-auto text-[11px] font-bold">
-<button onclick="render(products)" class="pak-green text-white px-4 py-2 rounded-full">All</button>
-<button onclick="filterCat('samsung')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">Samsung</button>
-<button onclick="filterCat('fold')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">Fold/Flip</button>
-<button onclick="filterCat('pixel')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">Pixel</button>
-<button onclick="filterCat('gaming')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">Gaming</button>
-<button onclick="filterCat('vivo')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">Vivo/iQOO</button>
-</div>
-</header>
-
-<div class="max-w-[1600px] mx-auto p-3">
-<h2 class="font-black text-[#01411C] text-sm">Mobiles - Pattoki Store - Pictures Working ✅</h2>
-<div id="productGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 mt-2"></div>
-
-<div id="productDetail" class="bg-white mt-6 rounded-2xl grid md:grid-cols-12 overflow-hidden border-2 border-[#01411C]/10">
-<div class="md:col-span-5 p-4 flex justify-center bg-white"><img id="mainImg" src="https://images.priceoye.pk/samsung-galaxy-s24-ultra-pakistan-priceoye-3j8n6-500x500.webp" class="max-h-[300px] object-contain"></div>
-<div class="md:col-span-4 p-4"><h1 id="detailName" class="font-black text-[#01411C]">Samsung Galaxy S24 Ultra</h1><p id="detailSpecs" class="text-[11px] text-gray-600 mt-1">200MP • SD 8 Gen3 • PTA Approved</p><p class="text-[11px] mt-3 font-bold">Contact: 0326 4492997 | Pattoki</p></div>
-<div class="md:col-span-3 p-4 bg-[#f5f7f0]"><h2 id="detailPrice" class="text-xl font-black text-[#01411C]">Rs 295,995</h2><button onclick="addToCartCurrent()" class="w-full mt-3 pak-green text-white py-3 rounded-full font-black text-xs">Add to Cart</button><button onclick="buyNow()" class="w-full mt-2 bg-white border-2 border-[#01411C] text-[#01411C] py-3 rounded-full font-black text-xs">Buy Now - 03126165602</button><p class="text-[10px] mt-2">JazzCash: 0326 4492997<br>Email: shahzaibjaat2712@gmail.com</p></div>
-</div>
-
-<!-- ALL PAGES -->
-<div class="mt-6 space-y-4">
-
-<div class="bg-white rounded-2xl p-5 border-2 border-[#01411C]/10">
-<h2 class="font-black text-[#01411C]">About, Contact, Terms, Privacy, Help</h2>
-<div class="grid md:grid-cols-2 gap-4 mt-3 text-[11px]">
-<div><b>About Mobi-Hub:</b> Pattoki ka No.1 Mobile Store. Samsung S, Fold, Flip, Pixel, Vivo, Oppo, Motorola, Poco, Redmi, Realme Gaming & Camera.<br><br>
-<b>Address:</b> Pattoki, Punjab, Pakistan<br>
-<b>Phone:</b> 0326 4492997<br>
-<b>WhatsApp:</b> 03126165602<br>
-<b>Email:</b> shahzaibjaat2712@gmail.com<br>
-<b>JazzCash:</b> 0326 4492997
-</div>
-<div>
-<b>Terms:</b> PTA Approved, 1 Year Brand Warranty, 7 Days Replacement.<br><br>
-<b>Privacy Policy:</b> Data 100% secure, SSL payment.<br><br>
-<b>Help / FAQs:</b> PTA? Yes. Delivery? Pattoki same day, other cities 1-2 days. Payment? JazzCash 0326 4492997, Easypaisa, Bank, COD.<br><br>
-<b>Secure Payment:</b> JazzCash 0326 4492997, Easypaisa, Bank Transfer, COD - 100% Secure.
+<body>
+<div class="header">
+<div><b>Mobi-Hub</b> <small>Shahzaib Pattoki - 03264492997</small></div>
+<div class="nav">
+<button onclick="show('shop')">Shop</button>
+<button onclick="show('ai')">AI</button>
+<button onclick="show('demand')">Demand</button>
+<button onclick="show('compare')">Compare <span id="cc">0</span></button>
+<button onclick="show('cart')">Cart <span id="ct">0</span></button>
+<button onclick="show('receipt')">Receipt</button>
 </div>
 </div>
+<div class="container">
+<div id="shop"><div class="card"><h2>Mobi-Hub - All Latest Phones</h2><small>Vivo V40/V40e/X100/V60, Samsung A54, Xiaomi 14T Pro, Nothing 3a Pro, iPhone 15/16 Pro Max</small></div><div id="grid" class="grid"></div></div>
+<div id="product" class="hidden"></div>
+<div id="ai" class="hidden"><div class="card"><h3>AI Mobile Finder</h3><input id="aiIn" class="input" placeholder="1 lakh me best camera phone"><button class="btn btn-green" onclick="ai()">Ask AI</button><div id="aiOut" style="margin-top:10px;font-size:13px"></div></div></div>
+<div id="demand" class="hidden"><div class="card"><h3>Demand</h3><input id="dN" class="input" placeholder="Your Name"><input id="dW" class="input" placeholder="WhatsApp"><input id="dM" class="input" placeholder="Model"><input id="dB" class="input" placeholder="Budget"><button class="btn btn-green" onclick="saveD()">Save</button><button class="btn btn-green" style="background:#25D366;margin-top:8px" onclick="wa('Demand: '+dM.value)">WhatsApp Owner 03126165602</button><div id="dList"></div></div></div>
+<div id="compare" class="hidden"><div class="card"><h3>Compare Max 3 <button onclick="clearC()" style="float:right">Clear</button></h3><div id="cTable"></div></div></div>
+<div id="cart" class="hidden"><div class="card"><h3>Cart</h3><div id="cartItems"></div><div id="cartTot"></div><div class="card"><h4>Customer Details + Raseed</h4><input id="cName" class="input" placeholder="Full Name *"><input id="cPhone" class="input" placeholder="WhatsApp *"><input id="cCity" class="input" placeholder="City *"><input id="cAddr" class="input" placeholder="Address *"><select id="cPay" class="input"><option>Cash on Delivery</option><option>JazzCash 03264492997 Shah Zaib</option><option>Easypaisa 03126165602</option><option>HBL Bank</option></select><button class="btn btn-dark" onclick="order()">Confirm & Send Receipt to Customer WhatsApp</button></div></div></div>
+<div id="receipt" class="hidden"><div class="card"><h3>Mobi-Hub Raseed</h3><div id="rCont">No receipt yet</div></div></div>
+<div id="about" class="hidden"><div class="card"><h2>About Us</h2><p style="font-size:13px;line-height:1.8"><b>Mobi-Hub Pattoki trusted store, Owner Shahzaib Shafiq 5+ years.</b><br>Shop: Pattoki Mobile Market Kasur Road Opp Nadra<br>PTA Approved Box Pack Gaming Phones<br>Contact 03126165602 / 03264492997<br>Email shahzaibjaat2712@gmail.com</p></div></div>
+<div id="contact" class="hidden"><div class="card"><h2>Contact Us</h2><p style="font-size:13px">Owner Shahzaib Shafiq<br>Phone 03126165602 WhatsApp<br>Second 03264492997 JazzCash<br>Address Mobi-Hub Pattoki Mobile Market Opp Nadra Kasur Road<br>Email shahzaibjaat2712@gmail.com</p><input class="input" placeholder="Name" id="ctN"><textarea class="input" placeholder="Message" id="ctM"></textarea><input type="file" class="input"><button class="btn btn-dark" onclick="wa(ctN.value+': '+ctM.value)">Send on WhatsApp</button></div></div>
+<div id="faqs" class="hidden"><div class="card"><h2>FAQs</h2><p style="font-size:13px;line-height:2">Q: PTA Approved?<br>A: 100% PTA Approved<br>Q: Warranty?<br>A: 7 Days Check + 1 Year Brand<br>Q: Delivery?<br>A: Pattoki Free, Lahore 300, Other 500</p></div></div>
+<div id="privacy" class="hidden"><div class="card"><h2>Privacy Policy</h2><p style="font-size:13px">Name Phone Address only for delivery. No sale. No payment save.</p></div></div>
+<div id="help" class="hidden"><div class="card"><h2>Help Center</h2><p style="font-size:13px">Select > Add to Cart > Fill Details > Confirm > Receipt WhatsApp pe</p></div></div>
+<div id="secure" class="hidden"><div class="card"><h2>Secure Payments</h2><p style="font-size:13px">COD Pattoki Free<br>JazzCash 03264492997<br>Easypaisa 03126165602<br>HBL Bank<br>1LINK VISA MasterCard</p></div></div>
+<div id="feedback" class="hidden"><div class="card"><h2>Feedback</h2><input id="fN" class="input" placeholder="Name"><select id="fS" class="input"><option>5 Star</option><option>4 Star</option></select><textarea id="fC" class="input" placeholder="Comment"></textarea><input type="file" class="input"><button class="btn btn-dark" onclick="feed()">Submit</button><div id="fList"></div></div></div>
+<div id="terms" class="hidden"><div class="card"><h2>Terms & Condition</h2><p style="font-size:13px">1 Prices change<br>2 COD check allowed<br>3 No return after open<br>4 PTA guarantee<br>5 100% original<br>6 Call confirm 03126165602</p></div></div>
+<div id="sell" class="hidden"><div class="card"><h2>Sell on Mobi-Hub</h2><input class="input" placeholder="Name"><input class="input" placeholder="WhatsApp"><input class="input" placeholder="Model"><input class="input" placeholder="Condition"><input class="input" placeholder="Expected Price"><input type="file" class="input"><button class="btn btn-green" onclick="wa('Sell request')">Sell Request WhatsApp Pe Bhejo</button></div></div>
 </div>
-
-<div id="compareSec" class="bg-white rounded-2xl p-5 border-2 border-[#01411C]">
-<h2 class="font-black text-[#01411C]">Compare Phones 📊</h2>
-<div id="compareList" class="mt-2 space-y-1 text-[11px]"></div>
-<button onclick="doCompare()" class="mt-2 pak-green text-white px-4 py-2 rounded-full text-xs font-bold">Compare Now</button>
-<p id="compareResult" class="text-[11px] mt-2 font-bold"></p>
+<div class="footer">
+<div><b>Mobi-Hub</b><a onclick="show('about')">About Us</a><a onclick="show('faqs')">FAQs</a><a onclick="show('contact')">Contact Us</a><a onclick="show('terms')">Terms</a></div>
+<div><b>Customer Service</b><a onclick="show('help')">Help Center</a><a onclick="show('privacy')">Privacy Policy</a><a onclick="show('sell')">Sell on Mobi-Hub</a><a onclick="show('feedback')">Customer Feedback</a><a onclick="show('secure')">Secure Payments</a></div>
+<div><b>Secure Payments Methods</b><br><span class="pay yellow">1 LINK</span><span class="pay">MasterCard</span><span class="pay">VISA</span><span class="pay">HBL</span><br><span class="pay" style="background:#000;color:#fff">CASH ON DELIVERY</span><span class="pay green">JazzCash</span><span class="pay green">Easypaisa</span><br><br>Pattoki Mobile Market Kasur Road<br>0312-6165602 / 0326-4492997<br>shahzaibjaat2712@gmail.com<br>© 2026 Mobi-Hub</div>
 </div>
-
-<div class="bg-white rounded-2xl p-5">
-<h2 class="font-black text-[#01411C]">Sell Your Phone 💰 + Picture Upload</h2>
-<input id="sellModel" placeholder="Model e.g. iPhone 13" class="w-full border-2 border-[#01411C] rounded-full px-4 py-2 mt-2 text-xs">
-<input type="file" id="sellImage" accept="image/*" onchange="previewSell(event)" class="w-full border rounded-full px-4 py-2 mt-2 text-xs">
-<img id="sellPreview" class="mt-2 w-24 h-24 object-cover rounded-xl hidden">
-<button onclick="sellPhone()" class="w-full pak-green text-white py-2 rounded-full mt-3 font-black text-xs">Get Price - WhatsApp 03126165602</button>
-<p id="sellResult" class="text-xs mt-2 font-bold"></p>
-</div>
-
-<div class="bg-white rounded-2xl p-5">
-<h2 class="font-black text-[#01411C]">Customer Feedback ⭐ + Picture Upload</h2>
-<input id="fbName" placeholder="Your Name" class="w-full border-2 border-[#01411C] rounded-full px-4 py-2 mt-2 text-xs">
-<textarea id="fbText" placeholder="Your Feedback..." class="w-full border rounded-xl px-4 py-2 mt-2 text-xs"></textarea>
-<input type="file" id="fbImage" accept="image/*" onchange="previewFb(event)" class="w-full border rounded-full px-4 py-2 mt-2 text-xs">
-<img id="fbPreview" class="mt-2 w-24 h-24 object-cover rounded-xl hidden">
-<button onclick="submitFeedback()" class="w-full pak-green text-white py-2 rounded-full mt-3 font-black text-xs">Submit Feedback</button>
-<div id="fbList" class="mt-3 space-y-2 text-[11px]"></div>
-</div>
-
-<div class="bg-white rounded-2xl p-5">
-<h2 class="font-black text-[#01411C]">On Demand Page 🔥</h2>
-<input id="demandPhone" placeholder="Demand: e.g. Pixel 10 Pro Fold" class="w-full border-2 border-[#01411C] rounded-full px-4 py-2 mt-2 text-xs">
-<button onclick="demandPhone()" class="w-full pak-green text-white py-2 rounded-full mt-3 font-black text-xs">Submit Demand to 0326 4492997</button>
-<p id="demandResult" class="text-xs mt-2"></p>
-</div>
-
-<div class="bg-white rounded-2xl p-5">
-<h2 class="font-black text-[#01411C]">Receipt / Order Slip 🧾</h2>
-<div id="receiptBox" class="mt-2 border-2 border-dashed border-[#01411C] p-4 rounded-xl text-[11px]">
-<b>Mobi-Hub Pattoki - Official Receipt</b><br>
-Phone: 0326 4492997 | WhatsApp: 03126165602<br>
-Email: shahzaibjaat2712@gmail.com<br>
-JazzCash: 0326 4492997<br>
-Address: Pattoki<br><br>
-<div id="receiptContent">No orders yet</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div id="cartDrawer" class="fixed inset-0 bg-black/50 z-[100] hidden"><div class="absolute right-0 top-0 h-full w-[92%] md:w-[360px] bg-white p-4 overflow-y-auto"><div class="flex justify-between"><h2 class="font-black text-[#01411C]">Cart - Pattoki</h2><button onclick="toggleCart()"><i class="fas fa-times"></i></button></div><div id="cartItems" class="mt-4"></div><div class="mt-4 border-t pt-3"><p class="flex justify-between font-black text-sm">Total: <span id="cartTotal">Rs 0</span></p><button onclick="checkout()" class="w-full mt-3 pak-green text-white py-3 rounded-full font-black text-xs">Checkout - 0326 4492997</button><p class="text-[10px] mt-2">JazzCash: 0326 4492997<br>Email: shahzaibjaat2712@gmail.com</p></div></div></div>
-
-<footer class="pak-green text-white p-6 mt-6 text-[11px] text-center">
-🇵🇰 Mobi-Hub Pattoki | Phone: 0326 4492997 | WhatsApp: 03126165602 | Email: shahzaibjaat2712@gmail.com | JazzCash: 0326 4492997 | Address: Pattoki<br>
-Secure Payment | PTA Approved | All Buttons Working ✅
-</footer>
-
 <script>
-let products=[
-{name:"Samsung Galaxy S24 Ultra",price:295995,cat:"samsung",spec:"200MP SD 8 Gen3",img:"https://images.priceoye.pk/samsung-galaxy-s24-ultra-pakistan-priceoye-3j8n6-500x500.webp"},
-{name:"Samsung Galaxy Z Fold 6",price:425995,cat:"fold samsung",spec:"Fold 7.6 SD 8 Gen3",img:"https://images.priceoye.pk/samsung-galaxy-z-fold-6-pakistan-priceoye-9k2l1-500x500.webp"},
-{name:"Samsung Galaxy Z Flip 6",price:245995,cat:"flip samsung",spec:"Flip SD 8 Gen3",img:"https://images.priceoye.pk/samsung-galaxy-z-flip-6-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Google Pixel 9 Pro",price:245995,cat:"pixel",spec:"Best Camera Tensor G4",img:"https://images.priceoye.pk/google-pixel-9-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Google Pixel 9",price:195995,cat:"pixel",spec:"Tensor G4 50MP",img:"https://images.priceoye.pk/google-pixel-9-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Vivo X200 Pro",price:285995,cat:"vivo",spec:"200MP Zeiss",img:"https://images.priceoye.pk/vivo-x200-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Vivo V50",price:145995,cat:"vivo",spec:"Aura Light 50MP",img:"https://images.priceoye.pk/vivo-v50-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"iQOO 13",price:185995,cat:"iqoo vivo gaming",spec:"SD 8 Elite Gaming",img:"https://images.priceoye.pk/vivo-iqoo-13-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Oppo Find X8 Pro",price:295995,cat:"oppo",spec:"Hasselblad Camera",img:"https://images.priceoye.pk/oppo-find-x8-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Oppo Reno 12 Pro",price:125995,cat:"oppo",spec:"Dimensity 9200+",img:"https://images.priceoye.pk/oppo-reno-12-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Motorola Edge 50 Ultra",price:185995,cat:"moto",spec:"125W SD 8s Gen3",img:"https://images.priceoye.pk/motorola-edge-50-ultra-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Poco F6 Pro",price:105995,cat:"poco gaming",spec:"SD 8 Gen2 Gaming",img:"https://images.priceoye.pk/xiaomi-poco-f6-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Poco X7 Pro",price:85995,cat:"poco gaming",spec:"Dimensity 8400",img:"https://images.priceoye.pk/xiaomi-poco-x7-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Xiaomi 15 Ultra",price:345995,cat:"camera",spec:"Leica 200MP",img:"https://images.priceoye.pk/xiaomi-15-ultra-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Infinix Hot 60i",price:52499,cat:"infinix",spec:"8GB 5000mAh",img:"https://images.priceoye.pk/infinix-hot-60i-pakistan-priceoye-q7b2v-500x500.webp"},
-{name:"Tecno Spark 50",price:58999,cat:"tecno",spec:"50MP Helio G99",img:"https://images.priceoye.pk/tecno-spark-50-pakistan-priceoye-l4k9n-500x500.webp"},
-{name:"Nothing Phone 3a",price:106999,cat:"nothing",spec:"SD 7s Gen3 50MP",img:"https://images.priceoye.pk/nothing-phone-3a-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Redmi Note 14 Pro+",price:78999,cat:"poco",spec:"200MP",img:"https://images.priceoye.pk/xiaomi-redmi-note-14-pro-plus-pakistan-priceoye-8x4er-500x500.webp"},
-];
-
-let cart=[]; let compare=[]; let current=products[0];
-
-function render(list){
-let grid=document.getElementById('productGrid');
-if(!grid) return;
-grid.innerHTML=list.map(p=>{
-return `<div class="bg-white rounded-2xl p-2 shadow border-t-4 border-[#01411C]">
-<img src="${p.img}" class="w-full h-[120px] object-contain bg-white" onerror="this.src='https://via.placeholder.com/300x300?text=${encodeURIComponent(p.name)}'">
-<p class="text-[10px] font-bold mt-1 h-8 overflow-hidden">${p.name}</p>
-<p class="text-[9px] text-gray-500">${p.spec}</p>
-<p class="font-black text-[12px] text-[#01411C]">Rs ${p.price.toLocaleString()}</p>
-<div class="flex gap-1 mt-1">
-<button onclick="addToCart('${p.name.replace(/'/g,'')}',${p.price},'${p.img}')" class="flex-1 pak-green text-white text-[10px] py-1.5 rounded-full font-bold">Cart</button>
-<button onclick="openDetail('${p.name.replace(/'/g,'')}',${p.price},'${p.img}','${p.spec}')" class="border border-[#01411C] text-[10px] px-2 rounded-full">View</button>
-<button onclick="addCompare('${p.name.replace(/'/g,'')}')" class="border border-[#01411C] text-[10px] px-2 rounded-full">Compare</button>
-</div>
-</div>`;
-}).join('');
-}
-
-function filterCat(c){render(products.filter(p=>p.cat.includes(c)));}
-function searchProducts(){let q=document.getElementById('searchInput').value.toLowerCase(); render(products.filter(p=>p.name.toLowerCase().includes(q)));}
-
-function openDetail(name,price,img,spec){
-current={name,price,img,spec};
-document.getElementById('detailName').innerText=name;
-document.getElementById('detailPrice').innerText='Rs '+price.toLocaleString();
-document.getElementById('mainImg').src=img;
-document.getElementById('detailSpecs').innerText=spec;
-document.getElementById('productDetail').scrollIntoView({behavior:'smooth'});
-}
-function addToCart(name,price,img){cart.push({name,price,img}); updateCart(); toggleCart(true); updateReceipt();}
-function addToCartCurrent(){addToCart(current.name,current.price,current.img);}
-function updateCart(){
-document.getElementById('cartCount').innerText=cart.length;
-let div=document.getElementById('cartItems');
-if(cart.length==0){div.innerHTML='<p class="text-xs text-center py-6">Cart empty</p>'; document.getElementById('cartTotal').innerText='Rs 0'; return;}
-div.innerHTML=cart.map((c,i)=>`<div class="flex gap-2 border-b pb-2 items-center"><img src="${c.img}" class="w-10 h-10 object-contain"><div class="flex-1"><p class="text-[11px] font-bold">${c.name}</p><p class="text-[11px] text-[#01411C] font-black">Rs ${c.price.toLocaleString()}</p></div><button onclick="removeCart(${i})" class="text-red-500 text-xs">X</button></div>`).join('');
-let total=cart.reduce((s,c)=>s+c.price,0);
-document.getElementById('cartTotal').innerText='Rs '+total.toLocaleString();
-}
-function removeCart(i){cart.splice(i,1); updateCart(); updateReceipt();}
-function toggleCart(show){let d=document.getElementById('cartDrawer'); if(show===true){d.classList.remove('hidden'); return;} d.classList.toggle('hidden');}
-function buyNow(){addToCartCurrent(); alert('Order: '+current.name+'\nCall: 0326 4492997\nWhatsApp: 03126165602');}
-function checkout(){updateReceipt(); alert('Checkout! Receipt generated.\nJazzCash: 0326 4492997\nEmail: shahzaibjaat2712@gmail.com'); document.getElementById('receiptBox').scrollIntoView({behavior:'smooth'});}
-
-function addCompare(name){if(compare.includes(name)) return; if(compare.length>=2){alert('Max 2'); return;} compare.push(name); renderCompare();}
-function renderCompare(){document.getElementById('compareList').innerHTML=compare.map((n,i)=>`<div class="flex justify-between bg-green-50 p-2 rounded-lg"><span>${n}</span><button onclick="removeCompare(${i})" class="text-red-500">X</button></div>`).join('');}
-function removeCompare(i){compare.splice(i,1); renderCompare();}
-function doCompare(){if(compare.length<2){alert('Select 2 phones'); return;} document.getElementById('compareResult').innerText=compare[0]+' VS '+compare[1]+' - Both PTA Approved!';}
-
-function previewSell(e){let file=e.target.files[0]; if(!file) return; let reader=new FileReader(); reader.onload=function(ev){let img=document.getElementById('sellPreview'); img.src=ev.target.result; img.classList.remove('hidden');}; reader.readAsDataURL(file);}
-function sellPhone(){let model=document.getElementById('sellModel').value; if(!model){alert('Model likho'); return;} let price=Math.floor(Math.random()*40000+20000); document.getElementById('sellResult').innerText='✅ '+model+' ka estimate Rs '+price.toLocaleString()+' - WhatsApp karo 03126165602 pe with picture!';}
-
-function previewFb(e){let file=e.target.files[0]; if(!file) return; let reader=new FileReader(); reader.onload=function(ev){let img=document.getElementById('fbPreview'); img.src=ev.target.result; img.classList.remove('hidden');}; reader.readAsDataURL(file);}
-function submitFeedback(){let name=document.getElementById('fbName').value; let text=document.getElementById('fbText').value; if(!name||!text){alert('Name aur feedback likho'); return;} let imgSrc=document.getElementById('fbPreview').src; let hasImg=imgSrc &&!document.getElementById('fbPreview').classList.contains('hidden'); let html=`<div class="border p-2 rounded-xl bg-green-50"><b>${name}</b>: ${text} ${hasImg?'<br><img src="'+imgSrc+'" class="w-16 h-16 object-cover rounded-lg mt-1">':''}</div>`; document.getElementById('fbList').innerHTML+=html; alert('Feedback submitted! Thanks!'); document.getElementById('fbName').value=''; document.getElementById('fbText').value=''; document.getElementById('fbPreview').classList.add('hidden');}
-
-function demandPhone(){let phone=document.getElementById('demandPhone').value; if(!phone){alert('Phone likho'); return;} document.getElementById('demandResult').innerText='✅ Demand: '+phone+' noted - Contact 0326 4492997';}
-
-function updateReceipt(){let box=document.getElementById('receiptContent'); if(cart.length==0){box.innerText='No orders'; return;} let total=cart.reduce((s,c)=>s+c.price,0); box.innerHTML=cart.map(c=>`${c.name} - Rs ${c.price.toLocaleString()}`).join('<br>')+'<br><br><b>Total: Rs '+total.toLocaleString()+'</b><br>JazzCash: 0326 4492997<br>Email: shahzaibjaat2712@gmail.com';}
-
-// Initial render - IMPORTANT
-document.addEventListener('DOMContentLoaded', function(){ render(products); });
-render(products);
+let P=[{id:1,b:'VIVO',m:'Vivo V40 12/256',p:129999,s:'In Stock',img:'https://fdn2.gsmarena.com/vv/bigpic/vivo-v40.jpg',r:'12GB/256GB',c:'SD 7 Gen 3',ba:'5500mAh',ca:'50MP'},{id:2,b:'VIVO',m:'Vivo V40e 8/256',p:89999,s:'In Stock',img:'https://fdn2.gsmarena.com/vv/bigpic/vivo-v40e.jpg',r:'8GB/256GB',c:'Dimensity 7300',ba:'5500mAh',ca:'50MP'},{id:3,b:'SAMSUNG',m:'Samsung A54 8/256',p:84999,s:'In Stock',img:'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a54.jpg',r:'8GB/256GB',c:'Exynos 1380',ba:'5000mAh',ca:'50MP'},{id:4,b:'XIAOMI',m:'Xiaomi 14T Pro 12/512',p:174999,s:'In Stock',img:'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14t-pro.jpg',r:'12GB/512GB',c:'Dimensity 9300+',ba:'5000mAh',ca:'50MP Leica'},{id:5,b:'NOTHING',m:'Nothing 3a Pro 12/256',p:139999,s:'In Stock',img:'https://fdn2.gsmarena.com/vv/bigpic/nothing-phone2.jpg',r:'12GB/256GB',c:'SD 7s Gen 3',ba:'5000mAh',ca:'50MP Periscope'},{id:6,b:'APPLE',m:'iPhone 15 Pro Max',p:394999,s:'In Stock',img:'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg',r:'8GB/256GB',c:'A17 Pro',ba:'4422mAh',ca:'48MP'},{id:7,b:'APPLE',m:'iPhone 16 Pro Max',p:389999,s:'New',img:'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro-max.jpg',r:'8GB/256GB',c:'A18 Pro',ba:'4685mAh',ca:'48MP'}];
+let cart=JSON.parse(localStorage.getItem('mh_c')||'[]'),comp=JSON.parse(localStorage.getItem('mh_co')||'[]'),dem=JSON.parse(localStorage.getItem('mh_d')||'[]'),feed=JSON.parse(localStorage.getItem('mh_f')||'[{"n":"Sufyan","s":"⭐⭐⭐⭐⭐","c":"I buy Vivo V40 pta Approved very nice working and 100% recommended","d":"13/11/2026"}]');
+function render(){document.getElementById('grid').innerHTML=P.map(x=>`<div class="pcard" onclick="openP(${x.id})"><span class="badge">Compare</span><img src="${x.img}"><div class="brand">${x.b}</div><div class="model">${x.m}</div><div class="price">Rs.${x.p.toLocaleString()}</div><div class="stock">${x.s}</div></div>`).join('');up();renderF();renderD();let r=JSON.parse(localStorage.getItem('mh_r')||'null');if(r)renderR(r);}
+function show(id){['shop','product','ai','demand','compare','cart','receipt','about','contact','faqs','privacy','help','secure','feedback','terms','sell'].forEach(x=>{let e=document.getElementById(x);if(e)e.classList.add('hidden')});document.getElementById(id).classList.remove('hidden');window.scrollTo(0,0);if(id=='compare')renderC();if(id=='cart')renderCart();}
+function openP(id){let p=P.find(x=>x.id==id);document.getElementById('product').innerHTML=`<div class="card"><button onclick="show('shop')">← Back</button><br><br><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><img src="${p.img}" style="height:300px;object-fit:contain"><div><div class="brand">${p.b}</div><h2>${p.m}</h2><h3 style="color:#16a34a">Rs.${p.p.toLocaleString()}</h3><div class="stock">${p.s}</div><br><table border="1" cellpadding="6" style="width:100%;border-collapse:collapse;font-size:12px"><tr><td>RAM</td><td>${p.r}</td></tr><tr><td>Chip</td><td>${p.c}</td></tr><tr><td>Battery</td><td>${p.ba}</td></tr><tr><td>Camera</td><td>${p.ca}</td></tr></table><br><button class="btn btn-green" onclick="addC(${p.id})">Add to Cart</button><button class="btn btn-dark" style="margin-top:8px" onclick="addCo(${p.id})">Add to Compare</button><button class="btn btn-green" style="margin-top:8px;background:#25D366" onclick="wa('Buy ${p.m}')">Buy on WhatsApp</button></div></div></div>`;show('product');}
+function addC(id){let p=P.find(x=>x.id==id);let e=cart.find(x=>x.id==id);if(e)e.q++;else cart.push({...p,q:1});localStorage.setItem('mh_c',JSON.stringify(cart));up();alert('Added to Cart');}
+function up(){document.getElementById('ct').innerText=cart.reduce((a,b)=>a+b.q,0);document.getElementById('cc').innerText=comp.length;}
+function renderCart(){let box=document.getElementById('cartItems');if(cart.length==0){box.innerHTML='Cart empty';document.getElementById('cartTot').innerHTML='';return;}box.innerHTML=cart.map((c,i)=>`<div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid #eee"><img src="${c.img}" style="width:50px"><div style="flex:1"><b style="font-size:12px">${c.m}</b><div style="color:#16a34a;font-size:12px">Rs.${c.p.toLocaleString()} x ${c.q}</div></div><button onclick="rem(${i})">X</button></div>`).join('');let t=cart.reduce((a,b)=>a+b.p*b.q,0);let d=t>50000?0:500;document.getElementById('cartTot').innerHTML=`<div class="receipt-box"><div class="r-row"><span>Total</span><span>Rs.${t.toLocaleString()}</span></div><div class="r-row"><span>Delivery</span><span>${d==0?'FREE':'Rs.'+d}</span></div><div class="r-row"><b>Grand Total</b><b>Rs.${(t+d).toLocaleString()}</b></div></div>`;}
+function rem(i){cart.splice(i,1);localStorage.setItem('mh_c',JSON.stringify(cart));renderCart();up();}
+function order(){let n=cName.value,ph=cPhone.value,ci=cCity.value,ad=cAddr.value,pay=cPay.value;if(!n||!ph||!ci||!ad){alert('Fill all');return;}let t=cart.reduce((a,b)=>a+b.p*b.q,0);let o='MOBI-'+Math.floor(100000+Math.random()*900000);let r={o,d:new Date().toLocaleDateString(),n,ph,ci,ad,pay,items:[...cart],t,del:t>50000?0:500,g:t+(t>50000?0:500)};localStorage.setItem('mh_r',JSON.stringify(r));localStorage.setItem('mh_c',JSON.stringify([]));cart=[];up();renderR(r);show('receipt');wa(`Mobi-Hub Order ${o} Name:${n} Phone:${ph} City:${ci} Address:${ad} Payment:${pay} Grand Rs.${r.g}`);}
+function renderR(r){document.getElementById('rCont').innerHTML=`<div class="receipt-box"><div style="text-align:center;font-weight:800">Mobi-Hub Raseed</div><div style="text-align:center;font-size:11px;color:#666">Pattoki Mobile Market | 0312-6165602 | 0326-4492997<br>shahzaibjaat2712@gmail.com</div><div class="r-row"><span>Order ID</span><b>${r.o}</b></div><div class="r-row"><span>Date</span><span>${r.d}</span></div><div class="r-row"><span>Name</span><span>${r.n}</span></div><div class="r-row"><span>Phone</span><span>${r.ph}</span></div><div class="r-row"><span>City</span><span>${r.ci}</span></div><br>${r.items.map(i=>`<div class="r-row"><span>${i.m} x ${i.q}</span><span>Rs.${(i.p*i.q).toLocaleString()}</span></div>`).join('')}<div class="r-row"><b>Grand Total</b><b>Rs.${r.g.toLocaleString()}</b></div><br><button class="btn btn-green" onclick="window.print()">Print Raseed</button></div>`;}
+function addCo(id){if(comp.includes(id)){alert('Already');return;}if(comp.length>=3){alert('Max 3');return;}comp.push(id);localStorage.setItem('mh_co',JSON.stringify(comp));up();}
+function renderC(){if(comp.length==0){cTable.innerHTML='No products';return;}let cs=comp.map(id=>P.find(x=>x.id==id));cTable.innerHTML=`<table border="1" cellpadding="8" style="width:100%;border-collapse:collapse;font-size:12px"><tr><th>Feature</th>${cs.map(c=>`<th>${c.m}</th>`).join('')}</tr><tr><td>Price</td>${cs.map(c=>`<td>Rs.${c.p.toLocaleString()}</td>`).join('')}</tr><tr><td>RAM</td>${cs.map(c=>`<td>${c.r}</td>`).join('')}</tr><tr><td>Chip</td>${cs.map(c=>`<td>${c.c}</td>`).join('')}</tr><tr><td>Battery</td>${cs.map(c=>`<td>${c.ba}</td>`).join('')}</tr><tr><td>Camera</td>${cs.map(c=>`<td>${c.ca}</td>`).join('')}</tr></table>`;}
+function clearC(){comp=[];localStorage.setItem('mh_co','[]');renderC();up();}
+function saveD(){let d={n:dN.value,w:dW.value,m:dM.value,b:dB.value,d:new Date().toLocaleDateString()};if(!d.n||!d.w||!d.m){alert('Fill');return;}dem.push(d);localStorage.setItem('mh_d',JSON.stringify(dem));renderD();}
+function renderD(){let el=document.getElementById('dList');if(!el)return;el.innerHTML=dem.map(x=>`<div style="border:1px solid #eee;padding:6px;margin:4px 0;font-size:12px"><b>${x.n}</b> - ${x.m} - ${x.w}</div>`).join('');}
+function feed(){let f={n:fN.value,s:fS.value,c:fC.value,d:new Date().toLocaleDateString()};feed.unshift(f);localStorage.setItem('mh_f',JSON.stringify(feed));renderF();}
+function renderF(){let el=document.getElementById('fList');if(!el)return;el.innerHTML=feed.map(x=>`<div style="border:1px solid #eee;padding:8px;margin:6px 0"><b>${x.n}</b> ${x.s}<div style="font-size:12px">${x.c}</div><small>${x.d}</small></div>`).join('');}
+function ai(){let q=aiIn.value.toLowerCase();let res=P;if(q.includes('camera'))res=P.filter(x=>x.ca.includes('Leica'));if(q.includes('80k'))res=P.filter(x=>x.p<90000);if(q.includes('1 lakh'))res=P.filter(x=>x.p<=120000);aiOut.innerHTML=res.map(x=>`• ${x.m} - Rs.${x.p.toLocaleString()} <button onclick="openP(${x.id})">View</button>`).join('<br>');}
+function wa(msg){window.open('https://wa.me/923126165602?text='+encodeURIComponent(msg),'_blank');}
+render();
 </script>
 </body>
-</html>
+                                                                                                                                                                                                             </html>
