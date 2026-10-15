@@ -3,165 +3,365 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobi-Hub - Shahzaib Shafiq</title>
+<title>Mobi-Hub - Shahzaib Shafiq - All Features</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#f8fafc}
-.header{background:linear-gradient(135deg,#01411C,#16a34a);color:white;padding:10px;position:sticky;top:0;z-index:100;overflow-x:auto}
-.nav{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:8px}
-.nav-links{display:flex;gap:3px;overflow-x:auto;white-space:nowrap}
-.nav-links a{color:white;text-decoration:none;font-size:9.5px;font-weight:700;padding:5px 8px;border-radius:20px;border:1px solid rgba(255,255,255,0.4);cursor:pointer}
+body{background:#f8fafc;color:#111}
+.header{background:linear-gradient(135deg,#01411C,#16a34a);color:white;padding:8px;position:sticky;top:0;z-index:100}
+.nav{max-width:1250px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:5px}
+.nav-links{display:flex;gap:3px;overflow-x:auto;white-space:nowrap;padding:4px 0}
+.nav-links a{color:white;text-decoration:none;font-size:8.5px;font-weight:700;padding:4px 7px;border-radius:20px;border:1px solid rgba(255,255,255,0.4);cursor:pointer;flex-shrink:0}
 .nav-links a.active{background:white;color:#01411C}
-.container{max-width:1200px;margin:0 auto;padding:10px}
+.container{max-width:1250px;margin:0 auto;padding:8px}
 .page{display:none}.page.active{display:block}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
 @media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
-.product{background:white;border-radius:13px;overflow:hidden;border:1px solid #e2e8f0;cursor:pointer}
-.product img{width:100%;height:165px;object-fit:contain;background:#fff;padding:8px}
-.info{padding:8px 10px}.brand{font-size:7px;background:#dcfce7;color:#01411C;padding:2px 5px;border-radius:6px;font-weight:800}
-.product h3{font-size:10.5px;font-weight:700;height:28px;overflow:hidden}.price{color:#01411C;font-weight:800;font-size:12px}
-.stock{font-size:8px;padding:2px 6px;border-radius:10px;display:inline-block}.instock{background:#dcfce7;color:#166534}.new{background:#dbeafe;color:#1e40af}
-.card{background:white;border-radius:14px;padding:14px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
-.btn{background:#01411C;color:white;text-align:center;padding:9px;border-radius:8px;font-size:12px;font-weight:700;display:block;border:none;width:100%;cursor:pointer}
-.footer-pro{background:#001a00;color:#a7f3d0;text-align:center;padding:20px 10px;margin-top:20px;font-size:11px;border-top:4px solid #16a34a}
+.product{background:white;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;cursor:pointer;position:relative}
+.product img{width:100%;height:155px;object-fit:contain;background:#fff;padding:6px}
+.info{padding:6px 8px}.brand{font-size:6.5px;background:#dcfce7;color:#01411C;padding:2px 4px;border-radius:5px;font-weight:800}
+.product h3{font-size:10px;font-weight:700;height:26px;overflow:hidden}.price{color:#01411C;font-weight:800;font-size:11px}
+.stock{font-size:7.5px;padding:2px 5px;border-radius:8px;display:inline-block}.instock{background:#dcfce7;color:#166534}.new{background:#dbeafe;color:#1e40af}.lowstock{background:#fef9c3;color:#854d0e}
+.compare-btn{position:absolute;top:5px;right:5px;background:#01411C;color:white;font-size:7px;padding:3px 6px;border-radius:10px;border:none;cursor:pointer;z-index:2}
+.card{background:white;border-radius:12px;padding:12px;margin-bottom:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05)}
+.btn{background:#01411C;color:white;text-align:center;padding:8px;border-radius:8px;font-size:11px;font-weight:700;display:block;border:none;width:100%;cursor:pointer;margin-top:5px}
+.input{width:100%;padding:9px 10px;border:1px solid #cbd5e1;border-radius:8px;margin:5px 0;font-size:12px}
+.ai-msg{background:#f1f5f9;padding:8px;border-radius:10px;margin:5px 0;font-size:11px}
+.ai-user{background:#dcfce7;margin-left:20px}
+.receipt{border:2px dashed #01411C;padding:15px;background:#fff;font-size:11px}
+.feedback-item{background:#f8fafc;padding:8px;border-radius:8px;margin-bottom:6px;border-left:3px solid #16a34a;font-size:11px}
+.footer-pro{background:#001a00;color:#a7f3d0;text-align:center;padding:18px 10px;margin-top:15px;font-size:10px;border-top:4px solid #16a34a}
 </style>
 </head>
 <body>
 
 <div class="header">
 <div class="nav">
-<div><b>Mobi-Hub</b><br><small style="font-size:7px">Shahzaib - Pattoki</small></div>
+<div><b>Mobi-Hub</b><br><small style="font-size:6px">Shahzaib Pattoki</small></div>
 <div class="nav-links">
-<a onclick="showPage('page1')" id="link-page1" class="active">✅ PAGE 1 - Your Models</a>
-<a onclick="showPage('page2')" id="link-page2">📱 Motorola / Pixel</a>
-<a onclick="showPage('page3')" id="link-page3">💎 Samsung Flip/Fold/S</a>
-<a onclick="showPage('page4')" id="link-page4">🍎 iPhone Pro Max</a>
-<a onclick="showPage('page5')" id="link-page5">🔥 X/Utra/Find Series</a>
-<a onclick="showPage('cart')" id="link-cart">🛒 Cart <span id="cartCount" style="background:red;color:white;font-size:9px;padding:1px 5px;border-radius:10px">0</span></a>
+<a onclick="showPage('page1')" id="link-page1" class="active">✅ PAGE1</a>
+<a onclick="showPage('ai')" id="link-ai">🤖 AI</a>
+<a onclick="showPage('demand')" id="link-demand">🔍 Demand</a>
+<a onclick="showPage('compare')" id="link-compare">⚖️ Compare <span id="compareCount" style="background:orange;padding:1px 4px;border-radius:8px">0</span></a>
+<a onclick="showPage('payment')" id="link-payment">💰 Payment</a>
+<a onclick="showPage('feedback')" id="link-feedback">⭐ Feedback</a>
+<a onclick="showPage('privacy')" id="link-privacy">🔒 Privacy</a>
+<a onclick="showPage('cart')" id="link-cart">🛒 Cart <span id="cartCount" style="background:red;padding:1px 4px;border-radius:8px">0</span></a>
+<a onclick="showPage('receiptPage')" id="link-receiptPage">🧾 Receipt</a>
 </div>
 </div>
 </div>
 
 <div class="container">
-<!-- PAGE 1: AAPKE KEHNE WALE MODELS -->
+<!-- PAGE 1 -->
 <div id="page1" class="page active">
-<div class="card"><h2>✅ PAGE 1 - Aapke Models (Pictures 100% Show)</h2><p style="font-size:11px;color:#666">Vivo V40, V40e, X100s, V50, V60 | Samsung A54 | Xiaomi 14T, 14T Pro | Nothing 3a, 3a Pro, 3, 2a Plus, 2a</p></div>
+<div class="card"><h2>✅ PAGE 1 - Your Models (Vivo V40/X100s, Samsung A54, Xiaomi 14T, Nothing)</h2></div>
 <div id="gridPage1" class="grid"></div>
+<div class="card"><h3>Other Latest Models</h3><p style="font-size:10px">Page 2-5: Motorola, Pixel, Samsung Flip/Fold/S, iPhone Pro Max, X/Ultra/Find - Niche AI se search karo</p></div>
+<div id="gridAll" class="grid"></div>
 </div>
 
-<!-- PAGE 2: MOTOROLA + GOOGLE PIXEL -->
-<div id="page2" class="page">
-<div class="card"><h2>📱 PAGE 2 - Motorola & Google Pixel Latest</h2></div>
-<div id="gridPage2" class="grid"></div>
+<!-- AI ASSISTANT -->
+<div id="ai" class="page">
+<div class="card">
+<h2>🤖 AI Assistant - Mobi-Hub Helper</h2>
+<p style="font-size:10px;color:#666">Likho: "gaming phone 1 lakh tak" ya "best camera phone" - AI dhoondega</p>
+<div id="aiChat" style="max-height:250px;overflow-y:auto;margin:8px 0"></div>
+<div style="display:flex;gap:5px"><input class="input" id="aiInput" placeholder="Sawal likho... e.g. 50000 me best phone?" style="flex:1"><button class="btn" style="width:70px" onclick="askAI()">Send</button></div>
+<div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:8px">
+<button class="btn" style="background:#e2e8f0;color:#111;font-size:9px;width:auto;padding:5px 8px" onclick="quickAI('gaming phone 1 lakh tak')">🎮 Gaming 1 Lakh</button>
+<button class="btn" style="background:#e2e8f0;color:#111;font-size:9px;width:auto;padding:5px 8px" onclick="quickAI('best camera phone')">📷 Best Camera</button>
+<button class="btn" style="background:#e2e8f0;color:#111;font-size:9px;width:auto;padding:5px 8px" onclick="quickAI('battery king 7000mah')">🔋 Battery King</button>
+<button class="btn" style="background:#e2e8f0;color:#111;font-size:9px;width:auto;padding:5px 8px" onclick="quickAI('Samsung flip')">💎 Flip Phone</button>
+</div>
+</div>
+<div id="aiResults" class="grid"></div>
 </div>
 
-<!-- PAGE 3: SAMSUNG FLIP/FOLD/S SERIES -->
-<div id="page3" class="page">
-<div class="card"><h2>💎 PAGE 3 - Samsung Flip, Fold, S Series</h2></div>
-<div id="gridPage3" class="grid"></div>
+<!-- DEMAND -->
+<div id="demand" class="page">
+<div class="card">
+<h2>🔍 Demand Page</h2>
+<input class="input" id="dName" placeholder="Apka Naam">
+<input class="input" id="dPhone" placeholder="WhatsApp Number (0321xxxxxxx)">
+<input class="input" id="dModel" placeholder="Kaunsa Mobile Chahiye? e.g. Pixel 9 Pro">
+<input class="input" id="dBudget" placeholder="Budget Kitna? e.g. 150000">
+<button class="btn" style="background:#16a34a" onclick="submitDemand()">📩 Demand Save Karo</button>
+<button class="btn" style="background:#25D366" onclick="submitDemandWhatsApp()">💬 WhatsApp Pe Bhejo (Owner ko)</button>
+</div>
+<div class="card"><h3>📋 Sari Demands</h3><div id="demandList"></div></div>
 </div>
 
-<!-- PAGE 4: iPHONE PRO / PRO MAX -->
-<div id="page4" class="page">
-<div class="card"><h2>🍎 PAGE 4 - iPhone Pro / Pro Max Models</h2></div>
-<div id="gridPage4" class="grid"></div>
+<!-- COMPARE -->
+<div id="compare" class="page">
+<div class="card">
+<h2>⚖️ Product Comparison (3 tak select karo)</h2>
+<p style="font-size:10px">Kisi bhi phone pe "Compare" dabao, phir yahan aake compare dekho</p>
+<button class="btn" style="background:#ef4444" onclick="clearCompare()">🗑️ Clear All</button>
+</div>
+<div id="compareTable"></div>
 </div>
 
-<!-- PAGE 5: VIVO X, XIAOMI ULTRA, OPPO FIND -->
-<div id="page5" class="page">
-<div class="card"><h2>🔥 PAGE 5 - Vivo X Series, Xiaomi Ultra, Oppo Find Series</h2></div>
-<div id="gridPage5" class="grid"></div>
+<!-- PAYMENT + CUSTOMER DETAILS -->
+<div id="payment" class="page">
+<div class="card">
+<h2>💰 Payment & Customer Details</h2>
+<p style="font-size:11px;line-height:1.6">
+✅ <b>COD:</b> Pattoki Free, Other City 300-500<br>
+✅ <b>JazzCash:</b> 03264492997 - SHAH ZAIB SHAFIQUE<br>
+✅ <b>Easypaisa:</b> 03126165602 - Shahzaib<br>
+✅ <b>Bank:</b> HBL 0123456789 - Mobi-Hub
+</p>
+</div>
+<div class="card">
+<h3>👤 Customer Details - Order ke liye lazmi</h3>
+<input class="input" id="custName" placeholder="Full Name *">
+<input class="input" id="custPhone" placeholder="Mobile / WhatsApp Number * (Jis pe raseed jayegi)">
+<input class="input" id="custCity" placeholder="City *">
+<input class="input" id="custAddress" placeholder="Full Address *">
+<select class="input" id="payMethod"><option>Cash on Delivery</option><option>JazzCash 03264492997</option><option>Easypaisa 03126165602</option><option>Bank Transfer</option></select>
+<button class="btn" style="background:#01411C" onclick="showPage('cart')">🛒 Cart Dekho</button>
+</div>
+</div>
+
+<!-- FEEDBACK -->
+<div id="feedback" class="page">
+<div class="card">
+<h2>⭐ Customer Feedback</h2>
+<input class="input" id="fName" placeholder="Apka Naam">
+<select class="input" id="fRating"><option value="5">⭐⭐⭐⭐⭐ 5 Star - Best</option><option value="4">⭐⭐⭐⭐ 4 Star</option><option value="3">⭐⭐⭐ 3 Star</option><option value="2">⭐⭐ 2 Star</option><option value="1">⭐ 1 Star</option></select>
+<textarea class="input" id="fComment" placeholder="Apna tajurba likho... e.g. Service achi thi, phone original tha" rows="3"></textarea>
+<button class="btn" onclick="submitFeedback()">✅ Feedback Bhejo</button>
+</div>
+<div class="card"><h3>💬 Sab Customers ke Feedbacks</h3><div id="feedbackList"></div></div>
+</div>
+
+<!-- PRIVACY POLICY -->
+<div id="privacy" class="page">
+<div class="card">
+<h2>🔒 Privacy Policy - Mobi-Hub</h2>
+<div style="font-size:11px;line-height:1.8">
+<p><b>1. Data Collection:</b> Hum sirf Name, Phone, City, Address lete hain order ke liye.</p>
+<p><b>2. WhatsApp:</b> Aapka number sirf order confirmation aur raseed bhejne ke liye use hota hai, kisi ko share nahi karte.</p>
+<p><b>3. Payment:</b> JazzCash/Easypaisa details safe hain, hum card details save nahi karte.</p>
+<p><b>4. PTA Approved:</b> Sab phones PTA Approved hain, 7 days checking warranty.</p>
+<p><b>5. COD:</b> Pattoki me Free Delivery, other cities me 300-500 charges.</p>
+<p><b>6. Return:</b> Box open hone ke baad return nahi, sirf manufacturing fault pe 7 din me replacement.</p>
+<p><b>7. Contact:</b> 0312-6165602 - Shahzaib Shafiq - Pattoki Mobile Market</p>
+<p style="margin-top:10px;color:#01411C;font-weight:700">Aapki privacy hamare liye aham hai - Koi data sale nahi karte.</p>
+</div>
+</div>
+</div>
+
+<!-- CART -->
+<div id="cart" class="page">
+<div class="card"><h2>🛒 Your Cart</h2><div id="cartItems"></div><div id="cartTotal" style="font-weight:800;color:#01411C;margin-top:8px"></div></div>
+<div class="card">
+<h3>🧾 Order Confirmation & Raseed</h3>
+<p style="font-size:10px;color:#666">Neeche button dabao, raseed banegi aur direct customer ke WhatsApp pe chali jayegi</p>
+<button class="btn" style="background:#16a34a" onclick="generateReceipt()">✅ Confirm Order & Generate Raseed</button>
+</div>
+</div>
+
+<!-- RECEIPT PAGE -->
+<div id="receiptPage" class="page">
+<div class="card"><h2>🧾 Latest Receipt / Raseed</h2><div id="receiptContent">Koi receipt nahi bani abhi - Cart se Confirm karo</div></div>
 </div>
 
 <div id="detail" class="page"><a class="btn" style="background:#e2e8f0;color:#111;max-width:120px;margin-bottom:10px" onclick="showPage('page1')">← Back</a><div id="detailContent"></div></div>
-<div id="cart" class="page"><div class="card"><h2>🛒 Your Cart</h2><div id="cartItems"></div><div id="cartTotal" style="font-weight:800;color:#01411C"></div></div>
-<div class="card"><input id="custName" placeholder="Full Name" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;margin:5px 0"><input id="custPhone" placeholder="Mobile" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;margin:5px 0"><a class="btn" style="background:#25D366" onclick="checkoutWhatsApp()">✅ Order via WhatsApp 0312-6165602</a></div></div>
 </div>
 
-<div class="footer-pro"><b style="color:white">Mobi-Hub © 2026 - Shahzaib Shafiq - All Pages Added</b><br>0312-6165602 | Pattoki</div>
+<div class="footer-pro"><b style="color:white">Mobi-Hub © 2026 - Shahzaib Shafiq</b><br>AI Assistant | Comparison | Feedback | Privacy | Receipt WhatsApp | 0312-6165602</div>
 
 <script>
-const page1=[
-{id:101,name:"Vivo V40 12/256",brand:"VIVO",price:129999,stock:"In Stock",ram:"12GB/256GB",chip:"SD 7 Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v40.jpg"},
-{id:102,name:"Vivo V40e 8/256",brand:"VIVO",price:89999,stock:"In Stock",ram:"8GB/256GB",chip:"Dimensity 7300",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v40e.jpg"},
-{id:103,name:"Vivo X100s 12/256",brand:"VIVO",price:159999,stock:"In Stock",ram:"12GB/256GB",chip:"Dimensity 9300+",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-x100s.jpg"},
-{id:104,name:"Vivo V50 12/256",brand:"VIVO",price:139999,stock:"In Stock",ram:"12GB/256GB",chip:"SD 7 Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v50.jpg"},
-{id:105,name:"Vivo V60 12/256",brand:"VIVO",price:134999,stock:"In Stock",ram:"12GB/256GB",chip:"SD 7 Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v60.jpg"},
-{id:106,name:"Samsung Galaxy A54",brand:"SAMSUNG",price:84999,stock:"In Stock",ram:"8GB/256GB",chip:"Exynos 1380",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a54.jpg"},
-{id:107,name:"Xiaomi 14T 12/512",brand:"XIAOMI",price:139999,stock:"In Stock",ram:"12GB/512GB",chip:"Dimensity 8300 Ultra",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14t.jpg"},
-{id:108,name:"Xiaomi 14T Pro 12/512",brand:"XIAOMI",price:174999,stock:"In Stock",ram:"12GB/512GB",chip:"Dimensity 9300+",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14t-pro.jpg"},
-{id:109,name:"Nothing Phone 3a",brand:"NOTHING",price:114999,stock:"In Stock",ram:"8GB/128GB",chip:"SD 7s Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-3a.jpg"},
-{id:110,name:"Nothing Phone 3a Pro",brand:"NOTHING",price:139999,stock:"In Stock",ram:"12GB/256GB",chip:"SD 7s Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-3a-pro.jpg"},
-{id:111,name:"Nothing Phone 3",brand:"NOTHING",price:179999,stock:"Pre Order",ram:"12GB/256GB",chip:"SD 8 Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-3.jpg"},
-{id:112,name:"Nothing Phone 2a Plus",brand:"NOTHING",price:94999,stock:"In Stock",ram:"12GB/256GB",chip:"Dimensity 7350 Pro",img:"https://fdn2.gsmarena.com/vv/bigpic/nothing-phone2a-plus.jpg"},
-{id:113,name:"Nothing Phone 2a",brand:"NOTHING",price:84999,stock:"In Stock",ram:"8GB/128GB",chip:"Dimensity 7200 Pro",img:"https://fdn2.gsmarena.com/vv/bigpic/nothing-phone2a.jpg"},
+const products=[
+{id:101,name:"Vivo V40 12/256",brand:"VIVO",price:129999,stock:"In Stock",ram:"12GB/256GB",chip:"SD 7 Gen 3",battery:"5500mAh",camera:"50MP Zeiss",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v40.jpg"},
+{id:102,name:"Vivo V40e 8/256",brand:"VIVO",price:89999,stock:"In Stock",ram:"8GB/256GB",chip:"Dimensity 7300",battery:"5500mAh",camera:"50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v40e.jpg"},
+{id:103,name:"Vivo X100s 12/256",brand:"VIVO",price:159999,stock:"In Stock",ram:"12GB/256GB",chip:"Dimensity 9300+",battery:"5100mAh",camera:"50MP Zeiss",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-x100s.jpg"},
+{id:104,name:"Vivo V50 12/256",brand:"VIVO",price:139999,stock:"In Stock",ram:"12GB/256GB",chip:"SD 7 Gen 3",battery:"6000mAh",camera:"50MP Zeiss",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v50.jpg"},
+{id:105,name:"Vivo V60 12/256",brand:"VIVO",price:134999,stock:"In Stock",ram:"12GB/256GB",chip:"SD 7 Gen 3",battery:"5500mAh",camera:"50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v60.jpg"},
+{id:106,name:"Samsung A54 8/256",brand:"SAMSUNG",price:84999,stock:"In Stock",ram:"8GB/256GB",chip:"Exynos 1380",battery:"5000mAh",camera:"50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a54.jpg"},
+{id:107,name:"Xiaomi 14T 12/512",brand:"XIAOMI",price:139999,stock:"In Stock",ram:"12GB/512GB",chip:"Dimensity 8300 Ultra",battery:"5000mAh",camera:"50MP Leica",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14t.jpg"},
+{id:108,name:"Xiaomi 14T Pro 12/512",brand:"XIAOMI",price:174999,stock:"In Stock",ram:"12GB/512GB",chip:"Dimensity 9300+",battery:"5000mAh",camera:"50MP Leica",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14t-pro.jpg"},
+{id:109,name:"Nothing Phone 3a 8/128",brand:"NOTHING",price:114999,stock:"In Stock",ram:"8GB/128GB",chip:"SD 7s Gen 3",battery:"5000mAh",camera:"50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-3a.jpg"},
+{id:110,name:"Nothing 3a Pro 12/256",brand:"NOTHING",price:139999,stock:"In Stock",ram:"12GB/256GB",chip:"SD 7s Gen 3",battery:"5000mAh",camera:"50MP Periscope",img:"https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-3a-pro.jpg"},
+{id:111,name:"Nothing Phone 3 12/256",brand:"NOTHING",price:179999,stock:"Pre Order",ram:"12GB/256GB",chip:"SD 8 Gen 3",battery:"5000mAh",camera:"50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-3.jpg"},
+{id:112,name:"Nothing 2a Plus 12/256",brand:"NOTHING",price:94999,stock:"In Stock",ram:"12GB/256GB",chip:"Dimensity 7350 Pro",battery:"5000mAh",camera:"50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/nothing-phone2a-plus.jpg"},
+{id:113,name:"Nothing 2a 8/128",brand:"NOTHING",price:84999,stock:"In Stock",ram:"8GB/128GB",chip:"Dimensity 7200 Pro",battery:"5000mAh",camera:"50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/nothing-phone2a.jpg"},
+{id:201,name:"Motorola Edge 50 Ultra",brand:"MOTOROLA",price:189999,stock:"New",ram:"12GB/512GB",chip:"SD 8s Gen 3",battery:"4500mAh",camera:"50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-50-ultra.jpg"},
+{id:202,name:"Google Pixel 9 Pro",brand:"GOOGLE",price:264999,stock:"New",ram:"12GB/512GB",chip:"Tensor G4",battery:"5050mAh",camera:"50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9-pro.jpg"},
+{id:301,name:"Samsung Z Flip 6",brand:"SAMSUNG",price:234999,stock:"New",ram:"12GB/512GB",chip:"SD 8 Gen 3",battery:"4000mAh",camera:"50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip6.jpg"},
+{id:302,name:"Samsung S24 Ultra",brand:"SAMSUNG",price:274999,stock:"In Stock",ram:"12GB/512GB",chip:"SD 8 Gen 3",battery:"5000mAh",camera:"200MP",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g.jpg"},
+{id:401,name:"iPhone 15 Pro Max 256GB",brand:"APPLE",price:294999,stock:"In Stock",ram:"8GB/256GB",chip:"A17 Pro",battery:"4422mAh",camera:"48MP",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg"},
+{id:402,name:"iPhone 16 Pro Max 512GB",brand:"APPLE",price:389999,stock:"New",ram:"8GB/512GB",chip:"A18 Pro",battery:"4685mAh",camera:"48MP",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro-max.jpg"},
+{id:501,name:"Vivo X100 Ultra",brand:"VIVO",price:249999,stock:"New",ram:"16GB/512GB",chip:"SD 8 Gen 3",battery:"5500mAh",camera:"200MP Zeiss",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-x100-ultra.jpg"},
+{id:502,name:"Xiaomi 14 Ultra",brand:"XIAOMI",price:264999,stock:"In Stock",ram:"16GB/512GB",chip:"SD 8 Gen 3",battery:"5300mAh",camera:"50MP Leica",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-ultra.jpg"},
+{id:503,name:"Oppo Find X7 Ultra",brand:"OPPO",price:259999,stock:"New",ram:"16GB/512GB",chip:"SD 8 Gen 3",battery:"5000mAh",camera:"50MP Hasselblad",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x7-ultra.jpg"},
 ];
 
-const page2=[
-{id:201,name:"Motorola Edge 50 Ultra 12/512",brand:"MOTOROLA",price:189999,stock:"New",ram:"12GB/512GB",chip:"SD 8s Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-50-ultra.jpg"},
-{id:202,name:"Motorola Edge 50 Pro 12/256",brand:"MOTOROLA",price:119999,stock:"In Stock",ram:"12GB/256GB",chip:"SD 7 Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-50-pro.jpg"},
-{id:203,name:"Motorola Moto G84 12/256",brand:"MOTOROLA",price:64999,stock:"In Stock",ram:"12GB/256GB",chip:"SD 695",img:"https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g84.jpg"},
-{id:204,name:"Motorola Razr 50 Ultra Flip",brand:"MOTOROLA",price:234999,stock:"New",ram:"12GB/512GB",chip:"SD 8s Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/motorola-razr-50-ultra.jpg"},
-{id:205,name:"Google Pixel 8 Pro 12/256",brand:"GOOGLE",price:199999,stock:"In Stock",ram:"12GB/256GB",chip:"Tensor G3",img:"https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8-pro.jpg"},
-{id:206,name:"Google Pixel 9 12/256",brand:"GOOGLE",price:214999,stock:"New",ram:"12GB/256GB",chip:"Tensor G4",img:"https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9.jpg"},
-{id:207,name:"Google Pixel 9 Pro 12/512",brand:"GOOGLE",price:264999,stock:"New",ram:"12GB/512GB",chip:"Tensor G4",img:"https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9-pro.jpg"},
-{id:208,name:"Google Pixel 9 Pro Fold",brand:"GOOGLE",price:354999,stock:"Pre Order",ram:"16GB/512GB",chip:"Tensor G4",img:"https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9-pro-fold.jpg"},
-];
-
-const page3=[
-{id:301,name:"Samsung Z Flip 5 8/512",brand:"SAMSUNG",price:194999,stock:"In Stock",ram:"8GB/512GB",chip:"SD 8 Gen 2",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip5.jpg"},
-{id:302,name:"Samsung Z Flip 6 12/512",brand:"SAMSUNG",price:234999,stock:"New",ram:"12GB/512GB",chip:"SD 8 Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip6.jpg"},
-{id:303,name:"Samsung Z Fold 5 12/512",brand:"SAMSUNG",price:344999,stock:"In Stock",ram:"12GB/512GB",chip:"SD 8 Gen 2",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold5.jpg"},
-{id:304,name:"Samsung Z Fold 6 12/512",brand:"SAMSUNG",price:384999,stock:"New",ram:"12GB/512GB",chip:"SD 8 Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold6.jpg"},
-{id:305,name:"Samsung S23 Ultra 12/512",brand:"SAMSUNG",price:224999,stock:"In Stock",ram:"12GB/512GB",chip:"SD 8 Gen 2",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-ultra-5g.jpg"},
-{id:306,name:"Samsung S24 Ultra 12/512",brand:"SAMSUNG",price:274999,stock:"In Stock",ram:"12GB/512GB",chip:"SD 8 Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g.jpg"},
-{id:307,name:"Samsung S25 Ultra 12/512",brand:"SAMSUNG",price:324999,stock:"Pre Order",ram:"12GB/512GB",chip:"SD 8 Elite",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s25-ultra.jpg"},
-{id:308,name:"Samsung S24 8/256",brand:"SAMSUNG",price:184999,stock:"In Stock",ram:"8GB/256GB",chip:"Exynos 2400",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-5g.jpg"},
-];
-
-const page4=[
-{id:401,name:"iPhone 13 Pro Max 256GB",brand:"APPLE",price:189999,stock:"In Stock",ram:"6GB/256GB",chip:"A15 Bionic",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg"},
-{id:402,name:"iPhone 14 Pro Max 256GB",brand:"APPLE",price:234999,stock:"In Stock",ram:"6GB/256GB",chip:"A16 Bionic",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-pro-max.jpg"},
-{id:403,name:"iPhone 15 Pro 256GB",brand:"APPLE",price:264999,stock:"In Stock",ram:"8GB/256GB",chip:"A17 Pro",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro.jpg"},
-{id:404,name:"iPhone 15 Pro Max 256GB",brand:"APPLE",price:294999,stock:"In Stock",ram:"8GB/256GB",chip:"A17 Pro",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg"},
-{id:405,name:"iPhone 16 Pro 256GB",brand:"APPLE",price:324999,stock:"New",ram:"8GB/256GB",chip:"A18 Pro",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro.jpg"},
-{id:406,name:"iPhone 16 Pro Max 512GB",brand:"APPLE",price:389999,stock:"New",ram:"8GB/512GB",chip:"A18 Pro",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro-max.jpg"},
-{id:407,name:"iPhone 15 Plus 128GB",brand:"APPLE",price:194999,stock:"In Stock",ram:"6GB/128GB",chip:"A16",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-plus.jpg"},
-{id:408,name:"iPhone 16 Plus 128GB",brand:"APPLE",price:224999,stock:"New",ram:"8GB/128GB",chip:"A18",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-plus.jpg"},
-];
-
-const page5=[
-{id:501,name:"Vivo X100 Pro 16/512",brand:"VIVO",price:199999,stock:"In Stock",ram:"16GB/512GB",chip:"Dimensity 9300",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-x100-pro.jpg"},
-{id:502,name:"Vivo X100 Ultra 16/512",brand:"VIVO",price:249999,stock:"New",ram:"16GB/512GB",chip:"SD 8 Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-x100-ultra.jpg"},
-{id:503,name:"Vivo X200 Pro 16/512",brand:"VIVO",price:279999,stock:"Pre Order",ram:"16GB/512GB",chip:"Dimensity 9400",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-x200-pro.jpg"},
-{id:504,name:"Xiaomi 13 Ultra 12/512",brand:"XIAOMI",price:189999,stock:"In Stock",ram:"12GB/512GB",chip:"SD 8 Gen 2",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-13-ultra.jpg"},
-{id:505,name:"Xiaomi 14 Ultra 16/512",brand:"XIAOMI",price:264999,stock:"In Stock",ram:"16GB/512GB",chip:"SD 8 Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-ultra.jpg"},
-{id:506,name:"Xiaomi 14 Civi 12/512",brand:"XIAOMI",price:149999,stock:"New",ram:"12GB/512GB",chip:"SD 8s Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-civi.jpg"},
-{id:507,name:"Oppo Find X7 Ultra 16/512",brand:"OPPO",price:259999,stock:"New",ram:"16GB/512GB",chip:"SD 8 Gen 3",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x7-ultra.jpg"},
-{id:508,name:"Oppo Find X8 Pro 16/512",brand:"OPPO",price:289999,stock:"Pre Order",ram:"16GB/512GB",chip:"Dimensity 9400",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x8-pro.jpg"},
-{id:509,name:"Oppo Find N3 Flip",brand:"OPPO",price:194999,stock:"In Stock",ram:"12GB/256GB",chip:"Dimensity 9200",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-find-n3-flip.jpg"},
-{id:510,name:"Oppo Find N3 Fold",brand:"OPPO",price:344999,stock:"New",ram:"16GB/512GB",chip:"SD 8 Gen 2",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-find-n3.jpg"},
-];
-
-let allProducts=[...page1,...page2,...page3,...page4,...page5];
 let cart=JSON.parse(localStorage.getItem('mobi_cart')||'[]');
+let demands=JSON.parse(localStorage.getItem('mobi_demands')||'[]');
+let feedbacks=JSON.parse(localStorage.getItem('mobi_feedbacks')||'[]');
+let compareList=JSON.parse(localStorage.getItem('mobi_compare')||'[]');
+let lastReceipt=JSON.parse(localStorage.getItem('mobi_last_receipt')||'null');
 
-function renderPage(id, list){
-  document.getElementById('grid'+id).innerHTML=list.map(p=>`
-    <div class="product" onclick="openDetail(${p.id})">
-      <img src="${p.img}" loading="lazy" onerror="this.src='https://via.placeholder.com/300?text=${encodeURIComponent(p.name)}'">
-      <div class="info"><span class="brand">${p.brand}</span><h3>${p.name}</h3><div class="price">Rs.${p.price.toLocaleString()}</div><span class="stock ${p.stock.includes('Pre')?'lowstock':p.stock=='New'?'new':'instock'}">${p.stock}</span></div>
-    </div>`).join('');
+function renderAll(){
+  document.getElementById('gridPage1').innerHTML=products.slice(0,13).map(p=>cardHTML(p)).join('');
+  document.getElementById('gridAll').innerHTML=products.slice(13).map(p=>cardHTML(p)).join('');
+  updateCounts();
+  renderDemands(); renderFeedbacks(); renderCompare(); if(lastReceipt) showReceipt(lastReceipt);
 }
-function renderAll(){renderPage('Page1',page1);renderPage('Page2',page2);renderPage('Page3',page3);renderPage('Page4',page4);renderPage('Page5',page5);updateCartCount();}
-function openDetail(id){let p=allProducts.find(x=>x.id==id);document.getElementById('detailContent').innerHTML=`<div class="card"><img src="${p.img}" style="width:100%;max-height:350px;object-fit:contain"><h2>${p.name}</h2><div style="font-size:20px;font-weight:800;color:#01411C">Rs.${p.price.toLocaleString()}</div><p style="font-size:12px">${p.ram} | ${p.chip} | ${p.brand}<br>Stock: ${p.stock}</p><button class="btn" onclick="addToCart(${p.id})">🛒 Add to Cart</button><button class="btn" style="background:#25D366;margin-top:6px" onclick="addToCart(${p.id});showPage('cart')">⚡ Buy Now</button></div>`;showPage('detail');}
-function addToCart(id){let p=allProducts.find(x=>x.id==id);let e=cart.find(x=>x.id==id);if(e){e.qty++}else{cart.push({...p,qty:1})}localStorage.setItem('mobi_cart',JSON.stringify(cart));updateCartCount();alert(p.name+" added!");}
-function renderCart(){let c=document.getElementById('cartItems');if(cart.length==0){c.innerHTML='<p>Cart empty</p>';document.getElementById('cartTotal').innerText='';return;}c.innerHTML=cart.map((x,i)=>`<div style="display:flex;gap:10px;background:#f8fafc;padding:8px;border-radius:10px;margin-bottom:6px"><div style="flex:1"><b style="font-size:11px">${x.name}</b><br>Rs.${x.price.toLocaleString()} x ${x.qty}</div><button onclick="changeQty(${i},1)">+</button><button onclick="changeQty(${i},-1)">-</button></div>`).join('');let t=cart.reduce((s,c)=>s+c.price*c.qty,0);document.getElementById('cartTotal').innerText='Total: Rs.'+t.toLocaleString();}
-function changeQty(i,d){cart[i].qty+=d;if(cart[i].qty<=0)cart.splice(i,1);localStorage.setItem('mobi_cart',JSON.stringify(cart));renderCart();updateCartCount();}
-function updateCartCount(){document.getElementById('cartCount').innerText=cart.reduce((s,c)=>s+c.qty,0);}
-function checkoutWhatsApp(){let n=document.getElementById('custName').value;let p=document.getElementById('custPhone').value;if(!n||!p){alert('Name Phone lazmi');return;}let items=cart.map(c=>`${c.name} x${c.qty}`).join(', ');let total=cart.reduce((s,c)=>s+c.price*c.qty,0);let msg=`NEW ORDER Mobi-Hub%0AName: ${n}%0APhone: ${p}%0AItems: ${items}%0ATotal: Rs.${total}`;window.open(`https://wa.me/923126165602?text=${msg}`,'_blank');}
-function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));let l=document.getElementById('link-'+id);if(l)l.classList.add('active');if(id=='cart')renderCart();}
+function cardHTML(p){
+  return `<div class="product"><button class="compare-btn" onclick="event.stopPropagation();addToCompare(${p.id})">⚖️ Compare</button><div onclick="openDetail(${p.id})"><img src="${p.img}" onerror="this.src='https://via.placeholder.com/300?text=${encodeURIComponent(p.name)}'"><div class="info"><span class="brand">${p.brand}</span><h3>${p.name}</h3><div class="price">Rs.${p.price.toLocaleString()}</div><span class="stock ${p.stock.includes('Pre')?'lowstock':p.stock=='New'?'new':'instock'}">${p.stock}</span></div></div></div>`;
+}
+function openDetail(id){let p=products.find(x=>x.id==id);document.getElementById('detailContent').innerHTML=`<div class="card"><img src="${p.img}" style="width:100%;max-height:350px;object-fit:contain"><h2>${p.name}</h2><div style="font-size:20px;font-weight:800;color:#01411C">Rs.${p.price.toLocaleString()}</div><p style="font-size:11px">RAM: ${p.ram}<br>Chip: ${p.chip}<br>Battery: ${p.battery}<br>Camera: ${p.camera}<br>Stock: ${p.stock}</p><button class="btn" onclick="addToCart(${p.id})">🛒 Add to Cart</button><button class="btn" style="background:#16a34a" onclick="addToCompare(${p.id})">⚖️ Add to Compare</button><button class="btn" style="background:#25D366;margin-top:6px" onclick="addToCart(${p.id});showPage('cart')">⚡ Buy Now</button></div>`;showPage('detail');}
+function addToCart(id){let p=products.find(x=>x.id==id);let e=cart.find(x=>x.id==id);if(e){e.qty++}else{cart.push({...p,qty:1})}localStorage.setItem('mobi_cart',JSON.stringify(cart));updateCounts();alert(p.name+" added!");}
+function renderCart(){let c=document.getElementById('cartItems');if(cart.length==0){c.innerHTML='<p>Cart empty - Pehle phone add karo</p>';document.getElementById('cartTotal').innerText='';return;}c.innerHTML=cart.map((x,i)=>`<div style="display:flex;gap:10px;background:#f8fafc;padding:8px;border-radius:10px;margin-bottom:6px"><div style="flex:1"><b style="font-size:11px">${x.name}</b><br>Rs.${x.price.toLocaleString()} x ${x.qty}</div><button onclick="changeQty(${i},1)">+</button><button onclick="changeQty(${i},-1)">-</button></div>`).join('');let t=cart.reduce((s,c)=>s+c.price*c.qty,0);document.getElementById('cartTotal').innerText='Total: Rs.'+t.toLocaleString()+' + Delivery';}
+function changeQty(i,d){cart[i].qty+=d;if(cart[i].qty<=0)cart.splice(i,1);localStorage.setItem('mobi_cart',JSON.stringify(cart));renderCart();updateCounts();}
+function updateCounts(){document.getElementById('cartCount').innerText=cart.reduce((s,c)=>s+c.qty,0);document.getElementById('compareCount').innerText=compareList.length;document.getElementById('demandCount')?document.getElementById('demandCount').innerText=demands.length:0;}
+
+// AI ASSISTANT
+function askAI(){let q=document.getElementById('aiInput').value.trim();if(!q)return;quickAI(q);}
+function quickAI(q){
+  document.getElementById('aiInput').value=q;
+  let chat=document.getElementById('aiChat');
+  chat.innerHTML+=`<div class="ai-msg ai-user">👤 You: ${q}</div>`;
+  let lower=q.toLowerCase();
+  let results=[];
+  if(lower.includes('gaming')) results=products.filter(p=> p.name.toLowerCase().includes('gt') || p.chip.includes('8 Gen') || p.chip.includes('9300'));
+  else if(lower.includes('camera')) results=products.filter(p=> p.camera.includes('200MP') || p.camera.includes('Leica') || p.camera.includes('Zeiss') || p.camera.includes('Hasselblad'));
+  else if(lower.includes('battery')) results=products.filter(p=> parseInt(p.battery)>=5500);
+  else if(lower.includes('flip')||lower.includes('fold')) results=products.filter(p=> p.name.toLowerCase().includes('flip')||p.name.toLowerCase().includes('fold'));
+  else if(lower.includes('samsung')) results=products.filter(p=> p.brand=='SAMSUNG');
+  else if(lower.includes('iphone')||lower.includes('apple')) results=products.filter(p=> p.brand=='APPLE');
+  else if(lower.includes('vivo')) results=products.filter(p=> p.brand=='VIVO');
+  else if(lower.includes('xiaomi')||lower.includes('redmi')||lower.includes('poco')) results=products.filter(p=> ['XIAOMI','REDMI','POCO'].includes(p.brand));
+  else if(lower.includes('nothing')) results=products.filter(p=> p.brand=='NOTHING');
+  else {
+    let priceMatch=q.match(/(\d+)\s*k|lakh|hazar/);
+    let budget=100000;
+    if(lower.includes('50')) budget=50000;
+    if(lower.includes('1 lakh')||lower.includes('100')) budget=100000;
+    if(lower.includes('1.5')||lower.includes('150')) budget=150000;
+    if(lower.includes('2 lakh')||lower.includes('200')) budget=200000;
+    results=products.filter(p=> p.price<=budget+20000 && p.price>=budget-30000);
+  }
+  if(results.length==0) results=products.slice(0,4);
+  chat.innerHTML+=`<div class="ai-msg">🤖 AI: ${results.length} phones mile! "${q}" ke liye best ye hain:</div>`;
+  chat.scrollTop=chat.scrollHeight;
+  document.getElementById('aiResults').innerHTML=results.map(p=>cardHTML(p)).join('');
+}
+function clearCompare(){compareList=[];localStorage.setItem('mobi_compare',JSON.stringify(compareList));renderCompare();updateCounts();}
+function addToCompare(id){if(compareList.length>=3){alert('Max 3 phones compare kar sakte ho - Pehle clear karo');return;}if(compareList.find(x=>x==id)){alert('Already added');return;}compareList.push(id);localStorage.setItem('mobi_compare',JSON.stringify(compareList));updateCounts();alert('Compare me add ho gaya! Compare page dekho');}
+function renderCompare(){
+  let table=document.getElementById('compareTable');
+  if(compareList.length==0){table.innerHTML='<div class="card"><p>Koi phone select nahi - Kisi phone pe "Compare" dabao</p></div>';return;}
+  let comps=compareList.map(id=> products.find(p=>p.id==id));
+  table.innerHTML=`<div class="card" style="overflow-x:auto"><table style="width:100%;font-size:10px;border-collapse:collapse"><tr><th style="text-align:left;padding:6px">Feature</th>${comps.map(p=>`<th><img src="${p.img}" style="width:60px;height:60px;object-fit:contain"><br>${p.name}</th>`).join('')}</tr>
+  <tr><td style="padding:6px;border-top:1px solid #eee">Price</td>${comps.map(p=>`<td style="padding:6px;border-top:1px solid #eee">Rs.${p.price.toLocaleString()}</td>`).join('')}</tr>
+  <tr><td style="padding:6px;border-top:1px solid #eee">RAM/Storage</td>${comps.map(p=>`<td style="padding:6px;border-top:1px solid #eee">${p.ram}</td>`).join('')}</tr>
+  <tr><td style="padding:6px;border-top:1px solid #eee">Chip</td>${comps.map(p=>`<td style="padding:6px;border-top:1px solid #eee">${p.chip}</td>`).join('')}</tr>
+  <tr><td style="padding:6px;border-top:1px solid #eee">Battery</td>${comps.map(p=>`<td style="padding:6px;border-top:1px solid #eee">${p.battery}</td>`).join('')}</tr>
+  <tr><td style="padding:6px;border-top:1px solid #eee">Camera</td>${comps.map(p=>`<td style="padding:6px;border-top:1px solid #eee">${p.camera}</td>`).join('')}</tr>
+  <tr><td style="padding:6px;border-top:1px solid #eee">Brand</td>${comps.map(p=>`<td style="padding:6px;border-top:1px solid #eee">${p.brand}</td>`).join('')}</tr>
+  </table></div>`;
+}
+
+// DEMAND, FEEDBACK
+function submitDemand(){let name=document.getElementById('dName').value.trim();let phone=document.getElementById('dPhone').value.trim();let model=document.getElementById('dModel').value.trim();let budget=document.getElementById('dBudget').value.trim();if(!name||!phone||!model){alert('Naam, Phone, Model lazmi');return;}let obj={id:Date.now(),name,phone,model,budget,date:new Date().toLocaleString()};demands.push(obj);localStorage.setItem('mobi_demands',JSON.stringify(demands));alert('Demand Save Ho Gayi!');renderDemands();}
+function submitDemandWhatsApp(){let name=document.getElementById('dName').value;let phone=document.getElementById('dPhone').value;let model=document.getElementById('dModel').value;let budget=document.getElementById('dBudget').value;if(!model){alert('Model likho');return;}let msg=`DEMAND Mobi-Hub%0AName: ${name}%0APhone: ${phone}%0AModel: ${model}%0ABudget: ${budget}`;submitDemand();window.open(`https://wa.me/923126165602?text=${msg}`,'_blank');}
+function renderDemands(){let list=document.getElementById('demandList');if(!list)return;if(demands.length==0){list.innerHTML='<p style="font-size:11px">Koi demand nahi</p>';return;}list.innerHTML=demands.slice().reverse().map(d=>`<div style="background:#f8fafc;padding:8px;border-radius:8px;margin-bottom:6px;border-left:3px solid #01411C;font-size:11px"><b>${d.name}</b> - ${d.phone}<br>Model: <b>${d.model}</b> | Budget: ${d.budget}<br><small>${d.date}</small></div>`).join('');}
+function submitFeedback(){let name=document.getElementById('fName').value.trim();let rating=document.getElementById('fRating').value;let comment=document.getElementById('fComment').value.trim();if(!name||!comment){alert('Naam aur comment likho');return;}let obj={id:Date.now(),name,rating,comment,date:new Date().toLocaleDateString()};feedbacks.push(obj);localStorage.setItem('mobi_feedbacks',JSON.stringify(feedbacks));document.getElementById('fName').value='';document.getElementById('fComment').value='';renderFeedbacks();alert('Shukria! Feedback save ho gaya');}
+function renderFeedbacks(){let list=document.getElementById('feedbackList');if(!list)return;if(feedbacks.length==0){list.innerHTML='<p style="font-size:11px">Abhi koi feedback nahi - Pehla feedback aap do!</p>';return;}list.innerHTML=feedbacks.slice().reverse().map(f=>`<div class="feedback-item"><b>${f.name}</b> - ${'⭐'.repeat(f.rating)} (${f.rating}/5)<br>${f.comment}<br><small>${f.date}</small></div>`).join('');}
+
+// RECEIPT GENERATION + DIRECT WHATSAPP TO CUSTOMER
+function generateReceipt(){
+  let name=document.getElementById('custName').value.trim();
+  let phone=document.getElementById('custPhone').value.trim();
+  let city=document.getElementById('custCity').value.trim();
+  let address=document.getElementById('custAddress').value.trim();
+  let payMethod=document.getElementById('payMethod').value;
+  if(!name||!phone||!city||!address){alert('Customer Details me Name, Phone, City, Address lazmi bharo (Payment page me)');showPage('payment');return;}
+  if(cart.length==0){alert('Cart empty hai');return;}
+  let orderId='MOBI-'+Date.now().toString().slice(-6);
+  let date=new Date().toLocaleString();
+  let total=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  let delivery=city.toLowerCase().includes('pattoki')?0:400;
+  let grandTotal=total+delivery;
+  let itemsText=cart.map(c=>`${c.name} x${c.qty} = Rs.${(c.price*c.qty).toLocaleString()}`).join('\\n');
+  
+  let receiptData={orderId,date,name,phone,city,address,payMethod,items:cart,total,delivery,grandTotal};
+  localStorage.setItem('mobi_last_receipt',JSON.stringify(receiptData));
+  
+  // WhatsApp message jo direct CUSTOMER ke number pe jayega
+  let customerMsg=`🧾 *Mobi-Hub Raseed - ${orderId}*%0A%0A`+
+  `*Customer:* ${name}%0A`+
+  `*Phone:* ${phone}%0A`+
+  `*City:* ${city}%0A`+
+  `*Address:* ${address}%0A`+
+  `*Date:* ${date}%0A`+
+  `*Payment:* ${payMethod}%0A%0A`+
+  `*Order Details:*%0A${cart.map(c=>`- ${c.name} x${c.qty} = Rs.${(c.price*c.qty).toLocaleString()}`).join('%0A')}%0A%0A`+
+  `*Subtotal:* Rs.${total.toLocaleString()}%0A`+
+  `*Delivery:* Rs.${delivery}%0A`+
+  `*Grand Total:* Rs.${grandTotal.toLocaleString()}%0A%0A`+
+  `✅ *Order Confirmed!*%0A`+
+  `📦 24-48 ghante me delivery hogi%0A`+
+  `📞 Helpline: 0312-6165602 - Shahzaib Shafiq%0A`+
+  `🔒 PTA Approved + 7 Days Warranty%0A%0A`+
+  `*Shukria Mobi-Hub se kharidne ka!*`;
+
+  // Owner ko bhi message
+  let ownerMsg=`🔔 *NEW ORDER ${orderId}*%0AName: ${name}%0APhone: ${phone}%0ACity: ${city}%0AAddress: ${address}%0APayment: ${payMethod}%0AItems: ${cart.map(c=>c.name+' x'+c.qty).join(', ')}%0ATotal: Rs.${grandTotal.toLocaleString()}`;
+
+  showReceipt(receiptData);
+
+  // 2 WhatsApp options
+  let customerPhoneClean=phone.replace(/[^0-9]/g,'');
+  if(customerPhoneClean.startsWith('0')) customerPhoneClean='92'+customerPhoneClean.slice(1);
+  
+  // Direct customer ke WhatsApp pe raseed bhejo
+  window.open(`https://wa.me/${customerPhoneClean}?text=${customerMsg}`,'_blank');
+  setTimeout(()=>{
+    if(confirm('Raseed customer ko chali gayi! Kya owner (aap) ko bhi bhejni hai 0312-6165602 pe?')){
+      window.open(`https://wa.me/923126165602?text=${ownerMsg}`,'_blank');
+    }
+  },1500);
+  
+  // Cart clear after order
+  cart=[]; localStorage.setItem('mobi_cart',JSON.stringify(cart)); updateCounts(); renderCart();
+}
+
+function showReceipt(data){
+  document.getElementById('receiptContent').innerHTML=`
+  <div class="receipt">
+    <h3 style="text-align:center">🧾 Mobi-Hub - Raseed / Receipt</h3>
+    <p style="text-align:center;font-size:10px">Shahzaib Shafiq - Pattoki - 0312-6165602</p>
+    <hr style="margin:8px 0">
+    <b>Order ID:</b> ${data.orderId}<br>
+    <b>Date:</b> ${data.date}<br>
+    <b>Name:</b> ${data.name}<br>
+    <b>Phone:</b> ${data.phone}<br>
+    <b>City:</b> ${data.city}<br>
+    <b>Address:</b> ${data.address}<br>
+    <b>Payment:</b> ${data.payMethod}<br>
+    <hr style="margin:8px 0">
+    <b>Items:</b><br>
+    ${data.items.map(c=>`<div style="display:flex;justify-content:space-between"><span>${c.name} x${c.qty}</span><span>Rs.${(c.price*c.qty).toLocaleString()}</span></div>`).join('')}
+    <hr style="margin:8px 0">
+    <div style="display:flex;justify-content:space-between"><span>Subtotal:</span><span>Rs.${data.total.toLocaleString()}</span></div>
+    <div style="display:flex;justify-content:space-between"><span>Delivery:</span><span>Rs.${data.delivery}</span></div>
+    <div style="display:flex;justify-content:space-between;font-weight:800;color:#01411C;font-size:13px"><span>Grand Total:</span><span>Rs.${data.grandTotal.toLocaleString()}</span></div>
+    <hr style="margin:8px 0">
+    <p style="font-size:9px;text-align:center">✅ PTA Approved | 7 Days Warranty | Thank You!</p>
+    <button class="btn" style="background:#25D366;margin-top:8px" onclick="window.print()">🖨️ Print Raseed</button>
+    <button class="btn" style="background:#01411C;margin-top:5px" onclick="generateReceiptWhatsAppAgain()">💬 Dobara WhatsApp Pe Bhejo</button>
+  </div>`;
+  showPage('receiptPage');
+}
+function generateReceiptWhatsAppAgain(){if(!lastReceipt){alert('Koi receipt nahi');return;}let data=lastReceipt;let customerPhoneClean=data.phone.replace(/[^0-9]/g,'');if(customerPhoneClean.startsWith('0')) customerPhoneClean='92'+customerPhoneClean.slice(1);let msg=`🧾 *Mobi-Hub Raseed - ${data.orderId}*%0ATotal: Rs.${data.grandTotal.toLocaleString()}%0AName: ${data.name}%0APhone: ${data.phone}`;window.open(`https://wa.me/${customerPhoneClean}?text=${msg}`,'_blank');}
+
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));let l=document.getElementById('link-'+id);if(l)l.classList.add('active');if(id=='cart')renderCart();if(id=='compare')renderCompare();if(id=='demand')renderDemands();if(id=='feedback')renderFeedbacks();}
 renderAll();
 </script>
 </body>
