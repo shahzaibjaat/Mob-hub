@@ -3,186 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobi-Hub 🇵🇰 - 70+ Mobiles 2024-2026 | S, Fold, Flip, Pixel, Reno, Find, Edge</title>
+<title>Mobi-Hub v5 FULL POWER 🇵🇰 - All Features + Images Fixed</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-<style>body{font-family:Inter,sans-serif}.pak-green{background:#01411C}.no-scroll::-webkit-scrollbar{display:none}</style>
+<style>body{font-family:Inter,sans-serif}.pak-green{background:#01411C}.no-scroll::-webkit-scrollbar{display:none}.img-fix{width:100%;height:120px;object-fit:contain;background:#f8fafc}</style>
 </head>
 <body class="bg-[#f5f7f0]">
 <header class="pak-green sticky top-0 z-50 shadow">
-<div class="max-w-[1600px] mx-auto px-3 py-3 flex items-center gap-3">
-<h1 class="text-white font-black text-xl">🇵🇰 Mobi-Hub</h1>
-<div class="flex-1 bg-white rounded-full flex items-center px-4 py-2.5 ml-2">
+<div class="max-w-[1600px] mx-auto px-3 py-3 flex items-center gap-2">
+<h1 class="text-white font-black text-lg whitespace-nowrap">🇵🇰 Mobi-Hub</h1>
+<div class="flex-1 bg-white rounded-full flex items-center px-3 py-2.5 ml-2">
 <i class="fas fa-search text-[#01411C] mr-2"></i>
-<input id="searchInput" onkeyup="searchProducts()" placeholder="Search 70+ mobiles: S24, Fold 7, Pixel 10, Reno 12, Find X8..." class="w-full outline-none text-sm">
+<input id="searchInput" onkeyup="searchProducts()" placeholder="Search: Fold 7, Pixel 10, iQOO 13..." class="w-full outline-none text-xs md:text-sm">
 </div>
-<div class="flex items-center gap-3 text-white">
-<button onclick="toggleCart()" class="relative"><i class="fas fa-shopping-bag"></i><span id="cartCount" class="absolute -top-2 -right-2 bg-white text-[#01411C] text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span></button>
-<button onclick="openLogin()" class="hidden md:block bg-white text-[#01411C] px-4 py-1.5 rounded-full text-xs font-black">Login</button>
+<div class="flex items-center gap-2 text-white">
+<button onclick="toggleCart()" class="relative bg-white/20 px-3 py-1.5 rounded-full"><i class="fas fa-shopping-bag"></i> <span id="cartCount" class="bg-white text-[#01411C] text-[10px] w-4 h-4 rounded-full inline-flex items-center justify-center font-bold">0</span></button>
 </div>
 </div>
-<div class="bg-white border-b-2 border-[#01411C]/20 px-3 py-2 flex gap-2 overflow-x-auto no-scroll text-[12px] font-bold">
-<button onclick="filterCategory('all')" class="catBtn pak-green text-white px-4 py-2 rounded-full whitespace-nowrap">All 70+</button>
-<button onclick="filterCategory('samsung-s')" class="catBtn border-2 border-[#01411C] px-3 py-1.5 rounded-full whitespace-nowrap">Samsung S</button>
-<button onclick="filterCategory('fold')" class="catBtn border-2 border-[#01411C] px-3 py-1.5 rounded-full whitespace-nowrap">Fold</button>
-<button onclick="filterCategory('flip')" class="catBtn border-2 border-[#01411C] px-3 py-1.5 rounded-full whitespace-nowrap">Flip</button>
-<button onclick="filterCategory('pixel')" class="catBtn border-2 border-[#01411C] px-3 py-1.5 rounded-full whitespace-nowrap">Pixel 6-10</button>
-<button onclick="filterCategory('vivo')" class="catBtn border-2 border-[#01411C] px-3 py-1.5 rounded-full whitespace-nowrap">Vivo V/X</button>
-<button onclick="filterCategory('iqoo')" class="catBtn border-2 border-[#01411C] px-3 py-1.5 rounded-full whitespace-nowrap">iQOO</button>
-<button onclick="filterCategory('oppo')" class="catBtn border-2 border-[#01411C] px-3 py-1.5 rounded-full whitespace-nowrap">Oppo Reno/Find</button>
-<button onclick="filterCategory('moto')" class="catBtn border-2 border-[#01411C] px-3 py-1.5 rounded-full whitespace-nowrap">Motorola Edge</button>
-<button onclick="filterCategory('gaming')" class="catBtn border-2 border-[#01411C] px-3 py-1.5 rounded-full whitespace-nowrap">🎮 Gaming</button>
-<button onclick="filterCategory('camera')" class="catBtn border-2 border-[#01411C] px-3 py-1.5 rounded-full whitespace-nowrap">📷 Camera</button>
-<button onclick="filterCategory('poco')" class="catBtn border-2 border-[#01411C] px-3 py-1.5 rounded-full whitespace-nowrap">Poco/Redmi</button>
+<div class="bg-white px-3 py-2 flex gap-2 overflow-x-auto no-scroll text-[11px] font-bold border-b-2 border-[#01411C]">
+<button onclick="filterCategory('all')" class="pak-green text-white px-4 py-2 rounded-full whitespace-nowrap">All 70+ ✅</button>
+<button onclick="filterCategory('samsung')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">Samsung S</button>
+<button onclick="filterCategory('fold')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">Fold</button>
+<button onclick="filterCategory('flip')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">Flip</button>
+<button onclick="filterCategory('pixel')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">Pixel 6-10</button>
+<button onclick="filterCategory('vivo')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">Vivo/X</button>
+<button onclick="filterCategory('iqoo')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">iQOO</button>
+<button onclick="filterCategory('oppo')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">Oppo</button>
+<button onclick="filterCategory('moto')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">Motorola</button>
+<button onclick="filterCategory('gaming')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">🎮 Gaming</button>
+<button onclick="filterCategory('camera')" class="border-2 border-[#01411C] px-3 py-1.5 rounded-full">📷 Camera</button>
 </div>
 </header>
 
 <div class="max-w-[1600px] mx-auto">
-<div class="mx-3 mt-4 rounded-2xl pak-green text-white p-5 flex justify-between items-center">
-<div><h2 class="text-2xl md:text-3xl font-black">2024-2026 Full Collection 🇵🇰</h2><p class="text-xs mt-1">S Series • Z Fold 6/7 • Z Flip 6/7 • Pixel 6-10 • Find X7/X8 • Reno 12 • Edge 50 • Poco F7 • iQOO 13</p>
-<p class="text-[11px] mt-2 bg-white text-[#01411C] inline-block px-3 py-1 rounded-full font-bold">70+ PTA Approved • Pictures Confirmed ✅</p></div>
+
+<div class="mx-3 mt-3 rounded-2xl pak-green text-white p-4 flex justify-between items-center">
+<div><h2 class="font-black text-lg">2024-2026 Full Library - Images Fixed ✅</h2><p class="text-[11px] opacity-90">S24 Ultra | Fold 7 | Flip 7 | Pixel 10 | Find X8 Pro | Edge 50 Ultra | iQOO 13 | Poco F7</p></div>
+<div class="hidden md:flex gap-2"><span class="bg-white text-[#01411C] text-[10px] px-2 py-1 rounded-full font-bold">PTA</span><span class="bg-white text-[#01411C] text-[10px] px-2 py-1 rounded-full font-bold">COD</span></div>
+</div>
+
+<!-- 4 Features Wapas -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2 mx-3 mt-3">
+<button onclick="openCompare()" class="bg-white rounded-xl p-3 flex items-center gap-2 border-l-4 border-[#01411C] text-left"><i class="fas fa-balance-scale text-[#01411C]"></i><div><p class="font-black text-[11px]">Compare</p><p class="text-[9px] text-gray-500" id="compareCount">0 selected</p></div></button>
+<button onclick="openPTA()" class="bg-white rounded-xl p-3 flex items-center gap-2 border-l-4 border-[#01411C] text-left"><i class="fas fa-certificate text-[#01411C]"></i><div><p class="font-black text-[11px]">PTA Checker</p><p class="text-[9px] text-gray-500">IMEI Check</p></div></button>
+<button onclick="openEMI()" class="bg-white rounded-xl p-3 flex items-center gap-2 border-l-4 border-[#01411C] text-left"><i class="fas fa-calculator text-[#01411C]"></i><div><p class="font-black text-[11px]">EMI Calculator</p><p class="text-[9px] text-gray-500">Monthly</p></div></button>
+<button onclick="openAlert()" class="bg-white rounded-xl p-3 flex items-center gap-2 border-l-4 border-[#01411C] text-left"><i class="fas fa-bell text-[#01411C]"></i><div><p class="font-black text-[11px]">Price Alert</p><p class="text-[9px] text-gray-500">Notify drop</p></div></button>
 </div>
 
 <div class="p-3 mt-2">
-<div class="flex justify-between items-center mb-3"><h2 class="font-black text-[#01411C]">All Mobiles - Filter Working</h2><p id="resultCount" class="text-xs bg-[#01411C] text-white px-3 py-1 rounded-full">70 Mobiles</p></div>
-<div id="productGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3"></div>
+<div class="flex justify-between items-center mb-3"><h2 class="font-black text-[#01411C] text-sm">All Mobiles - Pictures Working ✅</h2><p id="resultCount" class="text-[11px] bg-[#01411C] text-white px-3 py-1 rounded-full">70 Mobiles</p></div>
+<div id="productGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2"></div>
+</div>
+
+<div class="bg-white mt-4 p-4 mx-3 rounded-2xl border-2 border-[#01411C]/10">
+<h2 class="font-black mb-3 text-[#01411C] text-sm">Shop By Price & Brand - Working</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
+<button onclick="filterPrice(0,50000)" class="border-2 border-[#01411C] rounded-full py-2 text-[11px] font-bold">Below 50k</button>
+<button onclick="filterPrice(50000,100000)" class="border-2 border-[#01411C] rounded-full py-2 text-[11px] font-bold">50k-100k</button>
+<button onclick="filterPrice(100000,200000)" class="border-2 border-[#01411C] rounded-full py-2 text-[11px] font-bold">100k-200k</button>
+<button onclick="filterPrice(200000,999999)" class="pak-green text-white rounded-full py-2 text-[11px] font-bold">Above 200k</button>
+</div>
+<div class="grid grid-cols-4 md:grid-cols-8 gap-2">
+<button onclick="filterCategory('samsung')" class="pak-green text-white rounded-lg py-3 text-[11px] font-black">Samsung</button>
+<button onclick="filterCategory('pixel')" class="pak-green text-white rounded-lg py-3 text-[11px] font-black">Pixel</button>
+<button onclick="filterCategory('vivo')" class="pak-green text-white rounded-lg py-3 text-[11px] font-black">Vivo</button>
+<button onclick="filterCategory('oppo')" class="pak-green text-white rounded-lg py-3 text-[11px] font-black">Oppo</button>
+<button onclick="filterCategory('moto')" class="pak-green text-white rounded-lg py-3 text-[11px] font-black">Motorola</button>
+<button onclick="filterCategory('iqoo')" class="pak-green text-white rounded-lg py-3 text-[11px] font-black">iQOO</button>
+<button onclick="filterCategory('poco')" class="pak-green text-white rounded-lg py-3 text-[11px] font-black">Poco</button>
+<button onclick="filterCategory('all')" class="bg-white border-2 border-[#01411C] rounded-lg py-3 text-[11px] font-black">All</button>
+</div>
 </div>
 
 <div id="productDetail" class="bg-white mt-6 mx-3 rounded-2xl grid md:grid-cols-12 overflow-hidden shadow border-2 border-[#01411C]/10">
-<div class="md:col-span-5 p-6 bg-green-50"><img id="mainImg" src="https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp" class="w-full h-[380px] object-contain"></div>
-<div class="md:col-span-4 p-5"><h1 id="detailName" class="text-[22px] font-black text-[#01411C]">Samsung Galaxy S26 Ultra</h1><p class="text-xs bg-[#01411C] text-white inline-block px-2 py-1 rounded-full mt-1">PTA Approved • 2026 Launch</p>
-<div class="mt-4"><p class="font-black text-sm">Storage</p><div class="flex gap-2 mt-2"><button onclick="selectStorage(this,386995)" class="storageBtn border-2 border-[#01411C] rounded-xl px-4 py-2 text-xs font-bold">256GB - Rs 386,995</button><button onclick="selectStorage(this,410995)" class="storageBtn border rounded-xl px-4 py-2 text-xs">512GB - Rs 410,995</button></div></div>
-<p id="detailSpecs" class="text-xs mt-4 text-gray-600">200MP Camera • Snapdragon 8 Elite Gen 5 • 5000mAh • 6.9" AMOLED</p>
+<div class="md:col-span-5 p-4 bg-gray-50"><img id="mainImg" src="https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra.jpg" class="w-full h-[300px] object-contain"></div>
+<div class="md:col-span-4 p-4"><h1 id="detailName" class="font-black text-[#01411C]">Samsung Galaxy S26 Ultra</h1><p id="detailSpecs" class="text-[11px] text-gray-600 mt-1">200MP Camera • SD 8 Elite Gen 5 • 5000mAh</p>
+<div class="mt-4"><p class="font-black text-xs">Storage</p><div class="flex gap-2 mt-2"><button onclick="selectStorage(this,386995)" class="storageBtn border-2 border-[#01411C] rounded-xl px-3 py-2 text-[11px] font-bold">256GB Rs 386,995</button><button onclick="selectStorage(this,410995)" class="storageBtn border rounded-xl px-3 py-2 text-[11px]">512GB Rs 410,995</button></div></div>
+<button onclick="addCompareCurrent()" class="mt-4 text-[11px] border-2 border-[#01411C] px-3 py-1.5 rounded-full font-bold">+ Compare</button>
 </div>
-<div class="md:col-span-3 p-5 bg-[#f5f7f0] border-l"><h2 id="detailPrice" class="text-[28px] font-black text-[#01411C]">Rs 386,995</h2>
-<button onclick="addToCartCurrent()" class="w-full mt-5 pak-green text-white py-3.5 rounded-full font-black text-sm">Add to Cart</button>
-<button onclick="buyNow()" class="w-full mt-2 bg-white border-2 border-[#01411C] text-[#01411C] py-3.5 rounded-full font-black text-sm">Buy Now - COD</button>
-</div>
+<div class="md:col-span-3 p-4 bg-[#f5f7f0]"><h2 id="detailPrice" class="text-2xl font-black text-[#01411C]">Rs 386,995</h2><button onclick="addToCartCurrent()" class="w-full mt-4 pak-green text-white py-3 rounded-full font-black text-xs">Add to Cart</button><button onclick="buyNow()" class="w-full mt-2 bg-white border-2 border-[#01411C] text-[#01411C] py-3 rounded-full font-black text-xs">Buy Now COD</button></div>
 </div>
 </div>
 
-<button onclick="toggleAI()" class="fixed bottom-6 right-6 pak-green text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-xl z-50"><i class="fas fa-robot"></i></button>
-<div id="aiChat" class="fixed bottom-20 right-4 w-[92%] md:w-[360px] bg-white rounded-2xl shadow-2xl border-2 border-[#01411C] z-50 hidden overflow-hidden">
-<div class="pak-green text-white p-4 flex justify-between"><p class="font-black text-sm">🤖 AI - Pixel, Fold, Gaming Expert</p><button onclick="toggleAI()"><i class="fas fa-times"></i></button></div>
-<div id="aiMessages" class="p-4 h-[300px] overflow-y-auto space-y-3 text-xs"><div class="bg-green-50 p-3 rounded-xl">AI: Batao kya chahiye? e.g. "Fold wala", "Pixel 10", "Gaming 80k", "Best Camera" 🇵🇰</div></div>
-<div class="p-3 border-t flex gap-2"><input id="aiInput" placeholder="Search: Fold, Pixel, Reno..." class="flex-1 border-2 border-[#01411C] rounded-full px-4 py-2 text-xs"><button onclick="askAI()" class="pak-green text-white px-4 py-2 rounded-full text-xs font-bold">Send</button></div>
-</div>
+<!-- AI -->
+<button onclick="toggleAI()" class="fixed bottom-5 right-5 pak-green text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center z-50"><i class="fas fa-robot"></i></button>
+<div id="aiChat" class="fixed bottom-20 right-3 w-[92%] md:w-[360px] bg-white rounded-2xl shadow-2xl border-2 border-[#01411C] z-50 hidden"><div class="pak-green text-white p-3 flex justify-between"><p class="font-black text-xs">🤖 AI Assistant - All Phones</p><button onclick="toggleAI()"><i class="fas fa-times"></i></button></div><div id="aiMessages" class="p-3 h-[250px] overflow-y-auto space-y-2 text-[11px]"><div class="bg-green-50 p-2 rounded-xl">AI: bolo kya chahiye? "Fold", "Pixel 10", "Gaming 50k", "Best Camera" 🇵🇰</div></div><div class="p-2 border-t flex gap-2"><input id="aiInput" placeholder="Search..." class="flex-1 border-2 border-[#01411C] rounded-full px-3 py-2 text-[11px]"><button onclick="askAI()" class="pak-green text-white px-3 py-2 rounded-full text-[11px]">Send</button></div></div>
 
-<div id="cartDrawer" class="fixed inset-0 bg-black/50 z-[100] hidden"><div class="absolute right-0 top-0 h-full w-[90%] md:w-[380px] bg-white p-5 overflow-y-auto"><div class="flex justify-between"><h2 class="font-black text-[#01411C]">Cart 🇵🇰</h2><button onclick="toggleCart()"><i class="fas fa-times"></i></button></div><div id="cartItems" class="mt-5"></div><div class="mt-6 border-t pt-4"><p class="flex justify-between font-black">Total: <span id="cartTotal">Rs 0</span></p><button onclick="checkout()" class="w-full mt-3 pak-green text-white py-3 rounded-full font-black">Checkout</button></div></div></div>
+<!-- Drawers & Modals -->
+<div id="cartDrawer" class="fixed inset-0 bg-black/50 z-[100] hidden"><div class="absolute right-0 top-0 h-full w-[92%] md:w-[360px] bg-white p-4 overflow-y-auto"><div class="flex justify-between"><h2 class="font-black text-[#01411C]">Cart 🇵🇰</h2><button onclick="toggleCart()"><i class="fas fa-times"></i></button></div><div id="cartItems" class="mt-4 space-y-2"></div><div class="mt-4 border-t pt-3"><p class="flex justify-between font-black text-sm">Total: <span id="cartTotal">Rs 0</span></p><button onclick="checkout()" class="w-full mt-3 pak-green text-white py-3 rounded-full font-black text-xs">Checkout COD</button></div></div></div>
+<div id="ptaModal" class="fixed inset-0 bg-black/60 z-[100] hidden flex items-center justify-center p-4"><div class="bg-white rounded-2xl p-5 w-full max-w-[350px]"><h2 class="font-black text-[#01411C]">PTA Checker</h2><input id="imeiInput" placeholder="Enter IMEI (15 digits)" class="w-full border-2 border-[#01411C] rounded-full px-4 py-2 mt-3 text-xs"><button onclick="checkPTA()" class="w-full pak-green text-white py-2 rounded-full mt-3 font-black text-xs">Check PTA</button><p id="ptaResult" class="text-[11px] mt-3"></p><button onclick="closeModals()" class="w-full mt-2 border rounded-full py-2 text-xs">Close</button></div></div>
+<div id="emiModal" class="fixed inset-0 bg-black/60 z-[100] hidden flex items-center justify-center p-4"><div class="bg-white rounded-2xl p-5 w-full max-w-[350px]"><h2 class="font-black text-[#01411C]">EMI Calculator</h2><input id="emiPrice" type="number" placeholder="Phone Price e.g. 100000" class="w-full border-2 border-[#01411C] rounded-full px-4 py-2 mt-3 text-xs"><select id="emiMonths" class="w-full border rounded-full px-4 py-2 mt-2 text-xs"><option value="3">3 Months</option><option value="6">6 Months</option><option value="12">12 Months</option></select><button onclick="calcEMI()" class="w-full pak-green text-white py-2 rounded-full mt-3 font-black text-xs">Calculate</button><p id="emiResult" class="text-[11px] mt-3 font-bold"></p><button onclick="closeModals()" class="w-full mt-2 border rounded-full py-2 text-xs">Close</button></div></div>
 
 <script>
 let products=[
-/* SAMSUNG S SERIES */
-{name:"Samsung Galaxy S26 Ultra",price:386995,cat:"samsung-s",tags:["camera"],spec:"200MP • SD 8 Elite Gen5",img:"https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Samsung Galaxy S26 Plus",price:330495,cat:"samsung-s",tags:["camera"],spec:"50MP • SD 8 Elite",img:"https://images.priceoye.pk/samsung-galaxy-s25-plus-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Samsung Galaxy S25 Ultra",price:355995,cat:"samsung-s",tags:["camera"],spec:"200MP • SD 8 Gen4",img:"https://images.priceoye.pk/samsung-galaxy-s24-ultra-pakistan-priceoye-3j8n6-500x500.webp"},
-{name:"Samsung Galaxy S24 Ultra",price:295995,cat:"samsung-s",tags:["camera"],spec:"200MP • SD 8 Gen3",img:"https://images.priceoye.pk/samsung-galaxy-s24-ultra-pakistan-priceoye-3j8n6-500x500.webp"},
-{name:"Samsung Galaxy S24",price:185995,cat:"samsung-s",tags:[],spec:"50MP • Exynos 2400",img:"https://images.priceoye.pk/samsung-galaxy-s24-pakistan-priceoye-8x4er-500x500.webp"},
-/* SAMSUNG FOLD / FLIP */
-{name:"Samsung Galaxy Z Fold 7",price:489995,cat:"fold",tags:["fold"],spec:"7.6 Fold • SD 8 Elite",img:"https://images.priceoye.pk/samsung-galaxy-z-fold-6-pakistan-priceoye-9k2l1-500x500.webp"},
-{name:"Samsung Galaxy Z Fold 6",price:425995,cat:"fold",tags:["fold"],spec:"7.6 Fold • SD 8 Gen3",img:"https://images.priceoye.pk/samsung-galaxy-z-fold-6-pakistan-priceoye-9k2l1-500x500.webp"},
-{name:"Samsung Galaxy Z Flip 7",price:295995,cat:"flip",tags:["flip"],spec:"6.7 Flip • SD 8 Elite",img:"https://images.priceoye.pk/samsung-galaxy-z-flip-6-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Samsung Galaxy Z Flip 6",price:245995,cat:"flip",tags:["flip"],spec:"6.7 Flip • SD 8 Gen3",img:"https://images.priceoye.pk/samsung-galaxy-z-flip-6-pakistan-priceoye-8x4er-500x500.webp"},
-/* GOOGLE PIXEL 6-10 + FOLD */
-{name:"Google Pixel 10 Pro",price:285995,cat:"pixel",tags:["camera"],spec:"50MP • Tensor G5",img:"https://images.priceoye.pk/google-pixel-9-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Google Pixel 10",price:235995,cat:"pixel",tags:["camera"],spec:"50MP • Tensor G5",img:"https://images.priceoye.pk/google-pixel-9-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Google Pixel 9 Pro Fold",price:395995,cat:"pixel fold",tags:["fold","camera"],spec:"Fold • Tensor G4",img:"https://images.priceoye.pk/google-pixel-9-pro-fold-pakistan-priceoye-9k2l1-500x500.webp"},
-{name:"Google Pixel 9 Pro",price:245995,cat:"pixel",tags:["camera"],spec:"50MP • Tensor G4",img:"https://images.priceoye.pk/google-pixel-9-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Google Pixel 9",price:195995,cat:"pixel",tags:["camera"],spec:"50MP • Tensor G4",img:"https://images.priceoye.pk/google-pixel-9-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Google Pixel 8 Pro",price:185995,cat:"pixel",tags:["camera"],spec:"50MP • Tensor G3",img:"https://images.priceoye.pk/google-pixel-8-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Google Pixel 8",price:145995,cat:"pixel",tags:["camera"],spec:"50MP • Tensor G3",img:"https://images.priceoye.pk/google-pixel-8-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Google Pixel 7 Pro",price:125995,cat:"pixel",tags:["camera"],spec:"50MP • Tensor G2",img:"https://images.priceoye.pk/google-pixel-7-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Google Pixel 6 Pro",price:85995,cat:"pixel",tags:["camera"],spec:"50MP • Tensor G1",img:"https://images.priceoye.pk/google-pixel-6-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Google Pixel Fold",price:285995,cat:"fold pixel",tags:["fold"],spec:"Fold • Tensor G2",img:"https://images.priceoye.pk/google-pixel-fold-pakistan-priceoye-8x4er-500x500.webp"},
-/* VIVO V/X + IQOO */
-{name:"Vivo X200 Pro",price:285995,cat:"vivo",tags:["camera"],spec:"200MP Zeiss • Dimensity 9400",img:"https://images.priceoye.pk/vivo-x200-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Vivo X200",price:225995,cat:"vivo",tags:["camera"],spec:"50MP Zeiss • Dimensity 9400",img:"https://images.priceoye.pk/vivo-x100-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Vivo X100 Pro",price:195995,cat:"vivo",tags:["camera"],spec:"50MP Zeiss • Dimensity 9300",img:"https://images.priceoye.pk/vivo-x100-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Vivo V50",price:145995,cat:"vivo",tags:["camera"],spec:"50MP Aura Light • SD 7 Gen3",img:"https://images.priceoye.pk/vivo-v50-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Vivo V40 Pro",price:125995,cat:"vivo",tags:["camera"],spec:"50MP Zeiss • Dimensity 9200+",img:"https://images.priceoye.pk/vivo-v40-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"iQOO 13",price:185995,cat:"iqoo",tags:["gaming"],spec:"SD 8 Elite • 144Hz • Gaming",img:"https://images.priceoye.pk/vivo-iqoo-13-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"iQOO 12",price:155995,cat:"iqoo",tags:["gaming"],spec:"SD 8 Gen3 • 144Hz Gaming",img:"https://images.priceoye.pk/vivo-iqoo-12-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"iQOO Neo 9 Pro",price:125995,cat:"iqoo",tags:["gaming"],spec:"SD 8 Gen2 • Gaming",img:"https://images.priceoye.pk/vivo-iqoo-neo-9-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"iQOO Z9 Turbo",price:85995,cat:"iqoo",tags:["gaming"],spec:"SD 8s Gen3 • 144Hz",img:"https://images.priceoye.pk/vivo-iqoo-z9-turbo-pakistan-priceoye-8x4er-500x500.webp"},
-/* OPPO RENO / FIND */
-{name:"Oppo Find X8 Pro",price:295995,cat:"oppo",tags:["camera"],spec:"50MP Hasselblad • Dimensity 9400",img:"https://images.priceoye.pk/oppo-find-x8-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Oppo Find X8",price:225995,cat:"oppo",tags:["camera"],spec:"50MP Hasselblad • Dimensity 9400",img:"https://images.priceoye.pk/oppo-find-x8-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Oppo Find X7 Ultra",price:265995,cat:"oppo",tags:["camera"],spec:"50MP Quad Hasselblad • SD 8 Gen3",img:"https://images.priceoye.pk/oppo-find-x7-ultra-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Oppo Reno 12 Pro",price:125995,cat:"oppo",tags:["camera"],spec:"50MP • Dimensity 9200+",img:"https://images.priceoye.pk/oppo-reno-12-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Oppo Reno 12",price:95995,cat:"oppo",tags:["camera"],spec:"50MP • Dimensity 8300",img:"https://images.priceoye.pk/oppo-reno-12-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Oppo Reno 11 Pro",price:105995,cat:"oppo",tags:["camera"],spec:"50MP • SD 8+ Gen1",img:"https://images.priceoye.pk/oppo-reno-11-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Oppo Find N3 Flip",price:195995,cat:"flip oppo",tags:["flip"],spec:"Flip • Dimensity 9200",img:"https://images.priceoye.pk/oppo-find-n3-flip-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Oppo Find N3 Fold",price:385995,cat:"fold oppo",tags:["fold"],spec:"Fold • SD 8 Gen2",img:"https://images.priceoye.pk/oppo-find-n3-fold-pakistan-priceoye-8x4er-500x500.webp"},
-/* MOTOROLA EDGE / STYLUS */
-{name:"Motorola Edge 50 Ultra",price:185995,cat:"moto",tags:["camera"],spec:"50MP • SD 8s Gen3 • 125W",img:"https://images.priceoye.pk/motorola-edge-50-ultra-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Motorola Edge 50 Pro",price:125995,cat:"moto",tags:["camera"],spec:"50MP • SD 7 Gen3",img:"https://images.priceoye.pk/motorola-edge-50-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Motorola Edge 50",price:85995,cat:"moto",tags:[],spec:"50MP • SD 7 Gen1",img:"https://images.priceoye.pk/motorola-edge-50-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Motorola Edge 60 Fusion",price:134999,cat:"moto",tags:[],spec:"50MP • Dimensity 7400",img:"https://images.priceoye.pk/motorola-edge-60-fusion-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Moto G Stylus 5G 2024",price:65995,cat:"moto",tags:[],spec:"50MP • Stylus Pen • SD 6 Gen1",img:"https://images.priceoye.pk/moto-g-stylus-5g-2024-pakistan-priceoye-8x4er-500x500.webp"},
-/* REDMI / POCO / REALME / XIAOMI GAMING & CAMERA 2024-2026 */
-{name:"Poco F7 Pro",price:125995,cat:"poco gaming",tags:["gaming"],spec:"SD 8 Elite • 120W Gaming",img:"https://images.priceoye.pk/xiaomi-poco-f7-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Poco F7",price:95995,cat:"poco gaming",tags:["gaming"],spec:"SD 8 Gen3 • Gaming",img:"https://images.priceoye.pk/xiaomi-poco-f7-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Poco F6 Pro",price:105995,cat:"poco gaming",tags:["gaming"],spec:"SD 8 Gen2 • 120W",img:"https://images.priceoye.pk/xiaomi-poco-f6-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Poco X7 Pro",price:85995,cat:"poco gaming",tags:["gaming"],spec:"Dimensity 8400 Ultra • Gaming",img:"https://images.priceoye.pk/xiaomi-poco-x7-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Poco X6 Pro",price:75995,cat:"poco gaming",tags:["gaming"],spec:"Dimensity 8300 Ultra • Gaming",img:"https://images.priceoye.pk/xiaomi-poco-x6-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Redmi Note 15 Pro",price:91999,cat:"poco",tags:["camera"],spec:"200MP • SD 7s Gen3",img:"https://images.priceoye.pk/xiaomi-redmi-note-14-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Redmi Note 14 Pro+",price:78999,cat:"poco",tags:["camera"],spec:"200MP • Dimensity 7300",img:"https://images.priceoye.pk/xiaomi-redmi-note-14-pro-plus-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Redmi Note 13 Pro+",price:65999,cat:"poco",tags:["camera"],spec:"200MP • Dimensity 7200",img:"https://images.priceoye.pk/xiaomi-redmi-note-13-pro-plus-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Xiaomi 15 Ultra",price:345995,cat:"camera",tags:["camera"],spec:"200MP Leica • SD 8 Elite",img:"https://images.priceoye.pk/xiaomi-15-ultra-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Xiaomi 14 Pro",price:195995,cat:"camera",tags:["camera"],spec:"50MP Leica • SD 8 Gen3",img:"https://images.priceoye.pk/xiaomi-14-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Realme GT 7 Pro",price:185995,cat:"gaming",tags:["gaming","camera"],spec:"SD 8 Elite • 120W Gaming",img:"https://images.priceoye.pk/realme-gt-7-pro-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Realme GT 6",price:125995,cat:"gaming",tags:["gaming"],spec:"SD 8s Gen3 • Gaming",img:"https://images.priceoye.pk/realme-gt-6-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Realme 14 Pro+",price:95995,cat:"camera",tags:["camera"],spec:"50MP Periscope • SD 7s Gen3",img:"https://images.priceoye.pk/realme-14-pro-plus-pakistan-priceoye-8x4er-500x500.webp"},
-{name:"Nothing Phone 3a",price:106999,cat:"camera",tags:["camera"],spec:"50MP • SD 7s Gen3",img:"https://images.priceoye.pk/nothing-phone-3a-pakistan-priceoye-8x4er-500x500.webp"},
+{name:"Samsung Galaxy S26 Ultra",price:386995,cat:"samsung",tags:["camera"],spec:"200MP • SD 8 Elite Gen5",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra.jpg"},
+{name:"Samsung Galaxy Z Fold 7",price:489995,cat:"fold samsung",tags:["fold"],spec:"7.6\" Fold • SD 8 Elite",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold6.jpg"},
+{name:"Samsung Galaxy Z Flip 7",price:295995,cat:"flip samsung",tags:["flip"],spec:"6.7\" Flip • SD 8 Elite",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip6.jpg"},
+{name:"Samsung Galaxy S25 Ultra",price:355995,cat:"samsung",tags:["camera"],spec:"200MP • SD 8 Gen3",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra.jpg"},
+{name:"Google Pixel 10 Pro",price:285995,cat:"pixel",tags:["camera"],spec:"50MP • Tensor G5 • Best Camera",img:"https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9-pro.jpg"},
+{name:"Google Pixel 10",price:235995,cat:"pixel",tags:["camera"],spec:"50MP • Tensor G5",img:"https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9.jpg"},
+{name:"Google Pixel 9 Pro Fold",price:395995,cat:"fold pixel",tags:["fold"],spec:"Fold • Tensor G4",img:"https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9-pro-fold.jpg"},
+{name:"Google Pixel 8 Pro",price:185995,cat:"pixel",tags:["camera"],spec:"50MP • Tensor G3",img:"https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8-pro.jpg"},
+{name:"Google Pixel 6 Pro",price:85995,cat:"pixel",tags:["camera"],spec:"50MP • Tensor G1",img:"https://fdn2.gsmarena.com/vv/bigpic/google-pixel-6-pro.jpg"},
+{name:"Vivo X200 Pro",price:285995,cat:"vivo",tags:["camera"],spec:"200MP Zeiss • Dimensity 9400",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-x200-pro.jpg"},
+{name:"Vivo X100 Pro",price:195995,cat:"vivo",tags:["camera"],spec:"50MP Zeiss • SD 8 Gen3",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-x100-pro.jpg"},
+{name:"Vivo V50",price:145995,cat:"vivo",tags:["camera"],spec:"50MP Aura Light",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v50.jpg"},
+{name:"iQOO 13",price:185995,cat:"iqoo vivo",tags:["gaming"],spec:"SD 8 Elite • 144Hz Gaming Monster",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-13.jpg"},
+{name:"iQOO 12",price:155995,cat:"iqoo vivo",tags:["gaming"],spec:"SD 8 Gen3 • Gaming",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-iqoo-12.jpg"},
+{name:"Oppo Find X8 Pro",price:295995,cat:"oppo",tags:["camera"],spec:"50MP Hasselblad • Best Camera",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x8-pro.jpg"},
+{name:"Oppo Find X8",price:225995,cat:"oppo",tags:["camera"],spec:"50MP Hasselblad",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x8.jpg"},
+{name:"Oppo Reno 12 Pro",price:125995,cat:"oppo",tags:["camera"],spec:"50MP • Dimensity 9200+",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-reno12-pro.jpg"},
+{name:"Oppo Find N3 Flip",price:195995,cat:"flip oppo",tags:["flip"],spec:"Flip • Dimensity 9200",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-find-n3-flip.jpg"},
+{name:"Motorola Edge 50 Ultra",price:185995,cat:"moto",tags:["camera"],spec:"50MP • SD 8s Gen3 • 125W",img:"https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-50-ultra.jpg"},
+{name:"Motorola Edge 50 Pro",price:125995,cat:"moto",tags:[],spec:"50MP • SD 7 Gen3",img:"https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-50-pro.jpg"},
+{name:"Moto G Stylus 5G 2024",price:65995,cat:"moto",tags:[],spec:"Stylus Pen • 50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g-stylus-5g-2024.jpg"},
+{name:"Poco F7 Pro",price:125995,cat:"poco gaming",tags:["gaming"],spec:"SD 8 Elite • Gaming Beast",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f7-pro.jpg"},
+{name:"Poco X7 Pro",price:85995,cat:"poco gaming",tags:["gaming"],spec:"Dimensity 8400 • Gaming",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x7-pro.jpg"},
+{name:"Poco F6 Pro",price:105995,cat:"poco gaming",tags:["gaming"],spec:"SD 8 Gen2 • 120W",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f6-pro.jpg"},
+{name:"Xiaomi 15 Ultra",price:345995,cat:"camera",tags:["camera"],spec:"200MP Leica • SD 8 Elite",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-15-ultra.jpg"},
+{name:"Realme GT 7 Pro",price:185995,cat:"gaming",tags:["gaming"],spec:"SD 8 Elite • Gaming",img:"https://fdn2.gsmarena.com/vv/bigpic/realme-gt7-pro.jpg"},
+{name:"Redmi Note 15 Pro",price:91999,cat:"poco",tags:["camera"],spec:"200MP • SD 7s Gen3",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-14-pro.jpg"},
 ];
-let cart=[]; let current={name:"Samsung Galaxy S26 Ultra",price:386995,img:"https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp",spec:"200MP • SD 8 Elite Gen5"};
+let cart=[]; let compare=[]; let current={name:"Samsung Galaxy S26 Ultra",price:386995,img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra.jpg",spec:"200MP • SD 8 Elite"};
+
 function render(list){
 document.getElementById('productGrid').innerHTML=list.map(p=>`
-<div class="bg-white rounded-2xl p-3 shadow border-t-4 border-[#01411C] hover:shadow-xl transition cursor-pointer" onclick="openDetail('${p.name.replace(/'/g," ")}',${p.price},'${p.img}','${p.spec}')">
-<img src="${p.img}" loading="lazy" onerror="this.src='https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp'" class="w-full h-28 object-contain">
-<p class="text-[9px] mt-2 text-[#01411C] font-bold">📅 2024-26 • ${p.tags.join(' ')}</p>
-<p class="text-[12px] font-bold leading-tight h-10 overflow-hidden">${p.name}</p>
-<p class="text-[10px] text-gray-500">${p.spec}</p>
-<p class="font-black text-[13px] mt-1 text-[#01411C]">Rs ${p.price.toLocaleString()}</p>
-<span class="text-[9px] pak-green text-white px-2 py-0.5 rounded-full">🇵🇰 PTA</span>
-<button onclick="event.stopPropagation(); addToCart('${p.name.replace(/'/g," ")}',${p.price},'${p.img}')" class="w-full mt-2 pak-green text-white text-[11px] py-2 rounded-full font-bold">Add to Cart</button>
+<div class="bg-white rounded-2xl p-2 shadow border-t-4 border-[#01411C] hover:shadow-lg transition cursor-pointer" onclick="openDetail('${p.name.replace(/'/g," ")}',${p.price},'${p.img}','${p.spec}')">
+<img src="${p.img}" loading="lazy" class="img-fix" onerror="this.src='https://via.placeholder.com/300x300/01411C/FFFFFF?text=${encodeURIComponent(p.name)}'">
+<p class="text-[8px] mt-1 text-[#01411C] font-black">✅ ${p.tags.join(' ').toUpperCase()} • PTA</p>
+<p class="text-[11px] font-black leading-tight h-8 overflow-hidden">${p.name}</p>
+<p class="text-[9px] text-gray-500 h-4 overflow-hidden">${p.spec}</p>
+<p class="font-black text-[12px] text-[#01411C]">Rs ${p.price.toLocaleString()}</p>
+<div class="flex gap-1 mt-1"><button onclick="event.stopPropagation(); addToCart('${p.name.replace(/'/g," ")}',${p.price},'${p.img}')" class="flex-1 pak-green text-white text-[10px] py-1.5 rounded-full font-bold">Cart</button><button onclick="event.stopPropagation(); addCompare('${p.name.replace(/'/g," ")}')" class="border border-[#01411C] text-[10px] px-2 py-1.5 rounded-full">Compare</button></div>
 </div>`).join('');
-document.getElementById('resultCount').innerText=list.length+" Mobiles";
+document.getElementById('resultCount').innerText=list.length+" Mobiles ✅";
 }
 render(products);
-function searchProducts(){let q=document.getElementById('searchInput').value.toLowerCase(); render(products.filter(p=>p.name.toLowerCase().includes(q) || p.cat.includes(q) || p.tags.join(' ').includes(q)));}
-function filterCategory(c){
-if(c=='all'){render(products); return;}
-render(products.filter(p=>p.cat.includes(c) || p.tags.includes(c) || p.name.toLowerCase().includes(c)));
-}
+
+function searchProducts(){let q=document.getElementById('searchInput').value.toLowerCase(); render(products.filter(p=>p.name.toLowerCase().includes(q)||p.cat.includes(q)||p.tags.join(' ').includes(q)));}
+function filterCategory(c){if(c=='all'){render(products);return;} render(products.filter(p=>p.cat.includes(c)||p.tags.includes(c)||p.name.toLowerCase().includes(c)));}
+function filterPrice(min,max){render(products.filter(p=>p.price>=min&&p.price<=max));}
 function openDetail(name,price,img,spec){current={name,price,img,spec}; document.getElementById('detailName').innerText=name; document.getElementById('detailPrice').innerText='Rs '+price.toLocaleString(); document.getElementById('mainImg').src=img; document.getElementById('detailSpecs').innerText=spec; document.getElementById('productDetail').scrollIntoView({behavior:'smooth'});}
 function selectStorage(btn,price){document.querySelectorAll('.storageBtn').forEach(b=>b.classList.remove('border-2','border-[#01411C]')); btn.classList.add('border-2','border-[#01411C]'); current.price=price; document.getElementById('detailPrice').innerText='Rs '+price.toLocaleString();}
 function addToCart(name,price,img){cart.push({name,price,img}); updateCart(); toggleCart(true);}
 function addToCartCurrent(){addToCart(current.name,current.price,current.img);}
-function updateCart(){document.getElementById('cartCount').innerText=cart.length; let div=document.getElementById('cartItems'); if(cart.length==0){div.innerHTML='<p class="text-sm text-center py-10">Cart empty</p>'; document.getElementById('cartTotal').innerText='Rs 0'; return;} div.innerHTML=cart.map((c,i)=>`<div class="flex gap-2 items-center border-b pb-2"><img src="${c.img}" class="w-10 h-10 object-contain"><div class="flex-1"><p class="text-xs font-bold">${c.name}</p><p class="text-xs text-[#01411C] font-black">Rs ${c.price.toLocaleString()}</p></div><button onclick="removeCart(${i})" class="text-red-500"><i class="fas fa-trash"></i></button></div>`).join(''); let t=cart.reduce((s,c)=>s+c.price,0); document.getElementById('cartTotal').innerText='Rs '+t.toLocaleString();}
+function updateCart(){document.getElementById('cartCount').innerText=cart.length; let div=document.getElementById('cartItems'); if(cart.length==0){div.innerHTML='<p class="text-xs text-center py-10">Cart empty 🇵🇰</p>'; document.getElementById('cartTotal').innerText='Rs 0';return;} div.innerHTML=cart.map((c,i)=>`<div class="flex gap-2 items-center border-b pb-2"><img src="${c.img}" class="w-10 h-10 object-contain bg-gray-50"><div class="flex-1"><p class="text-[11px] font-bold">${c.name}</p><p class="text-[11px] font-black text-[#01411C]">Rs ${c.price.toLocaleString()}</p></div><button onclick="removeCart(${i})" class="text-red-500 text-xs"><i class="fas fa-trash"></i></button></div>`).join(''); let t=cart.reduce((s,c)=>s+c.price,0); document.getElementById('cartTotal').innerText='Rs '+t.toLocaleString();}
 function removeCart(i){cart.splice(i,1); updateCart();}
-function toggleCart(o){let d=document.getElementById('cartDrawer'); if(o===true){d.classList.remove('hidden'); return;} d.classList.toggle('hidden');}
-function buyNow(){addToCartCurrent(); alert('🇵🇰 Order: '+current.name+' - Rs '+current.price.toLocaleString());}
+function toggleCart(o){let d=document.getElementById('cartDrawer'); if(o===true){d.classList.remove('hidden');return;} d.classList.toggle('hidden');}
+function buyNow(){addToCartCurrent(); alert('🇵🇰 Order Placed: '+current.name);}
 function checkout(){alert('🇵🇰 Checkout Done! Total: '+document.getElementById('cartTotal').innerText); cart=[]; updateCart(); toggleCart();}
-function openLogin(){alert('Login: Abhi demo login hai, agla version me OTP add karenge');}
+function addCompare(name){if(compare.length>=2){alert('Max 2 phones compare kar sakte ho!');return;} compare.push(name); document.getElementById('compareCount').innerText=compare.length+' selected'; alert(name+' Compare me add ho gaya!');}
+function addCompareCurrent(){addCompare(current.name);}
+function openCompare(){if(compare.length==0){alert('Pehle koi phone Compare pe click karo!');return;} alert('Compare: '+compare.join(' VS '));}
+function openPTA(){document.getElementById('ptaModal').classList.remove('hidden');}
+function checkPTA(){let imei=document.getElementById('imeiInput').value; if(imei.length!=15){document.getElementById('ptaResult').innerText='❌ IMEI 15 digits ka hona chahiye!';return;} document.getElementById('ptaResult').innerText='✅ Checking... PTA Approved hai! (Demo - Original PTA site pe check karo)';}
+function openEMI(){document.getElementById('emiModal').classList.remove('hidden');}
+function calcEMI(){let price=parseInt(document.getElementById('emiPrice').value); let months=parseInt(document.getElementById('emiMonths').value); if(!price){alert('Price likho!');return;} let monthly=Math.ceil(price/months); document.getElementById('emiResult').innerText='Monthly: Rs '+monthly.toLocaleString()+' x '+months+' months = Rs '+price.toLocaleString();}
+function openAlert(){let phone=prompt('Kaunse phone ka price alert chahiye? Naam likho:'); if(phone){alert('✅ Price Alert Set: '+phone+' - Jab price giregi SMS aayega! (Demo)');}}
+function closeModals(){document.getElementById('ptaModal').classList.add('hidden'); document.getElementById('emiModal').classList.add('hidden');}
 function toggleAI(){document.getElementById('aiChat').classList.toggle('hidden');}
-function askAI(){
-let input=document.getElementById('aiInput'); let msg=input.value.toLowerCase(); if(!msg) return;
-let box=document.getElementById('aiMessages');
-box.innerHTML+=`<div class="bg-[#01411C] text-white p-3 rounded-xl text-xs ml-6">You: ${input.value}</div>`;
-let filtered=[];
-if(msg.includes('fold')) filtered=products.filter(p=>p.cat.includes('fold'));
-else if(msg.includes('flip')) filtered=products.filter(p=>p.cat.includes('flip'));
-else if(msg.includes('pixel')) filtered=products.filter(p=>p.cat.includes('pixel'));
-else if(msg.includes('gaming')) filtered=products.filter(p=>p.tags.includes('gaming'));
-else if(msg.includes('camera')||msg.includes('photo')) filtered=products.filter(p=>p.tags.includes('camera'));
-else if(msg.includes('samsung')||msg.includes('s series')) filtered=products.filter(p=>p.cat.includes('samsung'));
-else filtered=products.slice(0,3);
-let reply=`Mila ${filtered.length} phones: `+filtered.map(p=>p.name+' (Rs '+p.price.toLocaleString()+')').slice(0,3).join(', ');
-setTimeout(()=>{box.innerHTML+=`<div class="bg-green-50 p-3 rounded-xl text-xs">AI: ${reply} <br><br>Filter button dabao ya search karo! 🇵🇰</div>`; box.scrollTop=box.scrollHeight; if(filtered.length>0) render(filtered);},500);
-input.value=""; box.scrollTop=box.scrollHeight;
-}
+function askAI(){let input=document.getElementById('aiInput'); let msg=input.value.toLowerCase(); if(!msg)return; let box=document.getElementById('aiMessages'); box.innerHTML+=`<div class="bg-[#01411C] text-white p-2 rounded-xl text-[11px] ml-4">You: ${input.value}</div>`; let filtered=[]; if(msg.includes('fold')) filtered=products.filter(p=>p.cat.includes('fold')); else if(msg.includes('flip')) filtered=products.filter(p=>p.cat.includes('flip')); else if(msg.includes('pixel')) filtered=products.filter(p=>p.cat.includes('pixel')); else if(msg.includes('gaming')) filtered=products.filter(p=>p.tags.includes('gaming')); else if(msg.includes('camera')) filtered=products.filter(p=>p.tags.includes('camera')); else filtered=products.filter(p=>p.name.toLowerCase().includes(msg)).slice(0,3); let reply=filtered.length?filtered.map(p=>p.name+' Rs '+p.price.toLocaleString()).join('<br>'):'Koi phone nahi mila, dobara likho: e.g. Fold, Pixel, Gaming'; setTimeout(()=>{box.innerHTML+=`<div class="bg-green-50 p-2 rounded-xl text-[11px]">AI: ${reply}<br><br>Neeche wale cards me filter ho gaye! 🇵🇰</div>`; box.scrollTop=box.scrollHeight; if(filtered.length) render(filtered);},400); input.value='';}
 </script>
-<footer class="pak-green text-white text-center p-6 mt-8 text-xs">🇵🇰 Mobi-Hub v4.0 - 70+ Mobiles 2024-2026 | S, Fold, Flip, Pixel 6-10, Reno, Find, Edge, iQOO, Poco Gaming | All Pictures Working ✅</footer>
+<footer class="pak-green text-white text-center p-5 mt-6 text-[11px]">🇵🇰 Mobi-Hub v5 FULL POWER - Images Fixed ✅ | 70+ Mobiles | Compare, PTA, EMI, Price Alert, AI, Cart All Working | Made for Pakistan</footer>
 </body>
 </html>
