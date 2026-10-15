@@ -33,7 +33,7 @@ body{background:#f8fafc;color:#111}
 .payment-icons{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .payment-icons div{background:white;color:#111;padding:5px 10px;border-radius:6px;font-size:11px;font-weight:800;min-width:65px;text-align:center}
 .receipt{border:2px dashed #01411C;padding:15px;background:#fff;font-size:11px;position:relative}
-.stamp{border:3px solid #01411C;color:#01411C;font-weight:800;padding:6px 12px;transform:rotate(-15deg);display:inline-block;border-radius:8px;margin-top:10px;font-size:12px;opacity:0.8}
+.stamp{border:3px solid #01411C;color:#01411C;font-weight:800;padding:6px 12px;transform:rotate(-15deg);display:inline-block;border-radius:8px;margin-top:10px;font-size:12px;opacity:0.9}
 .thank-note{margin-top:10px;padding:8px;background:#f0fdf4;border:1px solid #16a34a;border-radius:6px;font-size:10px;color:#01411C}
 </style>
 </head>
@@ -53,16 +53,15 @@ body{background:#f8fafc;color:#111}
 </div>
 
 <div class="container">
-<div id="shop" class="page active"><div class="card"><h2>📱 Mobi-Hub - Pakistan - All Latest Phones</h2><p style="font-size:11px">Vivo V40/V40e/X100s/V50/V60, Samsung A54, Xiaomi 14T/Pro, Nothing 3a/3/2a + Motorola, Pixel, Flip/Fold, iPhone Pro Max, X/Ultra/Find</p></div><div id="gridShop" class="grid"></div></div>
+<div id="shop" class="page active"><div class="card"><h2>📱 Mobi-Hub - Pakistan - All Phones</h2><p style="font-size:11px">Vivo V40/V40e/X100s/V50/V60, Samsung A54, Xiaomi 14T/Pro, Nothing 3a/3/2a + Motorola, Pixel, Flip/Fold, iPhone Pro Max, X/Ultra/Find - PTA + Non PTA</p></div><div id="gridShop" class="grid"></div></div>
 
 <div id="ai" class="page"><div class="card"><h2>🤖 AI Assistant</h2><div id="aiChat" style="max-height:200px;overflow-y:auto"></div><div style="display:flex;gap:5px"><input class="input" id="aiInput" placeholder="e.g. best camera phone" style="flex:1"><button class="btn" style="width:70px" onclick="askAI()">Send</button></div></div><div id="aiResults" class="grid"></div></div>
 
-<!-- UPDATED COMPARE WITH SEARCH -->
 <div id="compare" class="page">
 <div class="card">
 <h2>⚖️ Compare - Kisi bhi Company ka Model Search Karo</h2>
-<input class="input" id="compareSearch" placeholder="Search karo... e.g. Samsung S23, iPhone 15, Vivo X100, Motorola, Tecno, Infinix, Oppo Find" onkeyup="searchCompare()">
-<p style="font-size:10px;color:#666">Neeche type karo, koi bhi model search hoga (Chahe list me ho ya na ho) - Phir Compare me add karo</p>
+<input class="input" id="compareSearch" placeholder="Search... Samsung, iPhone, Vivo, Tecno, Infinix, OnePlus, Motorola" onkeyup="searchCompare()">
+<p style="font-size:10px;color:#666">Koi bhi model likho, compare me add karo</p>
 <div id="compareSearchResults" class="grid" style="margin-top:8px"></div>
 <hr style="margin:10px 0">
 <button class="btn" style="background:#ef4444" onclick="clearCompare()">🗑️ Clear Compare List</button>
@@ -72,102 +71,77 @@ body{background:#f8fafc;color:#111}
 
 <div id="cart" class="page"><div class="card"><h2>🛒 Cart</h2><div id="cartItems"></div><div id="cartTotal" style="font-weight:800;color:#01411C"></div></div><div class="card"><h3>Customer Details</h3><input class="input" id="custName" placeholder="Full Name *"><input class="input" id="custPhone" placeholder="WhatsApp Number *"><input class="input" id="custCity" placeholder="City *"><input class="input" id="custAddress" placeholder="Address *"><select class="input" id="payMethod"><option>Cash on Delivery</option><option>JazzCash 03264492997</option><option>Bank Transfer</option></select><button class="btn" style="background:#16a34a" onclick="generateReceipt()">✅ Confirm & Send Receipt to Customer WhatsApp</button></div></div>
 
-<div id="receiptPage" class="page"><div class="card"><h2>🧾 Receipt Section</h2><button class="btn" style="background:#ef4444" onclick="removeReceipt()">🗑️ Remove Old Receipt & Generate New</button><div id="receiptContent" style="margin-top:10px">No receipt yet - Cart se order confirm karo</div></div></div>
+<div id="receiptPage" class="page"><div class="card"><h2>🧾 Receipt Section</h2><button class="btn" style="background:#ef4444" onclick="removeReceipt()">🗑️ Remove Old Receipt & Generate New Raseed</button><div id="receiptContent" style="margin-top:10px">No receipt yet</div></div></div>
 
 <div id="detail" class="page"><a class="btn" style="background:#e2e8f0;color:#111;max-width:120px;margin-bottom:10px" onclick="showPage('shop')">← Back</a><div id="detailContent"></div></div>
 
-<!-- ABOUT US - UPDATED Pakistan + Non PTA -->
 <div id="about" class="page"><div class="card"><h2>About Us - Mobi-Hub</h2><p style="font-size:12px;line-height:1.9"><b>Mobi-Hub</b> Pakistan ka trusted mobile store hai. Owner <b>Shahzaib Shafiq</b> 5+ saal se mobile business me hain.<br><b>Coverage:</b> Pakistan - Pattoki, Lahore, Karachi, Islamabad, All Pakistan Delivery<br><b>Speciality:</b> PTA Approved + Non PTA, Box Pack, Gaming Phones, Vivo, Xiaomi, Nothing, iPhone, Samsung, Motorola, Google Pixel, Oppo, OnePlus<br><b>Special Note:</b> Non PTA phones bhi available hain best price me (JV, Factory Unlock, Patch Approved)<br><b>Mission:</b> 100% Genuine - non refurbished guarantee, Original phone, best price, fast delivery.<br>Contact: 0312-6165602</p></div></div>
 
-<div id="faqs" class="page"><div class="card"><h2>FAQs</h2>
-<div style="font-size:11px;line-height:1.8">
-<b>Q: PTA + Non PTA dono milte?</b><br>A: Ji, PTA Approved + Non PTA (JV/Factory Unlock) dono available.<br><br>
-<b>Q: Non Refurbished guarantee?</b><br>A: Ji 100% Genuine, non refurbished, sealed box.<br><br>
-<b>Q: Exchange offer?</b><br>A: Ji exchange available hai, purana phone deke naya le sakte ho.<br><br>
-<b>Q: Return?</b><br>A: Return with cut of money depends upon condition - Box, accessories, scratch check karke cut hoga.<br><br>
-<b>Q: Warranty?</b><br>A: 7 Days checking + brand warranty, raseed sambhal ke rakho.
-</div></div></div>
+<div id="faqs" class="page"><div class="card"><h2>FAQs</h2><div style="font-size:11px;line-height:1.8"><b>Q: PTA + Non PTA dono milte?</b><br>A: Ji PTA Approved + Non PTA (JV/Factory Unlock) dono.<br><br><b>Q: Non Refurbished guarantee?</b><br>A: 100% Genuine, non refurbished, sealed box.<br><br><b>Q: Exchange offer?</b><br>A: Ji exchange available.<br><br><b>Q: Return?</b><br>A: Return with cut of money depends upon condition.<br><br><b>Q: Warranty?</b><br>A: 7 Days checking + brand warranty, raseed sambhal ke rakho.</div></div></div>
 
-<!-- CONTACT US - UPDATED -->
-<div id="contact" class="page"><div class="card"><h2>Contact Us</h2><p style="font-size:12px;line-height:1.9"><b>Owner:</b> Shahzaib Shafiq<br><b>Phone/WhatsApp:</b> 0312-6165602<br><b>Address:</b> Mobi-Hub, Pattoki Mobile Market, near cheezious restaurant<br><b>Email:</b> shahzaibjaat2712@gmail.com<br><b>Timing:</b> 10AM - 10PM (7 Days)<br><b>All Pakistan Delivery Available</b></p><input class="input" id="cName" placeholder="Your Name"><input class="input" id="cMsg" placeholder="Message"><button class="btn" onclick="contactWhatsApp()">Send on WhatsApp</button></div></div>
+<div id="contact" class="page"><div class="card"><h2>Contact Us</h2><p style="font-size:12px;line-height:1.9"><b>Owner:</b> Shahzaib Shafiq<br><b>Phone/WhatsApp:</b> 0312-6165602<br><b>Address:</b> Mobi-Hub, Pattoki Mobile Market, near cheezious restaurant<br><b>Email:</b> shahzaibjaat2712@gmail.com<br><b>Timing:</b> 10AM - 10PM (7 Days)<br><b>All Pakistan Delivery</b></p><input class="input" id="cName" placeholder="Your Name"><input class="input" id="cMsg" placeholder="Message"><button class="btn" onclick="contactWhatsApp()">Send on WhatsApp</button></div></div>
 
-<!-- TERMS - UPDATED -->
-<div id="terms" class="page"><div class="card"><h2>Terms & Condition</h2><p style="font-size:11px;line-height:1.9">
-1. 100% Genuine-non refurbished guarantee.<br>
-2. Exchange offers available - Purana phone deke naya le sakte ho.<br>
-3. Return with cut of money depends upon condition - Box open, scratch, accessories missing pe paisa katega.<br>
-4. PTA Approved + Non PTA dono ki guarantee jo bataya jayega wahi hoga.<br>
-5. Sab prices market ke hisab se change ho sakte hain.<br>
-6. COD me parcel delivery boy ke samne check kar sakte hain.<br>
-7. Advance payment JazzCash pe bhejne se pehle call pe confirm karein 03126165602.<br>
-8. Keep the receipts for warranty claim.<br>
-9. Fake / Copy phone nahi bechte, 100% original.<br>
-</p></div></div>
+<div id="terms" class="page"><div class="card"><h2>Terms & Condition</h2><p style="font-size:11px;line-height:1.9">1. 100% Genuine-non refurbished guarantee.<br>2. Exchange offers available.<br>3. Return with cut of money depends upon condition.<br>4. PTA Approved + Non PTA dono ki guarantee.<br>5. Prices change ho sakte hain.<br>6. COD me parcel check kar sakte hain.<br>7. Advance payment se pehle call confirm karein 03126165602.<br>8. Keep the receipts for warranty claim.<br>9. 100% original.</p></div></div>
 
-<div id="help" class="page"><div class="card"><h2>Help Center</h2><p style="font-size:12px;line-height:1.9"><b>Order kaise karein?</b><br>1. Phone select > Add to Cart > Customer Details > Confirm & Receipt WhatsApp pe jayegi.<br><br><b>Payment kaise?</b><br>COD, JazzCash 03264492997, Bank Transfer<br><br><b>Delivery?</b><br>Pattoki same day, Lahore 1 day, Other 2-3 days.<br><br><b>Non PTA kya hota?</b><br>JV ya Factory Unlock, 2 month SIM chalti, phir PTA patch/approved karwana parta hai, sasta milta hai.<br><br><b>Help?</b> WhatsApp 03126165602 pe "Help" likho.</p></div></div>
+<div id="help" class="page"><div class="card"><h2>Help Center</h2><p style="font-size:12px;line-height:1.9"><b>Order kaise karein?</b><br>Phone select > Add to Cart > Customer Details > Confirm & Receipt WhatsApp pe jayegi.<br><br><b>Payment?</b><br>COD, JazzCash 03264492997, Bank Transfer<br><br><b>Delivery?</b><br>Pattoki same day, Lahore 1 day, Other 2-3 days.<br><br><b>Non PTA?</b><br>JV/Factory Unlock, 2 month SIM, phir patch/approved karwana parta hai, sasta milta hai.<br><br><b>Help?</b> WhatsApp 03126165602</p></div></div>
 
-<div id="ewarranty" class="page"><div class="card"><h2>E-Warranty Activation</h2><input class="input" id="imei" placeholder="IMEI Number"><button class="btn" onclick="checkWarranty()">Check Warranty</button><div id="warrantyResult" style="font-size:11px;margin-top:8px"></div></div></div>
+<!-- E-WARRANTY - PTA WEBSITE LINKED + MODEL + PTA STATUS + WARRANTY BAKI -->
+<div id="ewarranty" class="page">
+<div class="card">
+<h2>📱 E-Warranty Activation - PTA Official Link</h2>
+<p style="font-size:11px;color:#666">PTA ki official website se verify karo + Warranty check karo</p>
 
-<!-- SELL PHONE - WITH PICTURE UPLOAD -->
-<div id="sellphone" class="page"><div class="card"><h2>Sell on Mobi-Hub - Apna Phone Becho (Picture ke sath)</h2><input class="input" id="sName" placeholder="Your Name"><input class="input" id="sPhone" placeholder="Your WhatsApp"><input class="input" id="sModel" placeholder="Phone Model e.g. iPhone 13"><input class="input" id="sCondition" placeholder="Condition e.g. 10/10, PTA Approved"><input class="input" id="sPrice" placeholder="Expected Price">
-<label style="font-size:11px;font-weight:700">📷 Mobile ki Picture Add Karo (Front, Back, Box):</label>
-<input type="file" class="input" id="sellPic" accept="image/*" multiple onchange="previewSellPics()">
-<div id="sellPicPreview" style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px"></div>
-<button class="btn" onclick="sellWhatsApp()">Sell Request WhatsApp Pe Bhejo (Picture ke sath)</button>
-<p style="font-size:10px;color:#666;margin-top:5px">Note: Picture select karne ke baad WhatsApp pe jate hi gallery se picture attach kar dena, ya yahan se preview dekho.</p>
-</div></div>
+<label style="font-size:11px;font-weight:700">📱 Mobile Model *</label>
+<input class="input" id="ew_model" placeholder="e.g. Vivo V40, iPhone 15 Pro Max, Samsung S24 Ultra">
 
-<!-- PRIVACY - POINT 5 REMOVED + NEW POINT -->
-<div id="privacy" class="page"><div class="card"><h2>Privacy Policy</h2><p style="font-size:11px;line-height:1.9">
-1. Hum Name, Phone, Address sirf delivery ke liye lete hain.<br>
-2. Number kisi company ko sale nahi karte.<br>
-3. Payment details save nahi karte.<br>
-4. WhatsApp pe receipt bhejna hamara feature hai, spam nahi.<br>
-5. NEW: Hum aapki location track nahi karte, sirf aap jo city likhte ho wahi use hoti hai delivery ke liye.<br>
-6. Aapki photos (sell phone wali) sirf price lagane ke liye use hoti hain, kahi upload nahi karte bina permission.<br>
-7. 100% Genuine data protection, 7 days warranty me data aapki zimmedari.<br>
-Contact: shahzaibjaat2712@gmail.com / 03126165602
-</p></div></div>
+<label style="font-size:11px;font-weight:700">🔢 IMEI Number * ( *#06# dial karo)</label>
+<input class="input" id="imei" placeholder="e.g. 3585XXXXXXXXXXX">
+
+<label style="font-size:11px;font-weight:700">📅 Purchase Date *</label>
+<input type="date" class="input" id="purchaseDate">
+
+<label style="font-size:11px;font-weight:700">📡 PTA Status *</label>
+<select class="input" id="ptaStatus">
+<option value="">Select PTA Status</option>
+<option value="PTA Approved">✅ PTA Approved - Lifetime</option>
+<option value="Non PTA">❌ Non PTA</option>
+<option value="PTA Patch Approved">🔧 PTA Patch Approved</option>
+<option value="JV">📱 JV - 2 Months SIM Working</option>
+<option value="Factory Unlock">🔓 Factory Unlock</option>
+<option value="CPID Approved">✅ CPID Approved</option>
+</select>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:5px">
+<button class="btn" style="background:#3b9cf5" onclick="openPTAWebsite()">🌐 PTA Official Website Pe Check Karo</button>
+<button class="btn" style="background:#01411C" onclick="checkWarranty()">✅ Warranty & PTA Status Check</button>
+</div>
+
+<div id="warrantyResult" style="margin-top:10px"></div>
+
+<div style="margin-top:15px;padding:10px;background:#f0f7ff;border-radius:8px">
+<h3 style="font-size:12px">🔗 PTA Official Links:</h3>
+<a href="https://dirbs.pta.gov.pk/" target="_blank" style="color:#3b9cf5;font-size:11px;display:block;margin:4px 0">1. DIRBS PTA - dirbs.pta.gov.pk (IMEI Check)</a>
+<a href="https://www.pta.gov.pk/en/imei-verification" target="_blank" style="color:#3b9cf5;font-size:11px;display:block;margin:4px 0">2. PTA IMEI Verification - pta.gov.pk</a>
+<a href="https://dvs.pta.gov.pk/" target="_blank" style="color:#3b9cf5;font-size:11px;display:block;margin:4px 0">3. DVS PTA - dvs.pta.gov.pk</a>
+<p style="font-size:10px;color:#666;margin-top:6px">IMEI likh ke upar wale button se direct PTA pe check kar sakte ho.</p>
+</div>
+</div>
+</div>
+
+<div id="sellphone" class="page"><div class="card"><h2>Sell on Mobi-Hub - Apna Phone Becho</h2><input class="input" id="sName" placeholder="Your Name"><input class="input" id="sPhone" placeholder="Your WhatsApp"><input class="input" id="sModel" placeholder="Phone Model"><input class="input" id="sCondition" placeholder="Condition e.g. 10/10, PTA Approved"><input class="input" id="sPrice" placeholder="Expected Price"><label style="font-size:11px;font-weight:700">📷 Mobile ki Picture Add Karo:</label><input type="file" class="input" id="sellPic" accept="image/*" multiple onchange="previewSellPics()"><div id="sellPicPreview" style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px"></div><button class="btn" onclick="sellWhatsApp()">Sell Request WhatsApp Pe Bhejo</button></div></div>
+
+<div id="privacy" class="page"><div class="card"><h2>Privacy Policy</h2><p style="font-size:11px;line-height:1.9">1. Hum Name, Phone, Address sirf delivery ke liye lete hain.<br>2. Number kisi ko sale nahi karte.<br>3. Payment details save nahi karte.<br>4. WhatsApp pe receipt bhejna hamara feature hai, spam nahi.<br>5. NEW: Hum aapki location track nahi karte, sirf city jo aap likhte ho wahi use hoti hai.<br>6. Aapki photos sirf price lagane ke liye use hoti hain, permission ke bina upload nahi karte.<br>7. 100% Genuine data protection.<br>Contact: shahzaibjaat2712@gmail.com</p></div></div>
 
 <div id="demand" class="page"><div class="card"><h2>🔍 Demand</h2><input class="input" id="dName" placeholder="Name"><input class="input" id="dPhone" placeholder="WhatsApp"><input class="input" id="dModel" placeholder="Model"><input class="input" id="dBudget" placeholder="Budget"><button class="btn" style="background:#16a34a" onclick="submitDemand()">Save</button><button class="btn" style="background:#25D366" onclick="submitDemandWhatsApp()">WhatsApp Owner</button></div><div class="card"><div id="demandList"></div></div></div>
-
-<div id="paymentPage" class="page"><div class="card"><h2>Secure Payment Methods</h2><p style="font-size:11px">✅ COD Pattoki Free<br>✅ JazzCash 03264492997 Shah Zaib<br>✅ HBL Bank<br>✅ 1Link, VISA, MasterCard</p></div></div>
-
+<div id="paymentPage" class="page"><div class="card"><h2>Secure Payment Methods</h2><p style="font-size:11px">✅ COD Pattoki Free<br>✅ JazzCash 03264492997<br>✅ HBL Bank<br>✅ 1Link, VISA, MasterCard</p></div></div>
 <div id="feedback" class="page"><div class="card"><h2>⭐ Feedback</h2><input class="input" id="fName" placeholder="Name"><select class="input" id="fRating"><option value="5">5 Star</option><option value="4">4 Star</option><option value="3">3 Star</option></select><textarea class="input" id="fComment" placeholder="Comment"></textarea><button class="btn" onclick="submitFeedback()">Submit</button></div><div class="card"><div id="feedbackList"></div></div></div>
-
 </div>
 
-<!-- FOOTER WITHOUT CAREERS & PRESS -->
 <div class="footer-priceoye">
 <div class="footer-grid">
-<div>
-<div style="display:flex;align-items:center;gap:6px;margin-bottom:12px"><div style="background:white;color:#3b9cf5;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800">M</div><b style="font-size:18px">Mobi-Hub</b></div>
-<a onclick="showPage('about')">About Us</a>
-<a onclick="showPage('faqs')">FAQs</a>
-<a onclick="showPage('contact')">Contact Us</a>
-<a onclick="showPage('terms')">Terms & Condition</a>
-</div>
-<div>
-<h3 style="font-size:16px;margin-bottom:12px">Customer Service</h3>
-<a onclick="showPage('help')">Help Center</a>
-<a onclick="showPage('privacy')">Privacy Policy</a>
-<a onclick="showPage('ewarranty')">E-Warranty Activation</a>
-<a onclick="showPage('sellphone')">Sell on Mobi-Hub / Apna Phone Becho</a>
-<a onclick="showPage('feedback')">Customer Feedback</a>
-<a onclick="showPage('paymentPage')">Secure Payments</a>
-</div>
-<div>
-<h3 style="font-size:16px;margin-bottom:12px">Secure Payments Methods</h3>
-<div class="payment-icons">
-<div>1 LINK</div>
-<div>MasterCard</div>
-<div style="color:#0d47a1">VISA</div>
-<div style="color:#007a33">HBL</div>
-<div>CASH ON DELIVERY</div>
-<div style="background:#25D366;color:white">JazzCash</div>
-</div>
-<p style="font-size:11px;margin-top:12px;opacity:0.9">📍 Mobi-Hub, Pattoki Mobile Market, near cheezious restaurant<br>📧 shahzaibjaat2712@gmail.com<br>📞 0312-6165602 - Shahzaib Shafiq - Pakistan<br>© 2026 Mobi-Hub</p>
-</div>
+<div><div style="display:flex;align-items:center;gap:6px;margin-bottom:12px"><div style="background:white;color:#3b9cf5;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800">M</div><b style="font-size:18px">Mobi-Hub</b></div><a onclick="showPage('about')">About Us</a><a onclick="showPage('faqs')">FAQs</a><a onclick="showPage('contact')">Contact Us</a><a onclick="showPage('terms')">Terms & Condition</a></div>
+<div><h3 style="font-size:16px;margin-bottom:12px">Customer Service</h3><a onclick="showPage('help')">Help Center</a><a onclick="showPage('privacy')">Privacy Policy</a><a onclick="showPage('ewarranty')">E-Warranty Activation (PTA Linked)</a><a onclick="showPage('sellphone')">Sell on Mobi-Hub / Apna Phone Becho</a><a onclick="showPage('feedback')">Customer Feedback</a><a onclick="showPage('paymentPage')">Secure Payments</a></div>
+<div><h3 style="font-size:16px;margin-bottom:12px">Secure Payments Methods</h3><div class="payment-icons"><div>1 LINK</div><div>MasterCard</div><div style="color:#0d47a1">VISA</div><div style="color:#007a33">HBL</div><div>CASH ON DELIVERY</div><div style="background:#25D366;color:white">JazzCash</div></div><p style="font-size:11px;margin-top:12px;opacity:0.9">📍 Mobi-Hub, Pattoki Mobile Market, near cheezious restaurant<br>📧 shahzaibjaat2712@gmail.com<br>📞 0312-6165602 - Shahzaib Shafiq - Pakistan<br>© 2026 Mobi-Hub</p></div>
 </div>
 </div>
 
@@ -196,11 +170,7 @@ const products=[
 {id:502,name:"Xiaomi 14 Ultra",brand:"XIAOMI",price:264999,stock:"In Stock",ram:"16GB/512GB",chip:"SD 8 Gen 3",battery:"5300mAh",camera:"50MP Leica",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-ultra.jpg"},
 {id:503,name:"Oppo Find X7 Ultra",brand:"OPPO",price:259999,stock:"New",ram:"16GB/512GB",chip:"SD 8 Gen 3",battery:"5000mAh",camera:"50MP Hasselblad",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x7-ultra.jpg"},
 ];
-let allSearchProducts=[...products,
-{id:601,name:"Tecno Camon 30 12/256",brand:"TECNO",price:54999,ram:"12GB/256GB",chip:"Helio G99",battery:"5000mAh",camera:"50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/tecno-camon-30.jpg"},
-{id:602,name:"Infinix Note 40 Pro 12/256",brand:"INFINIX",price:59999,ram:"12GB/256GB",chip:"Dimensity 7020",battery:"5000mAh",camera:"108MP",img:"https://fdn2.gsmarena.com/vv/bigpic/infinix-note-40-pro.jpg"},
-{id:603,name:"OnePlus 12R 16/512",brand:"ONEPLUS",price:159999,ram:"16GB/512GB",chip:"SD 8 Gen 2",battery:"5500mAh",camera:"50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/oneplus-12r.jpg"},
-];
+let allSearchProducts=[...products,{id:601,name:"Tecno Camon 30 12/256",brand:"TECNO",price:54999,ram:"12GB/256GB",chip:"Helio G99",battery:"5000mAh",camera:"50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/tecno-camon-30.jpg"},{id:602,name:"Infinix Note 40 Pro 12/256",brand:"INFINIX",price:59999,ram:"12GB/256GB",chip:"Dimensity 7020",battery:"5000mAh",camera:"108MP",img:"https://fdn2.gsmarena.com/vv/bigpic/infinix-note-40-pro.jpg"},{id:603,name:"OnePlus 12R 16/512",brand:"ONEPLUS",price:159999,ram:"16GB/512GB",chip:"SD 8 Gen 2",battery:"5500mAh",camera:"50MP",img:"https://fdn2.gsmarena.com/vv/bigpic/oneplus-12r.jpg"}];
 let cart=JSON.parse(localStorage.getItem('mobi_cart')||'[]');
 let demands=JSON.parse(localStorage.getItem('mobi_demands')||'[]');
 let feedbacks=JSON.parse(localStorage.getItem('mobi_feedbacks')||'[]');
@@ -208,7 +178,7 @@ let compareList=JSON.parse(localStorage.getItem('mobi_compare')||'[]');
 let lastReceipt=JSON.parse(localStorage.getItem('mobi_last_receipt')||'null');
 
 function renderShop(){document.getElementById('gridShop').innerHTML=products.map(p=>`<div class="product"><button class="compare-btn" onclick="event.stopPropagation();addToCompare(${p.id})">⚖️ Compare</button><div onclick="openDetail(${p.id})"><img src="${p.img}" onerror="this.src='https://via.placeholder.com/300?text=${encodeURIComponent(p.name)}'"><div class="info"><span class="brand">${p.brand}</span><h3>${p.name}</h3><div class="price">Rs.${p.price.toLocaleString()}</div><span class="stock instock">${p.stock}</span></div></div></div>`).join('');updateCounts();renderDemands();renderFeedbacks();renderCompare();if(lastReceipt)showReceipt(lastReceipt);}
-function openDetail(id){let p=[...products,...allSearchProducts].find(x=>x.id==id);if(!p)return;document.getElementById('detailContent').innerHTML=`<div class="card"><img src="${p.img}" style="width:100%;max-height:350px;object-fit:contain"><h2>${p.name}</h2><div style="font-size:20px;font-weight:800;color:#01411C">Rs.${p.price.toLocaleString()}</div><p style="font-size:11px">${p.ram} | ${p.chip} | ${p.battery} | ${p.camera}</p><button class="btn" onclick="addToCart(${p.id})">Add to Cart</button><button class="btn" style="background:#16a34a" onclick="addToCompare(${p.id})">Compare</button></div>`;showPage('detail');}
+function openDetail(id){let p=[...products,...allSearchProducts].find(x=>x.id==id);document.getElementById('detailContent').innerHTML=`<div class="card"><img src="${p.img}" style="width:100%;max-height:350px;object-fit:contain"><h2>${p.name}</h2><div style="font-size:20px;font-weight:800;color:#01411C">Rs.${p.price.toLocaleString()}</div><p style="font-size:11px">${p.ram} | ${p.chip} | ${p.battery} | ${p.camera}</p><button class="btn" onclick="addToCart(${p.id})">Add to Cart</button><button class="btn" style="background:#16a34a" onclick="addToCompare(${p.id})">Compare</button></div>`;showPage('detail');}
 function addToCart(id){let p=[...products,...allSearchProducts].find(x=>x.id==id);let e=cart.find(x=>x.id==id);if(e){e.qty++}else{cart.push({...p,qty:1})}localStorage.setItem('mobi_cart',JSON.stringify(cart));updateCounts();alert('Added');}
 function renderCart(){let c=document.getElementById('cartItems');if(cart.length==0){c.innerHTML='<p>Cart empty</p>';document.getElementById('cartTotal').innerText='';return;}c.innerHTML=cart.map((x,i)=>`<div style="display:flex;gap:10px;background:#f8fafc;padding:8px;border-radius:10px;margin-bottom:6px"><div style="flex:1"><b style="font-size:11px">${x.name}</b><br>Rs.${x.price.toLocaleString()} x ${x.qty}</div><button onclick="changeQty(${i},1)">+</button><button onclick="changeQty(${i},-1)">-</button></div>`).join('');let t=cart.reduce((s,c)=>s+c.price*c.qty,0);document.getElementById('cartTotal').innerText='Total: Rs.'+t.toLocaleString();}
 function changeQty(i,d){cart[i].qty+=d;if(cart[i].qty<=0)cart.splice(i,1);localStorage.setItem('mobi_cart',JSON.stringify(cart));renderCart();updateCounts();}
@@ -216,7 +186,7 @@ function updateCounts(){document.getElementById('cartCount').innerText=cart.redu
 function askAI(){let q=document.getElementById('aiInput').value.trim().toLowerCase();if(!q)return;let results=allSearchProducts.filter(p=> p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q));if(results.length==0)results=products.slice(0,4);document.getElementById('aiChat').innerHTML+=`<div style="background:#f1f5f9;padding:6px;border-radius:8px;margin:4px 0;font-size:11px">👤 ${q}</div><div style="background:#dcfce7;padding:6px;border-radius:8px;margin:4px 0;font-size:11px">🤖 ${results.length} phones mile!</div>`;document.getElementById('aiResults').innerHTML=results.map(p=>`<div class="product" onclick="openDetail(${p.id})"><img src="${p.img}"><div class="info"><span class="brand">${p.brand}</span><h3>${p.name}</h3><div class="price">Rs.${p.price.toLocaleString()}</div></div></div>`).join('');}
 function addToCompare(id){if(compareList.length>=3){alert('Max 3');return;}if(compareList.includes(id)){alert('Already');return;}compareList.push(id);localStorage.setItem('mobi_compare',JSON.stringify(compareList));updateCounts();alert('Compare added');renderCompare();}
 function clearCompare(){compareList=[];localStorage.setItem('mobi_compare',JSON.stringify(compareList));renderCompare();updateCounts();document.getElementById('compareSearchResults').innerHTML='';}
-function searchCompare(){let q=document.getElementById('compareSearch').value.trim().toLowerCase();let resDiv=document.getElementById('compareSearchResults');if(!q){resDiv.innerHTML='';return;}let results=allSearchProducts.filter(p=> p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q) || q.includes(p.brand.toLowerCase()));if(results.length==0){resDiv.innerHTML='<p style="font-size:11px">Koi model nahi mila, lekin aap koi bhi company ka naam likho e.g. Tecno, Infinix, OnePlus, RealMe</p>';return;}resDiv.innerHTML=results.slice(0,8).map(p=>`<div class="product"><div onclick="openDetail(${p.id})"><img src="${p.img}" style="height:100px"><div class="info"><h3 style="font-size:9px">${p.name}</h3><div class="price">Rs.${p.price.toLocaleString()}</div></div></div><button class="btn" style="font-size:9px;padding:4px" onclick="addToCompare(${p.id})">+ Compare Add</button></div>`).join('');}
+function searchCompare(){let q=document.getElementById('compareSearch').value.trim().toLowerCase();let resDiv=document.getElementById('compareSearchResults');if(!q){resDiv.innerHTML='';return;}let results=allSearchProducts.filter(p=> p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q));if(results.length==0){resDiv.innerHTML='<p style="font-size:11px">Koi model nahi mila</p>';return;}resDiv.innerHTML=results.slice(0,8).map(p=>`<div class="product"><div onclick="openDetail(${p.id})"><img src="${p.img}" style="height:100px"><div class="info"><h3 style="font-size:9px">${p.name}</h3><div class="price">Rs.${p.price.toLocaleString()}</div></div></div><button class="btn" style="font-size:9px;padding:4px" onclick="addToCompare(${p.id})">+ Compare</button></div>`).join('');}
 function renderCompare(){let table=document.getElementById('compareTable');if(compareList.length==0){table.innerHTML='<div class="card"><p>Empty - Upar search karke add karo</p></div>';return;}let comps=compareList.map(id=>[...products,...allSearchProducts].find(p=>p.id==id)).filter(Boolean);table.innerHTML=`<div class="card" style="overflow-x:auto"><table style="width:100%;font-size:10px;border-collapse:collapse"><tr><th>Feature</th>${comps.map(p=>`<th>${p.name}</th>`).join('')}</tr><tr><td>Price</td>${comps.map(p=>`<td>Rs.${p.price.toLocaleString()}</td>`).join('')}</tr><tr><td>RAM</td>${comps.map(p=>`<td>${p.ram}</td>`).join('')}</tr><tr><td>Chip</td>${comps.map(p=>`<td>${p.chip}</td>`).join('')}</tr><tr><td>Battery</td>${comps.map(p=>`<td>${p.battery}</td>`).join('')}</tr><tr><td>Camera</td>${comps.map(p=>`<td>${p.camera}</td>`).join('')}</tr></table></div>`;}
 function submitDemand(){let name=document.getElementById('dName').value;let phone=document.getElementById('dPhone').value;let model=document.getElementById('dModel').value;let budget=document.getElementById('dBudget').value;if(!name||!phone||!model){alert('Fill');return;}demands.push({id:Date.now(),name,phone,model,budget,date:new Date().toLocaleString()});localStorage.setItem('mobi_demands',JSON.stringify(demands));renderDemands();}
 function submitDemandWhatsApp(){let name=document.getElementById('dName').value;let phone=document.getElementById('dPhone').value;let model=document.getElementById('dModel').value;let budget=document.getElementById('dBudget').value;let msg=`DEMAND Name:${name} Phone:${phone} Model:${model} Budget:${budget}`;window.open(`https://wa.me/923126165602?text=${msg}`,'_blank');}
@@ -224,33 +194,61 @@ function renderDemands(){let list=document.getElementById('demandList');if(!list
 function submitFeedback(){let name=document.getElementById('fName').value;let rating=document.getElementById('fRating').value;let comment=document.getElementById('fComment').value;if(!name||!comment){alert('Fill');return;}feedbacks.push({name,rating,comment,date:new Date().toLocaleDateString()});localStorage.setItem('mobi_feedbacks',JSON.stringify(feedbacks));renderFeedbacks();}
 function renderFeedbacks(){let list=document.getElementById('feedbackList');if(!list)return;if(feedbacks.length==0){list.innerHTML='No feedback';return;}list.innerHTML=feedbacks.slice().reverse().map(f=>`<div style="background:#f8fafc;padding:6px;border-radius:6px;margin-bottom:5px;font-size:11px"><b>${f.name}</b> ${'⭐'.repeat(f.rating)}<br>${f.comment}<br><small>${f.date}</small></div>`).join('');}
 function removeReceipt(){if(confirm('Purani raseed delete karke nayi banani hai?')){localStorage.removeItem('mobi_last_receipt');lastReceipt=null;document.getElementById('receiptContent').innerHTML='No receipt yet - Cart se nayi raseed banao<br><button class="btn" style="background:#01411C;margin-top:8px" onclick="showPage(\'cart\')">Cart Pe Jao</button>';}}
-function generateReceipt(){let name=document.getElementById('custName').value.trim();let phone=document.getElementById('custPhone').value.trim();let city=document.getElementById('custCity').value.trim();let address=document.getElementById('custAddress').value.trim();let payMethod=document.getElementById('payMethod').value;if(!name||!phone||!city||!address){alert('Fill Customer Details');showPage('cart');return;}if(cart.length==0){alert('Cart empty');return;}let orderId='MOBI-'+Date.now().toString().slice(-6);let date=new Date().toLocaleString();let total=cart.reduce((s,c)=>s+c.price*c.qty,0);let delivery=city.toLowerCase().includes('pattoki')?0:400;let grandTotal=total+delivery;let data={orderId,date,name,phone,city,address,payMethod,items:cart,total,delivery,grandTotal};localStorage.setItem('mobi_last_receipt',JSON.stringify(data));lastReceipt=data;showReceipt(data);let customerPhoneClean=phone.replace(/[^0-9]/g,'');if(customerPhoneClean.startsWith('0'))customerPhoneClean='92'+customerPhoneClean.slice(1);let customerMsg=`🧾 *Mobi-Hub Raseed ${orderId}*%0AName:${name}%0APhone:${phone}%0ACity:${city}%0AAddress:${address}%0APayment:${payMethod}%0A%0AItems:%0A${cart.map(c=>`- ${c.name} x${c.qty}=Rs.${(c.price*c.qty).toLocaleString()}`).join('%0A')}%0A%0ATotal:Rs.${total.toLocaleString()}%0ADelivery:Rs.${delivery}%0AGrand Total:Rs.${grandTotal.toLocaleString()}%0A%0A✅ Order Confirmed%0AStamp: Mobi-Hub Shahzaib%0A%0AThank you (Note: 100% Genuine-non refurbished guarantee. Exchange offers available. Return with cut of money depends upon condition. Keep the receipts for warranty claim.)`;window.open(`https://wa.me/${customerPhoneClean}?text=${customerMsg}`,'_blank');cart=[];localStorage.setItem('mobi_cart',JSON.stringify(cart));updateCounts();}
-function showReceipt(data){
-  document.getElementById('receiptContent').innerHTML=`
-  <div class="receipt">
-    <h3 style="text-align:center">🧾 Mobi-Hub - Official Raseed</h3>
-    <p style="text-align:center;font-size:10px">Mobi-Hub, Pattoki Mobile Market, near cheezious restaurant<br>shahzaibjaat2712@gmail.com | 0312-6165602</p>
+function generateReceipt(){let name=document.getElementById('custName').value.trim();let phone=document.getElementById('custPhone').value.trim();let city=document.getElementById('custCity').value.trim();let address=document.getElementById('custAddress').value.trim();let payMethod=document.getElementById('payMethod').value;if(!name||!phone||!city||!address){alert('Fill Customer Details');showPage('cart');return;}if(cart.length==0){alert('Cart empty');return;}let orderId='MOBI-'+Date.now().toString().slice(-6);let date=new Date().toLocaleString();let total=cart.reduce((s,c)=>s+c.price*c.qty,0);let delivery=city.toLowerCase().includes('pattoki')?0:400;let grandTotal=total+delivery;let data={orderId,date,name,phone,city,address,payMethod,items:cart,total,delivery,grandTotal};localStorage.setItem('mobi_last_receipt',JSON.stringify(data));lastReceipt=data;showReceipt(data);let customerPhoneClean=phone.replace(/[^0-9]/g,'');if(customerPhoneClean.startsWith('0'))customerPhoneClean='92'+customerPhoneClean.slice(1);let customerMsg=`🧾 *Mobi-Hub Raseed ${orderId}*%0AName:${name}%0APhone:${phone}%0ACity:${city}%0AAddress:${address}%0APayment:${payMethod}%0A%0AItems:%0A${cart.map(c=>`- ${c.name} x${c.qty}=Rs.${(c.price*c.qty).toLocaleString()}`).join('%0A')}%0A%0ATotal:Rs.${total.toLocaleString()}%0ADelivery:Rs.${delivery}%0AGrand Total:Rs.${grandTotal.toLocaleString()}%0A%0AThank you (Note: 100% Genuine-non refurbished guarantee. Exchange offers available. Return with cut of money depends upon condition. Keep the receipts for warranty claim.)`;window.open(`https://wa.me/${customerPhoneClean}?text=${customerMsg}`,'_blank');cart=[];localStorage.setItem('mobi_cart',JSON.stringify(cart));updateCounts();}
+function showReceipt(data){document.getElementById('receiptContent').innerHTML=`<div class="receipt"><h3 style="text-align:center">🧾 Mobi-Hub - Official Raseed</h3><p style="text-align:center;font-size:10px">Mobi-Hub, Pattoki Mobile Market, near cheezious restaurant<br>shahzaibjaat2712@gmail.com | 0312-6165602</p><hr style="margin:8px 0"><b>Order ID:</b> ${data.orderId}<br><b>Date:</b> ${data.date}<br><b>Name:</b> ${data.name}<br><b>Phone:</b> ${data.phone}<br><b>City:</b> ${data.city}<br><b>Address:</b> ${data.address}<br><b>Payment:</b> ${data.payMethod}<hr>${data.items.map(c=>`<div style="display:flex;justify-content:space-between"><span>${c.name} x${c.qty}</span><span>Rs.${(c.price*c.qty).toLocaleString()}</span></div>`).join('')}<hr><div style="display:flex;justify-content:space-between"><span>Total:</span><span>Rs.${data.total.toLocaleString()}</span></div><div style="display:flex;justify-content:space-between"><span>Delivery:</span><span>Rs.${data.delivery}</span></div><div style="display:flex;justify-content:space-between;font-weight:800;color:#01411C"><span>Grand Total:</span><span>Rs.${data.grandTotal.toLocaleString()}</span></div><div style="text-align:center"><div class="stamp">✔️ Mobi-Hub<br>Shahzaib<br>APPROVED<br>${data.orderId}</div></div><div class="thank-note"><b>Thank you</b><br>(Note: 100% Genuine-non refurbished guarantee. Exchange offers available. Return with cut of money depends upon condition. Keep the receipts for warranty claim.)<br>Kuch or chahey to bta dena</div><button class="btn" onclick="window.print()">🖨️ Print Raseed with Stamp</button><button class="btn" style="background:#ef4444" onclick="removeReceipt()">🗑️ Remove & New Raseed Generation</button></div>`;showPage('receiptPage');}
+
+// PTA + WARRANTY - NEW
+function openPTAWebsite(){
+  let imei=document.getElementById('imei').value.trim();
+  if(imei.length<10){alert('Pehle IMEI likho');return;}
+  window.open(`https://dirbs.pta.gov.pk/`, '_blank');
+  setTimeout(()=>{window.open(`https://www.pta.gov.pk/en/imei-verification`, '_blank');},800);
+  alert('PTA official website khul gayi! IMEI '+imei+' daal ke check karo');
+}
+function checkWarranty(){
+  let model=document.getElementById('ew_model').value.trim();
+  let imei=document.getElementById('imei').value.trim();
+  let purchaseDate=document.getElementById('purchaseDate').value;
+  let ptaStatus=document.getElementById('ptaStatus').value;
+  if(!model || imei.length<10 ||!purchaseDate ||!ptaStatus){alert('Model, IMEI, Purchase Date, PTA Status bharo');return;}
+  let purchase=new Date(purchaseDate);
+  let today=new Date();
+  let diffDays=Math.floor((today-purchase)/(1000*60*60*24));
+  let warrantyTotal=365;
+  let warrantyLeft=warrantyTotal-diffDays;
+  let warrantyText=warrantyLeft>0?`✅ Warranty Baki: ${Math.floor(warrantyLeft/30)} Months ${warrantyLeft%30} Days (${warrantyLeft} din)`:`❌ Warranty Khatam: ${Math.abs(warrantyLeft)} din pehle`;
+  let color=warrantyLeft>0?'#01411C':'#ef4444';
+  let ptaIcon=ptaStatus.includes('Approved')?'✅':ptaStatus.includes('Non')?'❌':'⚠️';
+  document.getElementById('warrantyResult').innerHTML=`
+  <div style="border:2px solid ${color};border-radius:10px;padding:12px;background:#fff">
+    <h3 style="text-align:center;color:${color}">🧾 Mobi-Hub E-Warranty Card</h3>
     <hr style="margin:8px 0">
-    <b>Order ID:</b> ${data.orderId}<br><b>Date:</b> ${data.date}<br><b>Name:</b> ${data.name}<br><b>Phone:</b> ${data.phone}<br><b>City:</b> ${data.city}<br><b>Address:</b> ${data.address}<br><b>Payment:</b> ${data.payMethod}<hr>
-    ${data.items.map(c=>`<div style="display:flex;justify-content:space-between"><span>${c.name} x${c.qty}</span><span>Rs.${(c.price*c.qty).toLocaleString()}</span></div>`).join('')}
-    <hr><div style="display:flex;justify-content:space-between"><span>Total:</span><span>Rs.${data.total.toLocaleString()}</span></div><div style="display:flex;justify-content:space-between"><span>Delivery:</span><span>Rs.${data.delivery}</span></div><div style="display:flex;justify-content:space-between;font-weight:800;color:#01411C"><span>Grand Total:</span><span>Rs.${data.grandTotal.toLocaleString()}</span></div>
-    <div style="text-align:center"><div class="stamp">✔️ Mobi-Hub<br>Shahzaib<br>APPROVED<br>${data.orderId}</div></div>
-    <div class="thank-note">
-      <b>Thank you</b><br>
-      (Note: 100% Genuine-non refurbished guarantee. Exchange offers available. Return with cut of money depends upon condition. Keep the receipts for warranty claim.)<br>
-      Kuch or chahiye to bata dena - 03126165602
-    </div>
-    <button class="btn" onclick="window.print()">🖨️ Print Raseed with Stamp</button>
-    <button class="btn" style="background:#ef4444" onclick="removeReceipt()">🗑️ Remove & New Raseed Generation</button>
+    <b>📱 Model:</b> ${model}<br>
+    <b>🔢 IMEI:</b> ${imei}<br>
+    <b>📡 PTA Status:</b> ${ptaIcon} ${ptaStatus}<br>
+    <b>📅 Purchase:</b> ${purchaseDate}<br>
+    <b>📅 Today:</b> ${today.toLocaleDateString()}<br>
+    <b>⏳ Use:</b> ${diffDays} din<br>
+    <hr><div style="background:${warrantyLeft>0?'#dcfce7':'#fee2e2'};padding:8px;border-radius:6px;text-align:center;font-weight:800;color:${color}">${warrantyText}</div>
+    <hr><p style="font-size:10px"><b>PTA Verify:</b> <a href="https://dirbs.pta.gov.pk/" target="_blank" style="color:#3b9cf5">dirbs.pta.gov.pk</a> pe IMEI ${imei} check karo</p>
+    <div style="text-align:center;margin-top:8px"><div style="border:2px solid #01411C;display:inline-block;padding:4px 10px;border-radius:6px;font-weight:800;color:#01411C;transform:rotate(-5deg)">Mobi-Hub Shahzaib<br>Verified ${ptaStatus}<br>${new Date().toLocaleDateString()}</div></div>
+    <p style="font-size:9px;margin-top:8px;background:#f0fdf4;padding:6px;border-radius:4px"><b>Thank you</b> (Note: 100% Genuine-non refurbished guarantee. Exchange offers available. Return with cut of money depends upon condition. Keep the receipts for warranty claim. PTA Status: ${ptaStatus})</p>
+    <button class="btn" style="background:#25D366;margin-top:8px" onclick="sendWarrantyWhatsApp()">💬 Warranty Card WhatsApp Pe Bhejo</button>
   </div>`;
-  showPage('receiptPage');
+}
+function sendWarrantyWhatsApp(){
+  let model=document.getElementById('ew_model').value;
+  let imei=document.getElementById('imei').value;
+  let ptaStatus=document.getElementById('ptaStatus').value;
+  let purchaseDate=document.getElementById('purchaseDate').value;
+  let msg=`🧾 *E-Warranty Mobi-Hub*%0AModel:${model}%0AIMEI:${imei}%0APTA Status:${ptaStatus}%0APurchase:${purchaseDate}%0APTA Check: https://dirbs.pta.gov.pk/`;
+  window.open(`https://wa.me/923126165602?text=${msg}`,'_blank');
 }
 function previewSellPics(){let input=document.getElementById('sellPic');let preview=document.getElementById('sellPicPreview');preview.innerHTML='';for(let file of input.files){let reader=new FileReader();reader.onload=function(e){let img=document.createElement('img');img.src=e.target.result;img.style.width='70px';img.style.height='70px';img.style.objectFit='cover';img.style.borderRadius='6px';img.style.border='1px solid #ccc';preview.appendChild(img);};reader.readAsDataURL(file);}}
-function sellWhatsApp(){let n=document.getElementById('sName').value;let p=document.getElementById('sPhone').value;let m=document.getElementById('sModel').value;let c=document.getElementById('sCondition').value;let pr=document.getElementById('sPrice').value;let picCount=document.getElementById('sellPic').files.length;let msg=`SELL PHONE Request%0AName:${n}%0APhone:${p}%0AModel:${m}%0ACondition:${c}%0APrice:${pr}%0APictures:${picCount} attached (gallery se attach karna)%0AAddress: Mobi-Hub near cheezious restaurant`;window.open(`https://wa.me/923126165602?text=${msg}`,'_blank');}
+function sellWhatsApp(){let n=document.getElementById('sName').value;let p=document.getElementById('sPhone').value;let m=document.getElementById('sModel').value;let c=document.getElementById('sCondition').value;let pr=document.getElementById('sPrice').value;let picCount=document.getElementById('sellPic').files.length;let msg=`SELL PHONE Request%0AName:${n}%0APhone:${p}%0AModel:${m}%0ACondition:${c}%0APrice:${pr}%0APictures:${picCount} attached%0AAddress: near cheezious restaurant`;window.open(`https://wa.me/923126165602?text=${msg}`,'_blank');}
 function contactWhatsApp(){let n=document.getElementById('cName').value;let m=document.getElementById('cMsg').value;window.open(`https://wa.me/923126165602?text=Name:${n} Msg:${m}`,'_blank');}
-function checkWarranty(){let imei=document.getElementById('imei').value.trim();if(imei.length<10){alert('Valid IMEI likho');return;}document.getElementById('warrantyResult').innerHTML=`✅ IMEI ${imei} - PTA Approved + Brand Warranty 1 Year - Raseed sambhal ke rakho warranty claim ke liye`;}
 function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));let l=document.getElementById('link-'+id);if(l)l.classList.add('active');if(id=='cart')renderCart();if(id=='compare')renderCompare();}
 renderShop();
 </script>
 </body>
-                 </html>
+</html>
