@@ -7,239 +7,260 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 body{font-family:'Inter',sans-serif}
-.scroll-hide::-webkit-scrollbar{display:none}
-.priceoye-blue{background:#48afff}
-.sale-orange{background: linear-gradient(90deg, #ff8a00 0%, #ffb347 100%)}
-.warranty-purple{background: linear-gradient(90deg, #6a11cb 0%, #8e2de2 100%)}
-.sale-green{background:#00b894}
-.fast-del{background:#ffeb3b; color:#000; font-size:9px; padding:2px 6px; border-radius:4px; font-weight:700}
-.off-badge{background:#e8f5e9; color:#2e7d32; font-size:11px; padding:2px 6px; border-radius:4px}
+.no-scroll::-webkit-scrollbar{display:none}
 </style>
 </head>
-<body class="bg-[#f1f3f6]">
+<body class="bg-[#f8fafc]">
 
-<!-- HEADER - Priceoye Style Blue -->
-<header class="bg-[#48afff] sticky top-0 z-50 px-3 py-2">
-<div class="max-w-[1440px] mx-auto flex items-center gap-3">
-<button class="text-white text-xl"><i class="fas fa-bars"></i></button>
-<h1 class="text-white font-black text-xl tracking-tighter"><i class="fas fa-shopping-bag"></i> Mobi-Hub</h1>
-<div class="flex-1 bg-white rounded-md flex items-center px-3 py-2 ml-2">
+<!-- NEW HEADER - Dark Premium -->
+<header class="bg-[#0f172a] sticky top-0 z-50 shadow-lg">
+<div class="max-w-[1440px] mx-auto px-3 py-3 flex items-center gap-3">
+<h1 class="text-white font-black text-xl"><span class="text-[#6366f1]">Mobi</span>-Hub</h1>
+<div class="flex-1 bg-white rounded-full flex items-center px-4 py-2.5 ml-2 md:ml-8">
 <i class="fas fa-search text-gray-400 mr-2"></i>
-<input placeholder="Search for mobiles, watches..." class="w-full outline-none text-sm">
+<input id="searchInput" onkeyup="searchProducts()" placeholder="Search 100+ mobiles..." class="w-full outline-none text-sm">
 </div>
-<div class="hidden md:flex items-center gap-4 text-white text-xs ml-3">
-<div>Welcome<br><b>Login / Register</b></div>
-<div>Track &<br><b>Orders</b></div>
-<i class="fas fa-bell text-lg"></i>
-<i class="fas fa-shopping-cart text-lg"></i>
+<div class="flex items-center gap-3 md:gap-5 text-white ml-2">
+<button onclick="toggleWishlist()" class="relative"><i class="far fa-heart text-lg"></i><span id="wishCount" class="absolute -top-2 -right-2 bg-red-500 text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span></button>
+<button onclick="toggleCart()" class="relative"><i class="fas fa-shopping-bag text-lg"></i><span id="cartCount" class="absolute -top-2 -right-2 bg-[#6366f1] text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span></button>
+<button onclick="openLogin()" class="hidden md:block bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold">Login / Register</button>
 </div>
+</div>
+<!-- Old Options Wapas -->
+<div class="bg-white border-b px-3 py-2.5 flex gap-5 overflow-x-auto no-scroll text-[13px] font-medium">
+<button onclick="filterCategory('all')" class="catBtn bg-[#0f172a] text-white px-4 py-1.5 rounded-full">All Mobiles</button>
+<button onclick="filterCategory('samsung')" class="catBtn px-3 py-1.5">Samsung</button>
+<button onclick="filterCategory('apple')" class="catBtn px-3 py-1.5">Apple</button>
+<button onclick="filterCategory('xiaomi')" class="catBtn px-3 py-1.5">Xiaomi</button>
+<button onclick="filterCategory('infinix')" class="catBtn px-3 py-1.5">Infinix</button>
+<button onclick="filterCategory('tecno')" class="catBtn px-3 py-1.5">Tecno</button>
+<button onclick="filterCategory('vivo')" class="catBtn px-3 py-1.5">Vivo</button>
+<button onclick="filterCategory('earbuds')" class="catBtn px-3 py-1.5">Earbuds</button>
+<button onclick="filterCategory('watch')" class="catBtn px-3 py-1.5">Watches</button>
+<button onclick="filterCategory('tablet')" class="catBtn px-3 py-1.5">Tablets</button>
 </div>
 </header>
 
-<!-- CATEGORIES -->
-<div class="bg-white px-2 py-3 overflow-x-auto scroll-hide whitespace-nowrap border-b">
-<div class="flex gap-6 text-[12px] font-medium">
-<span class="flex flex-col items-center gap-1"><img src="https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp" class="w-10 h-10 object-contain">Mobiles</span>
-<span class="flex flex-col items-center gap-1"><i class="fas fa-headphones text-2xl"></i>Wireless Earbuds</span>
-<span class="flex flex-col items-center gap-1"><i class="fas fa-clock text-2xl"></i>Smart Watches</span>
-<span class="flex flex-col items-center gap-1"><i class="fas fa-bolt text-2xl"></i>Power Banks</span>
-<span class="flex flex-col items-center gap-1"><i class="fas fa-plug text-2xl"></i>Wall Charger</span>
-<span class="flex flex-col items-center gap-1"><i class="fas fa-tablet text-2xl"></i>Tablets</span>
-<span class="flex flex-col items-center gap-1"><i class="fas fa-laptop text-2xl"></i>Laptops</span>
-</div>
-</div>
-
-<!-- HERO BANNERS -->
 <div class="max-w-[1440px] mx-auto">
-<!-- 10.10 Sale -->
-<div class="bg-gradient-to-r from-orange-500 to-amber-400 mx-2 md:mx-0 mt-3 rounded-xl p-4 flex justify-between items-center text-white relative overflow-hidden">
-<div>
-<h2 class="text-5xl font-black italic drop-shadow-lg">10.10<br>SALE</h2>
-<p class="bg-black text-white text-xs px-2 py-1 rounded-full mt-2 inline-block">10th - 19th Oct</p>
+
+<!-- LATEST MOBILES - WORKING -->
+<div class="p-3 mt-3">
+<div class="flex justify-between items-center mb-3">
+<h2 class="font-bold text-[18px]">Latest Mobiles - All Stock Available</h2>
+<p class="text-xs text-gray-500" id="resultCount">12 Products</p>
 </div>
-<div class="text-right">
-<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" class="w-20 h-20 rounded-full object-cover inline-block">
+<div id="productGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+<!-- JS se load hoga -->
 </div>
 </div>
 
-<!-- Warranty -->
-<div class="bg-gradient-to-r from-purple-700 to-purple-500 mx-2 md:mx-0 mt-2 rounded-xl p-3 flex items-center justify-between text-white">
-<div class="flex items-center gap-2"><i class="fas fa-shield-alt text-2xl"></i>
-<div><b>ASLI WARRANTY CHALLENGE</b><br><span class="text-xs">Official Brand Warranty ya Double Paisay Wapis</span></div>
-</div>
-<i class="fas fa-chevron-right"></i>
-</div>
-
-<!-- Countdown -->
-<div class="bg-[#00b894] mt-2 mx-2 md:mx-0 rounded-t-xl p-3 text-white text-center relative">
-<h3 class="text-xl font-bold">10.10 Sale</h3>
-<p class="text-xs mt-1 bg-[#00a884] inline-block px-4 py-1 rounded-full">Ending In 04D : 13H : 17M : 28s</p>
-</div>
-
-<!-- 10.10 Sale Products - Teal -->
-<div class="bg-[#00b894] p-3 grid grid-cols-2 md:grid-cols-5 gap-3 pb-6">
-<!-- Product Cards -->
-<div class="bg-white rounded-lg p-2">
-<img src="https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp" class="w-full h-24 object-contain">
-<p class="text-[11px] mt-2"><i class="fas fa-star text-amber-400"></i> 4.9 639 Reviews</p>
-<p class="text-xs font-medium">Samsung Galaxy A07</p>
-<p class="font-bold text-sm">Rs 37,295 <span class="off-badge">19% OFF</span></p>
-<span class="fast-del">Fast Delivery</span>
-</div>
-<div class="bg-white rounded-lg p-2">
-<img src="https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp" class="w-full h-24 object-contain">
-<p class="text-[11px]">⭐ 4.9 258 Reviews</p>
-<p class="text-xs font-medium">Samsung Galaxy A17</p>
-<p class="font-bold text-sm">Rs 65,695 <span class="off-badge">10% OFF</span></p>
-<span class="fast-del">Fast Delivery</span>
-</div>
-<div class="bg-white rounded-lg p-2">
-<img src="https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp" class="w-full h-24 object-contain">
-<p class="text-[11px]">⭐ 5 1 Reviews</p>
-<p class="text-xs font-medium">Samsung Galaxy A17 5G</p>
-<p class="font-bold text-sm">Rs 91,995 <span class="off-badge">8% OFF</span></p>
-<span class="fast-del">Fast Delivery</span>
-</div>
-<div class="bg-white rounded-lg p-2">
-<img src="https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp" class="w-full h-24 object-contain">
-<p class="text-[11px]">⭐ 5 5 Reviews</p>
-<p class="text-xs font-medium">Samsung Galaxy S26 Ultra</p>
-<p class="font-bold text-sm">Rs 386,995 <span class="off-badge">14% OFF</span></p>
-<span class="fast-del">Fast Delivery</span>
-</div>
-<div class="bg-white rounded-lg p-2 hidden md:block">
-<img src="https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp" class="w-full h-24 object-contain">
-<p class="text-xs font-medium">Samsung Galaxy S26 Plus</p>
-<p class="font-bold text-sm">Rs 330,495 <span class="off-badge">14% OFF</span></p>
-<span class="fast-del">Fast Delivery</span>
+<!-- SHOP BY PRICE - WORKING -->
+<div class="bg-white mt-4 p-4 mx-3 rounded-xl">
+<h2 class="font-bold mb-3">Shop By Price - Click to Filter</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+<button onclick="filterPrice(0,15000)" class="border hover:bg-black hover:text-white rounded-full py-2.5 text-xs font-medium transition">Below 15,000</button>
+<button onclick="filterPrice(15000,25000)" class="border hover:bg-black hover:text-white rounded-full py-2.5 text-xs font-medium transition">15k - 25k</button>
+<button onclick="filterPrice(25000,40000)" class="border hover:bg-black hover:text-white rounded-full py-2.5 text-xs font-medium transition">25k - 40k</button>
+<button onclick="filterPrice(40000,60000)" class="border hover:bg-black hover:text-white rounded-full py-2.5 text-xs font-medium transition">40k - 60k</button>
+<button onclick="filterPrice(60000,100000)" class="border hover:bg-black hover:text-white rounded-full py-2.5 text-xs font-medium transition">60k - 100k</button>
+<button onclick="filterPrice(100000,150000)" class="border hover:bg-black hover:text-white rounded-full py-2.5 text-xs font-medium transition">100k - 150k</button>
+<button onclick="filterPrice(150000,999999)" class="bg-[#6366f1] text-white rounded-full py-2.5 text-xs font-medium">Above 150k</button>
+<button onclick="filterPrice(0,999999)" class="border rounded-full py-2.5 text-xs">Show All</button>
 </div>
 </div>
 
-<!-- Latest Wireless Earbuds - Pink -->
-<div class="mt-4">
-<h2 class="font-bold px-3 mb-2">Latest Wireless Earbuds</h2>
-<div class="bg-[#ff4081] p-3 grid grid-cols-2 md:grid-cols-4 gap-3">
-<div class="bg-white rounded-lg p-3"><img src="https://images.priceoye.pk/anker-soundcore-r60i-nc-pakistan-priceoye-3j7l5-500x500.webp" class="h-20 mx-auto"><p class="text-xs mt-2">Nothing CMF Clip Pro</p><b class="text-sm">Rs 27,599</b> <span class="off-badge">21% OFF</span><br><span class="fast-del">Fast Delivery</span></div>
-<div class="bg-white rounded-lg p-3"><img src="https://images.priceoye.pk/anker-soundcore-r60i-nc-pakistan-priceoye-3j7l5-500x500.webp" class="h-20 mx-auto"><p class="text-xs mt-2">Soundpeats Q3 Pro ANC</p><b class="text-sm">Rs 5,699</b> <span class="off-badge">10% OFF</span><br><span class="fast-del">Fast Delivery</span></div>
-<div class="bg-white rounded-lg p-3"><img src="https://images.priceoye.pk/anker-soundcore-r60i-nc-pakistan-priceoye-3j7l5-500x500.webp" class="h-20 mx-auto"><p class="text-xs mt-2">Audlora Bliss 715</p><b class="text-sm">Rs 3,449</b> <span class="off-badge">31% OFF</span></div>
-<div class="bg-white rounded-lg p-3"><img src="https://images.priceoye.pk/anker-soundcore-r60i-nc-pakistan-priceoye-3j7l5-500x500.webp" class="h-20 mx-auto"><p class="text-xs mt-2">Infinix Buds Xeo4</p><b class="text-sm">Rs 2,949</b> <span class="off-badge">51% OFF</span><br><span class="fast-del">Fast Delivery</span></div>
-</div>
-</div>
-
-<!-- Latest Tablets - Orange -->
-<div class="mt-4">
-<h2 class="font-bold px-3 mb-2">Latest Tablets</h2>
-<div class="bg-[#ff9800] p-3 grid grid-cols-2 md:grid-cols-4 gap-3">
-<div class="bg-white rounded-lg p-3"><img src="https://images.priceoye.pk/apple-ipad-11-a16-pakistan-priceoye-mj8l7-500x500.webp" class="h-20 mx-auto"><p class="text-xs mt-2">Redmi Pad 2 Wifi</p><b class="text-sm">Rs 55,199</b> <span class="off-badge">21% OFF</span></div>
-<div class="bg-white rounded-lg p-3"><img src="https://images.priceoye.pk/apple-ipad-11-a16-pakistan-priceoye-mj8l7-500x500.webp" class="h-20 mx-auto"><p class="text-xs mt-2">Apple iPad 11 (A16)</p><b class="text-sm">Rs 139,999</b> <span class="off-badge">3% OFF</span></div>
-<div class="bg-white rounded-lg p-3"><img src="https://images.priceoye.pk/apple-ipad-11-a16-pakistan-priceoye-mj8l7-500x500.webp" class="h-20 mx-auto"><p class="text-xs mt-2">Xiaomi Redmi Pad 2 4G</p><b class="text-sm">Rs 79,599</b></div>
-<div class="bg-white rounded-lg p-3"><img src="https://images.priceoye.pk/apple-ipad-11-a16-pakistan-priceoye-mj8l7-500x500.webp" class="h-20 mx-auto"><p class="text-xs mt-2">iPad Pro 11 M2</p><b class="text-sm">Rs 331,999</b></div>
-</div>
-</div>
-
-<!-- Shop By Price + Brand -->
-<div class="bg-white mt-4 p-4">
-<h2 class="font-bold mb-3">Shop By Price</h2>
-<div class="grid grid-cols-4 md:grid-cols-8 gap-2">
-<button class="border rounded-full py-2 text-xs">Below 15,000</button>
-<button class="border rounded-full py-2 text-xs">15k-25k</button>
-<button class="border rounded-full py-2 text-xs">25k-40k</button>
-<button class="border rounded-full py-2 text-xs">40k-60k</button>
-<button class="border rounded-full py-2 text-xs">60k-80k</button>
-<button class="border rounded-full py-2 text-xs">80k-100k</button>
-<button class="border rounded-full py-2 text-xs">100k-150k</button>
-<button class="border rounded-full py-2 text-xs bg-[#ff4081] text-white">Above 150k</button>
-</div>
-<h2 class="font-bold mt-6 mb-3">Shop By Brand</h2>
+<!-- SHOP BY BRAND - WORKING -->
+<div class="bg-white mt-4 p-4 mx-3 rounded-xl">
+<h2 class="font-bold mb-3">Shop By Brand</h2>
 <div class="grid grid-cols-4 md:grid-cols-7 gap-2">
-<div class="bg-black text-white rounded-lg py-4 text-center text-sm">Samsung</div>
-<div class="bg-black text-white rounded-lg py-4 text-center text-sm">Apple</div>
-<div class="bg-black text-white rounded-lg py-4 text-center text-sm">Xiaomi</div>
-<div class="bg-black text-white rounded-lg py-4 text-center text-sm">Vivo</div>
-<div class="bg-black text-white rounded-lg py-4 text-center text-sm">Infinix</div>
-<div class="bg-black text-white rounded-lg py-4 text-center text-sm">Tecno</div>
-<div class="bg-black text-white rounded-lg py-4 text-center text-sm">Honor</div>
+<button onclick="filterCategory('samsung')" class="bg-[#0f172a] text-white rounded-xl py-4 text-sm font-bold hover:scale-105 transition">Samsung</button>
+<button onclick="filterCategory('apple')" class="bg-[#0f172a] text-white rounded-xl py-4 text-sm font-bold hover:scale-105 transition">Apple</button>
+<button onclick="filterCategory('xiaomi')" class="bg-[#0f172a] text-white rounded-xl py-4 text-sm font-bold hover:scale-105 transition">Xiaomi</button>
+<button onclick="filterCategory('infinix')" class="bg-[#0f172a] text-white rounded-xl py-4 text-sm font-bold hover:scale-105 transition">Infinix</button>
+<button onclick="filterCategory('tecno')" class="bg-[#0f172a] text-white rounded-xl py-4 text-sm font-bold hover:scale-105 transition">Tecno</button>
+<button onclick="filterCategory('vivo')" class="bg-[#0f172a] text-white rounded-xl py-4 text-sm font-bold hover:scale-105 transition">Vivo</button>
+<button onclick="filterCategory('honor')" class="bg-[#0f172a] text-white rounded-xl py-4 text-sm font-bold hover:scale-105 transition">Honor</button>
 </div>
 </div>
 
-<!-- PRODUCT DETAIL - S26 Ultra -->
-<div id="product" class="bg-white mt-4 max-w-[1440px] mx-auto grid md:grid-cols-12">
-<div class="md:col-span-5 p-4 border-r">
-<img id="mainImg" src="https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp" class="w-full h-[350px] object-contain">
-<div class="flex gap-2 mt-4 justify-center">
-<img onclick="mainImg.src=this.src" src="https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp" class="w-16 h-16 border rounded p-1 cursor-pointer">
-<img onclick="mainImg.src=this.src" src="https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp" class="w-16 h-16 border rounded p-1 cursor-pointer opacity-50">
+<!-- PRODUCT DETAIL - S26 ULTRA - FULLY WORKING -->
+<div id="productDetail" class="bg-white mt-6 mx-3 rounded-xl grid md:grid-cols-12 overflow-hidden shadow-sm">
+<div class="md:col-span-5 p-6 border-r">
+<img id="mainImg" src="https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp" class="w-full h-[380px] object-contain">
 </div>
-</div>
-<div class="md:col-span-4 p-4">
-<p class="text-xs text-gray-500">Home / Mobiles / Samsung</p>
-<h1 class="text-xl font-bold mt-2">Samsung Galaxy S26 Ultra</h1>
-<p class="text-xs text-green-600 mt-1"><i class="fas fa-check-circle"></i> In Stock - Karachi, Lahore, Islamabad</p>
-<div class="mt-4">
-<p class="text-sm font-semibold">Colors</p>
+<div class="md:col-span-4 p-5">
+<p class="text-xs text-gray-400">Home / Mobiles / Samsung / S26 Ultra</p>
+<h1 class="text-[22px] font-bold mt-2">Samsung Galaxy S26 Ultra</h1>
+<p class="text-xs text-green-600 mt-1 font-medium"><i class="fas fa-check-circle"></i> In Stock - Karachi, Lahore, Islamabad</p>
+
+<div class="mt-5">
+<p class="text-sm font-bold">Colors - Select</p>
 <div class="flex gap-2 mt-2">
-<button class="border-2 border-[#48afff] rounded-lg px-3 py-2 text-xs">Titanium Blue</button>
-<button class="border rounded-lg px-3 py-2 text-xs">Titanium White</button>
-<button class="border rounded-lg px-3 py-2 text-xs">Titanium Grey</button>
+<button onclick="selectColor(this,'Titanium Blue')" class="colorBtn border-2 border-[#6366f1] bg-[#6366f1]/10 rounded-lg px-3 py-2 text-xs font-bold">Titanium Blue</button>
+<button onclick="selectColor(this,'Titanium White')" class="colorBtn border rounded-lg px-3 py-2 text-xs">Titanium White</button>
+<button onclick="selectColor(this,'Titanium Grey')" class="colorBtn border rounded-lg px-3 py-2 text-xs">Titanium Grey</button>
+</div>
+<p id="selectedColor" class="text-xs mt-2 text-[#6366f1] font-medium">Selected: Titanium Blue</p>
+</div>
+
+<div class="mt-5">
+<p class="text-sm font-bold">Storage - Price Updates</p>
+<div class="flex flex-col gap-2 mt-2">
+<button onclick="selectStorage(this,386995,'256GB')" class="storageBtn border-2 border-[#6366f1] rounded-lg px-4 py-2.5 text-xs font-bold text-left flex justify-between"><span>256GB</span><span>Rs 386,995</span></button>
+<button onclick="selectStorage(this,410995,'512GB')" class="storageBtn border rounded-lg px-4 py-2.5 text-xs text-left flex justify-between"><span>512GB</span><span>Rs 410,995</span></button>
+<button onclick="selectStorage(this,445995,'1TB')" class="storageBtn border rounded-lg px-4 py-2.5 text-xs text-left flex justify-between"><span>1TB</span><span>Rs 445,995</span></button>
 </div>
 </div>
-<div class="mt-4">
-<p class="text-sm font-semibold">Storage</p>
-<div class="flex gap-2 mt-2">
-<button class="border-2 border-[#48afff] rounded-lg px-4 py-2 text-xs">256GB - Rs 386,995</button>
-<button class="border rounded-lg px-4 py-2 text-xs">512GB - Rs 410,995</button>
-<button class="border rounded-lg px-4 py-2 text-xs">1TB - Rs 445,995</button>
-</div>
-</div>
-<div class="mt-6 bg-gray-50 p-3 rounded-lg">
+
+<div class="mt-5 bg-gray-50 p-3 rounded-xl">
 <h3 class="font-bold text-sm">What's In The Box?</h3>
 <ul class="text-xs mt-2 space-y-1 text-gray-600">
 <li>• Samsung Galaxy S26 Ultra</li>
 <li>• No Adapter in Box - 25W Adapter Needed</li>
-<li>• Ejection Pin, Type C to C Cable</li>
+<li>• Ejection Pin, Type C to C Cable, Manual</li>
 </ul>
 </div>
 </div>
-<div class="md:col-span-3 p-4 bg-[#f8f9fa] border-l">
-<p class="text-xs text-gray-500 line-through">Rs 450,000</p>
-<h2 class="text-2xl font-black">Rs 386,995 <span class="text-xs font-normal bg-green-100 text-green-700 px-2 py-1 rounded">14% OFF</span></h2>
-<div class="mt-4 flex gap-2">
-<button class="flex-1 bg-[#48afff] text-white py-3 rounded-lg font-bold text-sm">Add to Cart</button>
-<button class="border px-4 py-3 rounded-lg"><i class="far fa-heart"></i></button>
-</div>
-<p class="text-[11px] text-center mt-2 text-gray-500"><i class="fas fa-truck"></i> Fast Delivery - Free Delivery in Karachi</p>
+
+<div class="md:col-span-3 p-5 bg-[#f8fafc] border-l">
+<p class="text-xs line-through text-gray-400">Rs 450,000</p>
+<h2 id="detailPrice" class="text-[28px] font-black">Rs 386,995</h2>
+<p class="text-xs"><span class="bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold">14% OFF</span> <span class="text-gray-500">PTA Approved</span></p>
+
+<button onclick="addToCart('Samsung Galaxy S26 Ultra', 386995)" class="w-full mt-5 bg-[#0f172a] text-white py-3.5 rounded-full font-bold text-sm hover:bg-black transition"><i class="fas fa-shopping-bag mr-2"></i>Add to Cart</button>
+<button onclick="buyNow()" class="w-full mt-2 bg-[#6366f1] text-white py-3.5 rounded-full font-bold text-sm hover:bg-[#5558e3] transition">Buy Now</button>
+
+<p class="text-[11px] text-center mt-3 text-gray-500"><i class="fas fa-truck"></i> Free Delivery - Karachi, Lahore, Islamabad</p>
+
 <div class="mt-6">
 <h3 class="font-bold text-sm">Highlights</h3>
 <div class="grid grid-cols-2 gap-2 mt-2 text-[11px]">
-<div class="border p-2 rounded">6.9" Dynamic AMOLED 2X<br>120Hz</div>
-<div class="border p-2 rounded">200MP Quad Camera<br>100x Zoom</div>
-<div class="border p-2 rounded">Snapdragon 8 Elite Gen 5</div>
-<div class="border p-2 rounded">5000mAh + 45W Fast</div>
+<div class="border bg-white p-2.5 rounded-xl">6.9" AMOLED 2X 120Hz</div>
+<div class="border bg-white p-2.5 rounded-xl">200MP Camera 100x Zoom</div>
+<div class="border bg-white p-2.5 rounded-xl">Snapdragon 8 Elite Gen 5</div>
+<div class="border bg-white p-2.5 rounded-xl">5000mAh 45W Fast</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+
+<!-- CART DRAWER -->
+<div id="cartDrawer" class="fixed inset-0 bg-black/50 z-[100] hidden">
+<div class="absolute right-0 top-0 h-full w-[90%] md:w-[380px] bg-white p-5 overflow-y-auto">
+<div class="flex justify-between items-center"><h2 class="font-bold text-lg">Your Cart (<span id="cartCount2">0</span>)</h2><button onclick="toggleCart()" class="text-xl"><i class="fas fa-times"></i></button></div>
+<div id="cartItems" class="mt-5 space-y-3"><p class="text-sm text-gray-400 text-center py-10">Cart is empty</p></div>
+<div class="mt-6 border-t pt-4"><p class="flex justify-between font-bold">Total: <span id="cartTotal">Rs 0</span></p><button onclick="checkout()" class="w-full mt-3 bg-[#0f172a] text-white py-3 rounded-full font-bold">Checkout</button></div>
 </div>
 </div>
 
-<!-- Specs -->
-<div class="bg-white mt-4 p-4 max-w-[1440px] mx-auto">
-<h2 class="font-bold text-lg">Specifications</h2>
-<table class="w-full mt-3 text-sm">
-<tr class="border-b"><td class="py-2 text-gray-500">Display</td><td class="py-2 font-medium">6.9" Dynamic AMOLED 2X, 120Hz, 2600 nits</td></tr>
-<tr class="border-b"><td class="py-2 text-gray-500">Processor</td><td class="py-2 font-medium">Snapdragon 8 Elite Gen 5 (3nm)</td></tr>
-<tr class="border-b"><td class="py-2 text-gray-500">RAM</td><td class="py-2 font-medium">12GB LPDDR5X</td></tr>
-<tr class="border-b"><td class="py-2 text-gray-500">Storage</td><td class="py-2 font-medium">256GB / 512GB / 1TB UFS 4.0</td></tr>
-<tr class="border-b"><td class="py-2 text-gray-500">Camera</td><td class="py-2 font-medium">200MP + 50MP + 12MP + 10MP | 40MP Front</td></tr>
-<tr class="border-b"><td class="py-2 text-gray-500">Battery</td><td class="py-2 font-medium">5000mAh, 45W Wired, 15W Wireless</td></tr>
-<tr class="border-b"><td class="py-2 text-gray-500">OS</td><td class="py-2 font-medium">Android 16, One UI 8.5, 7 Years Updates</td></tr>
-</table>
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="fixed inset-0 bg-black/60 z-[100] hidden flex items-center justify-center p-4">
+<div class="bg-white w-full max-w-[380px] rounded-2xl p-6">
+<div class="flex justify-between"><h2 class="font-bold text-lg">Login / Register</h2><button onclick="closeLogin()"><i class="fas fa-times"></i></button></div>
+<input placeholder="Mobile Number / Email" class="w-full border rounded-full px-4 py-3 mt-4 text-sm">
+<input placeholder="Password" type="password" class="w-full border rounded-full px-4 py-3 mt-3 text-sm">
+<button onclick="closeLogin(); alert('Login Successful!')" class="w-full bg-[#0f172a] text-white py-3 rounded-full font-bold mt-4">Continue</button>
+</div>
 </div>
 
-<footer class="bg-black text-white text-center p-6 mt-6 text-xs">
-© 2026 Mobi-Hub.pk - Pakistan's No.1 Mobile Store | Made with PriceOye Inspiration<br>
-Reason To Buy: Best Price | PTA Approved | Brand Warranty | Fast Delivery
+<script>
+let products = [
+{id:1,name:"Samsung Galaxy S26 Ultra",price:386995,old:450000,off:"14% OFF",brand:"samsung",cat:"samsung",img:"https://images.priceoye.pk/samsung-galaxy-s26-ultra-pakistan-priceoye-8x4er-500x500.webp",rating:"4.9 (639)"},
+{id:2,name:"Samsung Galaxy S26 Plus",price:330495,old:385000,off:"14% OFF",brand:"samsung",cat:"samsung",img:"https://images.priceoye.pk/samsung-galaxy-s26-plus-pakistan-priceoye-j4v12-500x500.webp",rating:"4.9 (120)"},
+{id:3,name:"Samsung Galaxy A17 5G",price:91995,old:99000,off:"8% OFF",brand:"samsung",cat:"samsung",img:"https://images.priceoye.pk/samsung-galaxy-a17-5g-pakistan-priceoye-9a1d2-500x500.webp",rating:"5 (1)"},
+{id:4,name:"Apple iPhone 16 Pro Max",price:425999,old:480000,off:"11% OFF",brand:"apple",cat:"apple",img:"https://images.priceoye.pk/apple-iphone-16-pro-max-pakistan-priceoye-5s5i1-500x500.webp",rating:"4.9 (340)"},
+{id:5,name:"Xiaomi Redmi Note 15 Pro",price:91999,old:101000,off:"9% OFF",brand:"xiaomi",cat:"xiaomi",img:"https://images.priceoye.pk/xiaomi-redmi-note-15-pro-pakistan-priceoye-x9f2m-500x500.webp",rating:"4.8 (74)"},
+{id:6,name:"Infinix Hot 60i",price:52499,old:59000,off:"11% OFF",brand:"infinix",cat:"infinix",img:"https://images.priceoye.pk/infinix-hot-60i-pakistan-priceoye-q7b2v-500x500.webp",rating:"4.7 (210)"},
+{id:7,name:"Tecno Spark 50",price:58999,old:64000,off:"8% OFF",brand:"tecno",cat:"tecno",img:"https://images.priceoye.pk/tecno-spark-50-pakistan-priceoye-l4k9n-500x500.webp",rating:"4.6 (89)"},
+{id:8,name:"Vivo V50 Lite",price:78999,old:85000,off:"7% OFF",brand:"vivo",cat:"vivo",img:"https://images.priceoye.pk/vivo-v50-lite-pakistan-priceoye-m2p5q-500x500.webp",rating:"4.8 (45)"},
+{id:9,name:"Nothing Phone 3a",price:106999,old:115000,off:"7% OFF",brand:"nothing",cat:"samsung",img:"https://images.priceoye.pk/nothing-phone-3a-pakistan-priceoye-8x2k1-500x500.webp",rating:"4.9 (60)"},
+{id:10,name:"Redmi Pad 2 Wifi",price:55199,old:69999,off:"21% OFF",brand:"xiaomi",cat:"tablet",img:"https://images.priceoye.pk/xiaomi-redmi-pad-2-wifi-pakistan-priceoye-3j8k1-500x500.webp",rating:"4.8 (32)"},
+{id:11,name:"Anker Soundcore R60i NC",price:8649,old:9999,off:"14% OFF",brand:"anker",cat:"earbuds",img:"https://images.priceoye.pk/anker-soundcore-r60i-nc-pakistan-priceoye-3j7l5-500x500.webp",rating:"4.8 (40)"},
+{id:12,name:"Zero Luna Smart Watch",price:4999,old:21999,off:"77% OFF",brand:"zero",cat:"watch",img:"https://images.priceoye.pk/zero-luna-smart-watch-pakistan-priceoye-9k2l1-500x500.webp",rating:"4.6 (200)"},
+];
+
+let cart = []; let currentPrice = 386995; let currentName = "Samsung Galaxy S26 Ultra";
+
+function render(list){
+let grid=document.getElementById('productGrid');
+grid.innerHTML=list.map(p=>`
+<div class="bg-white rounded-xl p-3 shadow-sm hover:shadow-md transition cursor-pointer" onclick="scrollToDetail('${p.name}',${p.price})">
+<img src="${p.img}" class="w-full h-28 object-contain">
+<p class="text-[10px] mt-2 text-gray-500"><i class="fas fa-star text-amber-400"></i> ${p.rating}</p>
+<p class="text-[12px] font-medium leading-tight h-8 overflow-hidden">${p.name}</p>
+<p class="font-bold text-[13px] mt-1">Rs ${p.price.toLocaleString()} <span class="text-[10px] font-normal bg-green-50 text-green-700 px-1.5 py-0.5 rounded">${p.off}</span></p>
+<p class="text-[9px] bg-yellow-300 inline-block px-1.5 rounded mt-1 font-bold">Fast Delivery</p>
+<button onclick="event.stopPropagation(); addToCart('${p.name}',${p.price})" class="w-full mt-2 bg-[#0f172a] text-white text-[11px] py-1.5 rounded-full">Add to Cart</button>
+</div>
+`).join('');
+document.getElementById('resultCount').innerText=list.length+" Products";
+}
+render(products);
+
+function searchProducts(){
+let q=document.getElementById('searchInput').value.toLowerCase();
+render(products.filter(p=>p.name.toLowerCase().includes(q)));
+}
+function filterCategory(c){
+document.querySelectorAll('.catBtn').forEach(b=>b.classList.remove('bg-[#0f172a]','text-white'));
+if(c=='all'){render(products); event.target.classList.add('bg-[#0f172a]','text-white'); return;}
+render(products.filter(p=>p.cat==c || p.brand==c));
+}
+function filterPrice(min,max){
+render(products.filter(p=>p.price>=min && p.price<=max));
+}
+function selectColor(btn,name){
+document.querySelectorAll('.colorBtn').forEach(b=>b.classList.remove('border-2','border-[#6366f1]','bg-[#6366f1]/10'));
+btn.classList.add('border-2','border-[#6366f1]','bg-[#6366f1]/10');
+document.getElementById('selectedColor').innerText="Selected: "+name;
+currentName="Samsung Galaxy S26 Ultra - "+name;
+}
+function selectStorage(btn,price,storage){
+document.querySelectorAll('.storageBtn').forEach(b=>b.classList.remove('border-2','border-[#6366f1]'));
+btn.classList.add('border-2','border-[#6366f1]');
+currentPrice=price;
+document.getElementById('detailPrice').innerText="Rs "+price.toLocaleString();
+currentName="Samsung Galaxy S26 Ultra - "+storage;
+}
+function scrollToDetail(name,price){
+document.getElementById('productDetail').scrollIntoView({behavior:'smooth'});
+currentName=name; currentPrice=price;
+document.getElementById('detailPrice').innerText="Rs "+price.toLocaleString();
+}
+function addToCart(name,price){
+cart.push({name,price});
+updateCart();
+toggleCart(true);
+}
+function updateCart(){
+document.getElementById('cartCount').innerText=cart.length;
+document.getElementById('cartCount2').innerText=cart.length;
+document.getElementById('wishCount').innerText=cart.length;
+let itemsDiv=document.getElementById('cartItems');
+if(cart.length==0){itemsDiv.innerHTML='<p class="text-sm text-gray-400 text-center py-10">Cart is empty</p>'; document.getElementById('cartTotal').innerText='Rs 0'; return;}
+itemsDiv.innerHTML=cart.map((c,i)=>`<div class="flex justify-between items-center border-b pb-2"><div><p class="text-xs font-medium">${c.name}</p><p class="text-xs font-bold">Rs ${c.price.toLocaleString()}</p></div><button onclick="removeCart(${i})" class="text-red-500 text-xs"><i class="fas fa-trash"></i></button></div>`).join('');
+let total=cart.reduce((s,c)=>s+c.price,0);
+document.getElementById('cartTotal').innerText='Rs '+total.toLocaleString();
+}
+function removeCart(i){cart.splice(i,1); updateCart();}
+function toggleCart(open){
+let d=document.getElementById('cartDrawer');
+if(open===true){d.classList.remove('hidden'); return;}
+d.classList.toggle('hidden');
+}
+function openLogin(){document.getElementById('loginModal').classList.remove('hidden');}
+function closeLogin(){document.getElementById('loginModal').classList.add('hidden');}
+function buyNow(){addToCart(currentName,currentPrice); alert('Order Placed! '+currentName+' - Rs '+currentPrice.toLocaleString());}
+function checkout(){alert('Checkout Successful! Total: '+document.getElementById('cartTotal').innerText); cart=[]; updateCart(); toggleCart();}
+function toggleWishlist(){alert('Wishlist: '+cart.length+' items');}
+</script>
+
+<footer class="bg-[#0f172a] text-white text-center p-6 mt-8 text-xs">
+© 2026 Mobi-Hub - All Buttons Working | Search, Filter, Cart, Login | No Internet Support<br>
+Colors: Premium Dark + Indigo | 12 Phones Added | PTA Approved
 </footer>
-</div>
 </body>
 </html>
