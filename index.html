@@ -2,104 +2,60 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobi-Hub Shahzaib - 2024-2026 Official</title>
+<title>Mobi-Hub Shahzaib</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
 :root{--p:#0f62fe;--d:#0b0f1a;--g:#f5f7fb}*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
 body{background:var(--g)}header{position:sticky;top:0;z-index:100;background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 4%;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-.logo{font-weight:900;font-size:20px}.logo span{color:var(--p)}
-.search{flex:1;margin:0 10px;display:flex}.search input{width:100%;padding:9px;border:1px solid #ddd;border-radius:8px 0 0 8px}.search button{padding:9px 14px;background:var(--p);color:#fff;border:none;border-radius:0 8px 8px 0}
+.logo{font-weight:900;font-size:20px}.logo span{color:var(--p)}.search{flex:1;margin:0 10px;display:flex}.search input{width:100%;padding:9px;border:1px solid #ddd;border-radius:8px 0 0 8px}.search button{padding:9px 14px;background:var(--p);color:#fff;border:none;border-radius:0 8px 8px 0}
 .hero{background:linear-gradient(110deg,var(--d),#1e3a8a);color:#fff;padding:28px 5%;display:flex;justify-content:space-between;align-items:center}
 .filters{padding:12px 5%;display:flex;gap:8px;overflow:auto;background:#fff}.filters button{padding:7px 14px;border:1px solid #ddd;border-radius:20px;background:#fff;cursor:pointer}.filters button.active{background:var(--d);color:#fff}
 .grid{padding:18px 5%;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
 .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,.06);cursor:pointer}.card img{width:100%;height:180px;object-fit:contain;background:#fafafa;padding:8px}
-.info{padding:10px}.price{color:var(--p);font-weight:800}.specs{font-size:11px;color:#666}.btn{background:var(--p);color:#fff;padding:9px 16px;border-radius:8px;border:none;cursor:pointer;font-weight:700}
+.info{padding:10px}.price{color:var(--p);font-weight:800}.specs{font-size:11px;color:#666}.btn{background:var(--p);color:#fff;padding:10px 16px;border-radius:8px;border:none;cursor:pointer;font-weight:700}
 .section{padding:28px 5%;background:#fff;margin-top:16px;border-radius:12px}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;overflow:auto;padding:15px}.modal.box{background:#fff;border-radius:14px;max-width:900px;margin:20px auto;padding:18px}
-.receiptBox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;place-items:center}.receiptBox.box{background:#fff;padding:22px;border-radius:12px;width:95%;max-width:450px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:999999;overflow-y:auto;padding:0}.modal-inner{background:#fff;max-width:1000px;margin:0 auto;min-height:100vh;position:relative}
+.receiptBox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999999;place-items:center}
 #adminLogin{display:none;border:3px solid red}.adminBtn{background:var(--p);color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:800}
 input,textarea,select{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px 0}
 footer{background:var(--d);color:#aaa;padding:25px 5%;font-size:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px} footer h4{color:#fff}
 #adminPanel{display:none}
+.spec-table{width:100%;border-collapse:collapse;margin-top:10px}.spec-table td{padding:10px 12px;border-bottom:1px solid #eee;font-size:14px}.spec-table td:first-child{font-weight:700;color:#555;width:35%;background:#fafafa}
+.closeX{position:absolute;top:15px;right:15px;background:#000;color:#fff;width:36px;height:36px;border-radius:50%;border:none;font-size:18px;cursor:pointer;z-index:10}
 </style>
 </head>
 <body>
 <header>
 <div class="logo">MOBI-HUB <span>Shahzaib</span></div>
 <div class="search"><input id="searchInput" placeholder="Search phones..."><button onclick="doSearch()"><i class="fa fa-search"></i></button></div>
-<div style="display:flex;gap:8px;align-items:center">
-<a href="#phones" style="font-weight:700;text-decoration:none;color:#000;font-size:13px">Phones</a>
-<a href="#adminLogin" id="adminTopBtn" class="adminBtn" onclick="openAdminFixed()">Admin</a>
-</div>
+<div style="display:flex;gap:8px;align-items:center"><a href="#phones" style="font-weight:700;text-decoration:none;color:#000;font-size:13px">Phones</a><a href="#adminLogin" class="adminBtn" onclick="openAdminFixed()">Admin</a></div>
 </header>
-
-<div class="hero">
-<div><h2>2024-2026 All Phones - Live Stock</h2><p style="opacity:.8;margin:8px 0;font-size:13px">100% Genuine | PTA Approved</p>
-<input id="sheetUrl" placeholder="Google Sheet CSV Link (optional)"><button class="btn" onclick="loadSheet()">Connect Sheet</button></div>
-<img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=250" style="width:120px;border-radius:12px">
-</div>
-
+<div class="hero"><div><h2>2024-2026 All Phones - Live Stock</h2><p style="opacity:.8;margin:8px 0;font-size:13px">100% Genuine | PTA Approved</p><input id="sheetUrl" placeholder="Google Sheet CSV Link (optional)"><button class="btn" onclick="loadSheet()">Connect Sheet</button></div><img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=250" style="width:120px;border-radius:12px"></div>
 <div class="filters" id="brandFilter"></div>
 <div class="grid" id="phones"></div>
 
-<div class="modal" id="productModal"><div class="box" id="productDetail"></div></div>
+<!-- PROFESSIONAL PRODUCT MODAL - FIXED -->
+<div class="modal" id="productModal"><div class="modal-inner" id="productDetail"></div></div>
 
-<div class="section" id="customerForm" style="display:none">
-<h2>Customer Details</h2>
-<input id="cName" placeholder="Full Name"><input id="cPhone" placeholder="Phone Number"><input id="cAddress" placeholder="Address">
-<select id="cPayment"><option>Cash on Delivery</option><option>JazzCash</option><option>Easypaisa</option><option>Bank Transfer</option></select>
-<button class="btn" onclick="confirmOrder()">Confirm & Generate Receipt</button>
-</div>
+<div class="section" id="customerForm" style="display:none"><h2>Customer Details</h2><input id="cName" placeholder="Full Name"><input id="cPhone" placeholder="Phone Number"><input id="cAddress" placeholder="Address"><select id="cPayment"><option>Cash on Delivery</option><option>JazzCash</option><option>Easypaisa</option><option>Bank Transfer</option></select><button class="btn" onclick="confirmOrder()">Confirm & Generate Receipt</button></div>
 
-<!-- ADMIN LOGIN - YE AB FIXED HAI -->
-<div class="section" id="adminLogin">
-<h2 style="color:red"><i class="fa fa-lock"></i> Admin Login - Only Owner (Shahzaib)</h2>
-<p>Password: <b>admin123</b> (bad me change kar dunga)</p>
-<input id="adminPass" type="password" placeholder="Enter Admin Password">
-<button class="btn" onclick="checkAdmin()">Login to Admin Panel</button>
-<button class="btn" style="background:#333;margin-left:8px" onclick="document.getElementById('adminLogin').style.display='none'">Close</button>
-
-<div id="adminPanel" style="margin-top:20px">
-<h2>Admin Panel - Mobi-Hub Shahzaib</h2>
-<p style="background:#000;color:#fff;padding:6px;border-radius:6px">Copyright © 2024-2026 Mobi-Hub Shahzaib. All Rights Reserved.</p>
-
-<div style="border:2px solid #0f62fe;padding:14px;border-radius:12px;background:#f0f6ff;margin-top:14px">
-<h3><i class="fa fa-plus"></i> Phone Add / Edit - Gallery se Picture (Only You)</h3>
-<input type="hidden" id="editIndex">
-<input id="pName" placeholder="Phone Name e.g. Samsung S24 Ultra">
-<div style="display:flex;gap:6px"><input id="pBrand" placeholder="Brand"><input id="pYear" placeholder="Year 2024-2026"><input id="pPrice" placeholder="Price e.g. 285000"></div>
-<div style="display:flex;gap:6px"><input id="pRam" placeholder="RAM e.g. 12GB"><input id="pStorage" placeholder="Storage e.g. 256GB"><input id="pBattery" placeholder="Battery"></div>
-<div style="display:flex;gap:6px"><input id="pCamera" placeholder="Camera"><input id="pDisplay" placeholder="Display"></div>
-<textarea id="pSpec" placeholder="Short Specs"></textarea>
-<label style="font-weight:700;font-size:12px">Gallery se Picture Upload:</label>
-<input id="pImgFile" type="file" accept="image/*">
-<input id="pImgUrl" placeholder="Ya Image URL">
-<img id="pPreview" style="width:80px;height:80px;object-fit:contain;display:none;border:1px solid #ddd;margin-top:6px">
-<div style="display:flex;gap:8px;margin-top:10px"><button class="btn" onclick="saveProduct()">Save Phone</button><button class="btn" style="background:#333" onclick="resetProductForm()">New / Clear</button></div>
-<h4 style="margin-top:14px">All Phones - Edit / Delete:</h4><div id="adminProductList"></div>
-</div>
-
-<h3 style="margin-top:18px">Customer Orders</h3><div id="adminOrders"></div>
-</div>
-</div>
+<div class="section" id="adminLogin"><h2 style="color:red"><i class="fa fa-lock"></i> Admin Login - Only Owner</h2><p>Password: <b>admin123</b></p><input id="adminPass" type="password" placeholder="Enter Password"><button class="btn" onclick="checkAdmin()">Login</button><button class="btn" style="background:#333;margin-left:8px" onclick="document.getElementById('adminLogin').style.display='none'">Close</button>
+<div id="adminPanel" style="margin-top:20px"><h2>Admin Panel</h2><div style="border:2px solid #0f62fe;padding:14px;border-radius:12px;background:#f0f6ff;margin-top:14px"><h3><i class="fa fa-plus"></i> Phone Add / Edit - Gallery se</h3><input type="hidden" id="editIndex"><input id="pName" placeholder="Phone Name"><div style="display:flex;gap:6px"><input id="pBrand" placeholder="Brand"><input id="pYear" placeholder="Year"><input id="pPrice" placeholder="Price"></div><div style="display:flex;gap:6px"><input id="pRam" placeholder="RAM"><input id="pStorage" placeholder="Storage"><input id="pBattery" placeholder="Battery"></div><div style="display:flex;gap:6px"><input id="pCamera" placeholder="Camera"><input id="pDisplay" placeholder="Display"></div><textarea id="pSpec" placeholder="Short Specs"></textarea><label style="font-weight:700;font-size:12px">Gallery se Picture:</label><input id="pImgFile" type="file" accept="image/*"><input id="pImgUrl" placeholder="Ya Image URL"><img id="pPreview" style="width:80px;height:80px;object-fit:contain;display:none;border:1px solid #ddd;margin-top:6px"><div style="display:flex;gap:8px;margin-top:10px"><button class="btn" onclick="saveProduct()">Save Phone</button><button class="btn" style="background:#333" onclick="resetProductForm()">New / Clear</button></div><h4 style="margin-top:14px">All Phones - Edit / Delete:</h4><div id="adminProductList"></div></div><h3 style="margin-top:18px">Customer Orders</h3><div id="adminOrders"></div></div></div>
 
 <div class="section" id="sell"><h2>Sell Your Phone</h2><input id="sellModel" placeholder="Model"><input id="sellPrice" type="number" placeholder="Price"><input id="sellImg" type="file"><textarea id="sellCondition" placeholder="Condition"></textarea><button class="btn" onclick="sellPhone()">Submit</button></div>
 <div class="section" id="demand"><h2>Demand a Phone</h2><input id="dModel" placeholder="Phone Name"><input id="dBudget" placeholder="Budget"><input id="dImg" type="file"><button class="btn" onclick="demandPhone()">Add Demand</button></div>
-
-<div class="receiptBox" id="receiptBox"><div class="box" id="receiptContent"></div></div>
-
-<div class="section"><h2>About & Privacy</h2><p>WhatsApp: 03126165602, 03264492997 | Email: Shahzaibjaat2712@gmail.com<br>100% Genuine | Secure Payment | 7 Days Warranty | PTA Approved</p></div>
+<div class="receiptBox" id="receiptBox"><div class="box" id="receiptContent" style="background:#fff;padding:22px;border-radius:12px;width:95%;max-width:450px"></div></div>
+<div class="section"><h2>About & Privacy</h2><p>WhatsApp: 03126165602, 03264492997 | Email: Shahzaibjaat2712@gmail.com</p></div>
 <footer><div><h4>Mobi-Hub Shahzaib</h4></div><div><h4>Copyright</h4><p>Copyright © 2024-2026 Mobi-Hub Shahzaib. All Rights Reserved.</p></div></footer>
 
 <script>
 let defaultPhones=[
-{name:"Samsung Galaxy S24 Ultra",brand:"Samsung",year:2024,price:"285000",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g.jpg",spec:"12/256GB SD 8 Gen 3 200MP",ram:"12GB",storage:"256GB",battery:"5000mAh",camera:"200MP",display:"6.8 AMOLED"},
-{name:"Samsung Galaxy S25 Ultra",brand:"Samsung",year:2025,price:"345000",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s25-ultra.jpg",spec:"12/512GB SD 8 Elite",ram:"12GB",storage:"512GB",battery:"5000mAh",camera:"200MP",display:"6.9 AMOLED"},
-{name:"iPhone 16 Pro Max",brand:"iPhone",year:2024,price:"445000",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro-max.jpg",spec:"8/256GB A18 Pro",ram:"8GB",storage:"256GB",battery:"4685mAh",camera:"48MP",display:"6.9 XDR"},
-{name:"Pixel 9 Pro XL",brand:"Pixel",year:2024,price:"295000",img:"https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9-pro-xl.jpg",spec:"16/256GB Tensor G4",ram:"16GB",storage:"256GB",battery:"5060mAh",camera:"50MP",display:"6.8 OLED"},
-{name:"Redmi Note 13 Pro+",brand:"Redmi",year:2024,price:"89999",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13-pro-plus.jpg",spec:"12/512GB D7200 200MP",ram:"12GB",storage:"512GB",battery:"5000mAh",camera:"200MP",display:"6.67 AMOLED"},
-{name:"Poco X6 Pro",brand:"Poco",year:2024,price:"84999",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x6-pro.jpg",spec:"12/512GB D8300",ram:"12GB",storage:"512GB",battery:"5000mAh",camera:"64MP",display:"6.67 AMOLED"},
-{name:"Vivo V30 Pro",brand:"Vivo",year:2024,price:"139999",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v30-pro.jpg",spec:"12/512GB D8200",ram:"12GB",storage:"512GB",battery:"5000mAh",camera:"50MP",display:"6.78 AMOLED"}
+{name:"Samsung Galaxy S24 Ultra",brand:"Samsung",year:2024,price:"285000",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g.jpg",spec:"12/256GB SD 8 Gen 3 200MP 5000mAh",ram:"12GB",storage:"256GB",battery:"5000mAh",camera:"200MP",display:"6.8\" Dynamic AMOLED 120Hz"},
+{name:"Samsung Galaxy S25 Ultra",brand:"Samsung",year:2025,price:"345000",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s25-ultra.jpg",spec:"12/512GB SD 8 Elite 200MP",ram:"12GB",storage:"512GB",battery:"5000mAh",camera:"200MP",display:"6.9\" AMOLED 120Hz"},
+{name:"iPhone 16 Pro Max",brand:"iPhone",year:2024,price:"445000",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro-max.jpg",spec:"8/256GB A18 Pro 48MP",ram:"8GB",storage:"256GB",battery:"4685mAh",camera:"48MP Triple",display:"6.9\" Super Retina XDR"},
+{name:"Poco X6 Pro",brand:"Poco",year:2024,price:"84999",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x6-pro.jpg",spec:"12/512GB Dimensity 8300-Ultra 64MP",ram:"12GB",storage:"512GB",battery:"5000mAh 67W",camera:"64MP OIS",display:"6.67\" 120Hz AMOLED"},
+{name:"Redmi Note 13 Pro+",brand:"Redmi",year:2024,price:"89999",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13-pro-plus.jpg",spec:"12/512GB D7200-Ultra 200MP",ram:"12GB",storage:"512GB",battery:"5000mAh 120W",camera:"200MP",display:"6.67\" 1.5K AMOLED"},
+{name:"Vivo V30 Pro",brand:"Vivo",year:2024,price:"139999",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v30-pro.jpg",spec:"12/512GB Dimensity 8200",ram:"12GB",storage:"512GB",battery:"5000mAh 80W",camera:"50MP Zeiss",display:"6.78\" AMOLED"}
 ];
 let phonesData = JSON.parse(localStorage.getItem('mobiPhones') || 'null') || defaultPhones;
 let currentBuy=null;
@@ -109,34 +65,59 @@ function render(list){
  let brands=[...new Set(phonesData.map(p=>p.brand))]; document.getElementById('brandFilter').innerHTML='<button class="active" onclick="filterBrand(\'all\',this)">All</button>'+brands.map(b=>`<button onclick="filterBrand('${b}',this)">${b}</button>`).join('');
 }
 render(phonesData);
-function openProduct(idx){ let p=phonesData[idx]; document.getElementById('productDetail').innerHTML=`<div style="display:flex;justify-content:space-between"><h2>${p.name}</h2><button class="btn" style="background:#333" onclick="document.getElementById('productModal').style.display='none'">X</button></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px"><div><img src="${p.img}" style="width:100%;border-radius:12px;background:#fafafa"><p style="font-size:12px;margin-top:6px">Colors: Black, White, Blue | Sides: Front/Back</p></div><div><h3>Rs ${p.price}</h3><p style="color:green">In Stock - PTA Approved</p><table style="width:100%;font-size:13px;margin-top:10px;border-collapse:collapse"><tr><td style="padding:6px;border:1px solid #eee"><b>RAM</b></td><td style="padding:6px;border:1px solid #eee">${p.ram}</td></tr><tr><td style="padding:6px;border:1px solid #eee"><b>Storage</b></td><td style="padding:6px;border:1px solid #eee">${p.storage}</td></tr><tr><td style="padding:6px;border:1px solid #eee"><b>Battery</b></td><td style="padding:6px;border:1px solid #eee">${p.battery}</td></tr><tr><td style="padding:6px;border:1px solid #eee"><b>Camera</b></td><td style="padding:6px;border:1px solid #eee">${p.camera}</td></tr><tr><td style="padding:6px;border:1px solid #eee"><b>Display</b></td><td style="padding:6px;border:1px solid #eee">${p.display}</td></tr></table><button class="btn" style="width:100%;margin-top:12px" onclick="startBuy(${idx});document.getElementById('productModal').style.display='none'">Buy Now</button></div></div>`; document.getElementById('productModal').style.display='block'; }
+
+// PROFESSIONAL PRODUCT PAGE - NEW DESIGN
+function openProduct(idx){
+ let p=phonesData[idx];
+ document.getElementById('productDetail').innerHTML=`
+ <button class="closeX" onclick="document.getElementById('productModal').style.display='none'">✕</button>
+ <div style="padding:20px">
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+ <div>
+ <img src="${p.img}" style="width:100%;max-height:450px;object-fit:contain;background:#fafafa;border-radius:16px;padding:15px;border:1px solid #eee">
+ <div style="display:flex;gap:8px;margin-top:12px">
+ <img src="${p.img}" style="width:60px;height:60px;object-fit:contain;border:2px solid #0f62fe;border-radius:8px;padding:4px">
+ <img src="${p.img}" style="width:60px;height:60px;object-fit:contain;border:1px solid #ddd;border-radius:8px;padding:4px;filter:brightness(0.9)">
+ <img src="${p.img}" style="width:60px;height:60px;object-fit:contain;border:1px solid #ddd;border-radius:8px;padding:4px">
+ </div>
+ <p style="font-size:12px;color:#666;margin-top:8px"><i class="fa fa-images"></i> Front / Back / Side Views - Available Colors: Black, White, Yellow, Blue</p>
+ </div>
+ <div>
+ <span style="background:#e8f0ff;color:#0f62fe;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:800">${p.brand} | ${p.year}</span>
+ <h1 style="font-size:26px;margin:12px 0 6px 0">${p.name}</h1>
+ <div style="color:#00a651;font-weight:700;font-size:13px"><i class="fa fa-check-circle"></i> In Stock - PTA Approved - 100% Genuine</div>
+ <h2 style="color:#0f62fe;font-size:28px;margin:15px 0">Rs ${p.price}</h2>
+ 
+ <table class="spec-table">
+ <tr><td>RAM</td><td>${p.ram}</td></tr>
+ <tr><td>Storage</td><td>${p.storage}</td></tr>
+ <tr><td>Display</td><td>${p.display}</td></tr>
+ <tr><td>Camera</td><td>${p.camera}</td></tr>
+ <tr><td>Battery</td><td>${p.battery}</td></tr>
+ <tr><td>Processor / Specs</td><td>${p.spec}</td></tr>
+ <tr><td>Year</td><td>${p.year}</td></tr>
+ <tr><td>Warranty</td><td>7 Days Check + PTA Approved</td></tr>
+ </table>
+
+ <button onclick="buyFromDetail(${idx})" style="width:100%;background:#0f62fe;color:#fff;padding:14px;border-radius:10px;border:none;font-weight:900;font-size:16px;margin-top:18px;cursor:pointer"><i class="fa fa-shopping-cart"></i> Buy Now - Cash on Delivery</button>
+ <a href="https://wa.me/923126165602?text=I want ${p.name} Rs ${p.price}" target="_blank" style="display:block;text-align:center;width:100%;background:#25D366;color:#fff;padding:12px;border-radius:10px;text-decoration:none;font-weight:800;margin-top:10px"><i class="fa-brands fa-whatsapp"></i> WhatsApp Inquiry</a>
+ <p style="font-size:11px;color:#666;margin-top:12px;line-height:1.6"><b>Terms:</b><br>✅ 100% genuine non refurbished<br>✅ Exchange offers available<br>✅ Return with cut of money depends upon condition<br>✅ Keep receipt for warranty</p>
+ </div>
+ </div>
+ </div>`;
+ document.getElementById('productModal').style.display='block';
+ document.body.style.overflow='hidden';
+}
+function buyFromDetail(idx){
+ document.getElementById('productModal').style.display='none';
+ document.body.style.overflow='auto';
+ startBuy(idx);
+}
 function filterBrand(b,el){ document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('active')); el.classList.add('active'); if(b=='all') render(phonesData); else render(phonesData.filter(p=>p.brand==b)); }
 function doSearch(){ let q=document.getElementById('searchInput').value.toLowerCase(); render(phonesData.filter(p=>p.name.toLowerCase().includes(q))); }
-function startBuy(idx){ currentBuy=phonesData[idx]; document.getElementById('customerForm').style.display='block'; document.getElementById('customerForm').scrollIntoView(); }
+function startBuy(idx){ currentBuy=phonesData[idx]; document.getElementById('customerForm').style.display='block'; document.getElementById('customerForm').scrollIntoView({behavior:'smooth'}); }
 function confirmOrder(){ let name=document.getElementById('cName').value, phone=document.getElementById('cPhone').value, addr=document.getElementById('cAddress').value; if(!name||!phone) return alert("Name & Phone required"); let orders=JSON.parse(localStorage.getItem('orders')||'[]'); let order={id:'MH-'+Date.now(),phone:currentBuy.name,price:currentBuy.price,customer:name,cPhone:phone,address:addr,payment:document.getElementById('cPayment').value,date:new Date().toLocaleString()}; orders.push(order); localStorage.setItem('orders',JSON.stringify(orders)); document.getElementById('receiptContent').innerHTML=`<h3 style="text-align:center">Mobi-Hub Shahzaib<br><small>Official Receipt</small></h3><hr><p><b>Receipt #:</b> ${order.id}<br><b>Customer:</b> ${name}<br><b>Phone:</b> ${phone}<br><b>Address:</b> ${addr}<br><b>Product:</b> ${currentBuy.name}<br><b>Price:</b> Rs ${currentBuy.price}<br><b>Date:</b> ${order.date}</p><hr><p style="font-size:11px;line-height:1.5"><b>Terms:</b><br>✅ 100% genuine non refurbished.<br>✅ Exchange offers available.<br>✅ Return with cut of money depends upon condition.<br>✅ Keep this receipt for warranty claim.<br><br><b>Copyright © 2024-2026 Mobi-Hub Shahzaib. All Rights Reserved.</b></p><button class="btn" onclick="window.print()">Print / Download</button> <button class="btn" style="background:#333" onclick="document.getElementById('receiptBox').style.display='none'">Close</button>`; document.getElementById('receiptBox').style.display='grid'; document.getElementById('customerForm').style.display='none'; }
 function sellPhone(){ let m=document.getElementById('sellModel').value; if(!m) return alert("Model"); let sells=JSON.parse(localStorage.getItem('sells')||'[]'); sells.push({model:m,price:document.getElementById('sellPrice').value,date:new Date().toLocaleString()}); localStorage.setItem('sells',JSON.stringify(sells)); alert("Saved"); }
 function demandPhone(){ let m=document.getElementById('dModel').value; if(!m) return alert("Model"); let d=JSON.parse(localStorage.getItem('demands')||'[]'); d.push({model:m,budget:document.getElementById('dBudget').value,date:new Date().toLocaleString()}); localStorage.setItem('demands',JSON.stringify(d)); alert("Demand Added"); }
-
-function openAdminFixed(){
- let el=document.getElementById('adminLogin');
- el.style.display='block';
- el.scrollIntoView({behavior:'smooth'});
-}
-function checkAdmin(){
- if(document.getElementById('adminPass').value=='admin123'){
-   document.getElementById('adminPanel').style.display='block';
-   document.getElementById('adminPanel').scrollIntoView();
-   loadAdmin(); loadAdminProducts();
- } else alert("Wrong Password! Password is admin123");
-}
-function loadAdmin(){ let orders=JSON.parse(localStorage.getItem('orders')||'[]'); document.getElementById('adminOrders').innerHTML=orders.map(o=>`<div style="background:#f5f7fb;padding:6px;margin:4px;font-size:12px"><b>${o.id}</b> - ${o.customer} (${o.cPhone}) - ${o.phone}</div>`).join('')||'No orders yet'; }
-function loadAdminProducts(){ document.getElementById('adminProductList').innerHTML=phonesData.map((p,i)=>`<div style="display:flex;gap:8px;align-items:center;background:#fff;padding:6px;margin:4px;border-radius:6px;font-size:12px"><img src="${p.img}" style="width:35px;height:35px;object-fit:contain"><b>${p.name}</b> - Rs ${p.price}<button onclick="editProduct(${i})" style="margin-left:auto;background:#0f62fe;color:#fff;border:none;padding:4px 8px;border-radius:4px">Edit</button><button onclick="deleteProduct(${i})" style="background:red;color:#fff;border:none;padding:4px 8px;border-radius:4px">Delete</button></div>`).join(''); }
-document.getElementById('pImgFile').addEventListener('change', function(e){ let file=e.target.files[0]; let reader=new FileReader(); reader.onload=function(ev){ document.getElementById('pPreview').src=ev.target.result; document.getElementById('pPreview').style.display='block'; document.getElementById('pImgUrl').value=ev.target.result; }; if(file) reader.readAsDataURL(file); });
-function saveProduct(){ let idx=document.getElementById('editIndex').value; let obj={name:document.getElementById('pName').value,brand:document.getElementById('pBrand').value,year:parseInt(document.getElementById('pYear').value)||2024,price:document.getElementById('pPrice').value,ram:document.getElementById('pRam').value,storage:document.getElementById('pStorage').value,battery:document.getElementById('pBattery').value,camera:document.getElementById('pCamera').value,display:document.getElementById('pDisplay').value,spec:document.getElementById('pSpec').value,img:document.getElementById('pImgUrl').value||document.getElementById('pPreview').src}; if(!obj.name||!obj.price) return alert("Name & Price required"); if(idx===""){ phonesData.unshift(obj); } else { phonesData[idx]=obj; } savePhones(); resetProductForm(); alert("Saved! Customer ko dikhega."); }
-function resetProductForm(){ document.getElementById('editIndex').value=""; ["pName","pBrand","pYear","pPrice","pRam","pStorage","pBattery","pCamera","pDisplay","pSpec","pImgUrl"].forEach(id=>document.getElementById(id).value=""); document.getElementById('pPreview').style.display='none'; document.getElementById('pImgFile').value=""; }
-function editProduct(i){ let p=phonesData[i]; document.getElementById('editIndex').value=i; document.getElementById('pName').value=p.name; document.getElementById('pBrand').value=p.brand; document.getElementById('pYear').value=p.year; document.getElementById('pPrice').value=p.price; document.getElementById('pRam').value=p.ram; document.getElementById('pStorage').value=p.storage; document.getElementById('pBattery').value=p.battery; document.getElementById('pCamera').value=p.camera; document.getElementById('pDisplay').value=p.display; document.getElementById('pSpec').value=p.spec; document.getElementById('pImgUrl').value=p.img; document.getElementById('pPreview').src=p.img; document.getElementById('pPreview').style.display='block'; window.scrollTo(0,0); }
-function deleteProduct(i){ if(confirm("Delete this phone?")){ phonesData.splice(i,1); savePhones(); } }
-function loadSheet(){ let url=document.getElementById('sheetUrl').value; if(!url) return alert("Paste CSV link"); fetch(url).then(r=>r.text()).then(t=>{ let rows=t.split('\n').slice(1); let newPhones=rows.map(r=>{ let c=r.split(','); return {name:c[0],brand:c[1],year:c[2],price:c[3],img:c[4],spec:c[5],ram:c[6],storage:c[7],battery:c[8],camera:c[9],display:c[10]}; }).filter(p=>p.name); phonesData=[...newPhones,...phonesData]; savePhones(); alert("Live Stock Loaded!"); }); }
-</script>
-</body>
-</html>
+function openAdminFixed(){ let el=document.getElementById('adminLogin'); el.style.display='block'; el.scrollIntoView({behavior:'smooth'}); }
+function checkAdmin(){ if(document.getElementById('adminPass').value=='admin123'){ document.getElementById('admin
