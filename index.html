@@ -111,4 +111,119 @@ const defaultPhones=[
 {name:"Google Pixel 9 Pro XL",brand:"Pixel",year:2024,price:"295000",img:"https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9-pro-xl.jpg",spec:"16/256GB Tensor G4",ram:"16GB",storage:"256GB",battery:"5060mAh",camera:"50MP Triple",display:"6.8\" LTPO OLED"},
 {name:"Google Pixel 8a",brand:"Pixel",year:2024,price:"145000",img:"https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8a.jpg",spec:"8/128GB Tensor G3",ram:"8GB",storage:"128GB",battery:"4492mAh",camera:"64MP",display:"6.1\" OLED"},
 {name:"Motorola Edge 50 Pro",brand:"Motorola",year:2024,price:"145000",img:"https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-50-pro.jpg",spec:"12/256GB SD 7 Gen 3",ram:"12GB",storage:"256GB",battery:"4500mAh 125W",camera:"50MP",display:"6.7\" pOLED"},
-{name:"Motorola Moto G84",brand:"Motorola",year:2024,price:"69999",img:"https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g84.jpg",spec:"12/256GB SD 695",ram:"12GB",storage:"256GB",battery:"5000mAh",camera:"50MP",display:"6.
+{name:"Motorola Moto G84",brand:"Motorola",year:2024,price:"69999",img:"https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g84.jpg",spec:"12/256GB SD 695",ram:"12GB",storage:"256GB",battery:"5000mAh",camera:"50MP",display:"6.5\" pOLED"},
+{name:"Xiaomi 14 Ultra",brand:"Xiaomi",year:2024,price:"295000",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-ultra.jpg",spec:"16/512GB SD 8 Gen 3",ram:"16GB",storage:"512GB",battery:"5300mAh",camera:"50MP Leica Quad",display:"6.73\" LTPO AMOLED"},
+{name:"Redmi Note 13 Pro+ 5G",brand:"Xiaomi",year:2024,price:"89999",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13-pro-plus.jpg",spec:"12/512GB Dimensity 7200",ram:"12GB",storage:"512GB",battery:"5000mAh 120W",camera:"200MP",display:"6.67\" 1.5K AMOLED"},
+{name:"Poco X6 Pro",brand:"Xiaomi",year:2024,price:"84999",img:"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x6-pro.jpg",spec:"12/512GB D8300-Ultra",ram:"12GB",storage:"512GB",battery:"5000mAh 67W",camera:"64MP OIS",display:"6.67\" 120Hz AMOLED"}
+];
+let phonesData; try{ let s=JSON.parse(localStorage.getItem('mobiPhones')||'[]'); phonesData=(s&&s.length>0)?s:defaultPhones; }catch(e){ phonesData=defaultPhones; }
+let cart=JSON.parse(localStorage.getItem('mobiCart')||'[]'); let compareList=JSON.parse(localStorage.getItem('mobiCompare')||'[]');
+
+function showToast(msg){
+ let t=document.getElementById('toast');
+ t.innerText=msg; t.style.display='block';
+ setTimeout(()=>{ t.style.display='none'; },2500);
+}
+function saveAll(){ localStorage.setItem('mobiPhones',JSON.stringify(phonesData)); localStorage.setItem('mobiCart',JSON.stringify(cart)); localStorage.setItem('mobiCompare',JSON.stringify(compareList)); updateBadges(); renderAll(); }
+function showPage(name){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active')); document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+ let pg=document.getElementById('page-'+name); if(pg) pg.classList.add('active'); let nav=document.getElementById('nav-'+name); if(nav) nav.classList.add('active');
+ document.getElementById('heroBox').style.display=(name=='home')?'flex':'none'; document.getElementById('catFilters').style.display=(['home','shop','samsung','iphone','pixel','motorola','xiaomi'].includes(name))?'flex':'none';
+ window.scrollTo(0,0); if(name=='cart') renderCart(); if(name=='compare') renderCompare(); if(name=='shop') renderShop();
+}
+function renderCard(p,idx){ 
+ return `<div class="card" onclick="openProductPage(${idx})">
+ <div class="img-wrap"><img src="${p.img}" onerror="this.src='https://via.placeholder.com/300?text=No+Image'"><div class="copyright-wm">© Mobi-Hub Shahzaib</div></div>
+ <div class="info"><h3 style="font-size:13px;line-height:1.3">${p.name}</h3><div class="price">Rs ${p.price}</div><div class="specs">${p.year} | ${p.ram} | ${p.storage}</div>
+ <div style="display:flex;gap:6px;margin-top:6px"><button class="btn" style="flex:1" onclick="event.stopPropagation();openQuickView(${idx})">View</button><button class="btn" style="flex:1;background:#111" onclick="event.stopPropagation();addToCart(${idx})">Add</button></div>
+ <button style="margin-top:6px;width:100%;background:#fff;border:1px solid #ddd;padding:6px;border-radius:8px;font-size:11px" onclick="event.stopPropagation();addToCompare(${idx})">+ Compare</button></div></div>`; 
+}
+function renderAll(){
+ document.getElementById('homeGrid').innerHTML=phonesData.slice(0,8).map((p,i)=>renderCard(p,phonesData.indexOf(p))).join('');
+ document.getElementById('shopGrid').innerHTML=phonesData.map((p,i)=>renderCard(p,phonesData.indexOf(p))).join('');
+ ['samsung','iphone','pixel','motorola','xiaomi'].forEach(cat=>{
+   let list=phonesData.filter(p=>p.brand.toLowerCase().includes(cat=='xiaomi'?'xiaomi':cat=='iphone'?'iphone':cat));
+   let el=document.getElementById('grid-'+cat); if(el) el.innerHTML=list.length?list.map(p=>renderCard(p,phonesData.indexOf(p))).join(''):`<p>No ${cat} phones. Add from Admin.</p>`;
+ });
+ loadAdminProducts(); updateBadges();
+}
+renderAll();
+function renderShop(){ document.getElementById('shopGrid').innerHTML=phonesData.map((p,i)=>renderCard(p,phonesData.indexOf(p))).join(''); }
+
+// --- FIXED BUY NOW / ADD TO CART ---
+function openQuickView(idx){
+ let p=phonesData[idx]; document.getElementById('productDetail').innerHTML=`
+ <button class="closeX" onclick="closeModal()">✕</button>
+ <div style="padding:20px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+ <div><div class="img-wrap"><img src="${p.img}" style="width:100%;max-height:440px;object-fit:contain;background:#fff;border-radius:14px;border:1px solid #eee;padding:10px"><div class="copyright-wm-big">© Mobi-Hub Shahzaib 2024-2026</div></div></div>
+ <div><span style="background:#e8f0ff;color:#0f62fe;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:900">${p.brand} • ${p.year}</span><h2 style="margin:12px 0">${p.name}</h2><div style="color:green;font-weight:700;font-size:13px">In Stock • PTA Approved</div><h2 style="color:#0f62fe;margin:14px 0">Rs ${p.price}</h2>
+ <table class="spec-table"><tr><td>RAM</td><td>${p.ram}</td></tr><tr><td>Storage</td><td>${p.storage}</td></tr><tr><td>Display</td><td>${p.display}</td></tr><tr><td>Camera</td><td>${p.camera}</td></tr><tr><td>Battery</td><td>${p.battery}</td></tr></table>
+ <button onclick="buyNow(${idx})" style="width:100%;background:#0f62fe;color:#fff;padding:14px;border-radius:10px;border:none;font-weight:900;margin-top:14px;cursor:pointer">Buy Now</button>
+ <button onclick="addToCart(${idx});closeModal()" style="width:100%;background:#111;color:#fff;padding:12px;border-radius:10px;border:none;font-weight:700;margin-top:8px;cursor:pointer">Add to Cart</button>
+ </div></div></div>`;
+ document.getElementById('productModal').style.display='block'; document.body.style.overflow='hidden';
+}
+function openProductPage(idx){
+ let p=phonesData[idx];
+ document.getElementById('productPageContent').innerHTML=`
+ <button class="btn" style="width:auto;background:#eee;color:#000" onclick="showPage('shop')">← Back to Shop</button>
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:15px">
+ <div><div class="img-wrap"><img src="${p.img}" style="width:100%;max-height:500px;object-fit:contain;background:#fff;border-radius:18px;border:1px solid #eee;padding:15px"><div class="copyright-wm-big">© Mobi-Hub Shahzaib 2024-2026</div></div></div>
+ <div><span style="background:#e8f0ff;color:#0f62fe;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:900">${p.brand} • ${p.year} • PTA</span><h1 style="font-size:30px;margin:15px 0 5px">${p.name}</h1><div style="color:#00a651;font-weight:800">In Stock - 100% Genuine - 7 Days Warranty</div><h1 style="color:#0f62fe;margin:18px 0">Rs ${p.price}</h1>
+ <table class="spec-table"><tr><td>RAM</td><td>${p.ram}</td></tr><tr><td>Storage</td><td>${p.storage}</td></tr><tr><td>Display</td><td>${p.display}</td></tr><tr><td>Camera</td><td>${p.camera}</td></tr><tr><td>Battery</td><td>${p.battery}</td></tr></table>
+ <div style="display:flex;gap:10px;margin-top:18px"><button onclick="buyNow(${idx})" style="flex:1;background:#0f62fe;color:#fff;padding:15px;border-radius:12px;border:none;font-weight:900;cursor:pointer">Buy Now</button><button onclick="addToCart(${idx})" style="flex:1;background:#111;color:#fff;padding:15px;border-radius:12px;border:none;font-weight:800;cursor:pointer">Add to Cart</button></div>
+ <a href="https://wa.me/923126165602?text=I want ${encodeURIComponent(p.name)} Rs ${p.price}" target="_blank" style="display:block;text-align:center;background:#25D366;color:#fff;padding:13px;border-radius:12px;text-decoration:none;font-weight:800;margin-top:10px">WhatsApp Inquiry</a>
+ </div></div>`;
+ showPage('product');
+}
+function closeModal(){ let m=document.getElementById('productModal'); if(m){ m.style.display='none'; document.body.style.overflow='auto'; } }
+function buyNow(idx){ 
+ try{ closeModal(); }catch(e){}
+ let p=phonesData[idx]; 
+ cart=[p]; 
+ saveAll(); 
+ showToast(p.name + " - Checkout pe ja rahe hain...");
+ setTimeout(()=>{ showPage('checkout'); },400);
+}
+function addToCart(idx){ 
+ let p=phonesData[idx]; 
+ cart.push(p); 
+ saveAll(); 
+ showToast(p.name + " Cart me add ho gaya! 🛒");
+}
+function renderCart(){ if(cart.length==0){ document.getElementById('cartContent').innerHTML="<p>Cart empty. <a href='#' onclick=\"showPage('shop')\">Shop Now</a></p>"; document.getElementById('cartTotal').innerHTML=""; return; } document.getElementById('cartContent').innerHTML=cart.map((p,i)=>`<div style="display:flex;gap:12px;align-items:center;background:#f9f9f9;padding:10px;border-radius:10px;margin:8px 0"><img src="${p.img}" style="width:60px;height:60px;object-fit:contain"><div style="flex:1"><b>${p.name}</b><br>Rs ${p.price}</div><button onclick="removeCart(${i})" style="background:red;color:#fff;border:none;padding:6px 10px;border-radius:6px">X</button></div>`).join(''); let total=cart.reduce((s,p)=>s+parseInt((p.price+'').replace(/[^0-9]/g,'')||0),0); document.getElementById('cartTotal').innerHTML="Total: Rs "+total.toLocaleString(); }
+function removeCart(i){ cart.splice(i,1); saveAll(); renderCart(); showToast("Removed from cart"); }
+function addToCompare(idx){ if(compareList.length>=3) return showToast("Max 3 phones!"); let p=phonesData[idx]; if(compareList.find(x=>x.name==p.name)) return showToast("Already added!"); compareList.push(p); saveAll(); showToast("Added to Compare"); }
+function renderCompare(){ if(compareList.length==0){ document.getElementById('compareContent').innerHTML="<p>No phones selected.</p>"; return; } document.getElementById('compareContent').innerHTML=`<div style="display:grid;grid-template-columns:repeat(${compareList.length},1fr);gap:12px">`+compareList.map((p,i)=>`<div style="background:#f9f9f9;padding:12px;border-radius:12px"><img src="${p.img}" style="width:100%;height:150px;object-fit:contain"><h4>${p.name}</h4><div style="color:#0f62fe;font-weight:800">Rs ${p.price}</div><button onclick="removeCompare(${i})" style="background:red;color:#fff;border:none;padding:6px 10px;border-radius:6px;margin-top:8px">Remove</button></div>`).join('')+`</div><button class="btn" style="background:#333;margin-top:15px;width:auto" onclick="compareList=[];saveAll();renderCompare()">Clear All</button>`; }
+function removeCompare(i){ compareList.splice(i,1); saveAll(); renderCompare(); }
+function updateBadges(){ document.getElementById('cartCount').innerText=cart.length; document.getElementById('compareCount').innerText=compareList.length?`(${compareList.length})`:''; let bar=document.getElementById('compareBar'); if(compareList.length>0){ bar.style.display='flex'; document.getElementById('compareBarText').innerText=compareList.length+" phones selected"; } else bar.style.display='none'; }
+function doSearch(){ let q=document.getElementById('searchInput').value.toLowerCase(); if(!q){ renderAll(); return; } let filtered=phonesData.filter(p=>p.name.toLowerCase().includes(q)||p.brand.toLowerCase().includes(q)); document.getElementById('homeGrid').innerHTML=filtered.map(p=>renderCard(p,phonesData.indexOf(p))).join(''); showPage('home'); }
+function placeOrder(){
+ let name=document.getElementById('cName').value, phone=document.getElementById('cPhone').value, addr=document.getElementById('cAddress').value; if(!name||!phone) return showToast("Name & Phone required");
+ let orders=JSON.parse(localStorage.getItem('orders')||'[]'); let id='MH-'+Date.now(); let total=cart.reduce((s,p)=>s+parseInt((p.price+'').replace(/[^0-9]/g,'')||0),0);
+ let order={id,items:cart.map(p=>p.name).join(', '),total,customer:name,cPhone:phone,address:addr,payment:document.getElementById('cPayment').value,date:new Date().toLocaleString(),status:'Processing'};
+ orders.push(order); localStorage.setItem('orders',JSON.stringify(orders));
+ document.getElementById('receiptArea').innerHTML=`<div style="background:#fff;border:2px dashed #0f62fe;padding:20px;border-radius:12px;margin-top:15px"><h3 style="text-align:center">Mobi-Hub Shahzaib<br><small>Official Receipt</small></h3><hr><p><b>Receipt #:</b> ${id}<br><b>Customer:</b> ${name}<br><b>Phone:</b> ${phone}<br><b>Address:</b> ${addr}<br><b>Items:</b> ${order.items}<br><b>Total:</b> Rs ${total}<br><b>Date:</b> ${order.date}</p><button class="btn" onclick="window.print()">Print Receipt</button><br><br><a href="https://wa.me/923126165602?text=New Order ${id} - ${order.items}" target="_blank" style="display:block;background:#25D366;color:#fff;text-align:center;padding:12px;border-radius:10px;text-decoration:none;font-weight:800">Send Order on WhatsApp</a></div>`;
+ cart=[]; saveAll();
+}
+function trackOrder(){ let id=document.getElementById('trackId').value; let orders=JSON.parse(localStorage.getItem('orders')||'[]'); let o=orders.find(x=>x.id==id); document.getElementById('trackResult').innerHTML=o?`<div style="background:#f0f6ff;padding:15px;border-radius:10px"><b>${o.id}</b><br>Customer: ${o.customer}<br>Items: ${o.items}<br>Total: Rs ${o.total}<br>Status: ${o.status}</div>`:'<p style="color:red">Order not found!</p>'; }
+function askAI(){
+ let q=document.getElementById('aiInput').value; if(!q) return;
+ let chat=document.getElementById('aiChat'); chat.innerHTML+=`<div style="background:#0f62fe;color:#fff;padding:10px;border-radius:10px;margin:6px 0;text-align:right"><b>You:</b> ${q}</div>`;
+ document.getElementById('aiInput').value='';
+ setTimeout(()=>{ chat.innerHTML+=`<div style="background:#fff;padding:10px;border-radius:10px;margin:6px 0"><b>AI:</b> For "${q}" I recommend ${phonesData.slice(0,2).map(p=>p.name).join(', ')}</div>`; chat.scrollTop=chat.scrollHeight; },400);
+}
+function checkAdmin(){ if(document.getElementById('adminPass').value=='admin123'){ document.getElementById('adminPanel').style.display='block'; loadAdmin(); showToast("Admin Login Success"); } else showToast("Wrong Password!"); }
+function loadAdmin(){ let orders=JSON.parse(localStorage.getItem('orders')||'[]'); document.getElementById('adminOrders').innerHTML=orders.map(o=>`<div style="background:#f5f7fb;padding:6px;margin:4px;font-size:12px"><b>${o.id}</b> - ${o.customer} (${o.cPhone}) - ${o.items} - Rs ${o.total}</div>`).join('')||'No orders'; }
+function loadAdminProducts(){ document.getElementById('adminProductList').innerHTML=phonesData.map((p,i)=>`<div style="display:flex;gap:8px;align-items:center;background:#fff;padding:6px;margin:4px;border-radius:6px;font-size:12px"><img src="${p.img}" style="width:35px;height:35px;object-fit:contain"><b>${p.name}</b> - Rs ${p.price}<button onclick="editProduct(${i})" style="margin-left:auto;background:#0f62fe;color:#fff;border:none;padding:4px 8px;border-radius:4px">Edit</button><button onclick="deleteProduct(${i})" style="background:red;color:#fff;border:none;padding:4px 8px;border-radius:4px">Del</button></div>`).join(''); }
+document.getElementById('pImgFile')?.addEventListener('change', function(e){ let f=e.target.files[0]; let r=new FileReader(); r.onload=function(ev){ document.getElementById('pPreview').src=ev.target.result; document.getElementById('pPreview').style.display='block'; document.getElementById('pImgUrl').value=ev.target.result; }; if(f) r.readAsDataURL(f); });
+function saveProduct(){ let idx=document.getElementById('editIndex').value; let obj={name:document.getElementById('pName').value,brand:document.getElementById('pBrand').value,year:parseInt(document.getElementById('pYear').value)||2024,price:document.getElementById('pPrice').value,ram:document.getElementById('pRam').value,storage:document.getElementById('pStorage').value,battery:document.getElementById('pBattery').value,camera:document.getElementById('pCamera').value,display:document.getElementById('pDisplay').value,spec:document.getElementById('pSpec').value,img:document.getElementById('pImgUrl').value||document.getElementById('pPreview').src}; if(!obj.name||!obj.price) return showToast("Name & Price required"); if(idx===""){ phonesData.unshift(obj); } else { phonesData[idx]=obj; } localStorage.setItem('mobiPhones',JSON.stringify(phonesData)); renderAll(); resetProductForm(); showToast("Saved!"); }
+function resetProductForm(){ document.getElementById('editIndex').value=""; ["pName","pBrand","pYear","pPrice","pRam","pStorage","pBattery","pCamera","pDisplay","pSpec","pImgUrl"].forEach(id=>{ let el=document.getElementById(id); if(el) el.value=""; }); document.getElementById('pPreview').style.display='none'; let f=document.getElementById('pImgFile'); if(f) f.value=""; }
+function editProduct(i){ let p=phonesData[i]; document.getElementById('editIndex').value=i; document.getElementById('pName').value=p.name; document.getElementById('pBrand').value=p.brand; document.getElementById('pYear').value=p.year; document.getElementById('pPrice').value=p.price; document.getElementById('pRam').value=p.ram; document.getElementById('pStorage').value=p.storage; document.getElementById('pBattery').value=p.battery; document.getElementById('pCamera').value=p.camera; document.getElementById('pDisplay').value=p.display; document.getElementById('pSpec').value=p.spec; document.getElementById('pImgUrl').value=p.img; document.getElementById('pPreview').src=p.img; document.getElementById('pPreview').style.display='block'; window.scrollTo(0,0); }
+function deleteProduct(i){ if(confirm("Delete?")){ phonesData.splice(i,1); localStorage.setItem('mobiPhones',JSON.stringify(phonesData)); renderAll(); showToast("Deleted"); } }
+function resetStock(){ if(confirm("Reset to default 12 phones?")){ localStorage.removeItem('mobiPhones'); phonesData=defaultPhones; localStorage.setItem('mobiPhones',JSON.stringify(phonesData)); renderAll(); location.reload(); } }
+document.getElementById('productModal').addEventListener('click', function(e){ if(e.target==this){ closeModal(); }});
+updateBadges();
+</script>
+</body>
+</html>
