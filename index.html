@@ -1,121 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MOBI-HUB Shahzaib</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-header{background:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 4px rgba(0,0,0,.1);position:sticky;top:0;z-index:99;flex-wrap:wrap;gap:8px}
-.logo{font-weight:800;font-size:18px} .logo span{color:#2563eb}
-.search{flex:1;display:flex;max-width:300px} .search input{flex:1;padding:8px 12px;border:1px solid #ddd;border-radius:8px 0 0 8px;outline:none} .search button{background:#2563eb;color:#fff;border:none;padding:0 14px;border-radius:0 8px 8px 0;cursor:pointer}
-nav{display:flex;flex-wrap:wrap;gap:6px} nav a{font-size:11px;text-decoration:none;background:#f1f5f9;padding:6px 10px;border-radius:16px;color:#000;cursor:pointer} nav .cart{background:#000;color:#fff}
-.hero{background:linear-gradient(135deg,#0a0e2a,#1e3a8a);color:#fff;margin:12px;border-radius:16px;padding:20px;display:flex;justify-content:space-between;align-items:center;overflow:hidden}
-.hero h1{font-size:22px} .hero .btn{background:#0ea5e9;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:10px;font-weight:600;border:none;cursor:pointer}
-.hero img{width:110px;height:110px;border-radius:12px;object-fit:cover;border:2px solid #fff}
-.filters{display:flex;gap:8px;overflow:auto;padding:10px 16px} .filters button{border:none;padding:6px 14px;border-radius:16px;background:#eee;white-space:nowrap;cursor:pointer} .filters .active{background:#000;color:#fff}
-.grid{padding:16px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-@media(min-width:768px){.grid{grid-template-columns:repeat(3,1fr)}}
-.card{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden;text-align:center;padding:10px}
-.card img{width:100%;height:160px;object-fit:contain;background:#f8fafc;border-radius:8px}
-.card h3{font-size:12px;margin:8px 0 2px;height:30px} .card .price{color:#2563eb;font-weight:700;font-size:13px}
-.card .add{width:100%;background:#2563eb;color:#fff;border:none;padding:8px;border-radius:20px;margin-top:6px;font-weight:600;cursor:pointer}
-.card .add:active{transform:scale(.95)}
-#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#000;color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;display:none;z-index:999}
-</style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MOBI-HUB Shahzaib - Complete Fixed</title>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}body{background:#f8fafc}header{background:#fff;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px rgba(0,0,0,.08);position:sticky;top:0;z-index:100;gap:12px;flex-wrap:wrap}.logo{font-weight:900;font-size:20px}.logo span{color:#2563eb}.search-wrap{flex:1;max-width:380px;display:flex}.search-wrap input{flex:1;padding:10px 14px;border:2px solid #e2e8f0;border-radius:10px 0 0 10px;outline:none}.search-wrap button{background:#2563eb;color:#fff;border:none;padding:0 18px;border-radius:0 10px 10px 0;cursor:pointer}nav{display:flex;gap:6px;flex-wrap:wrap}.nav-btn{font-size:12px;font-weight:600;background:#f1f5f9;padding:8px 14px;border-radius:20px;border:none;cursor:pointer}.nav-btn.active{background:#000;color:#fff}.nav-btn.primary{background:#2563eb;color:#fff}.hero{background:linear-gradient(135deg,#0a0e2a,#1e3a8a,#2563eb);color:#fff;margin:16px;border-radius:20px;padding:24px;display:flex;justify-content:space-between;align-items:center}.hero h1{font-size:26px}.hero .shop-btn{background:#0ea5e9;color:#fff;padding:12px 22px;border-radius:10px;border:none;font-weight:700;margin-top:14px;cursor:pointer}.hero img{width:120px;height:120px;border-radius:16px;object-fit:cover;border:3px solid rgba(255,255,255,.3)}.filters{display:flex;gap:8px;overflow-x:auto;padding:14px 18px}.filters button{border:2px solid #e2e8f0;padding:8px 16px;border-radius:20px;background:#fff;cursor:pointer;font-weight:600;font-size:13px}.filters button.active{background:#0f172a;color:#fff}.grid{padding:16px 18px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:1024px){.grid{grid-template-columns:repeat(4,1fr)}}.card{background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.06);padding:12px;border:1px solid #f1f5f9}.card img{width:100%;height:170px;object-fit:contain;background:#f8fafc;border-radius:12px}.card h3{font-size:13px;margin:10px 0 4px;min-height:36px}.card .price{color:#2563eb;font-weight:800;font-size:15px}.card .add{width:100%;background:#0f172a;color:#fff;border:none;padding:10px;border-radius:12px;margin-top:10px;font-weight:700;cursor:pointer}.card .add.added{background:#10b981}#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:12px 22px;border-radius:30px;font-size:13px;display:none;z-index:999}#cartModal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:200;align-items:center;justify-content:center;padding:20px}#cartModal .box{background:#fff;border-radius:20px;max-width:420px;width:100%;padding:20px}</style>
 </head>
 <body>
-
 <header>
   <div class="logo">MOBI-HUB <span>Shahzaib</span></div>
-  <div class="search"><input id="searchInput" placeholder="Search phone..." onkeyup="searchPhones()"><button onclick="searchPhones()">🔍</button></div>
+  <div class="search-wrap"><input id="searchInput" placeholder="Search phones..."><button id="searchBtn">🔍</button></div>
   <nav>
-    <a onclick="window.scrollTo(0,0)">Home</a>
-    <a onclick="document.getElementById('latest').scrollIntoView({behavior:'smooth'})">Shop</a>
-    <a onclick="showToast('Compare - Coming Soon')">Compare</a>
-    <a class="cart" id="cartBtn" onclick="viewCart()">Cart 0</a>
-    <a onclick="showToast('Track Order - Coming Soon')">Track</a>
-    <a onclick="showToast('AI Assistant - Coming Soon')">AI</a>
-    <a style="background:#2563eb;color:#fff" onclick="showToast('Admin Panel')">Admin</a>
+    <button class="nav-btn" data-action="home">Home</button>
+    <button class="nav-btn primary" data-action="shop">Shop</button>
+    <button class="nav-btn" data-action="compare">Compare (<span id="compareCount">0</span>)</button>
+    <button class="nav-btn active" data-action="cart">Cart <span id="cartCount">0</span></button>
+    <button class="nav-btn" data-action="track">Track</button>
+    <button class="nav-btn" data-action="ai">AI</button>
+    <button class="nav-btn" style="background:#2563eb;color:#fff" data-action="admin">Admin</button>
   </nav>
 </header>
-
 <div class="hero">
-  <div>
-    <h1>MOBI-HUB - Latest Collection</h1>
-    <p style="opacity:.9;margin-top:6px;font-size:13px">Premium Phones - Best Price Guaranteed</p>
-    <button class="btn" onclick="document.getElementById('latest').scrollIntoView({behavior:'smooth'})">Shop - 14 Phones</button>
-  </div>
-  <!-- YAHAN AAPKI PICTURE LAGI HAI -->
-  <img src="./profile.jpg" alt="Shahzaib" onerror="this.src='https://i.ibb.co/0jZ3QYv/placeholder.jpg'">
+  <div><h1>MOBI-HUB - Latest Collection</h1><p>Premium Phones - Best Price in Pakistan</p><button class="shop-btn" id="heroShopBtn">Shop - 12 Phones →</button></div>
+  <div><img src="./profile.jpg" alt="Shahzaib" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300'"></div>
 </div>
-
-<div class="filters" id="filters">
-  <button class="active" onclick="filterPhones('all',this)">All (14)</button>
-  <button onclick="filterPhones('samsung',this)">Samsung</button>
-  <button onclick="filterPhones('iphone',this)">iPhone</button>
-  <button onclick="filterPhones('pixel',this)">Pixel</button>
-  <button onclick="filterPhones('xiaomi',this)">Xiaomi</button>
-  <button onclick="filterPhones('motorola',this)">Motorola</button>
+<div class="filters" id="filterBar">
+  <button class="active" data-cat="all">All (12)</button><button data-cat="samsung">Samsung</button><button data-cat="iphone">iPhone</button><button data-cat="pixel">Pixel / Vivo</button><button data-cat="xiaomi">Xiaomi / Poco</button><button data-cat="motorola">Motorola</button>
 </div>
-
-<div class="grid" id="latest"></div>
+<div class="grid" id="phoneGrid"></div>
 <div id="toast"></div>
-
+<div id="cartModal"><div class="box"><div style="display:flex;justify-content:space-between"><h3>Your Cart</h3><button id="closeCart" style="border:none;background:#f1f5f9;padding:6px 12px;border-radius:20px;cursor:pointer">✕</button></div><div id="cartItems" style="margin-top:12px"></div><div id="cartTotal" style="font-weight:800;margin-top:12px;font-size:18px"></div><button id="checkoutBtn" style="width:100%;background:#2563eb;color:#fff;border:none;padding:12px;border-radius:12px;font-weight:700;margin-top:12px;cursor:pointer">Checkout via WhatsApp</button></div></div>
 <script>
-let cart = [];
-let phones = [
- {name:"Realme gt6 (china)", price:85000, cat:"xiaomi", img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400"},
- {name:"Samsung s23 ultra", price:160000, cat:"samsung", img:"https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?w=400"},
- {name:"Samsung s26 ultra", price:260000, cat:"samsung", img:"https://images.unsplash.com/photo-1596744038136-46273834b3fb?w=400"},
- {name:"Samsung s22 ultra", price:100000, cat:"samsung", img:"https://images.unsplash.com/photo-1587749086942-9a8c0db3d2ec?w=400"},
- {name:"Samsung note 20 ultra", price:85000, cat:"samsung", img:"https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400"},
- {name:"Moto edge (2025)", price:45000, cat:"motorola", img:"https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400"},
- {name:"Samsung Galaxy S24 Ultra", price:145000, cat:"samsung", img:"https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?w=400"},
- {name:"Samsung Galaxy S25 Ultra", price:165000, cat:"samsung", img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400"},
- {name:"iPhone 16 Pro Max", price:210000, cat:"iphone", img:"https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=400"},
- {name:"Poco X6 Pro", price:75000, cat:"xiaomi", img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400"},
- {name:"Redmi Note 13 Pro+", price:80999, cat:"xiaomi", img:"https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400"},
- {name:"Vivo V30 Pro", price:78000, cat:"pixel", img:"https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400"},
+const phones=[
+ {id:1,name:"Realme GT 6 (China)",price:85000,cat:"xiaomi",img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=500"},
+ {id:2,name:"Samsung S23 Ultra",price:160000,cat:"samsung",img:"https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?w=500"},
+ {id:3,name:"Samsung S26 Ultra",price:260000,cat:"samsung",img:"https://images.unsplash.com/photo-1587749086942-9a8c0db3d2ec?w=500"},
+ {id:4,name:"Samsung S22 Ultra",price:100000,cat:"samsung",img:"https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=500"},
+ {id:5,name:"Samsung Note 20 Ultra",price:85000,cat:"samsung",img:"https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=500"},
+ {id:6,name:"Moto Edge 2025",price:45000,cat:"motorola",img:"https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=500"},
+ {id:7,name:"Samsung S24 Ultra",price:145000,cat:"samsung",img:"https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?w=500"},
+ {id:8,name:"Samsung S25 Ultra",price:165000,cat:"samsung",img:"https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?w=500"},
+ {id:9,name:"iPhone 16 Pro Max",price:210000,cat:"iphone",img:"https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=500"},
+ {id:10,name:"Poco X6 Pro",price:75000,cat:"xiaomi",img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500"},
+ {id:11,name:"Redmi Note 13 Pro+",price:80999,cat:"xiaomi",img:"https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=500"},
+ {id:12,name:"Vivo V30 Pro",price:78000,cat:"pixel",img:"https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=500"},
 ];
-
-function render(list){
-  let grid = document.getElementById('latest');
-  grid.innerHTML = list.map(p=>`
-    <div class="card">
-      <img src="${p.img}">
-      <h3>${p.name}</h3>
-      <div class="price">Rs ${p.price.toLocaleString()}</div>
-      <button class="add" onclick="addToCart('${p.name}',${p.price})">Add</button>
-    </div>
-  `).join('');
-}
-render(phones);
-
-function addToCart(name,price){
-  cart.push({name,price});
-  document.getElementById('cartBtn').innerText = `Cart ${cart.length}`;
-  showToast(`${name} Added to Cart`);
-}
-function viewCart(){
-  if(cart.length==0) return showToast('Cart is Empty');
-  let total = cart.reduce((s,i)=>s+i.price,0);
-  alert(`Cart Items:\n${cart.map(c=>c.name+' - Rs '+c.price).join('\n')}\n\nTotal: Rs ${total}`);
-}
-function filterPhones(cat,btn){
-  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  if(cat=='all') render(phones);
-  else render(phones.filter(p=>p.cat==cat));
-}
-function searchPhones(){
-  let q = document.getElementById('searchInput').value.toLowerCase();
-  render(phones.filter(p=>p.name.toLowerCase().includes(q)));
-}
-function showToast(msg){
-  let t=document.getElementById('toast');
-  t.innerText=msg; t.style.display='block';
-  setTimeout(()=>t.style.display='none',2000);
-}
+let cart=JSON.parse(localStorage.getItem('mobi_cart')||'[]'); let compare=[]; let currentFilter='all';
+function saveCart(){localStorage.setItem('mobi_cart',JSON.stringify(cart));updateCount();}
+function updateCount(){document.getElementById('cartCount').textContent=cart.length;document.getElementById('compareCount').textContent=compare.length;}
+function render(list){const g=document.getElementById('phoneGrid');if(list.length===0){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px;color:#94a3b8">No phones found</div>';return;}g.innerHTML=list.map(p=>{const inC=cart.find(c=>c.id===p.id);return `<div class="card"><img src="${p.img}"><h3>${p.name}</h3><div class="price">Rs ${p.price.toLocaleString()}</div><button class="add ${inC?'added':''}" data-add="${p.id}">${inC?'✓ Added':'Add to Cart'}</button><button style="width:100%;margin-top:6px;background:#f1f5f9;border:none;padding:8px;border-radius:10px;font-size:12px;font-weight:600;cursor:pointer" data-compare="${p.id}">Compare</button></div>`}).join('');g.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()=>addToCart(parseInt(b.dataset.add))));g.querySelectorAll('[data-compare]').forEach(b=>b.addEventListener('click',()=>addToCompare(parseInt(b.dataset.compare))));}
+function addToCart(id){const ph=phones.find(p=>p.id===id);if(cart.find(c=>c.id===id)){showToast('Already in Cart');return;}cart.push(ph);saveCart();render(getFiltered());showToast(ph.name+' Added ✓');}
+function addToCompare(id){if(compare.includes(id)){showToast('Already in Compare');return;}if(compare.length>=2){showToast('Max 2 for Compare');return;}compare.push(id);updateCount();showToast('Added to Compare');}
+function getFiltered(){let l=phones;if(currentFilter!=='all')l=l.filter(p=>p.cat===currentFilter);const q=document.getElementById('searchInput').value.toLowerCase().trim();if(q)l=l.filter(p=>p.name.toLowerCase().includes(q));return l;}
+function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';clearTimeout(t._t);t._t=setTimeout(()=>t.style.display='none',2200);}
+document.getElementById('searchInput').addEventListener('input',()=>render(getFiltered()));document.getElementById('searchBtn').addEventListener('click',()=>render(getFiltered()));
+document.getElementById('filterBar').querySelectorAll('button').forEach(b=>{b.addEventListener('click',()=>{document.getElementById('filterBar').querySelectorAll('button').forEach(x=>x.classList.remove('active'));b.classList.add('active');currentFilter=b.dataset.cat;render(getFiltered());});});
+document.querySelectorAll('.nav-btn').forEach(btn=>{btn.addEventListener('click',()=>{const a=btn.dataset.action;if(a==='home')window.scrollTo({top:0,behavior:'smooth'});if(a==='shop')document.getElementById('phoneGrid').scrollIntoView({behavior:'smooth'});if(a==='cart')openCart();if(a==='compare'){if(compare.length===0)showToast('No phones in Compare');else showToast(compare.map(id=>phones.find(p=>p.id===id).name).join(' vs '));}if(a==='track')showToast('Track Order - Coming Soon');if(a==='ai')showToast('AI Assistant - Coming Soon');if(a==='admin')showToast('Admin Panel - Login Required');});});
+document.getElementById('heroShopBtn').addEventListener('click',()=>document.getElementById('phoneGrid').scrollIntoView({behavior:'smooth'}));
+function openCart(){const m=document.getElementById('cartModal');const it=document.getElementById('cartItems');const tot=document.getElementById('cartTotal');if(cart.length===0){it.innerHTML='<p style="color:#94a3b8;text-align:center;padding:20px">Cart empty</p>';tot.textContent='';}else{it.innerHTML=cart.map((c,i)=>`<div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f1f5f9"><div><b style="font-size:13px">${c.name}</b><br><span style="color:#2563eb;font-weight:700">Rs ${c.price.toLocaleString()}</span></div><button onclick="removeCart(${i})" style="border:none;background:#fee2e2;color:#dc2626;padding:6px 10px;border-radius:8px;cursor:pointer">Remove</button></div>`).join('');tot.textContent='Total: Rs '+cart.reduce((s,c)=>s+c.price,0).toLocaleString();}m.style.display='flex';}
+window.removeCart=i=>{cart.splice(i,1);saveCart();openCart();render(getFiltered());};
+document.getElementById('closeCart').addEventListener('click',()=>document.getElementById('cartModal').style.display='none');
+document.getElementById('cartModal').addEventListener('click',e=>{if(e.target.id==='cartModal')e.target.style.display='none';});
+document.getElementById('checkoutBtn').addEventListener('click',()=>{if(cart.length===0){showToast('Cart Empty');return;}const total=cart.reduce((s,c)=>s+c.price,0);const msg=`Assalam-o-Alaikum, I want to order:%0A${cart.map(c=>'- '+c.name+' Rs '+c.price).join('%0A')}%0ATotal: Rs ${total}`;window.open('https://wa.me/923264492997?text='+msg,'_blank');});
+render(phones);updateCount();
 </script>
 </body>
 </html>
