@@ -1,115 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MOBI-HUB Shahzaib - 50+ Guaranteed</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOBI-HUB Shahzaib</title>
 <style>
-:root{--p:#0f62fe;--d:#0b0f1a;--g:#f5f7fb}
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-body{background:var(--g);color:#111;overflow-x:hidden}
-header{position:sticky;top:0;z-index:1000;background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 4%;box-shadow:0 2px 12px rgba(0,0,0,.08)}
-.logo{font-weight:900;font-size:22px;cursor:pointer}.logo span{color:var(--p)}
-nav{display:flex;gap:7px;align-items:center;flex-wrap:wrap}nav a{font-size:11px;font-weight:700;text-decoration:none;color:#111;padding:6px 10px;border-radius:20px;background:#f3f4f6}nav a.active,nav a:hover{background:var(--d);color:#fff}
-.search{flex:1;margin:0 10px;display:flex;max-width:280px}.search input{width:100%;padding:9px;border:1px solid #ddd;border-radius:20px 0 0 20px}.search button{padding:9px 14px;background:var(--p);color:#fff;border:none;border-radius:0 20px 20px 0;cursor:pointer}
-.hero{background:linear-gradient(110deg,var(--d),#1e3a8a);color:#fff;padding:35px 5%;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 20px 20px}
-.hero img{width:140px;border-radius:16px}
-.grid{padding:18px 5%;display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:14px}
-.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06);cursor:pointer;border:1px solid #eee}
-.card:hover{transform:translateY(-5px)}.card img{width:100%;height:190px;object-fit:contain;padding:8px}
-.info{padding:12px}.price{color:var(--p);font-weight:900}
-.btn{background:var(--p);color:#fff;padding:11px 16px;border-radius:10px;border:none;font-weight:800;width:100%;margin-top:6px;cursor:pointer}
-.btn.buy-btn{background:linear-gradient(90deg,#0f62fe,#00d4ff)}
-.page{display:none;padding:25px 5%;background:#fff;margin:16px 5%;border-radius:16px;min-height:60vh}.page.active{display:block}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:999999;overflow-y:auto;padding:10px}.modal-inner{background:#fff;max-width:1050px;margin:10px auto;border-radius:18px;position:relative}
-.closeX{position:absolute;top:12px;right:12px;background:#000;color:#fff;width:38px;height:38px;border-radius:50%;border:none}
-#toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:14px 22px;border-radius:30px;font-size:13px;font-weight:700;z-index:1000000;display:none}
-.storage-bar{height:10px;background:#e5e7eb;border-radius:10px;overflow:hidden;margin:8px 0}.storage-fill{height:100%;background:linear-gradient(90deg,#0f62fe,#00d4ff)}
-input,textarea,select{width:100%;padding:11px;border:1px solid #ddd;border-radius:10px;margin:6px 0}
-.ai-msg{padding:10px 14px;border-radius:12px;margin:8px 0;max-width:85%}.ai-user{background:var(--p);color:#fff;margin-left:auto}.ai-bot{background:#f3f4f6}
+header{background:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 4px rgba(0,0,0,.1);position:sticky;top:0;z-index:10}
+.logo{font-weight:800;font-size:18px} .logo span{color:#1d4ed8}
+.search{flex:1;margin:0 12px;display:flex} .search input{flex:1;padding:8px 12px;border:1px solid #ddd;border-radius:8px 0 0 8px} .search button{background:#2563eb;color:#fff;border:none;padding:0 14px;border-radius:0 8px 8px 0}
+nav a{margin-left:8px;font-size:12px;text-decoration:none;background:#f1f5f9;padding:6px 10px;border-radius:16px;color:#000}
+.hero{background:linear-gradient(135deg,#0a0e2a,#1e3a8a);color:#fff;margin:12px;border-radius:12px;padding:30px 20px;display:flex;justify-content:space-between;align-items:center}
+.hero h1{font-size:24px} .hero .btn{background:#0ea5e9;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:12px;font-weight:600}
+.filters{display:flex;gap:8px;overflow:auto;padding:10px 16px} .filters button{border:none;padding:6px 14px;border-radius:16px;background:#eee;white-space:nowrap} .filters .active{background:#000;color:#fff}
+.grid{padding:16px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:768px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1024px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden;text-align:center;padding:10px}
+.card img{width:100%;height:180px;object-fit:contain;background:#f8fafc;border-radius:8px}
+.card h3{font-size:13px;margin:8px 0 2px} .card .price{color:#2563eb;font-weight:700;font-size:14px}
+.card .add{width:100%;background:#2563eb;color:#fff;border:none;padding:8px;border-radius:20px;margin-top:6px;font-weight:600;cursor:pointer}
 </style>
 </head>
 <body>
-<div id="toast"></div>
+
 <header>
-<div class="logo" onclick="showPage('home')">MOBI-HUB <span>Shahzaib</span></div>
-<div class="search"><input id="searchInput" placeholder="Search..." onkeyup="doSearch()"><button onclick="doSearch()"><i class="fa fa-search"></i></button></div>
-<nav>
-<a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a>
-<a href="#" onclick="showPage('shop')" id="nav-shop">Shop</a>
-<a href="#" onclick="showPage('compare')" id="nav-compare">Compare <span id="compareCount"></span></a>
-<a href="#" onclick="showPage('cart')" id="nav-cart">Cart <span id="cartCount">0</span></a>
-<a href="#" onclick="showPage('track')" id="nav-track">Track</a>
-<a href="#" onclick="showPage('ai')" id="nav-ai">AI</a>
-<a href="#" onclick="showPage('adminLoginPage')" style="background:var(--p);color:#fff">Admin</a>
-</nav>
+  <div class="logo">MOBI-HUB <span>Shahzaib</span></div>
+  <div class="search"><input placeholder="Search..."><button>🔍</button></div>
+  <nav>
+    <a href="#">Home</a><a href="#">Shop</a><a href="#">Compare</a><a href="#">Cart 0</a><a href="#">Track</a><a href="#">AI</a><a href="#" style="background:#2563eb;color:#fff">Admin</a>
+  </nav>
 </header>
-<div class="hero" id="heroBox"><div><h1>2024-2026 - 50+ Guaranteed</h1><p>IndexedDB 500MB - JazzCash 03264492997 - No Storage Full</p><button class="btn buy-btn" style="width:auto" onclick="showPage('shop')">Shop - <span id="totalCount">0</span> Phones</button></div><img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=260"></div>
-<div style="padding:12px 5%;display:flex;gap:8px;overflow:auto;background:#fff;position:sticky;top:60px;z-index:900" id="catFilters">
-<button onclick="showPage('shop')" style="padding:8px 14px;border-radius:20px;background:#111;color:#fff">All (<span id="totalCount2">0</span>)</button>
-<button onclick="showPage('samsung')" style="padding:8px 14px;border-radius:20px;border:1px solid #ddd">Samsung</button>
-<button onclick="showPage('iphone')" style="padding:8px 14px;border-radius:20px;border:1px solid #ddd">iPhone</button>
-<button onclick="showPage('pixel')" style="padding:8px 14px;border-radius:20px;border:1px solid #ddd">Pixel</button>
-<button onclick="showPage('xiaomi')" style="padding:8px 14px;border-radius:20px;border:1px solid #ddd">Xiaomi</button>
-<button onclick="showPage('motorola')" style="padding:8px 14px;border-radius:20px;border:1px solid #ddd">Motorola</button>
+
+<!-- CLEAN HERO - NO GUARANTEED TEXT -->
+<div class="hero">
+  <div>
+    <h1>MOBI-HUB - Latest Collection</h1>
+    <p style="opacity:.9;margin-top:6px;">Premium Phones - Best Price Guaranteed</p>
+    <a class="btn" href="#latest">Shop - 14 Phones</a>
+  </div>
+  <img src="https://i.imgur.com/8Km9tLL.png" style="width:140px;border-radius:12px">
 </div>
-<div class="page active" id="page-home"><h2>Latest</h2><div class="grid" id="homeGrid"></div></div>
-<div class="page" id="page-shop"><h2>Shop - <span id="totalCount3">0</span> Phones</h2><div style="background:#f0fdf4;border:1px solid #22c55e;padding:12px;border-radius:10px;margin-bottom:12px;font-size:12px"><b style="color:green">✅ IndexedDB Active:</b> <span id="storageText">Loading...</span><div class="storage-bar"><div class="storage-fill" id="storageFill" style="width:5%"></div></div><p>50+ phones 100% save honge!</p></div><div class="grid" id="shopGrid"></div></div>
-<div class="page" id="page-samsung"><h2>Samsung</h2><div class="grid" id="grid-samsung"></div></div>
-<div class="page" id="page-iphone"><h2>iPhone</h2><div class="grid" id="grid-iphone"></div></div>
-<div class="page" id="page-pixel"><h2>Pixel</h2><div class="grid" id="grid-pixel"></div></div>
-<div class="page" id="page-motorola"><h2>Motorola</h2><div class="grid" id="grid-motorola"></div></div>
-<div class="page" id="page-xiaomi"><h2>Xiaomi</h2><div class="grid" id="grid-xiaomi"></div></div>
-<div class="page" id="page-product"><div id="productPageContent"></div></div>
-<div class="page" id="page-compare"><h2>Compare</h2><div id="compareContent"></div></div>
-<div class="page" id="page-cart"><h2>Cart</h2><div id="cartContent"></div><div id="cartTotal" style="font-weight:900;margin-top:15px"></div><button class="btn buy-btn" style="width:auto;margin-top:10px" onclick="showPage('checkout')">Checkout</button></div>
-<div class="page" id="page-checkout"><h2>Checkout</h2><input id="cName" placeholder="Name"><input id="cPhone" placeholder="Phone"><input id="cAddress" placeholder="Address"><select id="cPayment"><option>Cash on Delivery</option><option selected>JazzCash - 03264492997</option></select><button class="btn buy-btn" onclick="placeOrder()">Place Order</button><div id="receiptArea"></div></div>
-<div class="page" id="page-track"><h2>Track Order</h2><input id="trackId" placeholder="Receipt ID"><button class="btn" onclick="trackOrder()">Track</button><div id="trackResult"></div></div>
-<div class="page" id="page-adminLoginPage"><h2 style="color:red">Admin Login - 50+ Guaranteed</h2><input id="adminPass" type="password" placeholder="Shahzaib@2026"><button class="btn" onclick="checkAdmin()">Login</button><p style="font-size:11px">Password: Shahzaib@2026 - IndexedDB 500MB</p><div id="adminPanel" style="display:none;margin-top:20px"><div style="background:#dcfce7;border:2px solid #22c55e;padding:14px;border-radius:12px;margin-bottom:15px"><h3 style="color:green">✅ 50+ Fix Applied</h3><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button class="btn" style="background:#22c55e;width:auto" onclick="migrateFromLocalStorage()">Migrate Old Data to IndexedDB</button><button class="btn" style="background:orange;width:auto" onclick="cleanBase64Images()">Clean Heavy Images</button><button class="btn" style="background:red;width:auto" onclick="resetStock()">Reset Default</button></div><p id="storageInfo" style="font-size:11px;margin-top:10px;font-weight:700"></p></div><h3>Bulk Import 50+</h3><textarea id="bulkImport" placeholder='[{"name":"Vivo X90s","brand":"Vivo","price":"75000","img":"https://fdn2.gsmarena.com/vv/bigpic/vivo-x90s.jpg"}]' style="height:100px;font-size:11px"></textarea><button class="btn" style="background:#111;width:auto" onclick="bulkAdd()">Import 50+ at Once</button><hr style="margin:15px 0"><h3>Add / Edit Mobile - 50+ Guaranteed</h3><input type="hidden" id="editIndex"><input id="pName" placeholder="Phone Name *"><div style="display:flex;gap:6px"><input id="pBrand" placeholder="Brand *"><input id="pPrice" placeholder="Price *"></div><input id="pImgFile" type="file" accept="image/*"><input id="pImgUrl" placeholder="Image URL (Optional)"><img id="pPreview" style="width:90px;display:none;border:2px solid #22c55e;border-radius:10px;margin-top:8px"><div style="display:flex;gap:8px;margin-top:12px"><button class="btn" style="background:#22c55e" onclick="saveProduct()">✅ Save Mobile - 50+ Guaranteed</button><button class="btn" style="background:#333" onclick="resetProductForm()">New</button></div><div id="adminProductList" style="margin-top:15px"></div><hr><h3>Orders</h3><div id="adminOrders"></div></div></div>
-<div class="page" id="page-ai"><h2>AI Assistant</h2><div id="aiChat" style="height:400px;overflow-y:auto;border:1px solid #eee;border-radius:12px;padding:12px;background:#fff"></div><div style="display:flex;gap:8px;margin-top:10px"><input id="aiInput" placeholder="Pucho..."><button class="btn" style="width:100px" onclick="sendAiMessage()">Send</button></div></div>
-<div class="modal" id="productModal"><div class="modal-inner" id="productDetail"></div></div>
-<div class="compare-bar" id="compareBar"><span id="compareBarText">0 phones</span><button class="btn" style="width:auto;background:#fff;color:#000" onclick="showPage('compare')">Compare Now</button></div>
-<footer style="background:#0b0f1a;color:#cbd5e1;padding:0;margin-top:40px;width:100%;border-top:5px solid #0f62fe"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;padding:35px 5%"><div><h2 style="color:#fff;font-weight:900">MOBI-HUB <span style="color:#0f62fe">Shahzaib</span></h2><p style="color:#94a3b8;font-size:13px">Lahore Pakistan - Trusted - 50+ Phones - PTA Approved - IndexedDB - No Storage Limit</p><div style="margin-top:15px;background:#111827;padding:12px;border-radius:10px"><p style="color:#0f62fe;font-weight:900">JazzCash / Easypaisa</p><p style="color:#fff;font-weight:800;font-size:18px">03264492997</p></div></div><div><h4 style="color:#fff;border-left:3px solid #0f62fe;padding-left:10px;margin-bottom:10px">Quick Links</h4><p onclick="showPage('home')" style="cursor:pointer">🏠 Home</p><p onclick="showPage('shop')" style="cursor:pointer">📱 Shop All (50+)</p><p onclick="showPage('samsung')" style="cursor:pointer">Samsung</p><p onclick="showPage('iphone')" style="cursor:pointer">iPhone</p><p onclick="showPage('track')" style="cursor:pointer">📦 Track Order</p><p onclick="showPage('ai')" style="cursor:pointer">🤖 AI Assistant</p></div><div><h4 style="color:#fff;border-left:3px solid #0f62fe;padding-left:10px;margin-bottom:10px">Support</h4><p>📞 03264492997</p><p>🚚 All Pakistan</p><p>💰 COD Available</p><p>🔒 Secure</p></div><div style="text-align:center;background:#111827;padding:20px;border-radius:15px"><h3 style="color:#fff">© 2026 Mobi-Hub</h3><p style="font-size:12px;color:#64748b">50+ Phones - IndexedDB - No Storage Limit</p><a href="https://wa.me/923264492997" target="_blank" style="display:block;background:#25D366;color:#fff;text-decoration:none;padding:12px;border-radius:10px;margin-top:12px;font-weight:900">WhatsApp Now</a></div></div><div style="background:#000;color:#6b7280;text-align:center;padding:14px 5%;font-size:11px;display:flex;justify-content:space-between;flex-wrap:wrap"><span>Mobi-Hub by Shahzaib | 2024-2026 | 50+ Phones Guaranteed | IndexedDB</span><span>JazzCash: 03264492997 | Lahore</span><span>100% Genuine</span></div></footer>
-<script>
-const DB_NAME='MobiHub50DB_v2';const STORE_NAME='phones';
-const defaultPhones=[{name:"Realme gt6 (china)",brand:"Realme",year:2024,price:"85000",img:"https://fdn2.gsmarena.com/vv/bigpic/realme-gt6-china.jpg"},{name:"Samsung s23 ultra",brand:"Samsung",year:2024,price:"160000",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-ultra-5g.jpg"},{name:"Samsung s25 ultra",brand:"Samsung",year:2025,price:"260000",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s25-ultra.jpg"},{name:"Samsung s22 ultra",brand:"Samsung",year:2024,price:"100000",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s22-ultra-5g.jpg"},{name:"Vivo X90s",brand:"Vivo",year:2024,price:"75000",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-x90s.jpg"},{name:"Samsung Galaxy S24 Ultra",brand:"Samsung",year:2024,price:"145000",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g.jpg"}];
-function openDB(){return new Promise((res,rej)=>{let r=indexedDB.open(DB_NAME,2);r.onupgradeneeded=e=>{let db=e.target.result;if(!db.objectStoreNames.contains(STORE_NAME))db.createObjectStore(STORE_NAME,{keyPath:'id',autoIncrement:true})};r.onsuccess=e=>res(e.target.result);r.onerror=e=>rej(e.target.error)})}
-async function getAllPhones(){try{let db=await openDB();return new Promise(r=>{let tx=db.transaction(STORE_NAME,'readonly');let st=tx.objectStore(STORE_NAME);let req=st.getAll();req.onsuccess=()=>{let res=req.result;if(!res||res.length==0)r(null);else r(res.map(x=>x.data||x))};req.onerror=()=>r(null)})}catch(e){return null}}
-async function saveAllPhonesToDB(arr){let db=await openDB();return new Promise((res,rej)=>{let tx=db.transaction(STORE_NAME,'readwrite');let st=tx.objectStore(STORE_NAME);st.clear();arr.forEach((p,i)=>st.add({id:i+1,data:p}));tx.oncomplete=()=>res(true);tx.onerror=e=>rej(e.target.error)})}
-let phonesData=[];let cart=JSON.parse(localStorage.getItem('mobiCart')||'[]');let compareList=JSON.parse(localStorage.getItem('mobiCompare')||'[]');let ADMIN_DEFAULT="Shahzaib@2026";if(!localStorage.getItem('adminPassword'))localStorage.setItem('adminPassword',ADMIN_DEFAULT);
-function showToast(m){let t=document.getElementById('toast');t.innerText=m;t.style.display='block';setTimeout(()=>t.style.display='none',4000)}
-function updateStorageMeter(){try{let kb=Math.round(JSON.stringify(phonesData).length/1024);let pct=Math.min(100,Math.round((kb/50000)*100));document.getElementById('storageText').innerText=kb+"KB / 50000KB IndexedDB ("+phonesData.length+" phones) - 50+ Guaranteed!";document.getElementById('storageFill').style.width=Math.max(5,pct)+"%";document.getElementById('storageInfo').innerText="IndexedDB: "+kb+"KB, Phones: "+phonesData.length+" | 500 tak support";document.getElementById('totalCount').innerText=phonesData.length;document.getElementById('totalCount2').innerText=phonesData.length;document.getElementById('totalCount3').innerText=phonesData.length}catch(e){}}
-async function saveAll(){try{await saveAllPhonesToDB(phonesData);localStorage.setItem('mobiCart',JSON.stringify(cart));localStorage.setItem('mobiCompare',JSON.stringify(compareList));updateStorageMeter();renderAll()}catch(e){showToast("Save Error: "+e.message)}}
-async function initPhones(){let fromDB=await getAllPhones();if(fromDB&&fromDB.length>0){phonesData=fromDB;showToast("✅ Loaded "+phonesData.length+" phones from IndexedDB")}else{try{let old=JSON.parse(localStorage.getItem('mobiPhones')||'[]');if(old&&old.length>0){phonesData=old;await saveAllPhonesToDB(phonesData);showToast("Migrated "+old.length+" to IndexedDB")}else{phonesData=defaultPhones;await saveAllPhonesToDB(phonesData)}}catch(e){phonesData=defaultPhones;await saveAllPhonesToDB(phonesData)}}renderAll();updateStorageMeter()}
-initPhones();
-function showPage(n){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+n).classList.add('active');document.getElementById('heroBox').style.display=n=='home'?'flex':'none';document.getElementById('catFilters').style.display=['home','shop','samsung','iphone','pixel','motorola','xiaomi'].includes(n)?'flex':'none';window.scrollTo(0,0);if(n=='cart')renderCart();if(n=='compare')renderCompare()}
-function renderCard(p,i){return `<div class="card" onclick="openProductPage(${i})"><div style="position:relative"><img src="${p.img}" onerror="this.src='https://via.placeholder.com/300'"><div style="position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,.75);color:#fff;font-size:9px;padding:3px 7px;border-radius:20px">© Mobi-Hub</div></div><div class="info"><h3 style="font-size:13px">${p.name}</h3><div class="price">Rs ${p.price}</div><button class="btn" style="padding:6px" onclick="event.stopPropagation();addToCart(${i})">Add</button></div></div>`}
-function renderAll(){if(!phonesData)return;document.getElementById('homeGrid').innerHTML=phonesData.slice(0,12).map((p,i)=>renderCard(p,phonesData.indexOf(p))).join('');document.getElementById('shopGrid').innerHTML=phonesData.map((p,i)=>renderCard(p,phonesData.indexOf(p))).join('');['samsung','iphone','pixel','motorola','xiaomi'].forEach(cat=>{let list=phonesData.filter(p=>(p.brand||'').toLowerCase().includes(cat)||p.name.toLowerCase().includes(cat));let el=document.getElementById('grid-'+cat);if(el)el.innerHTML=list.length?list.map(p=>renderCard(p,phonesData.indexOf(p))).join(''):'<p>No phones</p>'});loadAdminProducts();document.getElementById('cartCount').innerText=cart.length;document.getElementById('compareCount').innerText=compareList.length?`(${compareList.length})`:''}
-function renderShop(){document.getElementById('shopGrid').innerHTML=phonesData.map((p,i)=>renderCard(p,phonesData.indexOf(p))).join('')}
-function openQuickView(i){let p=phonesData[i];document.getElementById('productDetail').innerHTML=`<button class="closeX" onclick="closeModal()">X</button><div style="padding:20px"><h2>${p.name}</h2><img src="${p.img}" style="width:100%;max-height:300px;object-fit:contain"><h2 style="color:#0f62fe">Rs ${p.price}</h2><button onclick="buyNow(${i})" class="btn buy-btn">Buy Now</button></div>`;document.getElementById('productModal').style.display='block'}
-function openProductPage(i){let p=phonesData[i];document.getElementById('productPageContent').innerHTML=`<button class="btn" style="width:auto;background:#eee;color:#000" onclick="showPage('shop')">Back</button><h1>${p.name}</h1><img src="${p.img}" style="width:100%;max-height:400px;object-fit:contain"><h1 style="color:#0f62fe">Rs ${p.price}</h1><div style="display:flex;gap:10px"><button onclick="buyNow(${i})" class="btn buy-btn" style="flex:1;padding:15px">Buy Now</button><button onclick="addToCart(${i})" style="flex:1;background:#111;color:#fff;padding:15px;border-radius:12px;border:none">Add to Cart</button></div>`;showPage('product')}
-function closeModal(){document.getElementById('productModal').style.display='none'}async function buyNow(i){closeModal();cart=[phonesData[i]];await saveAll();showPage('checkout')}async function addToCart(i){cart.push(phonesData[i]);await saveAll();showToast("Cart me add!")}
-function renderCart(){if(cart.length==0){document.getElementById('cartContent').innerHTML="<p>Cart empty</p>";document.getElementById('cartTotal').innerHTML="";return}document.getElementById('cartContent').innerHTML=cart.map((p,i)=>`<div style="display:flex;gap:10px;background:#f9f9f9;padding:8px;border-radius:8px;margin:5px 0"><img src="${p.img}" style="width:50px"><div style="flex:1"><b>${p.name}</b><br>Rs ${p.price}</div><button onclick="removeCart(${i})" style="background:red;color:#fff;border:none;padding:5px 8px;border-radius:5px">X</button></div>`).join('');let t=cart.reduce((s,p)=>s+parseInt((p.price+'').replace(/[^0-9]/g,'')||0),0);document.getElementById('cartTotal').innerHTML="Total: Rs "+t.toLocaleString()}
-async function removeCart(i){cart.splice(i,1);await saveAll();renderCart()}function renderCompare(){if(compareList.length==0){document.getElementById('compareContent').innerHTML="<p>No phones</p>";return}document.getElementById('compareContent').innerHTML=compareList.map((p,i)=>`<div>${p.name} - Rs ${p.price} <button onclick="removeCompare(${i})">Remove</button></div>`).join('')}async function removeCompare(i){compareList.splice(i,1);await saveAll();renderCompare()}
-function doSearch(){let q=document.getElementById('searchInput').value.toLowerCase();if(!q){renderAll();return}let f=phonesData.filter(p=>p.name.toLowerCase().includes(q)||(p.brand||'').toLowerCase().includes(q));document.getElementById('homeGrid').innerHTML=f.map(p=>renderCard(p,phonesData.indexOf(p))).join('');showPage('home')}
-async function placeOrder(){let n=document.getElementById('cName').value,p=document.getElementById('cPhone').value;if(!n||!p)return showToast("Name & Phone required");let o=JSON.parse(localStorage.getItem('orders')||'[]');let id='MH-'+Date.now();let t=cart.reduce((s,x)=>s+parseInt((x.price+'').replace(/[^0-9]/g,'')||0),0);o.push({id,items:cart.map(x=>x.name).join(', '),total:t,customer:n});localStorage.setItem('orders',JSON.stringify(o));document.getElementById('receiptArea').innerHTML=`<div style="border:2px dashed #0f62fe;padding:15px;border-radius:10px;margin-top:10px"><h4>Order ${id} Confirmed! Total Rs ${t}</h4><a href="https://wa.me/923264492997?text=Order ${id} Rs ${t}" target="_blank" style="display:block;background:#25D366;color:#fff;text-align:center;padding:10px;border-radius:8px;text-decoration:none">WhatsApp 03264492997</a></div>`;cart=[];await saveAll()}
-function trackOrder(){let id=document.getElementById('trackId').value;let o=JSON.parse(localStorage.getItem('orders')||'[]');let f=o.find(x=>x.id==id);document.getElementById('trackResult').innerHTML=f?`<div>${f.id} - Rs ${f.total} - ${f.items}</div>`:'<p>Not found</p>'}
-function checkAdmin(){let s=localStorage.getItem('adminPassword')||ADMIN_DEFAULT;if(document.getElementById('adminPass').value==s){document.getElementById('adminPanel').style.display='block';loadAdmin();showToast("Login Success - IndexedDB Ready")}else showToast("Wrong: "+s)}
-function loadAdmin(){let o=JSON.parse(localStorage.getItem('orders')||'[]');document.getElementById('adminOrders').innerHTML=o.map((x,i)=>`<div>${x.id} ${x.items} Rs ${x.total} <button onclick="deleteOrder(${i})" style="background:red;color:#fff;border:none;padding:3px">Del</button></div>`).join('')||'No orders'}
-function deleteOrder(i){let o=JSON.parse(localStorage.getItem('orders')||'[]');o.splice(i,1);localStorage.setItem('orders',JSON.stringify(o));loadAdmin()}
-function loadAdminProducts(){document.getElementById('adminProductList').innerHTML=phonesData.map((p,i)=>`<div style="display:flex;gap:6px;align-items:center;background:#fff;padding:5px;margin:3px 0;font-size:11px"><img src="${p.img}" style="width:30px"><b>${p.name}</b> - Rs ${p.price} ${p.img.startsWith('data:')?'<span style="color:orange">['+Math.round(p.img.length/1024)+'KB]</span>':'<span style="color:green">[URL]</span>'}<button onclick="editProduct(${i})" style="margin-left:auto;background:#0f62fe;color:#fff;border:none;padding:3px">Edit</button><button onclick="deleteProduct(${i})" style="background:red;color:#fff;border:none;padding:3px">Del</button></div>`).join('')}
-async function migrateFromLocalStorage(){try{let old=JSON.parse(localStorage.getItem('mobiPhones')||'[]');if(old&&old.length>0){phonesData=old;await saveAllPhonesToDB(phonesData);localStorage.removeItem('mobiPhones');renderAll();showToast("Migrated "+old.length+" to IndexedDB - 50+ Ready")}else showToast("No old data")}catch(e){showToast("Error: "+e.message)}}
-async function cleanBase64Images(){if(!confirm("Clean base64?"))return;phonesData=phonesData.map(p=>{if(p.img&&p.img.startsWith('data:')){return {...p,img:"https://via.placeholder.com/400?text="+encodeURIComponent(p.name)}}return p});await saveAll();showToast("Cleaned!")}
-async function bulkAdd(){try{let arr=JSON.parse(document.getElementById('bulkImport').value);if(!Array.isArray(arr))arr=[arr];let a=0;arr.forEach(o=>{if(o.name&&o.price){phonesData.push({name:o.name,brand:o.brand||"Other",year:o.year||2025,price:String(o.price),img:o.img||"https://via.placeholder.com/400?text="+encodeURIComponent(o.name)});a++}});await saveAll();showToast("✅ Added "+a+" phones! Total: "+phonesData.length+" - 50+ Guaranteed");document.getElementById('bulkImport').value=""}catch(e){showToast("JSON Error: "+e.message)}}
-document.getElementById('pImgFile')?.addEventListener('change',function(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=function(ev){let img=new Image();img.onload=function(){let cv=document.createElement('canvas');let MAX=500;let sc=MAX/img.width;if(sc>1)sc=1;cv.width=img.width*sc;cv.height=img.height*sc;cv.getContext('2d').drawImage(img,0,0,cv.width,cv.height);let comp=cv.toDataURL('image/jpeg',0.4);document.getElementById('pPreview').src=comp;document.getElementById('pPreview').style.display='block';document.getElementById('pImgUrl').value=comp;showToast("Compressed "+Math.round(f.size/1024)+"->"+Math.round(comp.length/1024)+"KB - Save dabao, 50+ guaranteed")};img.src=ev.target.result};r.readAsDataURL(f)})
-async function saveProduct(){let idx=document.getElementById('editIndex').value;let n=document.getElementById('pName').value.trim();let pr=document.getElementById('pPrice').value.trim();let br=document.getElementById('pBrand').value.trim()||"Other";let im=document.getElementById('pImgUrl').value.trim()||document.getElementById('pPreview').src;if(!n||!pr)return showToast("Name Price zaruri");if(!im)return showToast("Image chahiye");let o={name:n,brand:br,year:2025,price:pr,img:im};try{if(idx==="")phonesData.push(o);else phonesData[parseInt(idx)]=o;await saveAll();resetProductForm();showToast("✅ Saved! Total: "+phonesData.length+" - 50+ Guaranteed")}catch(err){showToast("Error: "+err.message)}}
-function resetProductForm(){document.getElementById('editIndex').value="";["pName","pBrand","pPrice","pImgUrl"].forEach(id=>{let e=document.getElementById(id);if(e)e.value=""});document.getElementById('pPreview').style.display='none';document.getElementById('pPreview').src="";document.getElementById('pImgFile').value=""}
-function editProduct(i){let p=phonesData[i];document.getElementById('editIndex').value=i;document.getElementById('pName').value=p.name;document.getElementById('pBrand').value=p.brand;document.getElementById('pPrice').value=p.price;document.getElementById('pImgUrl').value=p.img.startsWith('data:')?"":p.img;document.getElementById('pPreview').src=p.img;document.getElementById('pPreview').style.display='block'}
-async function deleteProduct(i){if(confirm("Delete "+phonesData[i].name+"?")){phonesData.splice(i,1);await saveAll()}}
-async function resetStock(){if(confirm("Reset to default?")){phonesData=defaultPhones;await saveAll();location.reload()}}
-function sendAiMessage(){let q=document.getElementById('aiInput').value.trim();if(!q)return;let chat=document.getElementById('aiChat');chat.innerHTML+=`<div class="ai-msg ai-user">${q}</div>`;document.getElementById('aiInput').value="";let res=phonesData.filter(p=>p.name.toLowerCase().includes(q.toLowerCase())||(p.brand||'').toLowerCase().includes(q.toLowerCase())).slice(0,3);let ans=res.length?res.map(p=>`${p.name} - Rs ${p.price}`).join('<br>'):'No match';chat.innerHTML+=`<div class="ai-msg ai-bot">${ans}</div>`;chat.scrollTop=chat.scrollHeight}
-document.getElementById('productModal').addEventListener('click',function(e){if(e.target==this)closeModal()});
-</script>
+
+<div class="filters">
+  <button class="active">All (14)</button><button>Samsung</button><button>iPhone</button><button>Pixel</button><button>Xiaomi</button><button>Motorola</button>
+</div>
+
+<h2 style="padding:0 16px">Latest</h2>
+<div class="grid" id="latest">
+  <!-- Copy your 14 cards here - example below -->
+  <div class="card"><img src="park-realme-gt6.jpg"><h3>Realme gt6 (china)</h3><div class="price">Rs 85000</div><button class="add">Add</button></div>
+  <div class="card"><img src="park-s23-ultra.jpg"><h3>Samsung s23 ultra</h3><div class="price">Rs 160000</div><button class="add">Add</button></div>
+  <div class="card"><img src="park-s26-ultra.jpg"><h3>Samsung s26 ultra</h3><div class="price">Rs 260000</div><button class="add">Add</button></div>
+  <div class="card"><img src="park-s22-ultra.jpg"><h3>Samsung s22 ultra</h3><div class="price">Rs 100000</div><button class="add">Add</button></div>
+  <div class="card"><img src="park-note20-ultra.jpg"><h3>Samsung note 20 ultra</h3><div class="price">Rs 85000</div><button class="add">Add</button></div>
+  <div class="card"><img src="park-moto-edge.jpg"><h3>Moto edge (2025)</h3><div class="price">Rs 45000</div><button class="add">Add</button></div>
+  <div class="card"><img src="park-s24-ultra.jpg"><h3>Samsung Galaxy S24 Ultra</h3><div class="price">Rs 145000</div><button class="add">Add</button></div>
+  <div class="card"><img src="park-s25-ultra.jpg"><h3>Samsung Galaxy S25 Ultra</h3><div class="price">Rs 165000</div><button class="add">Add</button></div>
+  <div class="card"><img src="park-iphone16.jpg"><h3>iPhone 16 Pro Max</h3><div class="price">Rs 210000</div><button class="add">Add</button></div>
+  <div class="card"><img src="park-poco.jpg"><h3>Poco X6 Pro</h3><div class="price">Rs 75000</div><button class="add">Add</button></div>
+  <div class="card"><img src="park-redmi.jpg"><h3>Redmi Note 13 Pro+</h3><div class="price">Rs 80999</div><button class="add">Add</button></div>
+  <div class="card"><img src="park-vivo.jpg"><h3>Vivo V30 Pro</h3><div class="price">Rs 78000</div><button class="add">Add</button></div>
+</div>
+
 </body>
 </html>
