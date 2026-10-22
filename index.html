@@ -1,67 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MOBI-HUB Shahzaib</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-header{background:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 4px rgba(0,0,0,.1);position:sticky;top:0;z-index:10}
-.logo{font-weight:800;font-size:18px} .logo span{color:#1d4ed8}
-.search{flex:1;margin:0 12px;display:flex} .search input{flex:1;padding:8px 12px;border:1px solid #ddd;border-radius:8px 0 0 8px} .search button{background:#2563eb;color:#fff;border:none;padding:0 14px;border-radius:0 8px 8px 0}
-nav a{margin-left:8px;font-size:12px;text-decoration:none;background:#f1f5f9;padding:6px 10px;border-radius:16px;color:#000}
-.hero{background:linear-gradient(135deg,#0a0e2a,#1e3a8a);color:#fff;margin:12px;border-radius:12px;padding:30px 20px;display:flex;justify-content:space-between;align-items:center}
-.hero h1{font-size:24px} .hero .btn{background:#0ea5e9;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:12px;font-weight:600}
-.filters{display:flex;gap:8px;overflow:auto;padding:10px 16px} .filters button{border:none;padding:6px 14px;border-radius:16px;background:#eee;white-space:nowrap} .filters .active{background:#000;color:#fff}
+header{background:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 4px rgba(0,0,0,.1);position:sticky;top:0;z-index:99;flex-wrap:wrap;gap:8px}
+.logo{font-weight:800;font-size:18px} .logo span{color:#2563eb}
+.search{flex:1;display:flex;max-width:300px} .search input{flex:1;padding:8px 12px;border:1px solid #ddd;border-radius:8px 0 0 8px;outline:none} .search button{background:#2563eb;color:#fff;border:none;padding:0 14px;border-radius:0 8px 8px 0;cursor:pointer}
+nav{display:flex;flex-wrap:wrap;gap:6px} nav a{font-size:11px;text-decoration:none;background:#f1f5f9;padding:6px 10px;border-radius:16px;color:#000;cursor:pointer} nav .cart{background:#000;color:#fff}
+.hero{background:linear-gradient(135deg,#0a0e2a,#1e3a8a);color:#fff;margin:12px;border-radius:16px;padding:20px;display:flex;justify-content:space-between;align-items:center;overflow:hidden}
+.hero h1{font-size:22px} .hero .btn{background:#0ea5e9;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:10px;font-weight:600;border:none;cursor:pointer}
+.hero img{width:110px;height:110px;border-radius:12px;object-fit:cover;border:2px solid #fff}
+.filters{display:flex;gap:8px;overflow:auto;padding:10px 16px} .filters button{border:none;padding:6px 14px;border-radius:16px;background:#eee;white-space:nowrap;cursor:pointer} .filters .active{background:#000;color:#fff}
 .grid{padding:16px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 @media(min-width:768px){.grid{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:1024px){.grid{grid-template-columns:repeat(4,1fr)}}
-.card{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden;text-align:center;padding:10px}
-.card img{width:100%;height:180px;object-fit:contain;background:#f8fafc;border-radius:8px}
-.card h3{font-size:13px;margin:8px 0 2px} .card .price{color:#2563eb;font-weight:700;font-size:14px}
+.card{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden;text-align:center;padding:10px}
+.card img{width:100%;height:160px;object-fit:contain;background:#f8fafc;border-radius:8px}
+.card h3{font-size:12px;margin:8px 0 2px;height:30px} .card .price{color:#2563eb;font-weight:700;font-size:13px}
 .card .add{width:100%;background:#2563eb;color:#fff;border:none;padding:8px;border-radius:20px;margin-top:6px;font-weight:600;cursor:pointer}
+.card .add:active{transform:scale(.95)}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#000;color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;display:none;z-index:999}
 </style>
 </head>
 <body>
 
 <header>
   <div class="logo">MOBI-HUB <span>Shahzaib</span></div>
-  <div class="search"><input placeholder="Search..."><button>🔍</button></div>
+  <div class="search"><input id="searchInput" placeholder="Search phone..." onkeyup="searchPhones()"><button onclick="searchPhones()">🔍</button></div>
   <nav>
-    <a href="#">Home</a><a href="#">Shop</a><a href="#">Compare</a><a href="#">Cart 0</a><a href="#">Track</a><a href="#">AI</a><a href="#" style="background:#2563eb;color:#fff">Admin</a>
+    <a onclick="window.scrollTo(0,0)">Home</a>
+    <a onclick="document.getElementById('latest').scrollIntoView({behavior:'smooth'})">Shop</a>
+    <a onclick="showToast('Compare - Coming Soon')">Compare</a>
+    <a class="cart" id="cartBtn" onclick="viewCart()">Cart 0</a>
+    <a onclick="showToast('Track Order - Coming Soon')">Track</a>
+    <a onclick="showToast('AI Assistant - Coming Soon')">AI</a>
+    <a style="background:#2563eb;color:#fff" onclick="showToast('Admin Panel')">Admin</a>
   </nav>
 </header>
 
-<!-- CLEAN HERO - NO GUARANTEED TEXT -->
 <div class="hero">
   <div>
     <h1>MOBI-HUB - Latest Collection</h1>
-    <p style="opacity:.9;margin-top:6px;">Premium Phones - Best Price Guaranteed</p>
-    <a class="btn" href="#latest">Shop - 14 Phones</a>
+    <p style="opacity:.9;margin-top:6px;font-size:13px">Premium Phones - Best Price Guaranteed</p>
+    <button class="btn" onclick="document.getElementById('latest').scrollIntoView({behavior:'smooth'})">Shop - 14 Phones</button>
   </div>
-  <img src="https://i.imgur.com/8Km9tLL.png" style="width:140px;border-radius:12px">
+  <!-- YAHAN AAPKI PICTURE LAGI HAI -->
+  <img src="./profile.jpg" alt="Shahzaib" onerror="this.src='https://i.ibb.co/0jZ3QYv/placeholder.jpg'">
 </div>
 
-<div class="filters">
-  <button class="active">All (14)</button><button>Samsung</button><button>iPhone</button><button>Pixel</button><button>Xiaomi</button><button>Motorola</button>
+<div class="filters" id="filters">
+  <button class="active" onclick="filterPhones('all',this)">All (14)</button>
+  <button onclick="filterPhones('samsung',this)">Samsung</button>
+  <button onclick="filterPhones('iphone',this)">iPhone</button>
+  <button onclick="filterPhones('pixel',this)">Pixel</button>
+  <button onclick="filterPhones('xiaomi',this)">Xiaomi</button>
+  <button onclick="filterPhones('motorola',this)">Motorola</button>
 </div>
 
-<h2 style="padding:0 16px">Latest</h2>
-<div class="grid" id="latest">
-  <!-- Copy your 14 cards here - example below -->
-  <div class="card"><img src="park-realme-gt6.jpg"><h3>Realme gt6 (china)</h3><div class="price">Rs 85000</div><button class="add">Add</button></div>
-  <div class="card"><img src="park-s23-ultra.jpg"><h3>Samsung s23 ultra</h3><div class="price">Rs 160000</div><button class="add">Add</button></div>
-  <div class="card"><img src="park-s26-ultra.jpg"><h3>Samsung s26 ultra</h3><div class="price">Rs 260000</div><button class="add">Add</button></div>
-  <div class="card"><img src="park-s22-ultra.jpg"><h3>Samsung s22 ultra</h3><div class="price">Rs 100000</div><button class="add">Add</button></div>
-  <div class="card"><img src="park-note20-ultra.jpg"><h3>Samsung note 20 ultra</h3><div class="price">Rs 85000</div><button class="add">Add</button></div>
-  <div class="card"><img src="park-moto-edge.jpg"><h3>Moto edge (2025)</h3><div class="price">Rs 45000</div><button class="add">Add</button></div>
-  <div class="card"><img src="park-s24-ultra.jpg"><h3>Samsung Galaxy S24 Ultra</h3><div class="price">Rs 145000</div><button class="add">Add</button></div>
-  <div class="card"><img src="park-s25-ultra.jpg"><h3>Samsung Galaxy S25 Ultra</h3><div class="price">Rs 165000</div><button class="add">Add</button></div>
-  <div class="card"><img src="park-iphone16.jpg"><h3>iPhone 16 Pro Max</h3><div class="price">Rs 210000</div><button class="add">Add</button></div>
-  <div class="card"><img src="park-poco.jpg"><h3>Poco X6 Pro</h3><div class="price">Rs 75000</div><button class="add">Add</button></div>
-  <div class="card"><img src="park-redmi.jpg"><h3>Redmi Note 13 Pro+</h3><div class="price">Rs 80999</div><button class="add">Add</button></div>
-  <div class="card"><img src="park-vivo.jpg"><h3>Vivo V30 Pro</h3><div class="price">Rs 78000</div><button class="add">Add</button></div>
-</div>
+<div class="grid" id="latest"></div>
+<div id="toast"></div>
 
+<script>
+let cart = [];
+let phones = [
+ {name:"Realme gt6 (china)", price:85000, cat:"xiaomi", img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400"},
+ {name:"Samsung s23 ultra", price:160000, cat:"samsung", img:"https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?w=400"},
+ {name:"Samsung s26 ultra", price:260000, cat:"samsung", img:"https://images.unsplash.com/photo-1596744038136-46273834b3fb?w=400"},
+ {name:"Samsung s22 ultra", price:100000, cat:"samsung", img:"https://images.unsplash.com/photo-1587749086942-9a8c0db3d2ec?w=400"},
+ {name:"Samsung note 20 ultra", price:85000, cat:"samsung", img:"https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400"},
+ {name:"Moto edge (2025)", price:45000, cat:"motorola", img:"https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400"},
+ {name:"Samsung Galaxy S24 Ultra", price:145000, cat:"samsung", img:"https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?w=400"},
+ {name:"Samsung Galaxy S25 Ultra", price:165000, cat:"samsung", img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400"},
+ {name:"iPhone 16 Pro Max", price:210000, cat:"iphone", img:"https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=400"},
+ {name:"Poco X6 Pro", price:75000, cat:"xiaomi", img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400"},
+ {name:"Redmi Note 13 Pro+", price:80999, cat:"xiaomi", img:"https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400"},
+ {name:"Vivo V30 Pro", price:78000, cat:"pixel", img:"https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400"},
+];
+
+function render(list){
+  let grid = document.getElementById('latest');
+  grid.innerHTML = list.map(p=>`
+    <div class="card">
+      <img src="${p.img}">
+      <h3>${p.name}</h3>
+      <div class="price">Rs ${p.price.toLocaleString()}</div>
+      <button class="add" onclick="addToCart('${p.name}',${p.price})">Add</button>
+    </div>
+  `).join('');
+}
+render(phones);
+
+function addToCart(name,price){
+  cart.push({name,price});
+  document.getElementById('cartBtn').innerText = `Cart ${cart.length}`;
+  showToast(`${name} Added to Cart`);
+}
+function viewCart(){
+  if(cart.length==0) return showToast('Cart is Empty');
+  let total = cart.reduce((s,i)=>s+i.price,0);
+  alert(`Cart Items:\n${cart.map(c=>c.name+' - Rs '+c.price).join('\n')}\n\nTotal: Rs ${total}`);
+}
+function filterPhones(cat,btn){
+  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  if(cat=='all') render(phones);
+  else render(phones.filter(p=>p.cat==cat));
+}
+function searchPhones(){
+  let q = document.getElementById('searchInput').value.toLowerCase();
+  render(phones.filter(p=>p.name.toLowerCase().includes(q)));
+}
+function showToast(msg){
+  let t=document.getElementById('toast');
+  t.innerText=msg; t.style.display='block';
+  setTimeout(()=>t.style.display='none',2000);
+}
+</script>
 </body>
 </html>
