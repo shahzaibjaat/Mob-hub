@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobi-Hub.Pk - Final - Permanent Save</title>
+<title>Mobi-Hub.Pk - Final Verified Receipt System</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
@@ -44,7 +44,7 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 <span class="bg-white border shadow-sm px-4 py-2 rounded-full">✓ PTA Approved</span>
 <span class="bg-white border shadow-sm px-4 py-2 rounded-full">✓ Same Day Delivery Lahore</span>
 <span class="bg-white border shadow-sm px-4 py-2 rounded-full">✓ 7 Days Warranty</span>
-<span class="bg-white border shadow-sm px-4 py-2 rounded-full">✓ Online Receipt AI</span>
+<span class="bg-white border shadow-sm px-4 py-2 rounded-full">✓ Online Receipt AI Verified</span>
 </div>
 <div class="mt-7 flex justify-center gap-3">
 <button onclick="showPage('shop')" class="pti-green text-white px-8 py-3 rounded-full font-bold text-sm">Shop Now - خریدیں</button>
@@ -59,7 +59,7 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 </div>
 <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 text-[13px]">
 <div class="bg-white p-6 rounded-2xl shadow border-t-4 border-green-700"><h3 class="font-bold">Company Detail</h3><p class="mt-2 no-break">Mobi-Hub.Pk 2018 se Lahore me - 100% Original PTA Approved - Chairman Imran Khan Vision</p><div class="mt-3 bg-yellow-50 border p-3 rounded-xl flex justify-between"><b>JazzCash</b><span>03264492997 Official</span></div><div class="mt-2 bg-green-50 border p-3 rounded-xl flex justify-between"><b>WhatsApp</b><span>03126165602 Sell</span></div></div>
-<div class="bg-white p-6 rounded-2xl shadow border-t-4 border-red-600"><h3 class="font-bold">Term & Condition</h3><ul class="mt-2 space-y-1"><li>✓ 7 Days Checking Warranty</li><li>✓ PTA Approved - Non PTA Return</li><li>✓ JazzCash / Easypaisa / COD</li><li>✓ Online Receipt AI - Smart</li><li>✓ 100% Secure Payment</li></ul></div>
+<div class="bg-white p-6 rounded-2xl shadow border-t-4 border-red-600"><h3 class="font-bold">Term & Condition</h3><ul class="mt-2 space-y-1"><li>✓ 7 Days Checking Warranty</li><li>✓ PTA Approved - Non PTA Return</li><li>✓ JazzCash / Easypaisa / COD</li><li>✓ Online Receipt Verified - Admin Stamp</li><li>✓ 100% Secure Payment</li></ul></div>
 <div class="bg-white p-6 rounded-2xl shadow border-t-4 border-green-700"><h3 class="font-bold">Tareefain ★ 4.9/5</h3><div class="mt-2 space-y-2"><div class="border p-3 rounded bg-gray-50">"Bohat zabardast service - PTI Look pasand aya" - Ali, Lahore ★★★★★</div><div class="border p-3 rounded bg-gray-50">"iPhone original mila - JazzCash easy" - Sana, Karachi ★★★★★</div><div class="border p-3 rounded bg-gray-50">"Foran jawab aya - Tabdeeli agai!" - Usman, Islamabad ★★★★★</div></div></div>
 </div>
 <div class="max-w-6xl mx-auto px-4 pb-10"><div class="bg-gradient-to-r from-green-800 to-green-900 text-white p-6 rounded-2xl grid md:grid-cols-4 gap-6 text-center text-sm"><div>Original Guarantee</div><div>Fast Delivery</div><div>24/7 Support + AI</div><div>JazzCash 03264492997</div></div></div>
@@ -71,24 +71,67 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 
 <div id="track" class="page hidden max-w-xl mx-auto p-6"><h2 class="text-2xl font-bold">Track Order</h2><div class="mt-4 bg-white p-6 rounded-xl shadow"><input id="trackInput" placeholder="Order ID ya Number" class="w-full border rounded-full px-4 py-3 text-sm"><button onclick="trackOrder()" class="mt-3 w-full pti-green text-white py-3 rounded-full">Track Now</button><div id="trackResult" class="mt-4 text-sm"></div></div></div>
 
-<div id="demand" class="page hidden max-w-xl mx-auto p-6"><h2 class="text-2xl font-bold">Demand</h2><div class="mt-4 bg-white p-6 rounded-xl shadow"><input id="demandPhone" placeholder="Konsa mobile chahiye?" class="w-full border rounded-full px-4 py-3 text-sm"><input id="demandContact" placeholder="WhatsApp Number" class="mt-3 w-full border rounded-full px-4 py-3 text-sm"><button onclick="demandSubmit()" class="mt-3 w-full pti-green text-white py-3 rounded-full">Submit</button><div id="demandResult" class="mt-3 text-sm"></div></div></div>
+<div id="demand" class="page hidden max-w-xl mx-auto p-6"><h2 class="text-2xl font-bold">Demand</h2><div class="mt-4 bg-white p-6 rounded-xl shadow"><input id="demandPhone" placeholder="Konsa mobile chahiye?" class="w-full border rounded-full px-4 py-3 text-sm"><input id="demandContact" placeholder="WhatsApp Number" class="mt-3 w-full border rounded-full px-4 py-3 text-sm"><button onclick="demandSubmit()" class="mt-3 w-full pti-green text-white py-3 rounded-full">Submit - WhatsApp 03126165602</button><div id="demandResult" class="mt-3 text-sm"></div></div></div>
 
 <div id="sell" class="page hidden max-w-xl mx-auto p-6"><h2 class="text-2xl font-bold">Sell Your Phone</h2><div class="mt-4 bg-white p-6 rounded-xl shadow"><input id="sellModel" placeholder="Model" class="w-full border rounded-full px-4 py-3 text-sm"><input id="sellPrice" placeholder="Price" class="mt-3 w-full border rounded-full px-4 py-3 text-sm"><input id="sellContact" placeholder="Your Number" class="mt-3 w-full border rounded-full px-4 py-3 text-sm"><button onclick="sellViaWhatsapp()" class="mt-4 w-full bg-green-600 text-white py-3 rounded-full"><i class="fa-brands fa-whatsapp"></i> WhatsApp 03126165602 pe bhejo</button></div></div>
 
-<div id="receipt" class="page hidden max-w-2xl mx-auto p-6"><h2 class="text-2xl font-bold">Online Receipt</h2><div class="mt-4 bg-white p-6 rounded-xl shadow border-2"><div class="grid grid-cols-2 gap-3 text-sm"><div><input id="rName" placeholder="Full Name" class="w-full border rounded px-2 py-1"><input id="rPhone" placeholder="Phone" class="mt-1 w-full border rounded px-2 py-1"></div><div><input id="rModel" placeholder="Model" class="w-full border rounded px-2 py-1"><input id="rPrice" placeholder="Price" class="mt-1 w-full border rounded px-2 py-1"></div></div><div class="mt-4 bg-gray-50 p-3 rounded text-[11px]"><b>T&C:</b> 7 Days Warranty, PTA Approved, JazzCash 03264492997</div><button onclick="generateReceipt()" class="mt-4 w-full pti-green text-white py-2 rounded-full">Generate Receipt - AI</button><div id="finalReceipt" class="mt-4 hidden border-2 border-dashed p-4 text-sm"></div></div></div>
+<div id="receipt" class="page hidden max-w-2xl mx-auto p-6">
+<h2 class="text-2xl font-bold">Online Receipt - Verified System</h2>
+<p class="text-[11px] text-gray-500 mt-1">Raseed sirf admin verification ke baad generate hogi - Fake raseed band</p>
+<div class="mt-4 bg-white p-6 rounded-xl shadow border-2">
+<div class="grid grid-cols-2 gap-3 text-sm">
+<div>
+<input id="rName" placeholder="Full Name * Sfkfvh" class="w-full border rounded-lg px-3 py-2 text-sm">
+<input id="rPhone" placeholder="WhatsApp - 03264492997" class="mt-2 w-full border rounded-lg px-3 py-2 text-sm">
+</div>
+<div>
+<select id="rModel" class="w-full border rounded-lg px-3 py-2 text-sm bg-white"><option value="">Phone Select Karo - List se *</option></select>
+<input id="rPrice" placeholder="Price - 120000" class="mt-2 w-full border rounded-lg px-3 py-2 text-sm">
+</div>
+</div>
+<div class="mt-4 bg-yellow-50 border-2 border-yellow-300 p-3 rounded-xl text-[11px]"><b>⚠️ Note:</b> Sirf wo phone select ho sakte hain jo Admin Panel me maujood hain. Fake model likhne par raseed generate nahi hogi.</div>
+<div class="mt-3 bg-gray-50 p-3 rounded-xl text-[11px]"><b>T&C:</b> 7 Days Warranty, PTA Approved, JazzCash 03264492997</div>
+<button onclick="generateReceiptRequest()" class="mt-4 w-full pti-green text-white py-3 rounded-full font-bold">Generate Receipt Request - Send to Admin + WhatsApp</button>
+
+<div id="receiptPendingMsg" class="mt-4 hidden bg-orange-50 border-2 border-orange-300 p-4 rounded-xl text-center">
+<p class="font-bold text-orange-800">⏳ Pending Admin Verification</p>
+<p class="text-[12px] mt-1">Aapki request Admin ko chali gayi hai. WhatsApp par bhi message gaya hai. Admin verify karega to raseed stamp ke sath milegi.</p>
+<p class="text-[10px] text-gray-500 mt-2">Order ID: <span id="pendingOrderId"></span></p>
+</div>
+
+<div id="finalReceipt" class="mt-4 hidden border-2 border-green-600 p-5 rounded-xl bg-white relative overflow-hidden">
+<div id="verifiedStamp" class="hidden absolute top-2 right-2 bg-green-700 text-white text-[10px] px-3 py-1 rounded-full rotate-12 font-bold border-2 border-white shadow">✓ VERIFIED - ADMIN STAMP</div>
+<div class="text-center font-bold text-lg">Mobi-Hub.Pk - Official Receipt</div>
+<div class="mt-3 text-[12px] space-y-1" id="receiptDetails"></div>
+<div class="mt-4 border-t-2 border-dashed pt-3 text-[10px] text-center">
+<p class="font-bold text-green-800 text-[12px]">100% Genuine Not Open Not Repair Guarantee</p>
+<p class="mt-1">Return depend on mobile condition | Exchange offers available</p>
+<p class="mt-1">JazzCash: 03264492997 | WhatsApp: 03126165602 | PTA Approved | 7 Days Warranty</p>
+</div>
+<button id="printBtn" onclick="window.print()" class="mt-4 w-full border-2 border-green-700 py-2 rounded-full text-xs font-bold hidden">🖨️ Print Verified Receipt</button>
+<p id="notVerifiedMsg" class="text-[11px] text-red-600 text-center mt-2">* Admin verification ke baghair print nahi hogi - Stamp ka wait karein</p>
+</div>
+</div>
+</div>
 
 <div id="admin" class="page hidden max-w-6xl mx-auto p-4">
-<h2 class="text-2xl font-bold text-green-800">Admin Panel - Full Power + Permanent Save</h2>
-<p class="text-[11px] text-gray-500">Admin ke pass full ikhtear - Add / Remove / Picture Change - Refresh par bhi save rahega</p>
+<h2 class="text-2xl font-bold text-green-800">Admin Panel - Full Power + Receipt Verification</h2>
+<p class="text-[11px] text-gray-500">Add / Remove / Picture Change + Receipt Verify - Permanent Save</p>
 
 <div id="adminLogin" class="mt-4 bg-white p-6 rounded-xl shadow max-w-sm mx-auto">
 <p class="text-sm mb-3 text-center font-bold">Secure Admin Login - No Password Hint</p>
 <input id="adminPass" type="password" placeholder="Enter Admin Password" class="w-full border-2 border-green-200 rounded-full px-5 py-3 text-sm text-center outline-none focus:border-green-700">
 <button onclick="adminLogin()" class="mt-3 w-full pti-green text-white py-3 rounded-full font-bold">Login</button>
-<p class="text-[10px] text-gray-400 mt-2 text-center">Password protected - Hint nahi dikhega</p>
 </div>
 
 <div id="adminPanel" class="hidden mt-6 space-y-6">
+
+<div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-orange-500">
+<h3 class="font-bold text-orange-700"><i class="fa-solid fa-receipt"></i> Receipt Verification Requests - Admin Verify Stamp</h3>
+<p class="text-[11px] text-gray-500 mt-1">Yahan customer ki raseed requests ayengi - Verify karo tabhi raseed print hogi + WhatsApp connect</p>
+<div id="adminReceiptList" class="mt-4 space-y-3"></div>
+</div>
+
 <div class="bg-green-50 border-2 border-green-600 p-4 rounded-xl text-[12px]"><b>✓ Permanent Save Active:</b> Jo bhi phone Add/Remove/Picture Change karoge wo browser me save rahega, refresh par bhi nahi jayega! <button onclick="resetToDefault()" class="ml-2 bg-red-100 text-red-700 px-2 py-1 rounded-full text-[10px]">Reset to Default</button></div>
 
 <div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-green-600">
@@ -117,8 +160,7 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 </div>
 
 <div class="bg-white p-6 rounded-2xl shadow-lg border">
-<h3 class="font-bold text-red-700"><i class="fa-solid fa-list"></i> All Phones Control - Remove / Picture Change - Permanent</h3>
-<p class="text-[11px] text-gray-500 mt-1">Kisi bhi phone ko Remove ya Picture Change kar sakte ho - Save rahega</p>
+<h3 class="font-bold text-red-700"><i class="fa-solid fa-list"></i> All Phones Control - Remove / Picture Change</h3>
 <div id="adminPhoneList" class="mt-4 grid md:grid-cols-2 gap-4"></div>
 </div>
 
@@ -137,7 +179,7 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 <div id="aiButton" class="fixed bottom-5 right-5 z-[200]"><button onclick="toggleAI()" class="w-14 h-14 bg-gradient-to-br from-green-700 to-green-900 text-white rounded-full shadow-2xl flex items-center justify-center ai-pulse"><i class="fa-solid fa-robot"></i></button></div>
 <div id="aiChat" class="fixed bottom-20 right-5 w-80 bg-white rounded-2xl shadow-2xl border hidden z-[200] overflow-hidden"><div class="pti-green text-white p-4 flex justify-between"><span class="font-bold text-sm"><i class="fa-solid fa-robot"></i> Mobi-Hub AI</span><button onclick="toggleAI()">X</button></div><div id="aiMessages" class="h-64 overflow-y-auto p-3 space-y-2 text-[13px]"><div class="bg-gray-100 p-2 rounded-lg">Salam! Main AI hun - Price? JazzCash? Track? Sell? Puchiye!</div></div><div class="p-2 flex gap-2 border-t"><input id="aiInput" placeholder="Sawal likho..." class="flex-1 border rounded-full px-3 py-2 text-xs" onkeypress="if(event.key==='Enter') sendAI()"><button onclick="sendAI()" class="bg-green-700 text-white px-4 py-2 rounded-full text-xs">Send</button></div></div>
 
-<footer class="pti-green text-white mt-10 p-4 text-center text-sm">Copyright © 2026 Mobi-Hub.Pk</footer>
+<footer class="pti-green text-white mt-10 p-4 text-center text-sm">Copyright © 2026 Mobi-Hub.Pk - 100% Genuine Not Open Not Repair Guarantee - Return depend on mobile condition exchange offers available</footer>
 
 <script>
 let defaultPhones=[
@@ -149,9 +191,13 @@ let defaultPhones=[
 function loadPhones(){let saved=localStorage.getItem('mobiHubPhones'); if(saved){try{return JSON.parse(saved);}catch(e){return defaultPhones;}} return defaultPhones;}
 let phones=loadPhones();
 function savePhones(){localStorage.setItem('mobiHubPhones', JSON.stringify(phones));}
-function resetToDefault(){if(confirm('Sare phones default par reset karna hai?')){localStorage.removeItem('mobiHubPhones'); phones=[...defaultPhones]; savePhones(); renderShop(phones); renderAdminList(); alert('Reset Hogaya Default par');}}
+function loadReceiptRequests(){let saved=localStorage.getItem('mobiHubReceiptRequests'); if(saved){try{return JSON.parse(saved);}catch(e){return [];}} return [];}
+let receiptRequests=loadReceiptRequests();
+function saveReceiptRequests(){localStorage.setItem('mobiHubReceiptRequests', JSON.stringify(receiptRequests));}
+function resetToDefault(){if(confirm('Sare phones default par reset karna hai?')){localStorage.removeItem('mobiHubPhones'); phones=[...defaultPhones]; savePhones(); renderShop(phones); renderAdminList(); alert('Reset Hogaya');}}
 let cart=[],compareList=[],tempImageData="";
-function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden')); document.getElementById(id).classList.remove('hidden'); if(id==='shop') renderShop(phones); window.scrollTo(0,0);}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden')); document.getElementById(id).classList.remove('hidden'); if(id==='shop') renderShop(phones); if(id==='receipt') populateReceiptModels(); window.scrollTo(0,0);}
+function populateReceiptModels(){const sel=document.getElementById('rModel'); if(!sel) return; sel.innerHTML='<option value="">Phone Select Karo - List se *</option>'; phones.forEach((ph,idx)=>{sel.innerHTML+=`<option value="${idx}">${ph.n} - ${ph.p}</option>`;});}
 function renderShop(list){const grid=document.getElementById('shopGrid'); grid.innerHTML=''; list.forEach(ph=>{const idx=phones.indexOf(ph); grid.innerHTML+=`<div class="bg-white rounded-xl p-3 shadow border"><img onclick="openPhone(${idx})" src="${ph.img}" class="w-full h-32 object-contain bg-gray-50 rounded"><h4 class="font-bold text-xs mt-2">${ph.n}</h4><p class="text-[10px] text-gray-500">${ph.b} • ${ph.ram}</p><p class="font-bold text-green-700 text-sm mt-1">${ph.p}</p><div class="flex gap-1 mt-2"><button onclick="addCompare(${idx})" class="flex-1 border text-[11px] py-1 rounded-full">Compare</button><button onclick="addCart(${idx})" class="flex-1 pti-green text-white text-[11px] py-1 rounded-full">Cart</button></div></div>`;});}
 function openPhone(idx){const ph=phones[idx]; document.getElementById('modalName').innerText=ph.n; document.getElementById('modalImg').src=ph.img; document.getElementById('modalSpecs').innerHTML=`<span>RAM: ${ph.ram}</span><span>Storage: ${ph.storage}</span><span>Price: ${ph.p}</span><span>Brand: ${ph.b}</span><span>Camera: ${ph.specs.Camera}</span><span>Battery: ${ph.specs.Battery}</span>`; document.getElementById('modalAddCart').onclick=()=>{addCart(idx); closeModal();}; document.getElementById('modalAddCompare').onclick=()=>{addCompare(idx); closeModal();}; document.getElementById('phoneModal').classList.remove('hidden'); document.getElementById('phoneModal').classList.add('flex');}
 function closeModal(){document.getElementById('phoneModal').classList.add('hidden'); document.getElementById('phoneModal').classList.remove('flex');}
@@ -165,18 +211,95 @@ function searchForCompare(q){if(!q){document.getElementById('compareSearchResult
 function trackOrder(){const v=document.getElementById('trackInput').value; document.getElementById('trackResult').innerHTML=v?`<div class="bg-green-50 p-3 rounded">Order <b>${v}</b> - On the way - JazzCash 03264492997</div>`:'ID likho';}
 function demandSubmit(){const m=document.getElementById('demandPhone').value, c=document.getElementById('demandContact').value; document.getElementById('demandResult').innerHTML=`Demand: ${m}`; window.open(`https://wa.me/923126165602?text=Demand: ${m} - ${c}`,'_blank');}
 function sellViaWhatsapp(){const model=document.getElementById('sellModel').value; window.open(`https://wa.me/923126165602?text=Sell: ${model}`,'_blank');}
-function generateReceipt(){const name=document.getElementById('rName').value||'Customer', model=document.getElementById('rModel').value, price=document.getElementById('rPrice').value; const d=document.getElementById('finalReceipt'); d.classList.remove('hidden'); d.innerHTML=`<div class="text-center font-bold">Mobi-Hub.Pk - Receipt</div><p>Customer: ${name} | Phone: ${model} | Price: ${price}</p><p>Order ID: MH-${Date.now().toString().slice(-6)} | JazzCash: 03264492997</p><button onclick="window.print()" class="mt-2 w-full border py-1 rounded-full text-xs">Print</button>`;}
-function adminLogin(){if(document.getElementById('adminPass').value==='12345'){document.getElementById('adminLogin').classList.add('hidden'); document.getElementById('adminPanel').classList.remove('hidden'); renderAdminList();}else{alert('Wrong Password');}}
+
+// NEW VERIFIED RECEIPT SYSTEM
+function generateReceiptRequest(){
+const name=document.getElementById('rName').value.trim();
+const phone=document.getElementById('rPhone').value.trim();
+const modelIdx=document.getElementById('rModel').value;
+const price=document.getElementById('rPrice').value.trim();
+if(!name){alert('Name likho - jaise Sfkfvh'); return;}
+if(!phone){alert('WhatsApp Number likho - 03264492997'); return;}
+if(modelIdx===""){alert('Phone List se Select Karo - Fake model nahi chalega!'); return;}
+if(!price){alert('Price likho - 120000'); return;}
+const selectedPhone=phones[parseInt(modelIdx)];
+if(!selectedPhone){alert('Phone exist nahi karta - Admin se contact karo'); return;}
+const orderId='MH-'+String(Date.now()).slice(-6);
+const request={id:orderId, customerName:name, customerPhone:phone, phoneName:selectedPhone.n, phonePrice:price, actualPrice:selectedPhone.p, verified:false, timestamp:new Date().toLocaleString(), phoneImg:selectedPhone.img};
+receiptRequests.push(request);
+saveReceiptRequests();
+document.getElementById('pendingOrderId').innerText=orderId;
+document.getElementById('receiptPendingMsg').classList.remove('hidden');
+document.getElementById('finalReceipt').classList.add('hidden');
+const waMsg=`*NEW RECEIPT REQUEST - Mobi-Hub.Pk*\n\nCustomer: ${name}\nWhatsApp: ${phone}\nPhone: ${selectedPhone.n}\nPrice: ${price}\nOrder ID: ${orderId}\n\nVerify karne ke liye Admin Panel -> Receipt Verification me jao\nTime: ${request.timestamp}`;
+window.open(`https://wa.me/923126165602?text=${encodeURIComponent(waMsg)}`,'_blank');
+renderAdminReceiptList();
+alert('Request Admin ko bhej di gayi! WhatsApp bhi chala gaya. Admin verify karega to raseed stamp ke sath milegi. Order ID: '+orderId);
+}
+
+function renderAdminReceiptList(){
+const list=document.getElementById('adminReceiptList');
+if(!list) return;
+if(receiptRequests.length===0){list.innerHTML='<p class="text-[12px] text-gray-400 text-center py-4">Koi receipt request nahi hai</p>'; return;}
+list.innerHTML='';
+receiptRequests.slice().reverse().forEach((req)=>{
+const verifiedBadge=req.verified?'<span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-[10px]">✓ VERIFIED</span>':'<span class="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-[10px]">⏳ PENDING</span>';
+list.innerHTML+=`<div class="border-2 p-4 rounded-xl bg-gray-50 flex gap-3 items-start">
+<img src="${req.phoneImg}" class="w-14 h-14 object-contain bg-white rounded border">
+<div class="flex-1">
+<p class="font-bold text-[13px]">${req.customerName} - ${req.customerPhone} ${verifiedBadge}</p>
+<p class="text-[11px] text-gray-600">${req.phoneName} | Price: ${req.phonePrice} | Actual: ${req.actualPrice}</p>
+<p class="text-[10px] text-gray-400">Order ID: ${req.id} | ${req.timestamp}</p>
+<div class="mt-2 flex gap-2">
+${!req.verified?`<button onclick="verifyReceipt('${req.id}')" class="bg-green-700 text-white text-[11px] px-4 py-1.5 rounded-full font-bold"><i class="fa-solid fa-stamp"></i> Verify Stamp Lagao</button>`:''}
+<button onclick="showVerifiedReceipt('${req.id}')" class="bg-blue-100 text-blue-700 text-[11px] px-3 py-1 rounded-full">Raseed Dekho</button>
+<button onclick="deleteReceiptReq('${req.id}')" class="bg-red-100 text-red-700 text-[11px] px-3 py-1 rounded-full">Delete</button>
+</div>
+</div></div>`;
+});
+}
+function verifyReceipt(orderId){
+const req=receiptRequests.find(r=>r.id===orderId);
+if(!req) return;
+req.verified=true;
+saveReceiptRequests();
+renderAdminReceiptList();
+alert('✓ VERIFY HOGAYA! Ab raseed par ADMIN STAMP lag gaya hai. Order ID: '+orderId);
+const confirmMsg=`*Mobi-Hub.Pk - RECEIPT VERIFIED ✓*\n\n${req.customerName}, aapki raseed verify ho gayi hai!\n\nOrder ID: ${req.id}\nPhone: ${req.phoneName}\nPrice: ${req.phonePrice}\n\nStamp: VERIFIED BY ADMIN\n100% Genuine Not Open Not Repair Guarantee\nReturn depend on mobile condition\nExchange offers available\n\nJazzCash: 03264492997`;
+window.open(`https://wa.me/92${req.customerPhone.replace(/^0/, '')}?text=${encodeURIComponent(confirmMsg)}`,'_blank');
+}
+function showVerifiedReceipt(orderId){
+const req=receiptRequests.find(r=>r.id===orderId);
+if(!req){alert('Request nahi mili'); return;}
+showPage('receipt');
+const detailsDiv=document.getElementById('receiptDetails');
+const finalDiv=document.getElementById('finalReceipt');
+document.getElementById('receiptPendingMsg').classList.add('hidden');
+finalDiv.classList.remove('hidden');
+detailsDiv.innerHTML=`<p>Customer: <b>${req.customerName}</b> | Phone: ${req.customerPhone}</p><p>Phone: <b>${req.phoneName}</b> | Price: ${req.phonePrice} | Actual: ${req.actualPrice}</p><p>Order ID: <b>${req.id}</b> | Date: ${req.timestamp}</p><p>JazzCash: <b>03264492997</b> | Status: ${req.verified?'<b class="text-green-700">✓ VERIFIED BY ADMIN - STAMP</b>':'<b class="text-orange-600">⏳ PENDING ADMIN VERIFICATION</b>'}</p>`;
+if(req.verified){
+document.getElementById('verifiedStamp').classList.remove('hidden');
+document.getElementById('printBtn').classList.remove('hidden');
+document.getElementById('notVerifiedMsg').classList.add('hidden');
+}else{
+document.getElementById('verifiedStamp').classList.add('hidden');
+document.getElementById('printBtn').classList.add('hidden');
+document.getElementById('notVerifiedMsg').classList.remove('hidden');
+}
+}
+function deleteReceiptReq(orderId){if(!confirm('Delete karna hai?')) return; receiptRequests=receiptRequests.filter(r=>r.id!==orderId); saveReceiptRequests(); renderAdminReceiptList();}
+
+function adminLogin(){if(document.getElementById('adminPass').value==='12345'){document.getElementById('adminLogin').classList.add('hidden'); document.getElementById('adminPanel').classList.remove('hidden'); renderAdminList(); renderAdminReceiptList();}else{alert('Wrong Password');}}
 document.getElementById('newPhoneImage').addEventListener('change', function(e){const file=e.target.files[0]; if(!file) return; const reader=new FileReader(); reader.onload=function(ev){tempImageData=ev.target.result; document.getElementById('imagePreview').src=tempImageData; document.getElementById('imagePreview').classList.remove('hidden'); updateAddPreview();}; reader.readAsDataURL(file);});
 function updateAddPreview(){const name=document.getElementById('newPhoneName').value||'Model'; const brand=document.getElementById('newPhoneBrand').value||'Brand'; const price=document.getElementById('newPhonePrice').value||'Price'; document.getElementById('addPreview').innerHTML=`<b>${name}</b><br>${brand} - PKR ${price}<br>${tempImageData?'✓ Picture Ready':'No Picture'}`;}
 ['newPhoneName','newPhoneBrand','newPhonePrice'].forEach(id=>{document.getElementById(id).addEventListener('input', updateAddPreview);});
-function addNewPhoneFull(){const name=document.getElementById('newPhoneName').value; const brand=document.getElementById('newPhoneBrand').value||'Other'; const priceVal=document.getElementById('newPhonePrice').value; const ram=document.getElementById('newPhoneRam').value||'8GB'; const storage=document.getElementById('newPhoneStorage').value||'128GB'; const camera=document.getElementById('newPhoneCamera').value||'50MP'; if(!name){alert('Model Name likho'); return;} if(!priceVal){alert('Price likho'); return;} if(!tempImageData){alert('Picture lagao - Choose File se'); return;} const priceNum=parseInt(priceVal); phones.push({n:name,b:brand,p:"PKR "+priceNum.toLocaleString(),price:priceNum,ram:ram,storage:storage,img:tempImageData,specs:{Camera:camera,Battery:"5000mAh",Display:"6.5",Chip:"New"}}); savePhones(); alert('Add Hogaya + Permanent Save: '+name); document.getElementById('newPhoneName').value=''; document.getElementById('newPhoneBrand').value=''; document.getElementById('newPhonePrice').value=''; document.getElementById('newPhoneRam').value=''; document.getElementById('newPhoneStorage').value=''; document.getElementById('newPhoneCamera').value=''; document.getElementById('newPhoneImage').value=''; document.getElementById('imagePreview').classList.add('hidden'); tempImageData=''; renderShop(phones); renderAdminList();}
+function addNewPhoneFull(){const name=document.getElementById('newPhoneName').value; const brand=document.getElementById('newPhoneBrand').value||'Other'; const priceVal=document.getElementById('newPhonePrice').value; const ram=document.getElementById('newPhoneRam').value||'8GB'; const storage=document.getElementById('newPhoneStorage').value||'128GB'; const camera=document.getElementById('newPhoneCamera').value||'50MP'; if(!name){alert('Model Name likho'); return;} if(!priceVal){alert('Price likho'); return;} if(!tempImageData){alert('Picture lagao - Choose File se'); return;} const priceNum=parseInt(priceVal); phones.push({n:name,b:brand,p:"PKR "+priceNum.toLocaleString(),price:priceNum,ram:ram,storage:storage,img:tempImageData,specs:{Camera:camera,Battery:"5000mAh",Display:"6.5",Chip:"New"}}); savePhones(); alert('Add Hogaya + Permanent Save: '+name); document.getElementById('newPhoneName').value=''; document.getElementById('newPhoneBrand').value=''; document.getElementById('newPhonePrice').value=''; document.getElementById('newPhoneRam').value=''; document.getElementById('newPhoneStorage').value=''; document.getElementById('newPhoneCamera').value=''; document.getElementById('newPhoneImage').value=''; document.getElementById('imagePreview').classList.add('hidden'); tempImageData=''; renderShop(phones); renderAdminList(); populateReceiptModels();}
 function renderAdminList(){const list=document.getElementById('adminPhoneList'); list.innerHTML=''; phones.forEach((ph,idx)=>{list.innerHTML+=`<div class="border-2 p-3 rounded-xl flex gap-3 items-center bg-white"><img src="${ph.img}" class="w-16 h-16 object-contain bg-gray-50 rounded border"><div class="flex-1"><p class="font-bold text-[13px]">${ph.n}</p><p class="text-[11px] text-gray-500">${ph.b} • ${ph.ram}/${ph.storage} • ${ph.p}</p><div class="mt-2 flex gap-2"><label class="text-[10px] bg-blue-100 text-blue-700 px-2 py-1 rounded-full cursor-pointer">Picture Change<input type="file" accept="image/*" class="hidden" onchange="changePicture(${idx},this)"></label><button onclick="removePhone(${idx})" class="text-[10px] bg-red-100 text-red-700 px-2 py-1 rounded-full">Remove</button></div></div></div>`;});}
-function removePhone(idx){if(!confirm('Remove karna hai? '+phones[idx].n)) return; phones.splice(idx,1); savePhones(); renderShop(phones); renderAdminList(); alert('Remove Hogaya + Permanent Save');}
-function changePicture(idx, input){const file=input.files[0]; if(!file) return; const reader=new FileReader(); reader.onload=function(ev){phones[idx].img=ev.target.result; savePhones(); renderShop(phones); renderAdminList(); alert('Picture Change Hogayi + Permanent Save: '+phones[idx].n);}; reader.readAsDataURL(file);}
+function removePhone(idx){if(!confirm('Remove karna hai? '+phones[idx].n)) return; phones.splice(idx,1); savePhones(); renderShop(phones); renderAdminList(); populateReceiptModels(); alert('Remove Hogaya + Permanent Save');}
+function changePicture(idx, input){const file=input.files[0]; if(!file) return; const reader=new FileReader(); reader.onload=function(ev){phones[idx].img=ev.target.result; savePhones(); renderShop(phones); renderAdminList(); alert('Picture Change + Save: '+phones[idx].n);}; reader.readAsDataURL(file);}
 function toggleAI(){document.getElementById('aiChat').classList.toggle('hidden');}
 function sendAI(){const input=document.getElementById('aiInput'); const msg=input.value; if(!msg) return; const box=document.getElementById('aiMessages'); box.innerHTML+=`<div class="bg-green-700 text-white p-2 rounded ml-8 text-right text-[12px]">${msg}</div>`; let reply="JazzCash 03264492997 - WhatsApp 03126165602"; if(msg.toLowerCase().includes('price')) reply="iPhone 359,999 - Samsung 289,999 - Shop pe dekho"; else if(msg.toLowerCase().includes('jazzcash')) reply="JazzCash Official: 03264492997"; else if(msg.toLowerCase().includes('track')) reply="Track page pe ID dalo"; box.innerHTML+=`<div class="bg-gray-100 p-2 rounded mr-8 text-[12px]">${reply}</div>`; input.value=''; box.scrollTop=box.scrollHeight;}
-showPage('home'); renderShop(phones);
+showPage('home'); renderShop(phones); populateReceiptModels();
 </script>
 </body>
 </html>
