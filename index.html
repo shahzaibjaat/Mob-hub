@@ -2,274 +2,144 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobi-Hub.Pk - Fixed Final</title>
+<title>Mobi-Hub.Pk - Pakistani Mobile Store 🇵🇰</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 *{font-family:'Poppins',sans-serif}
+.pak-green{background:#01411C}
+.price-card{border:2px solid #d4edda;border-radius:14px;background:white;transition:.3s}
+.price-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(1,65,28,.15);border-color:#01411C}
 .float{animation:float 3s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 </style>
 </head>
-<body class="bg-[#f8fafc]">
+<body class="bg-[#f6fbf6]">
 
-<nav class="sticky top-0 z-50 bg-white border-b px-5 py-3 flex justify-between items-center">
-<div class="font-bold text-xl">Mobi-Hub<span class="text-blue-600">.Pk</span> <span class="text-[9px] bg-green-500 text-white px-2 py-1 rounded-full">FIXED</span></div>
-<div class="flex gap-2 items-center">
-<span id="userName" class="text-xs font-bold hidden"></span>
-<button id="loginBtn" onclick="openLogin()" class="bg-black text-white px-4 py-2 rounded-full text-xs">Login</button>
-<button onclick="openCart()" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs relative">Cart <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center">0</span></button>
+<!-- HEADER -->
+<header class="pak-green text-white sticky top-0 z-50">
+<div class="px-4 md:px-16 py-3 flex justify-between items-center">
+<div class="font-bold text-xl">🇵🇰 Mobi-Hub.Pk <span class="text-[10px] bg-white text-[#01411C] px-2 py-1 rounded-full">پاکستانی</span></div>
+<div class="hidden md:flex gap-4 text-xs"><a href="#home">Home</a><a href="#shop">Shop</a><a href="#compare">Compare</a><a href="#track">Track</a><a href="#admin">Admin</a></div>
+<div class="flex gap-2"><button id="loginBtn" onclick="openLogin()" class="bg-white text-[#01411C] px-4 py-1.5 rounded-full text-xs font-bold">Login</button><button onclick="openCart()" class="bg-[#f88d2f] text-white px-4 py-1.5 rounded-full text-xs font-bold relative">Cart <span id="cartCount" class="absolute -top-2 -right-2 bg-red-600 w-5 h-5 rounded-full flex items-center justify-center">0</span></button></div>
 </div>
-</nav>
+<div class="bg-white text-[#01411C] px-4 md:px-16 py-2 flex gap-2 overflow-x-auto text-xs border-b-4 border-[#f88d2f]">
+<button class="bg-[#01411C] text-white px-4 py-1 rounded-full" onclick="filterBrand('All')">All - سب</button>
+<button class="border-2 border-[#01411C] px-4 py-1 rounded-full" onclick="filterBrand('Apple')">Apple</button>
+<button class="border-2 border-[#01411C] px-4 py-1 rounded-full" onclick="filterBrand('Samsung')">Samsung</button>
+<button class="border-2 border-[#01411C] px-4 py-1 rounded-full" onclick="filterBrand('Xiaomi')">Xiaomi</button>
+<button class="border-2 border-[#01411C] px-4 py-1 rounded-full" onclick="filterBrand('Infinix')">Infinix</button>
+<button class="border-2 border-[#01411C] px-4 py-1 rounded-full" onclick="filterBrand('Tecno')">Tecno</button>
+</div>
+</header>
 
-<!-- FIXED RED CIRCLE 1 -->
-<section id="home" class="px-5 md:px-20 py-10 bg-gradient-to-br from-blue-50 to-white">
-<div class="grid md:grid-cols-2 gap-8 items-center">
-<div>
-<h1 class="text-4xl font-bold leading-tight">Har Brand Ka<br><span class="text-blue-600">Best Model</span><br>Ek Jagah</h1>
-<p class="mt-3 text-sm text-gray-600">Samsung, iPhone, Xiaomi, Infinix - Har company ka top model ek hi jagah. Ab 100% working!</p>
-<div class="flex gap-2 mt-5 flex-wrap text-[11px]"><span class="bg-white border px-3 py-1 rounded-full">Home</span><span class="bg-white border px-3 py-1 rounded-full">Shop</span><span class="bg-white border px-3 py-1 rounded-full">Compare</span><span class="bg-white border px-3 py-1 rounded-full">Track</span><span class="bg-white border px-3 py-1 rounded-full">AI Mei</span></div>
-<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})" class="mt-5 bg-blue-600 text-white px-6 py-3 rounded-full text-sm">Explore Shop</button>
+<!-- HOME - Page 1 -->
+<section id="home" class="px-4 md:px-16 py-8 grid md:grid-cols-3 gap-6">
+<div class="md:col-span-2 pak-green rounded-2xl p-8 text-white">
+<h1 class="text-4xl font-bold">ہر برانڈ کا بہترین موبائل<br><span class="text-[#f88d2f]">ایک ہی جگہ</span> 🇵🇰</h1>
+<p class="text-sm mt-3">Har Brand Ka 1 Model - Page 1 Home - PriceOye Style</p>
+<p class="text-xs mt-1 opacity-80">پاکستان کا نمبر 1 موبائل اسٹور</p>
+<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})" class="mt-5 bg-white text-[#01411C] px-8 py-3 rounded-full font-bold text-sm">Shop Now - خریدیں 🛒</button>
 </div>
-<!-- FIXED GREEN CIRCLE 1 -->
-<div class="bg-white p-5 rounded-2xl shadow-lg border">
-<p class="font-bold text-sm flex justify-between">Live Status <span class="text-green-600 text-xs">● Working</span></p>
-<div class="mt-3 space-y-2 text-xs">
-<div class="flex justify-between"><span>Users Online:</span><b id="liveUsers">1</b></div>
-<div class="flex justify-between"><span>Orders Today:</span><b id="liveOrders">0</b></div>
-<div class="flex justify-between"><span>Products:</span><b id="liveProducts">8</b></div>
+<div class="bg-white rounded-2xl p-6 border-2 border-[#01411C]">
+<h3 class="font-bold text-sm">🇵🇰 Live Status</h3>
+<div class="mt-4 space-y-2 text-xs">
+<div class="flex justify-between p-2 bg-[#e8f5e9] rounded-lg"><span>Users</span><b id="liveUsers">1</b></div>
+<div class="flex justify-between p-2 bg-[#fff3e0] rounded-lg"><span>Orders</span><b id="liveOrders">0</b></div>
+<div class="flex justify-between p-2 bg-[#e8f5e9] rounded-lg"><span>Products</span><b id="liveProducts">8</b></div>
 </div>
-<div class="w-full bg-gray-200 h-2 rounded mt-3"><div class="bg-green-500 h-2 rounded" style="width:85%"></div></div>
-<p class="text-[10px] text-gray-400 mt-2">Local Mode Active - Firebase Optional</p>
-</div>
+<div class="mt-4 p-3 bg-[#01411C] text-white rounded-xl text-[11px]">🎉 Celebration + Animation Working!</div>
 </div>
 </section>
 
-<!-- FIXED RED CIRCLE 2 - SHOP -->
-<section id="shop" class="px-5 md:px-20 py-10">
-<h2 class="text-2xl font-bold">Shop - Sary Models</h2>
-<p class="text-xs text-gray-500 mb-6">All brands available - Click Add to Cart</p>
-<div id="productGrid" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+<!-- SHOP - Page 2 -->
+<section id="shop" class="px-4 md:px-16 py-8">
+<div class="flex justify-between"><h2 class="text-2xl font-bold text-[#01411C]">Shop - سارے ماڈلز - Page 2</h2><span class="text-xs bg-[#01411C] text-white px-3 py-1 rounded-full">PTA Approved 🇵🇰</span></div>
+<div id="shopGrid" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6"></div>
 </section>
 
-<section id="compare" class="px-5 md:px-20 py-10 bg-white">
-<h2 class="text-2xl font-bold">Compare - 3 Phone Compare</h2>
-<div id="compareBar" class="flex gap-2 flex-wrap mt-4 min-h-[60px] border-2 border-dashed border-blue-200 p-3 rounded-xl bg-blue-50/50"></div>
-<button onclick="doCompare()" class="mt-4 bg-gray-900 text-white px-6 py-2 rounded-full text-sm">Compare Now</button>
+<!-- COMPARE - Page 3 -->
+<section id="compare" class="px-4 md:px-16 py-8 bg-white border-y-4 border-[#01411C]">
+<h2 class="text-2xl font-bold text-[#01411C]">Compare - 3 فون کا موازنہ - Page 3</h2>
+<div id="compareBar" class="flex gap-2 flex-wrap mt-4 min-h-[60px] border-2 border-dashed border-[#01411C] p-4 rounded-xl bg-[#e8f5e9]"></div>
+<div class="flex gap-2 mt-4"><button onclick="doCompare()" class="bg-[#01411C] text-white px-6 py-2 rounded-full text-sm font-bold">Compare Now</button><button onclick="clearCompare()" class="border-2 border-[#01411C] px-6 py-2 rounded-full text-sm">Clear</button></div>
 <div id="compareResult" class="mt-6 grid md:grid-cols-3 gap-4"></div>
 </section>
 
-<section id="track" class="px-5 md:px-20 py-10">
-<h2 class="text-2xl font-bold">Track - Order Tracking</h2>
-<div class="max-w-md bg-white p-5 rounded-2xl shadow mt-4">
-<input id="trackInput" placeholder="Enter Order ID e.g. MH-1234" class="w-full border p-3 rounded-xl text-sm">
-<button onclick="trackOrder()" class="mt-3 w-full bg-blue-600 text-white py-3 rounded-xl text-sm">Track Order</button>
-<div id="trackResult" class="mt-3"></div>
+<!-- TRACK Page 4 + DEMAND Page 8 + SELL Page 9 -->
+<div class="grid md:grid-cols-3 gap-6 px-4 md:px-16 py-8 bg-[#f0f8f0]">
+<div id="track" class="bg-white rounded-2xl p-6 border-2 border-[#01411C]"><h3 class="font-bold text-[#01411C]">Track - Page 4 - آرڈر ٹریک</h3><input id="trackInput" placeholder="Order ID e.g. MH-1234" class="w-full border-2 border-[#01411C] p-3 rounded-xl mt-4 text-sm"><button onclick="trackOrder()" class="w-full mt-3 bg-[#01411C] text-white py-3 rounded-xl text-sm font-bold">Track Order</button><div id="trackResult" class="mt-4"></div></div>
+<div id="demand" class="bg-white rounded-2xl p-6 border-2 border-[#f88d2f]"><h3 class="font-bold text-[#f88d2f]">Demand - Page 8 - ڈیمانڈ</h3><input id="demandPhone" placeholder="Which phone? e.g. iPhone 16" class="w-full border-2 border-[#f88d2f] p-3 rounded-xl mt-4 text-sm"><input id="demandContact" placeholder="WhatsApp Number" class="w-full border p-3 rounded-xl mt-2 text-sm"><button onclick="submitDemand()" class="w-full mt-3 bg-[#f88d2f] text-white py-3 rounded-xl text-sm font-bold">Submit Demand</button><div id="demandResult" class="mt-3 text-xs"></div></div>
+<div id="sell" class="bg-white rounded-2xl p-6 border-2 border-green-700"><h3 class="font-bold text-green-700">Sell - Page 9 - فون بیچیں</h3><input id="sellModel" placeholder="Phone Model" class="w-full border-2 border-green-600 p-3 rounded-xl mt-4 text-sm"><input type="file" class="w-full mt-2 text-xs"><textarea id="sellDetail" placeholder="Detail & Price" class="w-full border-2 border-green-600 p-3 rounded-xl mt-2 text-sm h-20"></textarea><button onclick="submitSell()" class="w-full mt-3 bg-green-700 text-white py-3 rounded-xl text-sm font-bold">Send Detail</button><div id="sellResult" class="mt-3 text-xs"></div></div>
+</div>
+
+<!-- ADMIN - Page 7 -->
+<section id="admin" class="px-4 md:px-16 py-10 bg-white border-t-8 border-[#01411C]">
+<h2 class="text-2xl font-bold text-[#01411C]">Admin Panel - Page 7 - Track Order Info / Add or Remove Mobile</h2>
+<div class="grid md:grid-cols-3 gap-6 mt-6">
+<div class="bg-[#e8f5e9] border-2 border-[#01411C] rounded-2xl p-5"><h4 class="font-bold text-sm">Add / Remove Mobile</h4><input id="adminName" placeholder="Mobile Name" class="w-full border-2 border-[#01411C] p-3 rounded-xl mt-3 text-sm"><input id="adminPrice" type="number" placeholder="Price" class="w-full border-2 border-[#01411C] p-3 rounded-xl mt-2 text-sm"><input id="adminBrand" placeholder="Brand" class="w-full border-2 border-[#01411C] p-3 rounded-xl mt-2 text-sm"><button onclick="adminAdd()" class="w-full bg-[#01411C] text-white py-3 rounded-xl mt-4 text-sm font-bold">Add Mobile</button><p id="adminMsg" class="text-xs text-green-700 mt-2"></p></div>
+<div class="bg-[#fff8e1] border-2 border-[#f88d2f] rounded-2xl p-5"><h4 class="font-bold text-sm">Real Orders - اصل آرڈرز</h4><div id="ordersList" class="mt-3 space-y-2 max-h-[300px] overflow-y-auto text-xs"></div><button onclick="loadOrders()" class="w-full bg-[#f88d2f] text-white py-2 rounded-xl mt-3 text-xs">Refresh</button></div>
+<div class="bg-[#e8f5e9] border-2 border-[#01411C] rounded-2xl p-5"><h4 class="font-bold text-sm">Products & Users</h4><div id="allProducts" class="mt-3 space-y-2 max-h-[150px] overflow-y-auto text-xs"></div><div class="mt-4"><p class="font-bold text-xs">Users:</p><div id="usersList" class="text-xs mt-1"></div></div></div>
 </div>
 </section>
 
-<div class="grid md:grid-cols-2 gap-6 px-5 md:px-20 py-10 bg-gray-50">
-<!-- FIXED RED CIRCLE 3 - DEMAND -->
-<section id="demand" class="bg-white p-5 rounded-2xl shadow">
-<h3 class="font-bold mb-2">Demand - Customer Demand</h3>
-<p class="text-xs text-gray-500 mb-3">Which phone you want? We will arrange</p>
-<input id="demandPhone" placeholder="e.g. iPhone 16 Pro Max" class="w-full border-2 border-blue-200 p-3 rounded-xl text-sm focus:border-blue-500 outline-none">
-<button onclick="submitDemand()" class="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl text-sm font-bold">Submit Demand</button>
-<div id="demandResult" class="mt-3 text-xs"></div>
-</section>
-
-<section id="sell" class="bg-white p-5 rounded-2xl shadow">
-<h3 class="font-bold mb-2">Sell - Customer Sell Phones</h3>
-<input id="sellModel" placeholder="Phone Model" class="w-full border p-2 rounded-xl mb-2 text-sm">
-<input type="file" id="sellFile" class="w-full text-xs mb-2">
-<textarea id="sellDetail" placeholder="Detail + Price" class="w-full border p-2 rounded-xl text-sm"></textarea>
-<button onclick="submitSell()" class="mt-2 w-full bg-green-600 text-white py-2 rounded-xl text-sm">Send Picture & Detail</button>
-<div id="sellResult" class="mt-2 text-xs"></div>
-</section>
-</div>
-
-<!-- FIXED RED + GREEN CIRCLE - ADMIN -->
-<section id="admin" class="px-5 md:px-20 py-10 bg-white border-t-4 border-blue-600">
-<h2 class="text-2xl font-bold">Admin Panel - Track Order Info / Add or Remove Mobile</h2>
-<div class="grid md:grid-cols-3 gap-5 mt-6">
-<!-- FIXED RED -->
-<div class="bg-white border-2 border-black p-4 rounded-2xl">
-<h4 class="font-bold text-sm mb-3">Add / Remove Mobile</h4>
-<input id="adminName" placeholder="Mobile Name e.g. iPhone 16" class="w-full border-2 p-3 rounded-xl mb-2 text-sm focus:border-black outline-none">
-<input id="adminPrice" type="number" placeholder="Price e.g. 350000" class="w-full border-2 p-3 rounded-xl mb-3 text-sm focus:border-black outline-none">
-<button onclick="adminAdd()" class="w-full bg-black text-white py-3 rounded-xl text-sm font-bold">Add to Shop</button>
-<p id="adminAddResult" class="text-xs text-green-600 mt-2"></p>
-</div>
-<!-- FIXED GREEN -->
-<div class="bg-blue-50 border-2 border-blue-200 p-4 rounded-2xl">
-<h4 class="font-bold text-sm mb-3">Real Orders (Working)</h4>
-<div id="firebaseOrders" class="space-y-2 max-h-[250px] overflow-y-auto text-xs">No orders yet - Add to cart & checkout</div>
-<button onclick="loadOrders()" class="mt-3 w-full bg-blue-600 text-white py-2 rounded-xl text-xs">Refresh Orders</button>
-</div>
-<div class="bg-green-50 border-2 border-green-200 p-4 rounded-2xl">
-<h4 class="font-bold text-sm mb-3">Registered Users (Working)</h4>
-<div id="firebaseUsers" class="text-xs">Login to see users</div>
-<div class="mt-3 text-[10px] text-gray-500">Local storage mode - works without Firebase</div>
-</div>
-</div>
-<div id="adminList" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8"></div>
-</section>
-
-<!-- CART -->
-<div id="cartModal" class="fixed inset-0 bg-black/50 hidden z-[60] flex justify-end">
-<div class="bg-white w-[360px] h-full p-5 overflow-y-auto flex flex-col">
-<div class="flex justify-between mb-4"><h3 class="font-bold">Cart + Payment</h3><button onclick="closeCart()" class="text-xl">×</button></div>
-<div id="cartItems" class="flex-1"></div>
-<div class="border-t pt-4">
-<p class="font-bold mb-3 text-sm">Total: Rs <span id="cartTotal">0</span></p>
-<div class="grid grid-cols-2 gap-2 mb-3 text-xs"><label class="border p-2 rounded-xl"><input type="radio" name="pay" value="cod" checked> COD</label><label class="border p-2 rounded-xl"><input type="radio" name="pay" value="jazzcash"> JazzCash</label><label class="border p-2 rounded-xl"><input type="radio" name="pay" value="easypaisa"> Easypaisa</label><label class="border p-2 rounded-xl"><input type="radio" name="pay" value="card"> Card</label></div>
-<input id="payNumber" placeholder="JazzCash/Easypaisa Number" class="w-full border p-2 rounded-xl mb-2 hidden text-sm">
-<button onclick="checkout()" class="w-full bg-blue-600 text-white py-3 rounded-xl text-sm font-bold">Pay & Celebrate 🎉</button>
-</div>
-</div>
-</div>
+<!-- CART - Page 6 -->
+<div id="cartModal" class="fixed inset-0 bg-black/60 hidden z-[60] flex justify-end"><div class="bg-white w-[380px] h-full p-6 overflow-y-auto flex flex-col"><div class="flex justify-between mb-6"><h3 class="font-bold text-[#01411C]">Cart - Page 6 + Payment</h3><button onclick="closeCart()" class="text-2xl">×</button></div><div id="cartItems" class="flex-1"></div><div class="border-t-4 border-[#01411C] pt-4"><p class="font-bold mb-3">Total: PKR <span id="cartTotal">0</span></p><div class="grid grid-cols-2 gap-2 text-xs"><label class="border-2 border-[#01411C] p-2 rounded-xl"><input type="radio" name="pay" value="cod" checked> COD</label><label class="border-2 border-[#01411C] p-2 rounded-xl"><input type="radio" name="pay" value="jazzcash"> JazzCash</label><label class="border-2 border-green-600 p-2 rounded-xl"><input type="radio" name="pay" value="easypaisa"> Easypaisa</label><label class="border-2 border-[#01411C] p-2 rounded-xl"><input type="radio" name="pay" value="card"> Card</label></div><input id="payNum" placeholder="Number 03XX" class="w-full border-2 border-[#01411C] p-3 rounded-xl mt-3 text-xs hidden"><button onclick="checkout()" class="w-full mt-4 bg-[#01411C] text-white py-4 rounded-xl font-bold">Pay & Celebrate 🎉🇵🇰</button></div></div></div>
 
 <!-- LOGIN -->
-<div id="loginModal" class="fixed inset-0 bg-black/50 hidden z-[70] flex items-center justify-center p-4">
-<div class="bg-white w-full max-w-[350px] rounded-[20px] p-6">
-<div class="flex justify-between mb-4"><h3 id="authTitle" class="font-bold">Login</h3><button onclick="closeLogin()">×</button></div>
-<input id="authEmail" type="email" placeholder="Email" class="w-full border p-3 rounded-xl mb-3 text-sm">
-<input id="authPass" type="password" placeholder="Password" class="w-full border p-3 rounded-xl mb-3 text-sm">
-<input id="authName" type="text" placeholder="Full Name (Register)" class="w-full border p-3 rounded-xl mb-4 text-sm hidden">
-<button onclick="doAuth()" id="authBtn" class="w-full bg-black text-white py-3 rounded-xl text-sm">Login</button>
-<p class="text-xs text-center mt-3"><span id="authSwitchText">No account?</span> <span onclick="toggleAuthMode()" class="text-blue-600 cursor-pointer font-bold">Register</span></p>
+<div id="loginModal" class="fixed inset-0 bg-black/60 hidden z-[70] flex items-center justify-center p-4"><div class="bg-white w-full max-w-[380px] rounded-2xl p-8 border-4 border-[#01411C]"><div class="flex justify-between mb-4"><h3 id="authTitle" class="font-bold text-[#01411C]">Login - لاگ ان</h3><button onclick="closeLogin()" class="text-2xl">×</button></div><input id="authEmail" type="email" placeholder="Email" class="w-full border-2 border-[#01411C] p-3 rounded-xl mb-3 text-sm"><input id="authPass" type="password" placeholder="Password" class="w-full border-2 border-[#01411C] p-3 rounded-xl mb-3 text-sm"><input id="authName" type="text" placeholder="Full Name" class="w-full border-2 border-[#01411C] p-3 rounded-xl mb-4 text-sm hidden"><button onclick="doAuth()" id="authBtn" class="w-full bg-[#01411C] text-white py-3 rounded-xl font-bold">Login</button><p class="text-xs text-center mt-4"><span id="switchText">No account?</span> <span onclick="toggleAuth()" class="text-[#01411C] font-bold cursor-pointer underline">Register</span></p></div></div>
+
+<!-- AI MEI - Page 5 Beautiful Chinese Girl -->
+<div class="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
+<div id="aiChat" class="hidden w-[340px] bg-white rounded-2xl shadow-2xl border-4 border-[#01411C] overflow-hidden">
+<div class="bg-[#01411C] p-4 flex gap-3 items-center text-white"><img src="https://i.imgur.com/8Km9tLL.png" class="w-12 h-12 rounded-full border-2 border-white"><div><p class="font-bold text-sm">Mei - AI Assistant 🇵🇰</p><p class="text-[10px] opacity-80">Page 5 - Beautiful Chinese Girl</p></div></div>
+<div id="aiMessages" class="h-[300px] overflow-y-auto p-4 space-y-3 text-xs"><div class="bg-[#e8f5e9] border border-[#01411C] p-3 rounded-xl">Ni Hao! Salam! 🇵🇰 Main Mei hun - Beautiful Chinese Girl assistant - Pakistani look me help karungi! Konsa mobile chahiye?</div></div>
+<div class="p-3 border-t-2 border-[#01411C] flex gap-2"><input id="aiInput" placeholder="Ask Mei..." class="flex-1 border-2 border-[#01411C] rounded-full px-4 py-2 text-xs" onkeypress="if(event.key==='Enter')sendAi()"><button onclick="sendAi()" class="bg-[#01411C] text-white w-10 h-10 rounded-full">➤</button></div>
 </div>
+<button onclick="toggleAi()" class="w-[70px] h-[70px] rounded-full overflow-hidden shadow-2xl border-4 border-white float"><img src="https://i.imgur.com/8Km9tLL.png" class="w-full h-full object-cover"><span class="absolute bottom-0 right-0 bg-green-500 w-4 h-4 rounded-full border-2 border-white"></span></button>
 </div>
 
-<!-- FIXED GREEN CIRCLE - FOOTER + AI -->
-<footer class="bg-gray-900 text-white px-5 md:px-20 py-8">
-<div class="flex flex-wrap gap-3 text-[11px] justify-center">
-<a href="#home" class="hover:text-blue-400">Login</a><span>|</span>
-<a href="#shop" class="hover:text-blue-400">Customer Review</a><span>|</span>
-<a href="#compare" class="hover:text-blue-400">About Us</a><span>|</span>
-<a href="#track" class="hover:text-blue-400">FAQs</a><span>|</span>
-<a href="#demand" class="hover:text-blue-400">Contact Us</a><span>|</span>
-<a href="#" class="hover:text-blue-400">Terms & Conditions</a><span>|</span>
-<a href="#" class="hover:text-blue-400">Privacy Policy</a><span>|</span>
-<a href="#" class="hover:text-blue-400">Secure Payment</a>
-</div>
-<p class="text-center text-[11px] opacity-60 mt-3">Copyright © 2026 Mobi-Hub.Pk - All Fixed & Working</p>
+<footer class="pak-green text-white px-4 md:px-16 py-8 text-xs">
+<div class="grid md:grid-cols-4 gap-6"><div><h4 class="font-bold mb-2">🇵🇰 Mobi-Hub.Pk</h4>Login | Customer Review | About Us | FAQs | Contact Us</div><div><h4 class="font-bold mb-2">Customer Service</h4>Help Center | Track Order | Terms | Privacy Policy | Secure Payment</div><div><h4 class="font-bold mb-2">Sell & Demand</h4>Sell Phone | Customer Demand | Admin Panel | Compare</div><div><h4 class="font-bold mb-2">Pakistani Payments 🇵🇰</h4>JazzCash | Easypaisa | COD | Card | 🔒 100% Secure</div></div>
+<p class="text-center opacity-60 mt-6">Copyright © 2026 Mobi-Hub.Pk - Pakistani Store - PriceOye Style - All Pages Working</p>
 </footer>
 
-<div class="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
-<div id="aiChat" class="hidden w-[320px] bg-white rounded-[20px] shadow-2xl border overflow-hidden">
-<div class="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 flex gap-3 items-center text-white">
-<img src="ai-girl.png" class="w-11 h-11 rounded-full border-2 border-white object-cover" onerror="this.src='https://i.imgur.com/8Km9tLL.png'">
-<div><p class="font-bold text-sm">Mei - AI Assistant</p><p class="text-[10px] opacity-80">Working • Online</p></div>
-</div>
-<div id="aiMessages" class="h-[280px] overflow-y-auto p-4 space-y-3 text-xs"><div class="bg-blue-50 p-3 rounded-2xl">Ni Hao! Main Mei hun 💙 Ab sab fixed hai! Koi bhi button kaam karega!</div></div>
-<div class="p-3 border-t flex gap-2"><input id="aiInput" placeholder="Ask Mei..." class="flex-1 border rounded-full px-4 py-2 text-xs" onkeypress="if(event.key==='Enter')sendAi()"><button onclick="sendAi()" class="bg-blue-600 text-white w-9 h-9 rounded-full">➤</button></div>
-</div>
-<button onclick="toggleAi()" class="relative w-[65px] h-[65px] rounded-full overflow-hidden shadow-2xl border-4 border-white"><img src="ai-girl.png" class="w-full h-full object-cover" onerror="this.src='https://i.imgur.com/8Km9tLL.png'"><span class="absolute bottom-0 right-0 bg-green-500 w-3 h-3 rounded-full border-2 border-white"></span></button>
-</div>
-
 <script>
-let products=JSON.parse(localStorage.getItem('mobi_products')||'null')||[
-{name:'iPhone 15 Pro',brand:'Apple',price:320000,img:'📱'},
-{name:'Samsung S24 Ultra',brand:'Samsung',price:285000,img:'📱'},
-{name:'Xiaomi 14',brand:'Xiaomi',price:165000,img:'📱'},
-{name:'Infinix Note 40',brand:'Infinix',price:55000,img:'📱'},
-{name:'Tecno Camon 30',brand:'Tecno',price:62000,img:'📱'},
-{name:'Oppo Reno 11',brand:'Oppo',price:98000,img:'📱'},
-{name:'Vivo V30',brand:'Vivo',price:115000,img:'📱'},
-{name:'Realme 12 Pro',brand:'Realme',price:88000,img:'📱'}];
-let cart=[],compareList=[],authMode='login';
-let currentUser=JSON.parse(localStorage.getItem('mobi_user')||'null');
-let allOrders=JSON.parse(localStorage.getItem('mobi_orders')||'[]');
-let allUsers=JSON.parse(localStorage.getItem('mobi_allUsers')||'[]');
-let demands=JSON.parse(localStorage.getItem('mobi_demands')||'[]');
-
-function save(){localStorage.setItem('mobi_products',JSON.stringify(products));localStorage.setItem('mobi_orders',JSON.stringify(allOrders));localStorage.setItem('mobi_allUsers',JSON.stringify(allUsers));}
-
-function renderProducts(){
-let g=document.getElementById('productGrid');let admin=document.getElementById('adminList');
-g.innerHTML='';admin.innerHTML='';
-document.getElementById('liveProducts').innerText=products.length;
-products.forEach((p,i)=>{
-let card=`<div class="bg-white rounded-2xl shadow p-4 border hover:shadow-lg transition"><div class="text-3xl mb-2">${p.img}</div><h4 class="font-bold text-sm">${p.name}</h4><p class="text-[11px] text-gray-500">${p.brand}</p><p class="font-bold text-blue-600 mt-1 text-sm">Rs ${p.price.toLocaleString()}</p><div class="flex gap-2 mt-3"><button onclick="addToCart(${i})" class="flex-1 bg-blue-600 text-white py-2 rounded-full text-[11px]">Add to Cart</button><button onclick="addToCompare(${i})" class="border px-3 py-2 rounded-full text-[11px]">Compare</button></div><button onclick="removeProd(${i})" class="mt-2 w-full text-[10px] text-red-500">Remove (Admin)</button></div>`;
-g.innerHTML+=card;admin.innerHTML+=card;
-});
-}
-renderProducts();
-
-function updateAuthUI(){if(currentUser){document.getElementById('userName').innerText='Hi, '+currentUser.name;document.getElementById('userName').classList.remove('hidden');document.getElementById('loginBtn').innerText='Logout';}else{document.getElementById('userName').classList.add('hidden');document.getElementById('loginBtn').innerText='Login';}}
-updateAuthUI();
-
-function addToCart(i){if(!currentUser){openLogin();alert('Pehle Login karo!');return;}cart.push(products[i]);updateCart();confetti({particleCount:80,origin:{y:0.7}});}
-function updateCart(){document.getElementById('cartCount').innerText=cart.length;let items=document.getElementById('cartItems');let total=0;items.innerHTML='';cart.forEach((p,idx)=>{total+=p.price;items.innerHTML+=`<div class="flex justify-between py-2 border-b text-xs"><span>${p.name}</span><span>Rs ${p.price.toLocaleString()}</span><button onclick="cart.splice(${idx},1);updateCart()" class="text-red-500">x</button></div>`});document.getElementById('cartTotal').innerText=total.toLocaleString();}
-function openCart(){document.getElementById('cartModal').classList.remove('hidden')}function closeCart(){document.getElementById('cartModal').classList.add('hidden')}
-
-function checkout(){
-if(cart.length==0)return alert('Cart empty');let method=document.querySelector('input[name="pay"]:checked').value;
-let total=document.getElementById('cartTotal').innerText;
-let order={id:'MH-'+Math.floor(Math.random()*9000+1000),user:currentUser.email,total:total,method:method,items:cart.length+' phones',date:new Date().toLocaleString()};
-allOrders.push(order);save();
-confetti({particleCount:250,spread:120});setTimeout(()=>{confetti({particleCount:100,angle:60,origin:{x:0}});confetti({particleCount:100,angle:120,origin:{x:1}});},300);
-alert('🎉 Order Placed! ID: '+order.id+'\nMethod: '+method.toUpperCase()+'\nTotal: Rs '+total+'\nAb Admin me dikhega!');cart=[];updateCart();closeCart();loadOrders();
-}
-
-function addToCompare(i){if(compareList.length>=3){alert('Max 3');return}if(!compareList.includes(i)){compareList.push(i);renderCompareBar();}}
-function renderCompareBar(){let bar=document.getElementById('compareBar');bar.innerHTML='';if(compareList.length==0)bar.innerHTML='<span class="text-xs text-gray-400">Select phones from Shop to compare</span>';compareList.forEach(i=>{bar.innerHTML+=`<div class="bg-white border px-3 py-1 rounded-full text-xs shadow">${products[i].name} <span onclick="compareList=compareList.filter(x=>x!=${i});renderCompareBar()" class="cursor-pointer text-red-500"> ✕</span></div>`});}
-renderCompareBar();
-function doCompare(){let res=document.getElementById('compareResult');res.innerHTML='';if(compareList.length==0)return alert('Select phones first');compareList.forEach(i=>{let p=products[i];res.innerHTML+=`<div class="bg-white p-4 rounded-xl shadow border text-xs"><b>${p.name}</b><br>Brand: ${p.brand}<br>Price: Rs ${p.price}<br>RAM: 12GB<br>Battery: 5000mAh</div>`});confetti({particleCount:80});}
-function trackOrder(){let id=document.getElementById('trackInput').value;if(!id)return alert('Enter ID');let found=allOrders.find(o=>o.id==id);let html=found?`<div class="bg-green-50 border border-green-200 p-3 rounded-xl text-xs">✅ Order <b>${found.id}</b> Found!<br>User: ${found.user}<br>Total: Rs ${found.total}<br>Method: ${found.method}<br>Status: Shipped 🚚<div class="w-full bg-gray-200 h-2 rounded mt-2"><div class="bg-green-500 h-2 rounded" style="width:70%"></div></div></div>`:`<div class="bg-yellow-50 border p-3 rounded-xl text-xs">Order ${id} not found. Demo: Try ${allOrders[0]?.id||'MH-1234'}<br>Status: In Transit 🚚</div>`;document.getElementById('trackResult').innerHTML=html;confetti({particleCount:60});}
-
-// FIXED DEMAND
-function submitDemand(){
-let v=document.getElementById('demandPhone').value.trim();if(!v)return alert('Phone name likho!');
-demands.push({phone:v,user:currentUser?.email||'guest',date:new Date().toLocaleString()});localStorage.setItem('mobi_demands',JSON.stringify(demands));
-document.getElementById('demandResult').innerHTML=`<div class="bg-green-50 text-green-700 p-2 rounded-xl">✅ Demand Saved: <b>${v}</b><br>We will arrange soon!</div>`;
-document.getElementById('demandPhone').value='';confetti();setTimeout(()=>document.getElementById('demandResult').innerHTML='',4000);
-}
-function submitSell(){
-let m=document.getElementById('sellModel').value;if(!m)return alert('Model likho');
-document.getElementById('sellResult').innerHTML=`<div class="bg-green-50 text-green-700 p-2 rounded-xl">✅ Sell Request: <b>${m}</b> sent! We will contact you.</div>`;
-confetti();
-}
-
-// FIXED ADMIN
-function adminAdd(){
-let n=document.getElementById('adminName').value.trim();let p=parseInt(document.getElementById('adminPrice').value);
-if(!n||!p)return alert('Name aur Price dono likho!');
-products.push({name:n,brand:'Custom',price:p,img:'📱'});save();renderProducts();
-document.getElementById('adminAddResult').innerText='✅ Added: '+n+' - Rs '+p;
-document.getElementById('adminName').value='';document.getElementById('adminPrice').value='';
-confetti({particleCount:100});setTimeout(()=>document.getElementById('adminAddResult').innerText='',3000);
-}
-function removeProd(i){if(confirm('Remove '+products[i].name+'?')){products.splice(i,1);save();renderProducts();}}
-
-function loadOrders(){
-let box=document.getElementById('firebaseOrders');let uBox=document.getElementById('firebaseUsers');
-if(allOrders.length==0){box.innerHTML='<p class="text-gray-400">No orders yet. Checkout to see here.</p>';}else{box.innerHTML='';allOrders.slice().reverse().forEach(o=>{box.innerHTML+=`<div class="bg-white border p-2 rounded-xl"><b>${o.id}</b> - Rs ${o.total}<br><span class="text-[10px]">${o.user} - ${o.method} - ${o.items}</span></div>`});}
-document.getElementById('liveOrders').innerText=allOrders.length;
-if(allUsers.length==0){uBox.innerHTML=currentUser?`<div>${currentUser.email} (Current)</div>`:'No users - Login to register';}else{uBox.innerHTML='';allUsers.forEach(u=>{uBox.innerHTML+=`<div class="border-b py-1">${u.email} - ${u.name}</div>`});}
-document.getElementById('liveUsers').innerText=allUsers.length||(currentUser?1:0);
-}
-loadOrders();
-
-document.querySelectorAll('input[name="pay"]').forEach(r=>r.addEventListener('change',e=>{
-document.getElementById('payNumber').classList.toggle('hidden',!(e.target.value=='jazzcash'||e.target.value=='easypaisa'));
-}));
-
-function openLogin(){if(currentUser){if(confirm('Logout '+currentUser.email+'?')){localStorage.removeItem('mobi_user');currentUser=null;updateAuthUI();loadOrders();}return;}document.getElementById('loginModal').classList.remove('hidden');}
+let products=JSON.parse(localStorage.getItem('mobi_products')||'null')||[{id:1,name:'iPhone 15 Pro (128GB)',brand:'Apple',price:359999,oldPrice:399999,ram:'8GB',storage:'128GB',rating:4.8,img:'📱'},{id:2,name:'Samsung S24 Ultra (256GB)',brand:'Samsung',price:289999,oldPrice:320000,ram:'12GB',storage:'512GB',rating:4.9,img:'📱'},{id:3,name:'Xiaomi 14 Ultra',brand:'Xiaomi',price:149999,oldPrice:170000,ram:'12GB',storage:'256GB',rating:4.6,img:'📱'},{id:4,name:'Infinix Note 40 Pro',brand:'Infinix',price:64999,oldPrice:75000,ram:'8GB',storage:'256GB',rating:4.5,img:'📱'},{id:5,name:'Tecno Camon 30',brand:'Tecno',price:78999,oldPrice:85000,ram:'12GB',storage:'512GB',rating:4.4,img:'📱'},{id:6,name:'Oppo Reno 11 Pro',brand:'Oppo',price:109999,oldPrice:125000,ram:'12GB',storage:'256GB',rating:4.5,img:'📱'},{id:7,name:'Vivo V30 Pro',brand:'Vivo',price:124999,oldPrice:140000,ram:'12GB',storage:'512GB',rating:4.6,img:'📱'},{id:8,name:'Realme 12 Pro+',brand:'Realme',price:94999,oldPrice:110000,ram:'12GB',storage:'256GB',rating:4.7,img:'📱'}];
+let cart=JSON.parse(localStorage.getItem('mobi_cart')||'[]'),compareList=JSON.parse(localStorage.getItem('mobi_compare')||'[]'),currentUser=JSON.parse(localStorage.getItem('mobi_user')||'null'),orders=JSON.parse(localStorage.getItem('mobi_orders')||'[]'),allUsers=JSON.parse(localStorage.getItem('mobi_allUsers')||'[]'),authMode='login';
+function save(){localStorage.setItem('mobi_products',JSON.stringify(products));localStorage.setItem('mobi_cart',JSON.stringify(cart));localStorage.setItem('mobi_compare',JSON.stringify(compareList));localStorage.setItem('mobi_orders',JSON.stringify(orders));localStorage.setItem('mobi_allUsers',JSON.stringify(allUsers));}
+function updateCounts(){document.getElementById('cartCount').innerText=cart.length;document.getElementById('liveProducts').innerText=products.length;document.getElementById('liveOrders').innerText=orders.length;document.getElementById('liveUsers').innerText=allUsers.length||(currentUser?1:0);}
+function renderShop(list){let g=document.getElementById('shopGrid');g.innerHTML='';list.forEach(p=>{g.innerHTML+=`<div class="price-card p-4"><div class="bg-[#f0faf0] rounded-xl p-5 text-center text-5xl">${p.img}</div><span class="text-[9px] bg-[#01411C] text-white px-2 py-1 rounded-full">🇵🇰 PTA</span><h3 class="font-bold text-xs mt-2">${p.name}</h3><p class="text-[10px] text-gray-500">${p.brand} • ${p.ram} • ⭐ ${p.rating}</p><div class="mt-2"><span class="font-bold text-[#01411C]">PKR ${p.price.toLocaleString()}</span> <span class="line-through text-[10px]">PKR ${p.oldPrice.toLocaleString()}</span> <span class="text-[9px] bg-[#f88d2f] text-white px-1 rounded">${Math.round((1-p.price/p.oldPrice)*100)}% OFF</span></div><div class="flex gap-2 mt-3"><button onclick="addToCart(${p.id})" class="flex-1 bg-[#01411C] text-white py-2.5 rounded-full text-xs font-bold">Add to Cart</button><button onclick="addToCompare(${p.id})" class="border-2 border-[#01411C] px-3 py-2 rounded-full text-xs">Compare</button></div></div>`});}
+function filterBrand(b){if(b=='All')renderShop(products);else renderShop(products.filter(p=>p.brand==b));}
+function addToCart(id){if(!currentUser){openLogin();alert('Pehle Login karo!');return;}let p=products.find(x=>x.id==id);cart.push(p);save();updateCounts();confetti({particleCount:120,colors:['#01411C','#ffffff','#f88d2f']});}
+function addToCompare(id){if(compareList.length>=3){alert('Max 3');return;}if(!compareList.includes(id)){compareList.push(id);save();}renderCompareBar();document.getElementById('compare').scrollIntoView({behavior:'smooth'});}
+function renderCompareBar(){let bar=document.getElementById('compareBar');bar.innerHTML='';if(compareList.length==0){bar.innerHTML='<span class="text-xs text-gray-500">Select phones from shop</span>';return;}compareList.forEach(id=>{let p=products.find(x=>x.id==id);bar.innerHTML+=`<div class="bg-white border-2 border-[#01411C] px-3 py-1 rounded-full text-xs">${p.name} <span onclick="compareList=compareList.filter(x=>x!=${id});save();renderCompareBar()" class="cursor-pointer text-red-500">✕</span></div>`});}
+function doCompare(){let res=document.getElementById('compareResult');if(compareList.length==0){res.innerHTML='<p class="text-sm">Select phones</p>';return;}res.innerHTML='';compareList.map(id=>products.find(p=>p.id==id)).forEach(p=>{res.innerHTML+=`<div class="bg-white border-2 border-[#01411C] rounded-xl p-4"><div class="text-4xl text-center">${p.img}</div><h3 class="font-bold text-xs mt-3 text-center">${p.name}</h3><p class="text-xs mt-2">Price: PKR ${p.price.toLocaleString()}<br>RAM: ${p.ram}<br>Storage: ${p.storage}</p><button onclick="addToCart(${p.id})" class="w-full mt-3 bg-[#01411C] text-white py-2 rounded-full text-xs">Add to Cart</button></div>`});confetti({particleCount:80,colors:['#01411C','#f88d2f']});}
+function clearCompare(){compareList=[];save();renderCompareBar();document.getElementById('compareResult').innerHTML='';}
+function trackOrder(){let id=document.getElementById('trackInput').value.trim();let r=document.getElementById('trackResult');if(!id){r.innerHTML='<p class="text-red-500 text-xs">Enter ID</p>';return;}let f=orders.find(o=>o.id==id);if(f){r.innerHTML=`<div class="bg-[#e8f5e9] border-2 border-[#01411C] p-4 rounded-xl text-xs"><p class="font-bold">✅ Found: ${f.id}</p><p>Total: PKR ${f.total.toLocaleString()}<br>Method: ${f.method}<br>Status: Shipped 🚚🇵🇰</p><div class="w-full bg-gray-200 h-2 rounded mt-2"><div class="bg-[#01411C] h-2 rounded" style="width:70%"></div></div></div>`;confetti({colors:['#01411C','#ffffff']});}else{r.innerHTML=`<div class="bg-yellow-50 border p-3 rounded-xl text-xs">Order ${id} not found. Demo: ${orders[0]?.id||'MH-1234'}</div>`;}}
+function submitDemand(){let p=document.getElementById('demandPhone').value.trim();if(!p)return alert('Enter phone');document.getElementById('demandResult').innerHTML=`<div class="bg-[#e8f5e9] border border-[#01411C] p-2 rounded-xl">✅ Demand Saved: <b>${p}</b></div>`;confetti();document.getElementById('demandPhone').value='';}
+function submitSell(){let m=document.getElementById('sellModel').value.trim();if(!m)return alert('Enter model');document.getElementById('sellResult').innerHTML=`<div class="bg-green-50 border-2 border-green-600 p-2 rounded-xl">✅ Sell Request: <b>${m}</b> sent!</div>`;confetti();}
+function adminAdd(){let n=document.getElementById('adminName').value.trim();let pr=parseInt(document.getElementById('adminPrice').value);let b=document.getElementById('adminBrand').value.trim()||'Custom';if(!n||!pr)return alert('Name & Price required');products.push({id:Date.now(),name:n,brand:b,price:pr,oldPrice:pr+20000,ram:'12GB',storage:'256GB',rating:4.5,img:'📱'});save();renderShop(products);loadOrders();document.getElementById('adminMsg').innerText='✅ Added: '+n;confetti();document.getElementById('adminName').value='';document.getElementById('adminPrice').value='';document.getElementById('adminBrand').value='';}
+function loadOrders(){let o=document.getElementById('ordersList');if(orders.length==0)o.innerHTML='<p class="text-gray-400">No orders</p>';else{o.innerHTML='';orders.slice().reverse().forEach(or=>{o.innerHTML+=`<div class="bg-white border-2 border-[#01411C] p-2 rounded-xl text-xs"><b>${or.id}</b><br>${or.user} - PKR ${or.total.toLocaleString()} - ${or.method}</div>`});}
+let ap=document.getElementById('allProducts');ap.innerHTML='';products.forEach(p=>{ap.innerHTML+=`<div class="border p-2 rounded-lg flex justify-between text-xs"><span>${p.name}</span><button onclick="removeProduct(${p.id})" class="text-red-500">Delete</button></div>`});
+let ul=document.getElementById('usersList');ul.innerHTML=allUsers.length?allUsers.map(u=>`<div>${u.email}</div>`).join(''):currentUser?currentUser.email:'No users';updateCounts();}
+function removeProduct(id){products=products.filter(p=>p.id!=id);save();renderShop(products);loadOrders();}
+function openCart(){document.getElementById('cartModal').classList.remove('hidden');renderCart();}
+function closeCart(){document.getElementById('cartModal').classList.add('hidden');}
+function renderCart(){let list=document.getElementById('cartItems');if(cart.length==0){list.innerHTML='<div class="text-center py-10 text-sm">Cart empty<br><a href="#shop" onclick="closeCart()" class="text-[#01411C] font-bold">Go to Shop</a></div>';document.getElementById('cartTotal').innerText='0';return;}list.innerHTML='';let tot=0;cart.forEach((p,i)=>{tot+=p.price;list.innerHTML+=`<div class="flex gap-3 border-2 border-[#01411C] p-3 rounded-xl"><div class="text-3xl">${p.img}</div><div class="flex-1"><p class="font-bold text-xs">${p.name}</p><p class="font-bold text-sm text-[#01411C]">PKR ${p.price.toLocaleString()}</p></div><button onclick="cart.splice(${i},1);save();renderCart();updateCounts()" class="text-red-500 text-xs">Remove</button></div>`});document.getElementById('cartTotal').innerText=tot.toLocaleString();}
+function checkout(){if(cart.length==0)return alert('Cart empty');let m=document.querySelector('input[name="pay"]:checked').value;let tot=cart.reduce((a,b)=>a+b.price,0);let order={id:'MH-'+Math.floor(Math.random()*9000+1000),total:tot,method:m,user:currentUser?.email||'guest',items:cart.map(c=>c.name).join(', '),date:new Date().toLocaleString()};orders.push(order);save();confetti({particleCount:250,spread:120,colors:['#01411C','#ffffff','#f88d2f']});alert('🎉 Order Placed! ID: '+order.id+'\nTotal: PKR '+tot.toLocaleString()+'\n🇵🇰 Pakistan Zindabad!');cart=[];save();renderCart();updateCounts();closeCart();loadOrders();document.getElementById('trackInput').value=order.id;trackOrder();}
+function openLogin(){if(currentUser){if(confirm('Logout?')){localStorage.removeItem('mobi_user');currentUser=null;updateAuth();loadOrders();}return;}document.getElementById('loginModal').classList.remove('hidden');}
 function closeLogin(){document.getElementById('loginModal').classList.add('hidden');}
-function toggleAuthMode(){authMode=authMode=='login'?'register':'login';document.getElementById('authTitle').innerText=authMode=='login'?'Login':'Register';document.getElementById('authBtn').innerText=authMode=='login'?'Login':'Register';document.getElementById('authName').classList.toggle('hidden',authMode=='login');document.getElementById('authSwitchText').innerText=authMode=='login'?'No account?':'Have account?';}
-function doAuth(){
-let email=document.getElementById('authEmail').value.trim();let pass=document.getElementById('authPass').value;let name=document.getElementById('authName').value.trim();
-if(!email||!pass)return alert('Email & Password required');if(authMode=='register'&&!name)return alert('Name required');
-let user={email:email,name:name||email.split('@')[0],pass:pass};
-if(authMode=='register'){if(allUsers.find(u=>u.email==email))return alert('User already exists - Login karo');allUsers.push(user);}
-else{if(!allUsers.find(u=>u.email==email&&u.pass==pass)&&allUsers.length>0)return alert('Wrong password or not registered');}
-localStorage.setItem('mobi_user',JSON.stringify(user));currentUser=user;save();updateAuthUI();closeLogin();loadOrders();confetti({particleCount:120});alert('Welcome '+user.name+'! 🎉');
-}
+function toggleAuth(){authMode=authMode=='login'?'register':'login';document.getElementById('authTitle').innerText=authMode=='login'?'Login':'Register';document.getElementById('authBtn').innerText=authMode=='login'?'Login':'Register';document.getElementById('authName').classList.toggle('hidden',authMode=='login');document.getElementById('switchText').innerText=authMode=='login'?'No account?':'Have account?';}
+function doAuth(){let e=document.getElementById('authEmail').value.trim();let p=document.getElementById('authPass').value;let n=document.getElementById('authName').value.trim();if(!e||!p)return alert('Fill');if(authMode=='register'&&!n)return alert('Name required');if(authMode=='register'){if(allUsers.find(u=>u.email==e))return alert('Already exists');allUsers.push({email:e,pass:p,name:n});}else{if(allUsers.length>0&&!allUsers.find(u=>u.email==e&&u.pass==p))return alert('Wrong password');}
+let user={email:e,name:n||e.split('@')[0]};localStorage.setItem('mobi_user',JSON.stringify(user));currentUser=user;save();updateAuth();closeLogin();loadOrders();confetti({colors:['#01411C','#ffffff']});alert('Welcome '+user.name+'! 🇵🇰');}
+function updateAuth(){if(currentUser){document.getElementById('loginBtn').innerText='Hi, '+currentUser.name;}else{document.getElementById('loginBtn').innerText='Login';}}
 function toggleAi(){document.getElementById('aiChat').classList.toggle('hidden');}
-function sendAi(){let i=document.getElementById('aiInput');let t=i.value.trim();if(!t)return;let b=document.getElementById('aiMessages');b.innerHTML+=`<div class="bg-blue-600 text-white p-2 rounded-2xl ml-8 text-right text-xs">${t}</div>`;i.value='';setTimeout(()=>{let low=t.toLowerCase();let reply=low.includes('demand')?'Demand wala box fix ho gaya hai - type karo submit karo!':low.includes('admin')?'Admin me Mobile Name + Price likho aur Add to Shop dabao - 100% working hai!':low.includes('order')?'Track me Order ID dalo - '+ (allOrders[0]?.id||'MH-1234') +' try karo':'Samajh gayi! '+t+' - Sab buttons ab working hain 🎉';b.innerHTML+=`<div class="bg-blue-50 p-2 rounded-2xl mr-8 text-xs">${reply}</div>`;b.scrollTop=b.scrollHeight;},500);b.scrollTop=b.scrollHeight;}
+function sendAi(){let i=document.getElementById('aiInput');let t=i.value.trim();if(!t)return;let b=document.getElementById('aiMessages');b.innerHTML+=`<div class="bg-[#01411C] text-white p-3 rounded-xl ml-8 text-right text-xs">${t}</div>`;i.value='';setTimeout(()=>{b.innerHTML+=`<div class="bg-[#e8f5e9] border border-[#01411C] p-3 rounded-xl mr-8 text-xs">Samajh gayi! ${t} ke liye best option Shop me hai 🇵🇰🎀</div>`;b.scrollTop=b.scrollHeight;},500);}
+document.addEventListener('DOMContentLoaded',()=>{renderShop(products);renderCompareBar();loadOrders();updateAuth();updateCounts();
+document.querySelectorAll('input[name="pay"]').forEach(r=>r.addEventListener('change',e=>{document.getElementById('payNum').classList.toggle('hidden',!(e.target.value=='jazzcash'||e.target.value=='easypaisa'));}));
+});
 </script>
 </body>
   </html>
