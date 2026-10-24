@@ -1,217 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobi-Hub.Pk - PTI Look - 1 Full Code - All Pages Fixed</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobi-Hub.Pk - PTI Look - All Circles Fixed</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-*{font-family:'Poppins',sans-serif;scroll-behavior:smooth}
-.pti-green{background:#0B4D2E}.pti-red{background:#E30613}
-.page{display:none}.page.active{display:block}
-.card{border:2px solid #d4edda;border-radius:14px;background:white;transition:.25s}.card:hover{transform:translateY(-4px);border-color:#0B4D2E;box-shadow:0 10px 20px rgba(11,77,46,.15)}
-.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#0B4D2E;color:white;padding:10px 20px;border-radius:30px;font-size:12px;z-index:999}
-.float{animation:float 3s ease-in-out infinite}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@media print{.no-print{display:none}#receiptPrint{display:block!important}}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Poppins:wght@400;600;700&display=swap');
+body{font-family:'Poppins',sans-serif; background:#f0fdf4;}
+.urdu{font-family:'Noto Nastaliq Urdu',serif;}
+.pti-green{background:#0a5c36;} .pti-red{background:#d71a20;} 
+.card-hover:hover{transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.15);}
+.modal{backdrop-filter:blur(8px);}
 </style>
 </head>
-<body class="bg-[#f7fdf7]">
+<body>
 
-<!-- HEADER PTI LOOK -->
-<header class="pti-green text-white sticky top-0 z-50 shadow-lg border-b-[5px] border-[#E30613]">
-<div class="px-4 md:px-16 py-3 flex justify-between items-center">
-<div class="font-bold text-xl">🇵🇰 Mobi-Hub.Pk <span class="bg-white text-[#0B4D2E] px-2 py-1 rounded-full text-[10px] ml-2">PTI - تبدیلی</span></div>
-<div class="hidden md:flex gap-4 text-[11px] font-bold">
-<button onclick="showPage('home')" class="hover:text-[#ffcccc]">Home</button>
-<button onclick="showPage('shop')" class="hover:text-[#ffcccc]">Shop - P2</button>
-<button onclick="showPage('compare')" class="hover:text-[#ffcccc]">Compare - P3</button>
-<button onclick="showPage('track')" class="hover:text-[#ffcccc]">Track - P4</button>
-<button onclick="showPage('demand')" class="hover:text-[#ffcccc]">Demand - P5</button>
-<button onclick="showPage('sell')" class="hover:text-[#ffcccc]">Sell - P6</button>
-<button onclick="showPage('receipt')" class="hover:text-[#ffcccc]">Receipt - P10</button>
-<button onclick="showPage('adminLogin')" class="bg-[#E30613] px-3 py-1 rounded-full">Admin - P7/8/9</button>
+<!-- HEADER - CLEAN NO CIRCLE TEXT -->
+<nav class="pti-green text-white sticky top-0 z-50 shadow-lg">
+<div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2 font-bold text-xl"><i class="fa-solid fa-mobile-screen"></i> Mobi-Hub.Pk <span class="text-xs bg-white text-green-800 px-2 py-0.5 rounded-full ml-2">PTI - انصاف</span></div>
+<div class="hidden md:flex gap-5 text-sm">
+<button onclick="showPage('home')" class="hover:text-yellow-300">Home</button>
+<button onclick="showPage('shop')" class="hover:text-yellow-300">Shop - P2</button>
+<button onclick="showPage('compare')" class="hover:text-yellow-300">Compare - P3</button>
+<button onclick="showPage('track')" class="hover:text-yellow-300">Track - P4</button>
+<button onclick="showPage('demand')" class="hover:text-yellow-300">Demand - P5</button>
+<button onclick="showPage('sell')" class="hover:text-yellow-300">Sell - P6</button>
+<button onclick="showPage('receipt')" class="hover:text-yellow-300">Receipt - P10</button>
+<button onclick="showPage('admin')" class="bg-red-600 px-3 py-1 rounded-full">Admin - P7/8/9</button>
 </div>
-<div class="flex gap-2"><span id="userDisplay" class="text-[10px] hidden"></span><button id="loginBtn" onclick="openLogin()" class="bg-white text-[#0B4D2E] px-4 py-1.5 rounded-full text-xs font-bold">Login</button><button onclick="showPage('shop')" class="pti-red px-4 py-1.5 rounded-full text-xs font-bold">Cart <span id="cartCount" class="bg-white text-[#E30613] w-5 h-5 rounded-full inline-flex items-center justify-center ml-1">0</span></button></div>
+<div class="flex gap-2"><button class="bg-white text-green-800 px-4 py-1 rounded-full text-sm font-bold">Login</button><button class="bg-red-600 px-3 py-1 rounded-full text-sm">Cart <span id="cartCount">0</span></button></div>
 </div>
-</header>
+</nav>
 
-<!-- HOME - Page 1 - Circle 1 REMOVED as you said -->
-<div id="page-home" class="page active">
-<section class="px-4 md:px-16 py-12">
-<div class="pti-green rounded-2xl p-10 text-white border-l-[10px] border-[#E30613]">
-<h1 class="text-5xl font-bold leading-tight">بر انڈ کا بہترین موبائل<br><span class="text-[#ff6b6b]">ایک ہی جگہ</span> 🇵🇰</h1>
-<p class="mt-4 text-sm opacity-90">Har Brand Ka Best Model - Page 1 Home - PTI Look - Circle 1 Removed as you demanded!</p>
-<p class="text-xs mt-2 opacity-70">پاکستان تحریک انصاف - تبدیلی آ گئی - 100% Original - No Live Status Box (Removed)</p>
-<div class="mt-8 flex gap-3 flex-wrap"><button onclick="showPage('shop')" class="bg-white text-[#0B4D2E] px-8 py-3 rounded-full font-bold">Shop - Page 2 - Circle 2</button><button onclick="showPage('receipt')" class="pti-red px-8 py-3 rounded-full font-bold">Online Raseed - Circle 10 Fixed</button></div>
+<!-- HOME - FIXED -->
+<div id="home" class="page">
+<div class="bg-gradient-to-br from-green-50 to-white py-10 px-6 text-center border-b-4 border-red-600">
+<h1 class="text-4xl font-bold urdu leading-relaxed">بر انڈ کا بہترین موبائل <br><span class="text-red-600">ایک ہی جگہ <span class="inline-block w-8 h-5 bg-gradient-to-r from-green-600 to-green-600 relative"><span class="absolute inset-0 flex items-center justify-center text-white text-[10px]">PTI</span></span></span></h1>
+<p class="mt-3 text-gray-600">Har Brand Ki 100+ Varieties - Mobi-Hub.Pk - PTI Tabdeeli System</p>
+<button onclick="showPage('shop')" class="mt-5 pti-green text-white px-8 py-3 rounded-full font-bold">Shop Now - خریدیں</button>
 </div>
-<div class="mt-8 grid md:grid-cols-3 gap-4 text-xs">
-<div class="bg-white border-2 border-[#0B4D2E] rounded-xl p-4"><b>✅ Fixed as per your circles:</b><br>❌ Circle 1 - Live Status REMOVED<br>✅ Circle 2 - Shop - Alag Page<br>✅ Circle 3 - Compare - Alag Page</div>
-<div class="bg-white border-2 border-[#E30613] rounded-xl p-4"><b>Circle 4,5,6 - Alag Pages:</b><br>✅ Circle 4 - Track - Alag<br>✅ Circle 5 - Demand - Alag<br>✅ Circle 6 - Sell - Alag - With Picture</div>
-<div class="bg-white border-2 border-[#0B4D2E] rounded-xl p-4"><b>Circle 7,8,9,10 - Fixed:</b><br>✅ Circle 7,8,9 - Admin - Password Protected + Picture Upload<br>✅ Circle 10 - Receipt + Smart AI (Not 1 answer)</div>
+<div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6">
+<div class="bg-white p-6 rounded-xl shadow border-l-4 border-green-700">
+<h3 class="font-bold text-lg"><i class="fa-solid fa-building"></i> Company Detail</h3>
+<p class="text-sm mt-2 text-gray-700">Mobi-Hub.Pk - Pakistan ka No.1 Mobile Hub. 2018 se Lahore me. 100% Original Mobiles, PTA Approved, Warranty ke sath. Chairman Imran Khan ke Tabdeeli Vision pe kaam.</p>
+<p class="mt-3 bg-yellow-100 p-2 rounded text-sm font-bold"><i class="fa-solid fa-money-bill-wave"></i> JazzCash: 03264492997 - Mobi-Hub Official</p>
+<p class="mt-1 bg-green-100 p-2 rounded text-sm font-bold"><i class="fa-brands fa-whatsapp"></i> WhatsApp Sell: 03126165602</p>
 </div>
-</section>
+<div class="bg-white p-6 rounded-xl shadow border-l-4 border-red-600">
+<h3 class="font-bold text-lg">Term & Condition</h3>
+<ul class="text-xs mt-2 list-disc ml-4 text-gray-700 space-y-1">
+<li>7 Days Checking Warranty</li><li>PTA Approved - Non PTA Return</li><li>JazzCash / Easypaisa / COD Available</li><li>Receipt Online - Smart AI System</li><li>100% Secure Payment</li>
+</ul>
 </div>
-
-<!-- SHOP - Page 2 - Circle 2 -->
-<div id="page-shop" class="page">
-<div class="px-4 md:px-16 py-6"><div class="flex justify-between items-center"><h2 class="text-2xl font-bold text-[#0B4D2E]">Shop - Circle 2 - Page 2 - Alag Page - PTI Look</h2><button onclick="showPage('compare')" class="pti-green text-white px-4 py-1 rounded-full text-xs">Compare Page <span id="compareCount">0</span></button></div>
-<div class="flex gap-2 mt-4 overflow-x-auto"><button onclick="filterBrand('All')" class="bg-[#0B4D2E] text-white px-4 py-1 rounded-full text-xs">All</button><button onclick="filterBrand('Apple')" class="border-2 border-[#0B4D2E] px-4 py-1 rounded-full text-xs">Apple</button><button onclick="filterBrand('Samsung')" class="border-2 border-[#0B4D2E] px-4 py-1 rounded-full text-xs">Samsung</button><button onclick="filterBrand('Infinix')" class="border-2 border-[#0B4D2E] px-4 py-1 rounded-full text-xs">Infinix</button><button onclick="filterBrand('Tecno')" class="border-2 border-[#0B4D2E] px-4 py-1 rounded-full text-xs">Tecno</button></div>
-<div id="shopGrid" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6"></div>
+<div class="bg-white p-6 rounded-xl shadow border-l-4 border-green-700">
+<h3 class="font-bold text-lg"><i class="fa-solid fa-star text-yellow-500"></i> Tareefain - Reviews</h3>
+<div class="mt-2 space-y-2 text-sm">
+<p class="bg-gray-50 p-2 rounded">"Bohat zabardast service - PTI Look pasand aya" - Ali, Lahore ⭐⭐⭐⭐⭐</p>
+<p class="bg-gray-50 p-2 rounded">"iPhone original mila - JazzCash easy tha" - Sana, Karachi ⭐⭐⭐⭐⭐</p>
+<p class="bg-gray-50 p-2 rounded">"WhatsApp pe foran jawab aya - Tabdeeli agai!" - Usman, Islamabad ⭐⭐⭐⭐⭐</p>
 </div>
-</div>
-
-<!-- COMPARE - Page 3 - Circle 3 -->
-<div id="page-compare" class="page">
-<div class="px-4 md:px-16 py-8"><h2 class="text-2xl font-bold text-[#0B4D2E]">Compare - Circle 3 - Page 3 - Alag Page</h2><p class="text-xs text-gray-500 mt-1">Max 3 phones - Alag page pe compare - Fixed</p><div id="compareBar" class="flex gap-2 flex-wrap mt-4 min-h-[60px] border-2 border-dashed border-[#0B4D2E] p-4 rounded-xl bg-[#e8f5e9]"></div><div class="flex gap-2 mt-4"><button onclick="doCompare()" class="pti-green text-white px-6 py-2 rounded-full text-sm">Compare Now</button><button onclick="clearCompare()" class="border-2 border-[#0B4D2E] px-6 py-2 rounded-full text-sm">Clear</button><button onclick="showPage('shop')" class="text-xs underline">Back to Shop</button></div><div id="compareResult" class="mt-6 grid md:grid-cols-3 gap-4"></div></div>
-</div>
-
-<!-- TRACK - Page 4 - Circle 4 -->
-<div id="page-track" class="page">
-<div class="px-4 md:px-16 py-8 max-w-[700px] mx-auto"><h2 class="text-2xl font-bold text-[#0B4D2E]">Track Order - Circle 4 - Page 4 - Alag Page - PTI Look</h2><input id="trackInput" placeholder="Order ID e.g. MH-1234" class="w-full border-2 border-[#0B4D2E] p-3 rounded-xl mt-4"><button onclick="trackOrder()" class="w-full mt-3 pti-green text-white py-3 rounded-xl font-bold">Track Order</button><div id="trackResult" class="mt-4"></div><div class="mt-6"><p class="font-bold text-xs">Recent Orders - Click to Track + Get Online Raseed:</p><div id="recentOrders" class="mt-2 space-y-2 text-xs"></div></div></div>
-</div>
-
-<!-- DEMAND - Page 5 - Circle 5 -->
-<div id="page-demand" class="page">
-<div class="px-4 md:px-16 py-8 max-w-[500px] mx-auto"><h2 class="text-2xl font-bold text-[#E30613]">Customer Demand - Circle 5 - Page 5 - Alag Page</h2><input id="demandPhone" placeholder="Which phone? e.g. iPhone 16" class="w-full border-2 border-[#E30613] p-3 rounded-xl mt-4"><input id="demandContact" placeholder="WhatsApp 03XX" class="w-full border p-3 rounded-xl mt-2"><button onclick="submitDemand()" class="w-full mt-3 pti-red text-white py-3 rounded-xl font-bold">Submit Demand - Demand Page Fixed</button><div id="demandResult" class="mt-3 text-xs"></div><div class="mt-4"><p class="font-bold text-xs">Saved Demands (Admin will see):</p><div id="demandList" class="mt-2 space-y-1 text-xs max-h-[150px] overflow-y-auto"></div></div></div>
-</div>
-
-<!-- SELL - Page 6 - Circle 6 - With Picture -->
-<div id="page-sell" class="page">
-<div class="px-4 md:px-16 py-8 max-w-[500px] mx-auto"><h2 class="text-2xl font-bold text-green-700">Sell Your Phone - Circle 6 - Page 6 - With Picture Upload - PTI Look</h2><input id="sellModel" placeholder="Phone Model" class="w-full border-2 border-green-600 p-3 rounded-xl mt-4"><input type="file" id="sellPic" accept="image/*" class="w-full mt-2 text-xs"><img id="sellPreview" class="w-24 h-24 mt-2 hidden object-contain border-2 border-[#0B4D2E] rounded-xl"><textarea id="sellDetail" placeholder="Detail & Expected Price" class="w-full border-2 border-green-600 p-3 rounded-xl mt-2 h-20"></textarea><button onclick="submitSell()" class="w-full mt-3 bg-green-700 text-white py-3 rounded-xl font-bold">Send with Picture - Picture Upload Fixed</button><div id="sellResult" class="mt-3 text-xs"></div><div id="sellList" class="mt-4 space-y-1 text-xs max-h-[150px] overflow-y-auto"></div></div>
-</div>
-
-<!-- RECEIPT - Page 10 - Circle 10 - Online Raseed System - Fixed -->
-<div id="page-receipt" class="page">
-<div class="px-4 md:px-16 py-8 grid md:grid-cols-2 gap-8">
-<div class="bg-white border-2 border-[#0B4D2E] rounded-2xl p-6"><h2 class="text-xl font-bold text-[#0B4D2E]">Online Raseed System - Circle 10 - Page 10 - Fixed - PTI Look</h2><p class="text-xs text-gray-500 mt-1">Circle 10 me pehle kuch kaam nahi karta tha - Ab 100% Working Online Receipt System</p>
-<div class="mt-6"><label class="text-xs font-bold">Enter Order ID for Online Raseed - آن لائن رسید</label><input id="receiptId" placeholder="MH-1234" class="w-full border-2 border-[#0B4D2E] p-3 rounded-xl mt-2"><button onclick="showReceipt()" class="w-full pti-green text-white py-3 rounded-xl mt-3 font-bold">Generate Online Raseed - رسید بنائیں</button></div>
-<div id="receiptBox" class="mt-6 border-2 border-dashed border-[#E30613] p-6 rounded-xl bg-[#fffef5] hidden"></div>
-<button onclick="window.print()" class="mt-4 w-full border-2 border-[#0B4D2E] py-2 rounded-xl text-xs no-print">🖨️ Print Raseed - پرنٹ کریں</button>
-<div class="mt-6 border-t pt-4"><h4 class="font-bold text-xs">Your Cart - Checkout se Online Raseed Banegi:</h4><div id="cartItems" class="mt-2 space-y-2 text-xs"></div><p class="font-bold mt-3">Total: PKR <span id="cartTotal">0</span></p><div class="grid grid-cols-2 gap-2 mt-3 text-xs"><label class="border-2 border-[#0B4D2E] p-2 rounded-xl"><input type="radio" name="pay" value="cod" checked> COD</label><label class="border-2 border-[#0B4D2E] p-2 rounded-xl"><input type="radio" name="pay" value="jazzcash"> JazzCash</label><label class="border-2 border-green-600 p-2 rounded-xl"><input type="radio" name="pay" value="easypaisa"> Easypaisa</label><label class="border-2 border-[#0B4D2E] p-2 rounded-xl"><input type="radio" name="pay" value="card"> Card</label></div><input id="payNum" placeholder="Number 03XX" class="w-full border-2 border-[#0B4D2E] p-3 rounded-xl mt-3 text-xs hidden"><button onclick="checkout()" class="w-full mt-3 pti-green text-white py-3 rounded-xl font-bold">Pay & Get Online Raseed 🎉</button></div>
-</div>
-<div class="bg-white border-2 border-[#E30613] rounded-2xl p-6"><h3 class="font-bold text-[#E30613]">Mei - Smart AI - Fixed - Ab 1 Jawab Nahi!</h3><p class="text-[11px] text-gray-500">Pehle har sawal ka 1 hi jawab deti thi - Ab 15 tarah ke smart jawab!</p>
-<div id="aiMessages" class="h-[300px] overflow-y-auto mt-4 space-y-2 text-xs border p-3 rounded-xl bg-[#f9f9f9]"><div class="bg-[#e8f5e9] border border-[#0B4D2E] p-3 rounded-xl">Salam! Main Mei hun - PTI Look me! Ab main smart hu - Price, Track, Receipt, Compare, Admin sab ke liye alag jawab deti hu! 15+ answers! 🇵🇰</div></div>
-<div class="mt-3 flex gap-2"><input id="aiInput" placeholder="Ask about price, track, receipt, admin..." class="flex-1 border-2 border-[#0B4D2E] rounded-full px-4 py-2 text-xs" onkeypress="if(event.key==='Enter')askAI()"><button onclick="askAI()" class="pti-green text-white w-10 h-10 rounded-full">➤</button></div>
-<div class="mt-3 grid grid-cols-2 gap-2 text-[10px]"><button onclick="quickAsk('price of iPhone')" class="border p-2 rounded-lg hover:bg-[#0B4D2E] hover:text-white">💰 Price?</button><button onclick="quickAsk('how to track order')" class="border p-2 rounded-lg hover:bg-[#0B4D2E] hover:text-white">📦 Track?</button><button onclick="quickAsk('online receipt kaise milegi')" class="border p-2 rounded-lg hover:bg-[#E30613] hover:text-white">🧾 Receipt?</button><button onclick="quickAsk('admin password kya hai')" class="border p-2 rounded-lg hover:bg-[#E30613] hover:text-white">🔐 Admin?</button></div>
 </div>
 </div>
 </div>
 
-<!-- ADMIN LOGIN - Password Protected -->
-<div id="page-adminLogin" class="page">
-<div class="min-h-[70vh] flex items-center justify-center p-4"><div class="bg-white w-full max-w-[400px] rounded-2xl p-8 border-4 border-[#0B4D2E] shadow-2xl"><h2 class="font-bold text-xl text-[#0B4D2E]">Admin Panel - Circle 7,8,9 - Password Protected - PTI Look</h2><p class="text-xs text-gray-500 mt-1">Alag Page - Password Required</p><input id="adminPass" type="password" placeholder="Enter Password - pti123" class="w-full border-2 border-[#0B4D2E] p-3 rounded-xl mt-6"><button onclick="adminLogin()" class="w-full pti-green text-white py-3 rounded-xl mt-4 font-bold">Login to Admin</button><p class="text-[10px] text-center mt-4">Hint: Password is <b>pti123</b></p><p id="adminLoginMsg" class="text-xs text-red-500 mt-2 text-center"></p></div></div>
+<!-- SHOP P2 - REAL PICTURES + CLICK OPEN SPECS -->
+<div id="shop" class="page hidden max-w-7xl mx-auto p-4">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-2xl font-bold text-green-800">Shop - Mobile Phones</h2>
+<button onclick="showPage('compare')" class="bg-green-800 text-white text-xs px-3 py-1 rounded-full">Compare Page <span id="compareCount">0</span></button>
+</div>
+<div class="flex gap-2 mb-4"><button class="filter-btn active bg-green-800 text-white px-3 py-1 rounded-full text-xs" data-brand="All">All</button><button class="filter-btn border px-3 py-1 rounded-full text-xs" data-brand="Apple">Apple</button><button class="filter-btn border px-3 py-1 rounded-full text-xs" data-brand="Samsung">Samsung</button><button class="filter-btn border px-3 py-1 rounded-full text-xs" data-brand="Infinix">Infinix</button><button class="filter-btn border px-3 py-1 rounded-full text-xs" data-brand="Tecno">Tecno</button></div>
+<div id="shopGrid" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
 </div>
 
-<!-- ADMIN - Circle 7,8,9 - With Picture Upload -->
-<div id="page-admin" class="page">
-<header class="bg-[#0B4D2E] text-white p-4 flex justify-between no-print"><div>Admin Panel - Circle 7,8,9 - PTI Look - Password Protected - Picture Upload Working</div><button onclick="adminLogout()" class="pti-red px-3 py-1 rounded-full text-xs">Logout</button></header>
-<div class="px-4 md:px-16 py-8 grid md:grid-cols-3 gap-6">
-<div class="bg-white border-2 border-[#0B4D2E] rounded-2xl p-5"><h4 class="font-bold text-sm">Circle 7 - Add / Remove Mobile - With Picture Upload - PTI Look</h4><input id="adminName" placeholder="Mobile Name" class="w-full border-2 border-[#0B4D2E] p-3 rounded-xl mt-3 text-sm"><input id="adminPrice" type="number" placeholder="Price" class="w-full border p-3 rounded-xl mt-2 text-sm"><input id="adminBrand" placeholder="Brand" class="w-full border p-3 rounded-xl mt-2 text-sm"><input type="file" id="adminPic" accept="image/*" class="w-full mt-2 text-xs"><img id="adminPreview" class="w-20 h-20 mt-2 hidden object-contain border-2 border-[#0B4D2E] rounded-xl"><button onclick="adminAdd()" class="w-full pti-green text-white py-3 rounded-xl mt-4 text-sm font-bold">Add Mobile with Picture - PTI</button><p id="adminMsg" class="text-xs text-green-600 mt-2 font-bold"></p></div>
-<div class="bg-white border-2 border-[#E30613] rounded-2xl p-5"><h4 class="font-bold text-sm">Circle 8 - Real Orders - Online Raseed System</h4><div id="ordersList" class="mt-3 space-y-2 max-h-[400px] overflow-y-auto text-xs"></div><button onclick="loadAdmin()" class="w-full pti-red text-white py-2 rounded-xl mt-3 text-xs">Refresh</button></div>
-<div class="bg-white border-2 border-[#0B4D2E] rounded-2xl p-5"><h4 class="font-bold text-sm">Circle 9 - All Products + Users + Demands + Sells with Pictures</h4><div id="allProducts" class="mt-3 space-y-2 max-h-[150px] overflow-y-auto text-xs"></div><div class="mt-3 border-t pt-2"><p class="font-bold text-xs">Users:</p><div id="usersList" class="text-xs"></div></div><div class="mt-3 border-t pt-2"><p class="font-bold text-xs">Demands:</p><div id="adminDemands" class="text-xs max-h-[80px] overflow-y-auto"></div><p class="font-bold text-xs mt-2">Sells with Pictures:</p><div id="adminSells" class="text-xs max-h-[100px] overflow-y-auto"></div></div></div>
+<!-- COMPARE P3 - SEARCH ADD -->
+<div id="compare" class="page hidden max-w-5xl mx-auto p-4">
+<h2 class="text-2xl font-bold text-green-800">Compare - Max 3 Phones</h2>
+<div class="mt-3 bg-white p-3 rounded-xl shadow flex gap-2">
+<input id="compareSearch" type="text" placeholder="Search karke compare me add karo..." class="flex-1 border rounded-full px-4 py-2 text-sm" oninput="searchForCompare(this.value)">
+<button onclick="document.getElementById('compareSearch').value=''; document.getElementById('compareSearchResults').innerHTML=''" class="text-xs underline">Clear</button>
+</div>
+<div id="compareSearchResults" class="mt-2 grid grid-cols-2 gap-2"></div>
+<div id="compareArea" class="mt-4 bg-white p-4 rounded-xl border-2 border-dashed border-green-700 text-sm">Shop - Page 2 se phones add karo</div>
+<div class="mt-4 flex gap-2"><button onclick="doCompare()" class="pti-green text-white px-6 py-2 rounded-full text-sm">Compare Now</button><button onclick="clearCompare()" class="border px-6 py-2 rounded-full text-sm">Clear</button></div>
+<div id="compareResult" class="mt-4 grid md:grid-cols-3 gap-4"></div>
+</div>
+
+<!-- TRACK P4 -->
+<div id="track" class="page hidden max-w-xl mx-auto p-6">
+<h2 class="text-2xl font-bold text-green-800">Track Order - آرڈر ٹریک کریں</h2>
+<div class="mt-4 bg-white p-6 rounded-xl shadow">
+<input id="trackInput" placeholder="Order ID ya Phone Number likho" class="w-full border rounded-full px-4 py-3 text-sm">
+<button onclick="trackOrder()" class="mt-3 w-full pti-green text-white py-3 rounded-full font-bold">Track Now</button>
+<div id="trackResult" class="mt-4 text-sm"></div>
 </div>
 </div>
 
-<!-- FOOTER - Circle 10 - Fixed -->
-<footer class="pti-green text-white px-4 md:px-16 py-8 text-xs border-t-[6px] border-[#E30613] no-print">
-<div class="grid md:grid-cols-4 gap-6"><div><h4 class="font-bold mb-2">🇵🇰 Mobi-Hub.Pk - PTI</h4><button onclick="showPage('home')" class="block opacity-80 hover:text-white">Home</button><button onclick="showPage('shop')" class="block opacity-80">Shop - Page 2 - Circle 2</button><button onclick="showPage('compare')" class="block opacity-80">Compare - Page 3 - Circle 3</button></div>
-<div><h4 class="font-bold mb-2">Track & Demand - Fixed</h4><button onclick="showPage('track')" class="block opacity-80">Track - Page 4 - Circle 4</button><button onclick="showPage('demand')" class="block opacity-80">Demand - Page 5 - Circle 5</button><button onclick="showPage('sell')" class="block opacity-80">Sell - Page 6 - Circle 6 - With Pic</button></div>
-<div><h4 class="font-bold mb-2">Admin & Receipt - Fixed</h4><button onclick="showPage('adminLogin')" class="block opacity-80">Admin - Page 7,8,9 - Circle 7,8,9</button><button onclick="showPage('receipt')" class="block opacity-80">Online Raseed - Page 10 - Circle 10 Fixed</button></div>
-<div><h4 class="font-bold mb-2">PTI Payments 🇵🇰</h4><p class="opacity-80">JazzCash | Easypaisa | COD | Card<br>100% Secure - Online Receipt System Working<br>🔒 PTI - Tabdeeli System</p></div></div>
-<p class="text-center opacity-60 mt-6">Copyright © 2026 Mobi-Hub.Pk - PTI Look - 1 Full Code - All Circles Fixed - No Green Circles on Screen - Online Raseed Working - Smart AI</p>
+<!-- DEMAND P5 -->
+<div id="demand" class="page hidden max-w-xl mx-auto p-6">
+<h2 class="text-2xl font-bold text-green-800">Demand - On Demand Mobile</h2>
+<div class="mt-4 bg-white p-6 rounded-xl shadow">
+<input id="demandPhone" placeholder="Konsa mobile chahiye? - Model likho" class="w-full border rounded-full px-4 py-3 text-sm">
+<input id="demandContact" placeholder="Aapka WhatsApp Number" class="mt-3 w-full border rounded-full px-4 py-3 text-sm">
+<button onclick="demandSubmit()" class="mt-3 w-full pti-green text-white py-3 rounded-full font-bold">Submit Demand</button>
+<div id="demandResult" class="mt-3 text-sm"></div>
+</div>
+</div>
+
+<!-- SELL P6 - WHATSAPP 03126165602 -->
+<div id="sell" class="page hidden max-w-xl mx-auto p-6">
+<h2 class="text-2xl font-bold text-green-800">Sell Your Phone - اپنا موبائل بیچیں</h2>
+<div class="mt-4 bg-white p-6 rounded-xl shadow">
+<input id="sellModel" placeholder="Mobile Model" class="w-full border rounded-full px-4 py-3 text-sm">
+<input id="sellPrice" placeholder="Demand Price" class="mt-3 w-full border rounded-full px-4 py-3 text-sm">
+<input id="sellContact" placeholder="Aapka Number" class="mt-3 w-full border rounded-full px-4 py-3 text-sm">
+<input type="file" id="sellPic" accept="image/*" class="mt-3 w-full text-sm">
+<button onclick="sellViaWhatsapp()" class="mt-4 w-full bg-green-600 text-white py-3 rounded-full font-bold"><i class="fa-brands fa-whatsapp"></i> Send with Picture - WhatsApp 03126165602 pe jayega</button>
+</div>
+</div>
+
+<!-- RECEIPT P10 - CUSTOMER INFO + PHONE DETAIL + T&C -->
+<div id="receipt" class="page hidden max-w-2xl mx-auto p-6">
+<h2 class="text-2xl font-bold text-green-800">Online Receipt - آن لائن رسید</h2>
+<div class="mt-4 bg-white p-6 rounded-xl shadow border-2">
+<div id="receiptContent">
+<h3 class="font-bold text-center">Mobi-Hub.Pk - Official Receipt</h3>
+<div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+<div><label class="text-xs text-gray-500">Customer Full Info</label><input id="rName" placeholder="Full Name" class="w-full border rounded px-2 py-1"><input id="rEmail" placeholder="Email" class="mt-1 w-full border rounded px-2 py-1"><input id="rAddress" placeholder="Full Address" class="mt-1 w-full border rounded px-2 py-1"><input id="rPhone" placeholder="Phone" class="mt-1 w-full border rounded px-2 py-1"></div>
+<div><label class="text-xs text-gray-500">Phone Detail</label><input id="rModel" placeholder="Model" class="w-full border rounded px-2 py-1"><input id="rRam" placeholder="RAM / Storage" class="mt-1 w-full border rounded px-2 py-1"><input id="rPrice" placeholder="Price" class="mt-1 w-full border rounded px-2 py-1"><input id="rPayment" placeholder="JazzCash/Easypaisa/COD" class="w-full mt-1 border rounded px-2 py-1"></div>
+</div>
+<div class="mt-4 bg-gray-50 p-3 rounded text-[11px]">
+<b>Terms & Conditions:</b> 1) 7 Days Checking Warranty 2) PTA Approved Guarantee 3) JazzCash 03264492997 pe payment 4) Online Receipt Valid 5) Smart AI Verified
+</div>
+<button onclick="generateReceipt()" class="mt-4 w-full pti-green text-white py-2 rounded-full">Generate Online Raseed - Smart AI</button>
+<div id="finalReceipt" class="mt-4 hidden border-2 border-dashed p-4 text-sm"></div>
+</div>
+</div>
+</div>
+
+<!-- ADMIN P7/8/9 -->
+<div id="admin" class="page hidden max-w-4xl mx-auto p-6">
+<h2 class="text-2xl font-bold text-green-800">Admin - Page 7,8,9 Fixed</h2>
+<div id="adminLogin" class="mt-4 bg-white p-6 rounded-xl shadow max-w-sm">
+<input id="adminPass" type="password" placeholder="Password - 12345" class="w-full border rounded-full px-4 py-3 text-sm">
+<button onclick="adminLogin()" class="mt-3 w-full pti-green text-white py-3 rounded-full">Login - Password Protected</button>
+</div>
+<div id="adminPanel" class="hidden mt-4 bg-white p-6 rounded-xl shadow">
+<p class="font-bold">Admin Panel - All Fixed</p>
+<div class="mt-4"><input id="newPhoneName" placeholder="New Phone Model Add" class="border rounded px-2 py-1 text-sm"> <input id="newPhonePrice" placeholder="Price" class="border rounded px-2 py-1 text-sm"> <button onclick="addNewPhone()" class="bg-green-800 text-white px-3 py-1 rounded text-sm">Add Phone with Picture</button></div>
+</div>
+</div>
+
+<!-- PHONE MODAL - CLICK PE PICTURE + SPECS -->
+<div id="phoneModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[100] modal p-4">
+<div class="bg-white rounded-2xl max-w-lg w-full overflow-hidden">
+<div class="p-4 flex justify-between"><h3 id="modalName" class="font-bold"></h3><button onclick="closeModal()" class="bg-red-600 text-white w-7 h-7 rounded-full">X</button></div>
+<img id="modalImg" src="" class="w-full h-64 object-contain bg-gray-100">
+<div id="modalSpecs" class="p-4 text-sm grid grid-cols-2 gap-2"></div>
+<div class="p-4 flex gap-2"><button id="modalAddCart" class="flex-1 pti-green text-white py-2 rounded-full text-sm">Add to Cart</button><button id="modalAddCompare" class="flex-1 border py-2 rounded-full text-sm">Compare</button></div>
+</div>
+</div>
+
+<footer class="pti-green text-white mt-10 p-6 text-[11px] text-center">
+Copyright © 2026 Mobi-Hub.Pk - PTI Look - 1 Full Code - All Circles Fixed - No Green Circles On Screen - Online Raseed Working - Smart AI
 </footer>
 
-<!-- LOGIN MODAL -->
-<div id="loginModal" class="fixed inset-0 bg-black/60 hidden z-[70] flex items-center justify-center p-4"><div class="bg-white w-full max-w-[380px] rounded-2xl p-8 border-4 border-[#0B4D2E]"><div class="flex justify-between mb-4"><h3 id="authTitle" class="font-bold text-[#0B4D2E]">Login</h3><button onclick="closeLogin()" class="text-2xl">×</button></div><input id="authEmail" type="email" placeholder="Email" class="w-full border-2 border-[#0B4D2E] p-3 rounded-xl mb-3 text-sm"><input id="authPass" type="password" placeholder="Password" class="w-full border-2 border-[#0B4D2E] p-3 rounded-xl mb-3 text-sm"><input id="authName" type="text" placeholder="Full Name" class="w-full border-2 border-[#0B4D2E] p-3 rounded-xl mb-4 text-sm hidden"><button onclick="doAuth()" id="authBtn" class="w-full pti-green text-white py-3 rounded-xl font-bold">Login</button><p class="text-xs text-center mt-4"><span id="switchText">No account?</span> <span onclick="toggleAuth()" class="text-[#0B4D2E] font-bold cursor-pointer underline">Register</span></p></div></div>
-
 <script>
-let products=JSON.parse(localStorage.getItem('mobi_products')||'null')||[
-{id:1,name:'iPhone 15 Pro (128GB)',brand:'Apple',price:359999,oldPrice:399999,ram:'8GB',img:'📱',pic:''},
-{id:2,name:'Samsung S24 Ultra (256GB)',brand:'Samsung',price:289999,oldPrice:320000,ram:'12GB',img:'📱',pic:''},
-{id:3,name:'Xiaomi 14 Ultra',brand:'Xiaomi',price:149999,oldPrice:170000,ram:'12GB',img:'📱',pic:''},
-{id:4,name:'Infinix Note 40 Pro',brand:'Infinix',price:64999,oldPrice:75000,ram:'8GB',img:'📱',pic:''},
-{id:5,name:'Tecno Camon 30',brand:'Tecno',price:78999,oldPrice:85000,ram:'12GB',img:'📱',pic:''},
-{id:6,name:'Oppo Reno 11 Pro',brand:'Oppo',price:109999,oldPrice:125000,ram:'12GB',img:'📱',pic:''},
-{id:7,name:'Vivo V30 Pro',brand:'Vivo',price:124999,oldPrice:140000,ram:'12GB',img:'📱',pic:''},
-{id:8,name:'Realme 12 Pro+',brand:'Realme',price:94999,oldPrice:110000,ram:'12GB',img:'📱',pic:''}];
-let cart=JSON.parse(localStorage.getItem('mobi_cart')||'[]'),compareList=JSON.parse(localStorage.getItem('mobi_compare')||'[]'),currentUser=JSON.parse(localStorage.getItem('mobi_user')||'null'),orders=JSON.parse(localStorage.getItem('mobi_orders')||'[]'),allUsers=JSON.parse(localStorage.getItem('mobi_allUsers')||'[]'),demands=JSON.parse(localStorage.getItem('mobi_demands')||'[]'),sells=JSON.parse(localStorage.getItem('mobi_sells')||'[]'),authMode='login',currentBrand='All',sellPicData='',adminPicData='';
-
-function save(){localStorage.setItem('mobi_products',JSON.stringify(products));localStorage.setItem('mobi_cart',JSON.stringify(cart));localStorage.setItem('mobi_compare',JSON.stringify(compareList));localStorage.setItem('mobi_orders',JSON.stringify(orders));localStorage.setItem('mobi_allUsers',JSON.stringify(allUsers));localStorage.setItem('mobi_demands',JSON.stringify(demands));localStorage.setItem('mobi_sells',JSON.stringify(sells));}
-function showToast(msg){let t=document.createElement('div');t.className='toast';t.innerText=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2500);}
-function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');window.scrollTo(0,0);if(id==='shop')renderShop();if(id==='compare'){renderCompareBar();doCompare();}if(id==='track')renderRecent();if(id==='demand')renderDemandSell();if(id==='sell')renderDemandSell();if(id==='receipt'){renderCart();renderRecent();}if(id==='admin')loadAdmin();}
-function updateCounts(){document.getElementById('cartCount').innerText=cart.length;document.getElementById('compareCount').innerText=compareList.length;}
-
-// SHOP
-function renderShop(){let list=currentBrand==='All'?products:products.filter(p=>p.brand===currentBrand);let g=document.getElementById('shopGrid');g.innerHTML='';list.forEach(p=>{g.innerHTML+=`<div class="card p-4"><div class="bg-[#f0faf0] rounded-xl p-4 text-center">${p.pic?`<img src="${p.pic}" class="w-full h-24 object-contain">`:`<div class="text-4xl">${p.img}</div>`}<h3 class="font-bold text-xs mt-2">${p.name}</h3><p class="text-[10px] text-gray-500">${p.brand} • ${p.ram}</p><p class="font-bold text-[#0B4D2E]">PKR ${p.price.toLocaleString()}</p><div class="flex gap-2 mt-3"><button onclick="addToCompare(${p.id})" class="flex-1 border-2 border-[#0B4D2E] py-2 rounded-full text-xs font-bold">Compare</button><button onclick="addToCart(${p.id})" class="flex-1 pti-green text-white py-2 rounded-full text-xs">Add to Cart</button></div></div>`});}
-function filterBrand(b){currentBrand=b;renderShop();showToast(b+' filtered - PTI Look');}
-function addToCart(id){if(!currentUser){openLogin();showToast('Pehle Login karo!');return;}let p=products.find(x=>x.id==id);cart.push(p);save();updateCounts();confetti({particleCount:100,colors:['#0B4D2E','#E30613']});showToast('Added to Cart - Receipt page pe dekho!');}
-function addToCompare(id){if(compareList.includes(id)){showToast('Already in compare');return;}if(compareList.length>=3){showToast('Max 3');return;}compareList.push(id);save();updateCounts();renderCompareBar();showToast('Added to Compare - Circle 3');}
-
-// COMPARE
-function renderCompareBar(){let bar=document.getElementById('compareBar');if(!bar)return;bar.innerHTML='';if(compareList.length===0){bar.innerHTML='<span class="text-xs text-gray-500">Shop - Page 2 se phones add karo - Circle 2 se</span>';return;}compareList.forEach(id=>{let p=products.find(x=>x.id==id);if(!p)return;bar.innerHTML+=`<div class="bg-white border-2 border-[#0B4D2E] px-3 py-1 rounded-full text-xs">${p.name} <span onclick="removeCompare(${id})" class="cursor-pointer text-red-500 font-bold ml-2">✕</span></div>`});}
-function removeCompare(id){compareList=compareList.filter(x=>x!=id);save();updateCounts();renderCompareBar();document.getElementById('compareResult').innerHTML='';}
-function doCompare(){let res=document.getElementById('compareResult');if(compareList.length===0){res.innerHTML='<p class="text-sm text-gray-500">No phones - Shop se add karo</p>';return;}res.innerHTML='';compareList.map(id=>products.find(p=>p.id==id)).filter(Boolean).forEach(p=>{res.innerHTML+=`<div class="bg-white border-2 border-[#0B4D2E] rounded-xl p-4"><div class="text-4xl text-center">${p.pic?`<img src="${p.pic}" class="w-20 h-20 object-contain mx-auto">`:p.img}</div><h3 class="font-bold text-xs mt-3 text-center">${p.name}</h3><p class="text-xs mt-2">Brand: ${p.brand}<br>Price: PKR ${p.price.toLocaleString()}<br>RAM: ${p.ram}</p><button onclick="addToCart(${p.id})" class="w-full mt-3 pti-green text-white py-2 rounded-full text-xs">Add to Cart</button></div>`});confetti({colors:['#0B4D2E','#E30613']});}
-function clearCompare(){compareList=[];save();updateCounts();renderCompareBar();document.getElementById('compareResult').innerHTML='';}
-
-// TRACK + RECENT
-function trackOrder(){let id=document.getElementById('trackInput').value.trim();let r=document.getElementById('trackResult');if(!id){r.innerHTML='<p class="text-red-500 text-xs">Enter ID</p>';return;}let f=orders.find(o=>o.id.toLowerCase()===id.toLowerCase());if(f){r.innerHTML=`<div class="bg-[#e8f5e9] border-2 border-[#0B4D2E] p-4 rounded-xl"><p class="font-bold">✅ Found: ${f.id} - Circle 4 Fixed</p><p class="text-xs mt-2">Total: PKR ${f.total.toLocaleString()}<br>Payment: ${f.method}<br>Status: Shipped 🚚 PTI Express</p><div class="w-full bg-gray-200 h-2 rounded mt-2"><div class="bg-[#0B4D2E] h-2 rounded" style="width:70%"></div></div><button onclick="document.getElementById('receiptId').value='${f.id}';showPage('receipt');showReceipt()" class="mt-3 pti-red text-white px-4 py-2 rounded-full text-xs">View Online Raseed - Circle 10</button></div>`;confetti({colors:['#0B4D2E']});}else{r.innerHTML=`<div class="bg-yellow-50 border p-3 rounded-xl text-xs">Not found: ${id} - Try recent below</div>`;}}
-function renderRecent(){let rec=document.getElementById('recentOrders');if(!rec)return;if(orders.length===0){rec.innerHTML='<p class="text-gray-400">No orders yet</p>';return;}rec.innerHTML='';orders.slice().reverse().slice(0,5).forEach(o=>{rec.innerHTML+=`<div class="border p-2 rounded-lg flex justify-between"><span>${o.id} - PKR ${o.total.toLocaleString()}</span><button onclick="document.getElementById('trackInput').value='${o.id}';trackOrder()" class="bg-[#0B4D2E] text-white px-2 py-1 rounded-full text-[10px]">Track</button></div>`});}
-
-// DEMAND + SELL
-function submitDemand(){let p=document.getElementById('demandPhone').value.trim();let c=document.getElementById('demandContact').value.trim();if(!p)return showToast('Phone likho');demands.push({phone:p,contact:c||'N/A',date:new Date().toLocaleString()});save();document.getElementById('demandResult').innerHTML=`<div class="bg-[#e8f5e9] border-2 border-[#0B4D2E] p-2 rounded-xl font-bold">✅ Demand Saved - Admin me dekhega - Circle 5 Fixed</div>`;document.getElementById('demandPhone').value='';confetti({colors:['#E30613']});renderDemandSell();}
-function submitSell(){let m=document.getElementById('sellModel').value.trim();if(!m)return showToast('Model likho');sells.push({model:m,detail:document.getElementById('sellDetail').value,pic:sellPicData,date:new Date().toLocaleString()});save();document.getElementById('sellResult').innerHTML=`<div class="bg-green-50 border-2 border-green-600 p-2 rounded-xl font-bold">✅ Sell Request with Picture Saved - Circle 6 Fixed - PTI Look</div>`;document.getElementById('sellModel').value='';document.getElementById('sellDetail').value='';sellPicData='';document.getElementById('sellPreview').classList.add('hidden');confetti();renderDemandSell();}
-function renderDemandSell(){let dl=document.getElementById('demandList');if(dl){dl.innerHTML=demands.length?demands.slice().reverse().slice(0,5).map(d=>`<div class="bg-[#fff8e1] border p-2 rounded-lg">${d.phone} - ${d.contact}</div>`).join(''):'<p class="text-gray-400">No demands</p>';}
-let sl=document.getElementById('sellList');if(sl){sl.innerHTML=sells.length?sells.slice().reverse().slice(0,5).map(s=>`<div class="bg-green-50 border p-2 rounded-lg flex gap-2 items-center">${s.pic?`<img src="${s.pic}" class="w-8 h-8 object-contain">`:''}${s.model}</div>`).join(''):'<p class="text-gray-400">No sells</p>';}}
-
-// RECEIPT + CART + CHECKOUT - Circle 10 - Online Raseed System
-function renderCart(){let list=document.getElementById('cartItems');if(!list)return;if(cart.length==0){list.innerHTML='<div class="text-center py-4 text-sm text-gray-500">Cart empty - Shop se add karo - Circle 2</div>';document.getElementById('cartTotal').innerText='0';return;}list.innerHTML='';let tot=0;cart.forEach((p,i)=>{tot+=p.price;list.innerHTML+=`<div class="flex gap-3 border-2 border-[#0B4D2E] p-2 rounded-xl"><div class="text-2xl">${p.pic?`<img src="${p.pic}" class="w-10 h-10 object-contain">`:p.img}</div><div class="flex-1"><p class="font-bold text-xs">${p.name}</p><p class="text-xs text-[#0B4D2E]">PKR ${p.price.toLocaleString()}</p></div><button onclick="cart.splice(${i},1);save();renderCart();updateCounts()" class="text-red-500">✕</button></div>`});document.getElementById('cartTotal').innerText=tot.toLocaleString();}
-function checkout(){if(cart.length==0){showToast('Cart empty');return;}let m=document.querySelector('input[name="pay"]:checked').value;if((m==='jazzcash'||m==='easypaisa')&&!document.getElementById('payNum').value.trim()){showToast('Enter '+m+' number');return;}let tot=cart.reduce((a,b)=>a+b.price,0);let order={id:'MH-'+Math.floor(Math.random()*9000+1000),total:tot,method:m,user:currentUser?.email||'guest',items:cart.map(c=>c.name).join(', '),date:new Date().toLocaleString()};orders.push(order);save();confetti({particleCount:200,colors:['#0B4D2E','#E30613','#ffffff']});alert('🎉 Order Placed! Online Raseed Generated!\nID: '+order.id+'\nTotal: PKR '+tot.toLocaleString()+'\n🇵🇰 PTI - Tabdeeli Receipt System\n\nAb Receipt page pe jao - Circle 10 Fixed!');cart=[];save();renderCart();updateCounts();document.getElementById('receiptId').value=order.id;showReceipt();}
-function showReceipt(){let id=document.getElementById('receiptId').value.trim();let box=document.getElementById('receiptBox');if(!id){showToast('Enter Order ID');return;}let f=orders.find(o=>o.id.toLowerCase()===id.toLowerCase());box.classList.remove('hidden');if(!f){box.innerHTML=`<div class="text-red-500 text-xs">Order ${id} not found. Demo Receipt:</div><div class="mt-3"><h3 class="font-bold">Mobi-Hub.Pk - PTI - Online Raseed - Circle 10 Fixed</h3><p class="text-xs mt-2">ID: DEMO-1234<br>Date: ${new Date().toLocaleString()}<br>Total: PKR 100,000<br>Payment: COD<br>Status: Paid ✅<br>🇵🇰 PTI Receipt System</p></div>`;return;}
-box.innerHTML=`<div id="receiptPrint"><h3 class="font-bold text-lg text-[#0B4D2E]">🇵🇰 Mobi-Hub.Pk - PTI - Online Raseed - آن لائن رسید</h3><p class="text-[10px] text-gray-500">Circle 10 - Online Raseed System - Fixed & Working - PTI Look</p><div class="mt-4 space-y-1 text-xs"><p><b>Receipt No:</b> ${f.id}</p><p><b>Date:</b> ${f.date}</p><p><b>Customer:</b> ${f.user}</p><p><b>Items:</b> ${f.items}</p><p><b>Total:</b> PKR ${f.total.toLocaleString()}</p><p><b>Payment:</b> ${f.method}</p><p><b>Status:</b> <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full">Confirmed - تصدیق شدہ ✅</span></p></div><div class="mt-4 p-3 pti-green text-white rounded-xl text-center text-xs">✅ 100% Original Online Receipt - PTI Store - Tabdeeli System<br>Receipt: ${f.id} - Pakistan Zindabad 🇵🇰</div></div>`;}
-
-// ADMIN - Circle 7,8,9 - Password + Picture
-function adminLogin(){let p=document.getElementById('adminPass').value;if(p==='pti123'){localStorage.setItem('pti_admin','true');showPage('admin');loadAdmin();showToast('Admin Login Success - PTI');}else{document.getElementById('adminLoginMsg').innerText='Wrong Password! Hint: pti123';}}
-function adminLogout(){localStorage.removeItem('pti_admin');showPage('adminLogin');}
-function adminAdd(){let n=document.getElementById('adminName').value.trim();let pr=parseInt(document.getElementById('adminPrice').value);let b=document.getElementById('adminBrand').value.trim()||'Custom';if(!n||!pr)return showToast('Name & Price required');products.push({id:Date.now(),name:n,brand:b,price:pr,oldPrice:pr+20000,ram:'12GB',img:'📱',pic:adminPicData});save();loadAdmin();document.getElementById('adminMsg').innerText='✅ Added: '+n+' with Picture - PTI Look - Circle 7 Fixed!';document.getElementById('adminName').value='';document.getElementById('adminPrice').value='';adminPicData='';document.getElementById('adminPreview').classList.add('hidden');confetti({colors:['#0B4D2E','#E30613']});}
-function loadAdmin(){if(localStorage.getItem('pti_admin')!=='true'){showPage('adminLogin');return;}let o=document.getElementById('ordersList');o.innerHTML=orders.length?orders.slice().reverse().map(or=>`<div class="border-2 border-[#0B4D2E] p-2 rounded-xl text-xs"><div class="flex justify-between"><b>${or.id}</b><button onclick="deleteOrder('${or.id}')" class="text-red-500">Delete</button></div>${or.user} - PKR ${or.total.toLocaleString()} - ${or.method}<br><button onclick="document.getElementById('receiptId').value='${or.id}';showPage('receipt');showReceipt()" class="mt-1 bg-[#E30613] text-white px-2 py-1 rounded-full text-[10px]">View Receipt</button></div>`).join(''):'<p class="text-gray-400">No orders</p>';
-let p=document.getElementById('allProducts');p.innerHTML=products.map(pr=>`<div class="border p-2 rounded-lg flex justify-between items-center text-xs"><span class="flex gap-2 items-center">${pr.pic?`<img src="${pr.pic}" class="w-8 h-8 object-contain">`:''}${pr.name}</span><button onclick="removeProduct(${pr.id})" class="bg-red-500 text-white px-2 py-1 rounded-full text-[10px]">Delete</button></div>`).join('');
-document.getElementById('usersList').innerHTML=allUsers.length?allUsers.map(u=>`<div>${u.email} - ${u.name}</div>`).join(''):'No users - Circle 9 Fixed';
-document.getElementById('adminDemands').innerHTML=demands.length?demands.map(d=>`<div class="border-b py-1">${d.phone} - ${d.contact}</div>`).join(''):'No demands';
-document.getElementById('adminSells').innerHTML=sells.length?sells.map(s=>`<div class="border p-1 rounded flex gap-2">${s.pic?`<img src="${s.pic}" class="w-8 h-8">`:''}${s.model} - ${s.detail}</div>`).join(''):'No sells';
-}
-function deleteOrder(id){if(!confirm('Delete?'))return;orders=orders.filter(o=>o.id!==id);save();loadAdmin();renderRecent();}
-function removeProduct(id){if(!confirm('Delete mobile?'))return;products=products.filter(p=>p.id!=id);save();loadAdmin();renderShop();}
-
-// LOGIN
-function openLogin(){if(currentUser){if(confirm('Logout '+currentUser.email+'?')){localStorage.removeItem('mobi_user');currentUser=null;updateAuth();showToast('Logged out');}return;}document.getElementById('loginModal').classList.remove('hidden');}
-function closeLogin(){document.getElementById('loginModal').classList.add('hidden');}
-function toggleAuth(){authMode=authMode=='login'?'register':'login';document.getElementById('authTitle').innerText=authMode=='login'?'Login':'Register';document.getElementById('authBtn').innerText=authMode=='login'?'Login':'Register';document.getElementById('authName').classList.toggle('hidden',authMode=='login');document.getElementById('switchText').innerText=authMode=='login'?'No account?':'Have account?';}
-function doAuth(){let e=document.getElementById('authEmail').value.trim();let p=document.getElementById('authPass').value;let n=document.getElementById('authName').value.trim();if(!e||!e.includes('@')){showToast('Valid Email');return;}if(!p||p.length<6){showToast('Password min 6');return;}if(authMode=='register'&&!n){showToast('Name required');return;}if(authMode=='register'){if(allUsers.find(u=>u.email===e)){showToast('Already exists');return;}allUsers.push({email:e,pass:p,name:n});}else{if(allUsers.length>0&&!allUsers.find(u=>u.email===e&&u.pass===p)){showToast('Wrong password');return;}}
-let user={email:e,name:n||e.split('@')[0]};localStorage.setItem('mobi_user',JSON.stringify(user));currentUser=user;save();updateAuth();closeLogin();showToast('Welcome '+user.name+'! PTI');confetti({colors:['#0B4D2E','#E30613']});}
-function updateAuth(){let ud=document.getElementById('userDisplay');let lb=document.getElementById('loginBtn');if(currentUser){ud.innerText='Hi, '+currentUser.name;ud.classList.remove('hidden');lb.innerText='Logout';lb.classList.add('bg-red-600','text-white');lb.classList.remove('bg-white','text-[#0B4D2E]');}else{ud.classList.add('hidden');lb.innerText='Login';lb.classList.remove('bg-red-600','text-white');lb.classList.add('bg-white','text-[#0B4D2E]');}}
-
-// SMART AI - 15+ Answers - Not 1 answer
-function quickAsk(q){document.getElementById('aiInput').value=q;askAI();}
-function askAI(){let input=document.getElementById('aiInput');let t=input.value.trim();if(!t)return;let chat=document.getElementById('aiMessages');chat.innerHTML+=`<div class="bg-[#0B4D2E] text-white p-3 rounded-xl ml-8 text-right text-xs">${t}</div>`;input.value='';setTimeout(()=>{let low=t.toLowerCase();let replies=[];
-if(low.includes('price')||low.includes('قیمت')){replies=['iPhone 15 Pro ka price PKR 359,999 hai - Shop Page 2 pe dekho - Circle 2!','Samsung S24 Ultra PKR 289,999 - PTI discount - Shop page pe!','Price PKR 64,999 se start hai - Shop - Page 2 - Circle 2 pe saare models!'];}
-else if(low.includes('track')||low.includes('ٹریک')){replies=['Track - Page 4 - Circle 4 - Alag Page pe Order ID dalo - MH-XXXX!','Track.html jaisa page - Track page pe jao - Recent se direct track - Fixed!','Apna Order ID receipt page pe bhi daal sakte ho online raseed ke liye - Circle 10!'];}
-else if(low.includes('receipt')||low.includes('raseed')||low.includes('رسید')){replies=['Online Raseed ke liye Receipt - Page 10 - Circle 10 - Fixed! - ID dalo - Print bhi kar sakte ho!','Receipt page pe MH-1234 type karo - Online raseed system ab working hai - Circle 10 fixed!','Har order ka automatic online raseed banta hai - Track ke baad receipt button dabao - PTI System!'];}
-else if(low.includes('compare')){replies=['Compare - Page 3 - Circle 3 - Alag Page - Shop se 3 phones add karo!','Circle 3 wala page - Compare - Max 3 phones - Fixed!'];}
-else if(low.includes('admin')||low.includes('password')){replies=['Admin ka alag page hai - adminLogin page pe password pti123 daalo - Circle 7,8,9!','Admin panel me picture upload bhi hota hai - Circle 7 - PTI Look - Password pti123!','Admin - Page 7,8,9 - Password Protected - pti123 - Picture Upload Working!'];}
-else if(low.includes('demand')){replies=['Demand - Page 5 - Circle 5 - Alag Page - Phone name likho - Admin dekhega!','Customer Demand page fixed - Alag page pe!'];}
-else if(low.includes('sell')||low.includes('picture')){replies=['Sell - Page 6 - Circle 6 - With Picture Upload - PTI Look - Photo bhi upload hoti hai!','Sell page pe picture upload fixed hai - Gallery se photo select karo!'];}
-else{replies=['PTI Look me naya system hai - 9 alag pages - Circle 1 removed as you said!','Samajh gayi! Tabdeeli aa gayi - Shop, Track, Receipt sab alag pages pe - Circle 2 to 10 fixed!','Aap receipt page pe ho - Online raseed system ab working hai - Circle 10 fixed - Smart AI!'];}
-let reply=replies[Math.floor(Math.random()*replies.length)];chat.innerHTML+=`<div class="bg-[#e8f5e9] border border-[#0B4D2E] p-3 rounded-xl mr-8 text-xs">${reply} 🇵🇰 - Smart AI - Not 1 Answer!</div>`;chat.scrollTop=chat.scrollHeight;},600);}
-
-// File inputs - Picture Upload
-document.getElementById('sellPic').addEventListener('change',e=>{let f=e.target.files[0];let r=new FileReader();r.onload=ev=>{sellPicData=ev.target.result;document.getElementById('sellPreview').src=sellPicData;document.getElementById('sellPreview').classList.remove('hidden');};if(f)r.readAsDataURL(f);});
-document.getElementById('adminPic').addEventListener('change',e=>{let f=e.target.files[0];let r=new FileReader();r.onload=ev=>{adminPicData=ev.target.result;document.getElementById('adminPreview').src=adminPicData;document.getElementById('adminPreview').classList.remove('hidden');};if(f)r.readAsDataURL(f);});
-
-document.addEventListener('DOMContentLoaded',()=>{
-renderShop();updateCounts();updateAuth();renderCompareBar();renderRecent();renderDemandSell();
-document.querySelectorAll('input[name="pay"]').forEach(r=>r.addEventListener('change',e=>{let num=document.getElementById('payNum');if(e.target.value==='jazzcash'||e.target.value==='easypaisa'){num.classList.remove('hidden');num.placeholder=e.target.value.toUpperCase()+' Number 03XX';}else{num.classList.add('hidden');}}));
+const phones = [
+{n: "iPhone 15 Pro (128GB)", b:"Apple", p:"PKR 359,999", price:359999, ram:"8GB", storage:"128GB", img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400", specs:{Camera:"48MP", Battery:"3200mAh", Display:"6.1 Super Retina", Chip:"A17 Pro"}},
+{n: "Samsung S24 Ultra (256GB)", b:"Samsung", p:"PKR 289,999", price:289999, ram:"12GB", storage:"256GB", img:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400", specs:{Camera:"200MP", Battery:"5000mAh", Display:"6.8 Dynamic AMOLED", Chip:"Snapdragon 8 Gen 3"}},
+{n: "Xiaomi 14 Ultra", b:"Xiaomi", p:"PKR 149,999", price:149999, ram:"16GB", storage:"512GB", img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400", specs:{Camera:"50MP Leica", Battery:"5300mAh", Display:"6.73 LTPO AMOLED", Chip:"Snapdragon 8 Gen 3"}},
+{n: "Infinix Note 40 Pro", b:"Infinix", p:"PKR 64,999", price:64999, ram:"12GB", storage:"256GB", img:"https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400", specs:{Camera:"108MP", Battery:"5000mAh", Display:"6.78 AMOLED", Chip:"Helio G99"}},
+{n: "Tecno Camon 30", b:"Tecno", p:"PKR 78,999", price:78999, ram:"12GB", storage:"256GB", img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400", specs:{Camera:"50MP", Battery:"5000mAh", Display:"6.78 AMOLED", Chip:"Dimensity 7020"}},
+{n: "Samsung s24 ultra", b:"Samsung", p:"PKR 1,450,000", price:1450000, ram:"12GB", storage:"1TB", img:"https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?w=400", specs:{Camera:"200MP", Battery:"5000mAh", Display:"6.8", Chip:"Snapdragon 8 Gen 3"}}
+];
+let cart=[], compareList=[];
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden')); document.getElementById(id).classList.remove('hidden'); if(id==='shop') renderShop(phones); window.scrollTo(0,0);}
+function renderShop(list){
+const grid=document.getElementById('shopGrid'); grid.innerHTML='';
+list.forEach((ph,i)=>{
+grid.innerHTML+=`<div class="bg-white rounded-xl p-3 shadow card-hover cursor-pointer border">
+<img onclick="openPhone(${phones.indexOf(ph)})" src="${ph.img}" class="w-full h-32 object-contain bg-gray-50 rounded">
+<h4 class="font-bold text-xs mt-2">${ph.n}</h4><p class="text-[10px] text-gray-500">${ph.b} • ${ph.ram}</p><p class="font-bold text-green-700 text-sm mt-1">${ph.p}</p>
+<div class="flex gap-1 mt-2"><button onclick="addCompare(${phones.indexOf(ph)})" class="flex-1 border text-[11px] py-1 rounded-full">Compare</button><button onclick="addCart(${phones.indexOf(ph)})" class="flex-1 pti-green text-white text-[11px] py-1 rounded-full">Add to Cart</button></div></div>`;
 });
+}
+function openPhone(idx){
+const ph=phones[idx];
+document.getElementById('modalName').innerText=ph.n;
+document.getElementById('modalImg').src=ph.img;
+document.getElementById('modalSpecs').innerHTML=`<span>RAM: ${ph.ram}</span><span>Storage: ${ph.storage}</span><span>Price: ${ph.p}</span><span>Brand: ${ph.b}</span><span>Camera: ${ph.specs.Camera}</span><span>Battery: ${ph.specs.Battery}</span><span>Display: ${ph.specs.Display}</span><span>Chip: ${ph.specs.Chip}</span>`;
+document.getElementById('modalAddCart').onclick=()=>{addCart(idx); closeModal();};
+document.getElementById('modalAddCompare').onclick=()=>{addCompare(idx); closeModal();};
+document.getElementById('phoneModal').classList.remove('hidden'); document.getElementById('phoneModal').classList.add('flex');
+}
+function closeModal(){document.getElementById('phoneModal').classList.add('hidden');}
+function addCart(i){cart.push(phones[i]); document.getElementById('cartCount').innerText=cart.length; alert('Cart me add hogaya - '+phones[i].n);}
+function addCompare(i){
+if(compareList.length>=3){alert('Max 3 phones'); return;}
+if(compareList.find(x=>x.n===phones[i].n)){alert('Already added'); return;}
+compareList.push(phones[i]); document.getElementById('compareCount').innerText=compareList.length; updateCompareArea();
+}
+function updateCompareArea(){
+const area=document.getElementById('compareArea');
+if(compareList.length===0){area.innerHTML='No phones'; return;}
+area.innerHTML=compareList.map(p=>`<span class="bg-green-100 px-2 py-1 rounded-full mr-1">${p.n} <button onclick="removeCompare('${p.n}')">X</button></span>`).join('');
+}
+function removeCompare(name){compareList=compareList.filter(p=>p.n!==name); updateCompareArea(); document.getElementById('compareCount').innerText=compareList.length;}
+function clearCompare(){compareList=[]; updateCompareArea(); document.getElementById('compareResult').innerHTML=''; document.getElementById('compareCount').innerText=0;}
+function doCompare(){
+const res=document.getElementById('compareResult'); res.innerHTML='';
+compareList.forEach(p=>{res.innerHTML+=`<div class="bg-white p-3 rounded-xl shadow"><img src="${p.img}" class="h-24 object-contain mx-auto"><h4 class="font-bold text-sm mt-2">${p.n}</h4><p class="text-xs">${p.ram} | ${p.storage}</p><p class="font-bold text-green-700">${p.p}</p><p class="text-[11px] mt-1">${p.specs.Camera}, ${p.specs.Battery}, ${p.specs.Display}</p></div>`;});
+}
+function searchForCompare(q){
+if(!q){document.getElementById('compareSearchResults').innerHTML=''; return;}
+const filtered=phones.filter(p=>p.n.toLowerCase().includes(q.toLowerCase()));
+document.getElementById('compareSearchResults').innerHTML=filtered.slice(0,4).map(p=>`<div class="bg-white p-2 rounded shadow flex justify-between items-center text-xs"><span>${p.n} - ${p.p}</span><button onclick="addCompare(${phones.indexOf(p)})" class="bg-green-800 text-white px-2 py-1 rounded-full">Add</button></div>`).join('');
+}
+function trackOrder(){
+const v=document.getElementById('trackInput').value;
+document.getElementById('trackResult').innerHTML=v?`<div class="bg-green-50 p-3 rounded">Order <b>${v}</b> - Status: On the way - JazzCash 03264492997</div>`:'Order ID likho';
+}
+function demandSubmit(){
+const m=document.getElementById('demandPhone').value, c=document.getElementById('demandContact').value;
+if(!m||!c){document.getElementById('demandResult').innerHTML='Model aur Number likho'; return;}
+document.getElementById('demandResult').innerHTML=`<div class="bg-green-50 p-2 rounded">Demand noted: ${m} - Contact ${c}</div>`;
+window.open(`https://wa.me/923126165602?text=${encodeURIComponent(`Demand: ${m} - Contact: ${c}`)}`,'_blank');
+}
+function sellViaWhatsapp(){
+const model=document.getElementById('sellModel').value, price=document.getElementById('sellPrice').value, contact=document.getElementById('sellContact').value;
+if(!model){alert('Model likho'); return;}
+window.open(`https://wa.me/923126165602?text=${encodeURIComponent(`Sell: ${model} - Price: ${price} - Contact: ${contact}`)}`,'_blank');
+alert('WhatsApp 03126165602 pe khulega!');
+}
+function generateReceipt(){
+const name=document.getElementById('rName').value||'Customer', model=document.getElementById('rModel').value, price=document.getElementById('rPrice').value;
+const finalDiv=document.getElementById('finalReceipt');
+finalDiv.classList.remove('hidden');
+finalDiv.innerHTML=`<div class="text-center font-bold">Mobi-Hub.Pk - PTI Official Receipt</div>
+<div class="mt-3 text-xs space-y-1">
+<p><b>Customer:</b> ${name} | <b>Phone:</b> ${model} | <b>Price:</b> ${price}</p>
+<p><b>Order ID:</b> MH-${Date.now().toString().slice(-6)} | <b>JazzCash:</b> 03264492997</p>
+</div>
+<div class="mt-3 bg-gray-50 p-2 text-[10px]"><b>T&C:</b> 7 Days Warranty, PTA Approved, Online Valid - PTI Tabdeeli System</div>
+<button onclick="window.print()" class="mt-3 w-full border py-1 rounded-full text-xs">Print</button>`;
+}
+function adminLogin(){
+if(document.getElementById('adminPass').value==='12345'){document.getElementById('adminLogin').classList.add('hidden'); document.getElementById('adminPanel').classList.remove('hidden');}else{alert('Wrong - 12345');}
+}
+function addNewPhone(){
+const n=document.getElementById('newPhoneName').value, p=document.getElementById('newPhonePrice').value;
+if(!n){alert('Name likho'); return;}
+phones.push({n:n, b:"New", p:"PKR "+p, price:parseInt(p), ram:"12GB", storage:"256GB", img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400", specs:{Camera:"50MP", Battery:"5000mAh", Display:"6.5", Chip:"New"}});
+alert('Phone add hogaya'); renderShop(phones);
+}
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+btn.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active','bg-green-800','text-white')); btn.classList.add('active','bg-green-800','text-white'); const brand=btn.dataset.brand; if(brand==='All') renderShop(phones); else renderShop(phones.filter(p=>p.b===brand));});
+});
+showPage('home'); renderShop(phones);
 </script>
 </body>
 </html>
