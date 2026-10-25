@@ -32,7 +32,7 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 <button onclick="showPage('demand')">Demand</button>
 <button onclick="showPage('sell')">Sell</button>
 <button onclick="showPage('receipt')">Receipt</button>
-<button onclick="showPage('admin')" class="bg-red-600 px-3 py-1 rounded-full">Admin</button>
+<button onclick="showPage('admin')" class="bg-red-600 px-3 py-1 rounded-full font-bold">Admin</button>
 </div>
 <div class="flex gap-2">
   <button onclick="openCartModal()" class="bg-white text-green-800 px-3 py-1 rounded-full text-xs font-bold shadow hover:bg-green-50 transition">
@@ -90,16 +90,14 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 </div>
 </div>
 
-<!-- CART MODAL / DRAWER -->
+<!-- CART MODAL -->
 <div id="cartModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[200] p-4 backdrop-blur-sm">
 <div class="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl flex flex-col max-h-[85vh]">
 <div class="pti-green text-white p-4 flex justify-between items-center">
 <h3 class="font-bold text-base"><i class="fa-solid fa-cart-shopping mr-2"></i> Your Shopping Cart</h3>
 <button onclick="closeCartModal()" class="bg-red-600 text-white w-7 h-7 rounded-full font-bold">✕</button>
 </div>
-<div id="cartItemsContainer" class="p-4 overflow-y-auto flex-1 space-y-3 divide-y">
-  <!-- Cart items will render here -->
-</div>
+<div id="cartItemsContainer" class="p-4 overflow-y-auto flex-1 space-y-3 divide-y"></div>
 <div class="p-4 bg-gray-100 border-t flex flex-col gap-2">
   <div class="flex justify-between font-bold text-sm">
     <span>Total Amount:</span>
@@ -156,24 +154,59 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 </div>
 </div>
 
-<!-- RECEIPT PAGE -->
+<!-- RECEIPT PAGE (FIXED & IMPROVED) -->
 <div id="receipt" class="page hidden max-w-2xl mx-auto p-6">
-<h2 class="text-2xl font-bold text-green-800">Online Receipt - Verification System</h2>
-<div class="mt-4 bg-white p-6 rounded-xl shadow border-2">
-<div class="grid grid-cols-2 gap-3 text-sm">
+<h2 class="text-2xl font-bold text-green-800"><i class="fa-solid fa-receipt"></i> Online Receipt - Verified System</h2>
+<p class="text-xs text-gray-500 mt-1">Raseed request submit karein. Admin verification ke baad official stamp lag kar printable receipt show hogi.</p>
+
+<div class="mt-4 bg-white p-6 rounded-xl shadow-md border-2 border-green-600">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
 <div>
-<input id="rName" placeholder="Full Name *" class="w-full border rounded-lg px-3 py-2 text-sm outline-none">
-<input id="rPhone" placeholder="WhatsApp Number *" class="mt-2 w-full border rounded-lg px-3 py-2 text-sm outline-none">
+<label class="text-xs font-semibold text-gray-600">Customer Full Name *</label>
+<input id="rName" placeholder="e.g. Shahzaib" class="mt-1 w-full border rounded-lg px-3 py-2 text-sm outline-none focus:border-green-600">
+<label class="text-xs font-semibold text-gray-600 mt-3 block">WhatsApp Number *</label>
+<input id="rPhone" placeholder="e.g. 03126165602" class="mt-1 w-full border rounded-lg px-3 py-2 text-sm outline-none focus:border-green-600">
 </div>
 <div>
-<select id="rModel" class="w-full border rounded-lg px-3 py-2 text-sm bg-white outline-none"><option value="">Phone Select Karo *</option></select>
-<input id="rPrice" placeholder="Price (PKR) *" class="mt-2 w-full border rounded-lg px-3 py-2 text-sm outline-none">
+<label class="text-xs font-semibold text-gray-600">Select Mobile Phone *</label>
+<select id="rModel" onchange="autoFillReceiptPrice()" class="mt-1 w-full border rounded-lg px-3 py-2 text-sm bg-white outline-none focus:border-green-600"><option value="">-- Choose Mobile --</option></select>
+<label class="text-xs font-semibold text-gray-600 mt-3 block">Agreed Price (PKR) *</label>
+<input id="rPrice" placeholder="e.g. 120000" class="mt-1 w-full border rounded-lg px-3 py-2 text-sm outline-none focus:border-green-600">
 </div>
 </div>
-<button onclick="generateReceiptRequest(); triggerCelebration();" class="mt-4 w-full pti-green text-white py-3 rounded-full font-bold">Generate Receipt Request</button>
+
+<div class="mt-4 bg-yellow-50 border border-yellow-300 p-3 rounded-xl text-xs text-yellow-800">
+<b>Note:</b> Sirf inventory wale mobiles ki verified raseed generate ho sakti hai.
+</div>
+
+<button onclick="generateReceiptRequest(); triggerCelebration();" class="mt-4 w-full pti-green text-white py-3 rounded-full font-bold shadow-md hover-scale">
+  Generate Receipt Request
+</button>
+
 <div id="receiptPendingMsg" class="mt-4 hidden bg-orange-50 border-2 border-orange-300 p-4 rounded-xl text-center">
-<p class="font-bold text-orange-800">⏳ Request Admin Ko Bhej Di Gayi Hai</p>
-<p class="text-xs text-gray-500 mt-1">Order ID: <span id="pendingOrderId" class="font-bold"></span></p>
+<p class="font-bold text-orange-800 text-sm">⏳ Pending Admin Verification</p>
+<p class="text-xs text-gray-600 mt-1">Request Admin ko bhej di gayi hai. Direct WhatsApp verification message send ho chuka hai.</p>
+<p class="text-xs font-bold text-green-800 mt-2">Order ID: <span id="pendingOrderId"></span></p>
+</div>
+
+<!-- FINAL STAMPED RECEIPT CARD -->
+<div id="finalReceipt" class="mt-6 hidden border-2 border-green-600 p-6 rounded-2xl bg-white relative overflow-hidden shadow-lg">
+<div id="verifiedStamp" class="hidden absolute top-4 right-4 bg-green-700 text-white text-[11px] px-3 py-1 rounded-full rotate-12 font-bold border-2 border-white shadow-md">
+  ✓ VERIFIED - ADMIN STAMP
+</div>
+<div class="text-center">
+  <h3 class="font-bold text-lg text-green-900"><i class="fa-solid fa-mobile-screen"></i> Mobi-Hub.Pk</h3>
+  <p class="text-[10px] text-gray-500 uppercase tracking-widest">Official Transaction Receipt</p>
+</div>
+<div class="mt-4 border-t pt-3 text-xs space-y-1.5" id="receiptDetails"></div>
+<div class="mt-4 border-t-2 border-dashed pt-3 text-[10px] text-center text-gray-500">
+<p class="font-bold text-green-800 text-xs">100% Genuine Not Open Not Repair Guarantee</p>
+<p class="mt-1">JazzCash: 03264492997 | WhatsApp: 03126165602 | 7 Days Warranty</p>
+</div>
+<button id="printBtn" onclick="window.print()" class="mt-4 w-full border-2 border-green-700 text-green-800 py-2.5 rounded-full text-xs font-bold hidden hover:bg-green-50 transition">
+  🖨️ Print Verified Receipt
+</button>
+<p id="notVerifiedMsg" class="text-[11px] text-red-600 text-center mt-2 font-semibold">* Admin verification ke baghair print button unlock nahi hoga.</p>
 </div>
 </div>
 </div>
@@ -190,6 +223,16 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 </div>
 
 <div id="adminPanel" class="hidden mt-6 space-y-6">
+
+<!-- RECEIPT REQUESTS VERIFICATION CONTROL -->
+<div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-orange-500">
+<h3 class="font-bold text-orange-700 flex items-center justify-between">
+  <span><i class="fa-solid fa-receipt mr-2"></i> Pending Receipt Verification Requests</span>
+  <span id="receiptReqCount" class="bg-orange-100 text-orange-800 px-2.5 py-0.5 rounded-full text-xs">0</span>
+</h3>
+<div id="adminReceiptList" class="mt-4 space-y-3"></div>
+</div>
+
 <div class="bg-green-50 border-2 border-green-600 p-4 rounded-xl text-xs flex justify-between items-center">
 <div><b>✓ System Capacity Optimized:</b> 50+ phones supported. Storage Used: <span id="storageUsed">0</span>KB</div>
 <button onclick="resetToDefault()" class="bg-red-100 text-red-700 px-3 py-1 rounded-full font-bold">Reset Default</button>
@@ -262,6 +305,17 @@ function savePhones(){
   updateStorageInfo();
 }
 
+function loadReceiptRequests(){
+  let saved=localStorage.getItem('mobiHubReceiptRequests');
+  if(saved){try{return JSON.parse(saved);}catch(e){return [];}}
+  return [];
+}
+let receiptRequests=loadReceiptRequests();
+
+function saveReceiptRequests(){
+  localStorage.setItem('mobiHubReceiptRequests', JSON.stringify(receiptRequests));
+}
+
 function updateStorageInfo(){
   try{
     let size=new Blob([localStorage.getItem('mobiHubPhones')]).size;
@@ -297,16 +351,150 @@ function showPage(id){
   document.getElementById(id).classList.remove('hidden');
   if(id==='shop') renderShop(phones);
   if(id==='receipt') populateReceiptModels();
+  if(id==='admin') renderAdminReceiptList();
   window.scrollTo(0,0);
 }
 
 function populateReceiptModels(){
   const sel=document.getElementById('rModel');
   if(!sel) return;
-  sel.innerHTML='<option value="">Phone Select Karo *</option>';
+  sel.innerHTML='<option value="">-- Choose Mobile --</option>';
   phones.forEach((ph,idx)=>{
     sel.innerHTML+=`<option value="${idx}">${ph.n} - ${ph.p}</option>`;
   });
+}
+
+function autoFillReceiptPrice(){
+  const idx = document.getElementById('rModel').value;
+  if(idx !== "" && phones[idx]){
+    document.getElementById('rPrice').value = phones[idx].price || '';
+  }
+}
+
+// RECEIPT SYSTEM LOGIC (FIXED)
+function generateReceiptRequest(){
+  const name=document.getElementById('rName').value.trim();
+  const phone=document.getElementById('rPhone').value.trim();
+  const modelIdx=document.getElementById('rModel').value;
+  const price=document.getElementById('rPrice').value.trim();
+
+  if(!name){ alert('Please enter customer full name'); return; }
+  if(!phone){ alert('Please enter WhatsApp phone number'); return; }
+  if(modelIdx===""){ alert('Please select a phone from the inventory list'); return; }
+  if(!price){ alert('Please enter price'); return; }
+
+  const selectedPhone=phones[parseInt(modelIdx)];
+  if(!selectedPhone){ alert('Selected phone does not exist in inventory'); return; }
+
+  const orderId='MH-'+String(Date.now()).slice(-6);
+  const request={
+    id:orderId,
+    customerName:name,
+    customerPhone:phone,
+    phoneName:selectedPhone.n,
+    phonePrice:'PKR '+parseInt(price).toLocaleString(),
+    actualPrice:selectedPhone.p,
+    verified:false,
+    timestamp:new Date().toLocaleString(),
+    phoneImg:selectedPhone.img
+  };
+
+  receiptRequests.push(request);
+  saveReceiptRequests();
+
+  document.getElementById('pendingOrderId').innerText=orderId;
+  document.getElementById('receiptPendingMsg').classList.remove('hidden');
+  document.getElementById('finalReceipt').classList.add('hidden');
+
+  const waMsg=`*NEW RECEIPT REQUEST - Mobi-Hub.Pk*\n\nCustomer: ${name}\nWhatsApp: ${phone}\nPhone: ${selectedPhone.n}\nPrice: PKR ${price}\nOrder ID: ${orderId}\n\nTime: ${request.timestamp}`;
+  window.open(`https://wa.me/923126165602?text=${encodeURIComponent(waMsg)}`,'_blank');
+
+  renderAdminReceiptList();
+  alert('✓ Receipt request created! Order ID: '+orderId);
+}
+
+function renderAdminReceiptList(){
+  const list=document.getElementById('adminReceiptList');
+  const countElem=document.getElementById('receiptReqCount');
+  if(!list) return;
+  if(countElem) countElem.innerText = receiptRequests.length;
+
+  if(receiptRequests.length===0){
+    list.innerHTML='<p class="text-xs text-gray-400 text-center py-4">No pending receipt requests</p>';
+    return;
+  }
+  
+  list.innerHTML='';
+  receiptRequests.slice().reverse().forEach((req)=>{
+    const verifiedBadge=req.verified?'<span class="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-[10px] font-bold">✓ VERIFIED</span>':'<span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-[10px] font-bold">⏳ PENDING</span>';
+    list.innerHTML+=`
+    <div class="border p-3 rounded-xl bg-gray-50 flex gap-3 items-start shadow-sm">
+      <img src="${req.phoneImg}" class="w-12 h-12 object-contain bg-white rounded border">
+      <div class="flex-1">
+        <div class="flex justify-between items-center">
+          <p class="font-bold text-xs text-gray-800">${req.customerName} (${req.customerPhone})</p>
+          ${verifiedBadge}
+        </div>
+        <p class="text-[11px] text-gray-600 mt-0.5">${req.phoneName} | Agreed Price: <b>${req.phonePrice}</b></p>
+        <p class="text-[10px] text-gray-400">ID: ${req.id} • ${req.timestamp}</p>
+        <div class="mt-2 flex gap-2">
+          ${!req.verified?`<button onclick="verifyReceipt('${req.id}')" class="bg-green-700 text-white text-[11px] px-3 py-1 rounded-full font-bold hover:bg-green-800 transition"><i class="fa-solid fa-stamp mr-1"></i> Verify & Stamp</button>`:''}
+          <button onclick="showVerifiedReceipt('${req.id}')" class="bg-blue-100 text-blue-700 text-[11px] px-3 py-1 rounded-full font-bold">View Receipt</button>
+          <button onclick="deleteReceiptReq('${req.id}')" class="bg-red-100 text-red-700 text-[11px] px-3 py-1 rounded-full font-bold">Delete</button>
+        </div>
+      </div>
+    </div>`;
+  });
+}
+
+function verifyReceipt(orderId){
+  const req=receiptRequests.find(r=>r.id===orderId);
+  if(!req) return;
+  req.verified=true;
+  saveReceiptRequests();
+  renderAdminReceiptList();
+  triggerCelebration();
+  alert('✓ VERIFIED! Receipt status updated with official stamp. Order ID: '+orderId);
+
+  const confirmMsg=`*Mobi-Hub.Pk - RECEIPT VERIFIED ✓*\n\nHello ${req.customerName},\nYour receipt has been official verified!\n\nOrder ID: ${req.id}\nPhone: ${req.phoneName}\nPrice: ${req.phonePrice}\nStatus: VERIFIED BY ADMIN STAMP\n\nJazzCash Official: 03264492997`;
+  window.open(`https://wa.me/92${req.customerPhone.replace(/^0/, '')}?text=${encodeURIComponent(confirmMsg)}`,'_blank');
+}
+
+function showVerifiedReceipt(orderId){
+  const req=receiptRequests.find(r=>r.id===orderId);
+  if(!req){ alert('Receipt request not found'); return; }
+  showPage('receipt');
+  
+  const detailsDiv=document.getElementById('receiptDetails');
+  const finalDiv=document.getElementById('finalReceipt');
+  document.getElementById('receiptPendingMsg').classList.add('hidden');
+  finalDiv.classList.remove('hidden');
+
+  detailsDiv.innerHTML=`
+    <p>Customer Name: <b>${req.customerName}</b></p>
+    <p>Contact / WhatsApp: <b>${req.customerPhone}</b></p>
+    <p>Mobile Device: <b>${req.phoneName}</b></p>
+    <p>Transaction Price: <b>${req.phonePrice}</b></p>
+    <p>Order ID: <b>${req.id}</b> | Date: ${req.timestamp}</p>
+    <p>Status: ${req.verified?'<b class="text-green-700">✓ VERIFIED BY ADMIN STAMP</b>':'<b class="text-orange-600">⏳ PENDING ADMIN VERIFICATION</b>'}</p>
+  `;
+
+  if(req.verified){
+    document.getElementById('verifiedStamp').classList.remove('hidden');
+    document.getElementById('printBtn').classList.remove('hidden');
+    document.getElementById('notVerifiedMsg').classList.add('hidden');
+  } else {
+    document.getElementById('verifiedStamp').classList.add('hidden');
+    document.getElementById('printBtn').classList.add('hidden');
+    document.getElementById('notVerifiedMsg').classList.remove('hidden');
+  }
+}
+
+function deleteReceiptReq(orderId){
+  if(!confirm('Delete this receipt request?')) return;
+  receiptRequests=receiptRequests.filter(r=>r.id!==orderId);
+  saveReceiptRequests();
+  renderAdminReceiptList();
 }
 
 function renderShop(list){
@@ -329,7 +517,6 @@ function renderShop(list){
   });
 }
 
-// PHONE DETAILS WITH SPECS MODAL
 function openPhoneModal(idx){
   const ph=phones[idx];
   document.getElementById('modalName').innerText=ph.n;
@@ -358,7 +545,6 @@ function closeModal(){
   document.getElementById('phoneModal').classList.remove('flex');
 }
 
-// CART FUNCTIONS
 function openCartModal(){
   const container = document.getElementById('cartItemsContainer');
   const totalPriceElem = document.getElementById('cartTotalPrice');
@@ -405,7 +591,7 @@ function addCart(i){
 function removeFromCart(index){
   cart.splice(index, 1);
   document.getElementById('cartCount').innerText = cart.length;
-  openCartModal(); // Refresh cart view
+  openCartModal();
 }
 
 function checkoutCart(){
@@ -547,9 +733,12 @@ function removePhone(idx){
 function resetToDefault(){
   if(confirm('Reset all phone data to default list?')){
     localStorage.removeItem('mobiHubPhones');
+    localStorage.removeItem('mobiHubReceiptRequests');
     phones=[...defaultPhones];
+    receiptRequests=[];
     savePhones();
-    renderShop(phones); renderAdminList(); populateReceiptModels();
+    saveReceiptRequests();
+    renderShop(phones); renderAdminList(); populateReceiptModels(); renderAdminReceiptList();
   }
 }
 
@@ -558,6 +747,7 @@ function adminLogin(){
     document.getElementById('adminLogin').classList.add('hidden');
     document.getElementById('adminPanel').classList.remove('hidden');
     renderAdminList();
+    renderAdminReceiptList();
     triggerCelebration();
   }else{ alert('Wrong Password'); }
 }
