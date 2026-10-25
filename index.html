@@ -6,18 +6,24 @@
 <title>Mobi-Hub.Pk - 50+ Phone Inventory System</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Canvas Confetti Library for Celebrations -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Poppins:wght@400;600;700&display=swap');
 body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 .urdu{font-family:'Noto Nastaliq Urdu',serif;}
 .pti-green{background:#0a5c36;}
+.page{animation: fadeIn 0.4s ease-in-out;}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.hover-scale{transition: transform 0.2s ease;}
+.hover-scale:hover{transform: scale(1.02);}
 </style>
 </head>
-<body>
+<body onload="triggerCelebration()">
 
 <nav class="pti-green text-white sticky top-0 z-50 shadow-lg">
 <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-<div class="font-bold text-xl"><i class="fa-solid fa-mobile-screen"></i> Mobi-Hub.Pk <span class="text-[10px] bg-white text-green-800 px-2 py-0.5 rounded-full ml-1">PTI</span></div>
+<div class="font-bold text-xl cursor-pointer" onclick="showPage('home'); triggerCelebration();"><i class="fa-solid fa-mobile-screen"></i> Mobi-Hub.Pk <span class="text-[10px] bg-white text-green-800 px-2 py-0.5 rounded-full ml-1">PTI</span></div>
 <div class="hidden md:flex gap-4 text-[13px]">
 <button onclick="showPage('home')">Home</button>
 <button onclick="showPage('shop')">Shop</button>
@@ -28,7 +34,7 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 <button onclick="showPage('receipt')">Receipt</button>
 <button onclick="showPage('admin')" class="bg-red-600 px-3 py-1 rounded-full">Admin</button>
 </div>
-<div class="flex gap-2"><span class="bg-white text-green-800 px-3 py-1 rounded-full text-xs">Cart <span id="cartCount">0</span></span></div>
+<div class="flex gap-2"><span class="bg-white text-green-800 px-3 py-1 rounded-full text-xs font-bold">Cart <span id="cartCount">0</span></span></div>
 </div>
 </nav>
 
@@ -36,7 +42,7 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 <div id="home" class="page">
 <div class="bg-gradient-to-br from-green-50 via-white to-emerald-50 py-12 px-6 text-center">
 <div class="max-w-4xl mx-auto">
-<div class="bg-green-700 text-white text-[11px] px-4 py-1 rounded-full inline-block mb-4"><i class="fa-solid fa-flag"></i> PTI Tabdeeli System - 100% Original - PTA Approved</div>
+<div class="bg-green-700 text-white text-[11px] px-4 py-1 rounded-full inline-block mb-4 shadow-sm animate-bounce"><i class="fa-solid fa-flag"></i> PTI Tabdeeli System - 100% Original - PTA Approved</div>
 <h1 class="text-4xl md:text-5xl font-bold urdu leading-[1.4]">برانڈ کا بہترین موبائل<br><span class="text-green-700">ایک ہی جگہ</span></h1>
 <p class="mt-4 text-gray-600 text-sm">Har Brand Ki 100+ Varieties - Mobi-Hub.Pk</p>
 <div class="mt-6 flex flex-wrap justify-center gap-3 text-[11px]">
@@ -46,8 +52,8 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 <span class="bg-white border shadow-sm px-4 py-2 rounded-full">✓ Online Receipt AI Verified</span>
 </div>
 <div class="mt-7 flex justify-center gap-3">
-<button onclick="showPage('shop')" class="pti-green text-white px-8 py-3 rounded-full font-bold text-sm">Shop Now - خریدیں</button>
-<button onclick="window.open('https://wa.me/923126165602','_blank')" class="bg-white border-2 border-green-700 text-green-800 px-8 py-3 rounded-full font-bold text-sm"><i class="fa-brands fa-whatsapp"></i> 03126165602</button>
+<button onclick="showPage('shop'); triggerCelebration();" class="pti-green text-white px-8 py-3 rounded-full font-bold text-sm shadow-lg hover-scale">Shop Now - خریدیں</button>
+<button onclick="window.open('https://wa.me/923126165602','_blank')" class="bg-white border-2 border-green-700 text-green-800 px-8 py-3 rounded-full font-bold text-sm shadow-sm hover-scale"><i class="fa-brands fa-whatsapp"></i> 03126165602</button>
 </div>
 </div>
 </div>
@@ -62,16 +68,34 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 <div id="shopGrid" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
 </div>
 
+<!-- PHONE DETAILS MODAL -->
+<div id="phoneModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[100] p-4 backdrop-blur-sm">
+<div class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl animate-scale">
+<div class="pti-green text-white p-4 flex justify-between items-center">
+<h3 id="modalName" class="font-bold text-base">Phone Details</h3>
+<button onclick="closeModal()" class="bg-red-600 text-white w-7 h-7 rounded-full font-bold">✕</button>
+</div>
+<div class="p-6 text-center">
+<img id="modalImg" src="" class="w-full h-48 object-contain bg-gray-50 rounded-xl p-2 border">
+<div id="modalSpecs" class="mt-4 grid grid-cols-2 gap-2 text-left text-xs bg-gray-50 p-3 rounded-xl border"></div>
+</div>
+<div class="p-4 bg-gray-100 flex gap-2">
+<button id="modalAddCart" class="flex-1 pti-green text-white py-2.5 rounded-full text-xs font-bold shadow">Add to Cart</button>
+<button id="modalAddCompare" class="flex-1 border border-green-700 text-green-800 py-2.5 rounded-full text-xs font-bold bg-white">Compare</button>
+</div>
+</div>
+</div>
+
 <!-- COMPARE PAGE -->
 <div id="compare" class="page hidden max-w-5xl mx-auto p-4">
 <h2 class="text-2xl font-bold text-green-800">Compare - Max 3</h2>
 <div class="mt-3 bg-white p-3 rounded-xl shadow flex gap-2">
-<input id="compareSearch" placeholder="Search karke add karo..." class="flex-1 border rounded-full px-4 py-2 text-sm" oninput="searchForCompare(this.value)">
+<input id="compareSearch" placeholder="Search karke add karo..." class="flex-1 border rounded-full px-4 py-2 text-sm outline-none focus:border-green-700" oninput="searchForCompare(this.value)">
 </div>
 <div id="compareSearchResults" class="mt-2 grid grid-cols-2 gap-2"></div>
 <div id="compareArea" class="mt-4 bg-white p-4 rounded-xl border-dashed border-2 border-green-700 text-sm">Shop se add karo</div>
 <div class="mt-4 flex gap-2">
-<button onclick="doCompare()" class="pti-green text-white px-6 py-2 rounded-full text-sm">Compare Now</button>
+<button onclick="doCompare(); triggerCelebration();" class="pti-green text-white px-6 py-2 rounded-full text-sm font-bold">Compare Now</button>
 <button onclick="clearCompare()" class="border px-6 py-2 rounded-full text-sm">Clear</button>
 </div>
 <div id="compareResult" class="mt-4 grid md:grid-cols-3 gap-4"></div>
@@ -79,50 +103,50 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 
 <!-- TRACK PAGE -->
 <div id="track" class="page hidden max-w-xl mx-auto p-6">
-<h2 class="text-2xl font-bold">Track Order</h2>
-<div class="mt-4 bg-white p-6 rounded-xl shadow">
-<input id="trackInput" placeholder="Order ID ya Number" class="w-full border rounded-full px-4 py-3 text-sm">
-<button onclick="trackOrder()" class="mt-3 w-full pti-green text-white py-3 rounded-full">Track Now</button>
+<h2 class="text-2xl font-bold text-green-800">Track Order</h2>
+<div class="mt-4 bg-white p-6 rounded-xl shadow border">
+<input id="trackInput" placeholder="Order ID ya Number" class="w-full border rounded-full px-4 py-3 text-sm outline-none focus:border-green-700">
+<button onclick="trackOrder()" class="mt-3 w-full pti-green text-white py-3 rounded-full font-bold">Track Now</button>
 <div id="trackResult" class="mt-4 text-sm"></div>
 </div>
 </div>
 
 <!-- DEMAND PAGE -->
 <div id="demand" class="page hidden max-w-xl mx-auto p-6">
-<h2 class="text-2xl font-bold">Demand Mobile</h2>
-<div class="mt-4 bg-white p-6 rounded-xl shadow">
-<input id="demandPhone" placeholder="Konsa mobile chahiye?" class="w-full border rounded-full px-4 py-3 text-sm">
-<input id="demandContact" placeholder="WhatsApp Number" class="mt-3 w-full border rounded-full px-4 py-3 text-sm">
-<button onclick="demandSubmit()" class="mt-3 w-full pti-green text-white py-3 rounded-full">Submit via WhatsApp</button>
+<h2 class="text-2xl font-bold text-green-800">Demand Mobile</h2>
+<div class="mt-4 bg-white p-6 rounded-xl shadow border">
+<input id="demandPhone" placeholder="Konsa mobile chahiye?" class="w-full border rounded-full px-4 py-3 text-sm outline-none">
+<input id="demandContact" placeholder="WhatsApp Number" class="mt-3 w-full border rounded-full px-4 py-3 text-sm outline-none">
+<button onclick="demandSubmit()" class="mt-3 w-full pti-green text-white py-3 rounded-full font-bold">Submit via WhatsApp</button>
 <div id="demandResult" class="mt-3 text-sm"></div>
 </div>
 </div>
 
 <!-- SELL PAGE -->
 <div id="sell" class="page hidden max-w-xl mx-auto p-6">
-<h2 class="text-2xl font-bold">Sell Your Phone</h2>
-<div class="mt-4 bg-white p-6 rounded-xl shadow">
-<input id="sellModel" placeholder="Model" class="w-full border rounded-full px-4 py-3 text-sm">
-<input id="sellPrice" placeholder="Demand Price" class="mt-3 w-full border rounded-full px-4 py-3 text-sm">
-<button onclick="sellViaWhatsapp()" class="mt-4 w-full bg-green-600 text-white py-3 rounded-full"><i class="fa-brands fa-whatsapp"></i> WhatsApp pe Bhejo</button>
+<h2 class="text-2xl font-bold text-green-800">Sell Your Phone</h2>
+<div class="mt-4 bg-white p-6 rounded-xl shadow border">
+<input id="sellModel" placeholder="Model" class="w-full border rounded-full px-4 py-3 text-sm outline-none">
+<input id="sellPrice" placeholder="Demand Price" class="mt-3 w-full border rounded-full px-4 py-3 text-sm outline-none">
+<button onclick="sellViaWhatsapp()" class="mt-4 w-full bg-green-600 text-white py-3 rounded-full font-bold"><i class="fa-brands fa-whatsapp"></i> WhatsApp pe Bhejo</button>
 </div>
 </div>
 
 <!-- RECEIPT PAGE -->
 <div id="receipt" class="page hidden max-w-2xl mx-auto p-6">
-<h2 class="text-2xl font-bold">Online Receipt - Verification System</h2>
+<h2 class="text-2xl font-bold text-green-800">Online Receipt - Verification System</h2>
 <div class="mt-4 bg-white p-6 rounded-xl shadow border-2">
 <div class="grid grid-cols-2 gap-3 text-sm">
 <div>
-<input id="rName" placeholder="Full Name *" class="w-full border rounded-lg px-3 py-2 text-sm">
-<input id="rPhone" placeholder="WhatsApp Number *" class="mt-2 w-full border rounded-lg px-3 py-2 text-sm">
+<input id="rName" placeholder="Full Name *" class="w-full border rounded-lg px-3 py-2 text-sm outline-none">
+<input id="rPhone" placeholder="WhatsApp Number *" class="mt-2 w-full border rounded-lg px-3 py-2 text-sm outline-none">
 </div>
 <div>
-<select id="rModel" class="w-full border rounded-lg px-3 py-2 text-sm bg-white"><option value="">Phone Select Karo *</option></select>
-<input id="rPrice" placeholder="Price (PKR) *" class="mt-2 w-full border rounded-lg px-3 py-2 text-sm">
+<select id="rModel" class="w-full border rounded-lg px-3 py-2 text-sm bg-white outline-none"><option value="">Phone Select Karo *</option></select>
+<input id="rPrice" placeholder="Price (PKR) *" class="mt-2 w-full border rounded-lg px-3 py-2 text-sm outline-none">
 </div>
 </div>
-<button onclick="generateReceiptRequest()" class="mt-4 w-full pti-green text-white py-3 rounded-full font-bold">Generate Receipt Request</button>
+<button onclick="generateReceiptRequest(); triggerCelebration();" class="mt-4 w-full pti-green text-white py-3 rounded-full font-bold">Generate Receipt Request</button>
 <div id="receiptPendingMsg" class="mt-4 hidden bg-orange-50 border-2 border-orange-300 p-4 rounded-xl text-center">
 <p class="font-bold text-orange-800">⏳ Request Admin Ko Bhej Di Gayi Hai</p>
 <p class="text-xs text-gray-500 mt-1">Order ID: <span id="pendingOrderId" class="font-bold"></span></p>
@@ -135,44 +159,36 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 <h2 class="text-2xl font-bold text-green-800">Admin Control Panel</h2>
 <p class="text-xs text-gray-500">Total Phones Loaded: <span id="totalPhoneCount" class="font-bold">0</span></p>
 
-<div id="adminLogin" class="mt-4 bg-white p-6 rounded-xl shadow max-w-sm mx-auto">
+<div id="adminLogin" class="mt-4 bg-white p-6 rounded-xl shadow max-w-sm mx-auto border">
 <p class="text-sm mb-3 text-center font-bold">Admin Login</p>
-<input id="adminPass" type="password" placeholder="Password (12345)" class="w-full border-2 border-green-200 rounded-full px-5 py-3 text-sm text-center">
+<input id="adminPass" type="password" placeholder="Password (12345)" class="w-full border-2 border-green-200 rounded-full px-5 py-3 text-sm text-center outline-none">
 <button onclick="adminLogin()" class="mt-3 w-full pti-green text-white py-3 rounded-full font-bold">Login</button>
 </div>
 
 <div id="adminPanel" class="hidden mt-6 space-y-6">
-
 <div class="bg-green-50 border-2 border-green-600 p-4 rounded-xl text-xs flex justify-between items-center">
-<div><b>✓ System Capacity Optimized:</b> Ab 50+ se zyada phones baghair kisi error ke add kar sakte hain. Storage Used: <span id="storageUsed">0</span>KB</div>
+<div><b>✓ System Capacity Optimized:</b> 50+ phones supported. Storage Used: <span id="storageUsed">0</span>KB</div>
 <button onclick="resetToDefault()" class="bg-red-100 text-red-700 px-3 py-1 rounded-full font-bold">Reset Default</button>
 </div>
 
-<!-- RECEIPT REQUESTS CONTROL -->
-<div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-orange-500">
-<h3 class="font-bold text-orange-700"><i class="fa-solid fa-receipt"></i> Pending Receipt Requests</h3>
-<div id="adminReceiptList" class="mt-4 space-y-3"></div>
-</div>
-
-<!-- ADD NEW PHONE -->
 <div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-green-600">
 <h3 class="font-bold text-green-800"><i class="fa-solid fa-plus"></i> Add New Phone</h3>
 <div class="mt-4 grid md:grid-cols-3 gap-3">
-<input id="newPhoneName" placeholder="Model Name (e.g. Redmi Note 13)" class="border-2 rounded-lg px-3 py-2 text-sm">
-<input id="newPhoneBrand" placeholder="Brand (e.g. Xiaomi)" class="border-2 rounded-lg px-3 py-2 text-sm">
-<input id="newPhonePrice" placeholder="Price Number (e.g. 54999)" type="number" class="border-2 rounded-lg px-3 py-2 text-sm">
-<input id="newPhoneRam" placeholder="RAM (e.g. 8GB)" class="border-2 rounded-lg px-3 py-2 text-sm">
-<input id="newPhoneStorage" placeholder="Storage (e.g. 256GB)" class="border-2 rounded-lg px-3 py-2 text-sm">
-<input id="newPhoneCamera" placeholder="Camera (e.g. 108MP)" class="border-2 rounded-lg px-3 py-2 text-sm">
+<input id="newPhoneName" placeholder="Model Name (e.g. Redmi Note 13)" class="border-2 rounded-lg px-3 py-2 text-sm outline-none">
+<input id="newPhoneBrand" placeholder="Brand (e.g. Xiaomi)" class="border-2 rounded-lg px-3 py-2 text-sm outline-none">
+<input id="newPhonePrice" placeholder="Price Number (e.g. 54999)" type="number" class="border-2 rounded-lg px-3 py-2 text-sm outline-none">
+<input id="newPhoneRam" placeholder="RAM (e.g. 8GB)" class="border-2 rounded-lg px-3 py-2 text-sm outline-none">
+<input id="newPhoneStorage" placeholder="Storage (e.g. 256GB)" class="border-2 rounded-lg px-3 py-2 text-sm outline-none">
+<input id="newPhoneCamera" placeholder="Camera (e.g. 108MP)" class="border-2 rounded-lg px-3 py-2 text-sm outline-none">
 </div>
 
 <div class="mt-4 grid md:grid-cols-2 gap-4 border-t pt-4">
 <div>
-<label class="block text-xs font-bold text-gray-700 mb-1">Option A: Image URL Paste Karein (Recommended for 50+ Phones)</label>
-<input id="newPhoneUrl" placeholder="https://images.unsplash.com/photo-..." class="w-full border-2 rounded-lg px-3 py-2 text-sm" oninput="useUrlImage(this.value)">
+<label class="block text-xs font-bold text-gray-700 mb-1">Image URL Paste Karein</label>
+<input id="newPhoneUrl" placeholder="https://images.unsplash.com/photo-..." class="w-full border-2 rounded-lg px-3 py-2 text-sm outline-none" oninput="useUrlImage(this.value)">
 </div>
 <div>
-<label class="block text-xs font-bold text-gray-700 mb-1">Option B: Upload File (Auto Compressed)</label>
+<label class="block text-xs font-bold text-gray-700 mb-1">Upload File (Auto Compressed)</label>
 <input type="file" id="newPhoneImage" accept="image/*" class="w-full text-xs">
 </div>
 </div>
@@ -182,30 +198,33 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 <div id="compressInfo" class="text-xs text-green-700 font-semibold">Image Ready Status: None</div>
 </div>
 
-<button onclick="addNewPhoneFull()" class="mt-4 w-full pti-green text-white py-3 rounded-full font-bold text-sm">Save Mobile To Inventory</button>
+<button onclick="addNewPhoneFull(); triggerCelebration();" class="mt-4 w-full pti-green text-white py-3 rounded-full font-bold text-sm">Save Mobile To Inventory</button>
 </div>
 
-<!-- MANAGE PHONES -->
 <div class="bg-white p-6 rounded-2xl shadow-lg border">
 <h3 class="font-bold text-red-700"><i class="fa-solid fa-list"></i> All Inventory Items (<span id="adminCount">0</span>)</h3>
 <div id="adminPhoneList" class="mt-4 grid md:grid-cols-2 gap-4"></div>
 </div>
-
 </div>
 </div>
 
 <script>
-// Default 8 sample phones with Light Image URLs
 const defaultPhones=[
-{n:"iPhone 15 Pro",b:"Apple",p:"PKR 359,999",price:359999,ram:"8GB",storage:"128GB",img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",specs:{Camera:"48MP"}},
-{n:"Samsung S24 Ultra",b:"Samsung",p:"PKR 289,999",price:289999,ram:"12GB",storage:"256GB",img:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400",specs:{Camera:"200MP"}},
-{n:"Infinix Note 40 Pro",b:"Infinix",p:"PKR 64,999",price:64999,ram:"12GB",storage:"256GB",img:"https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400",specs:{Camera:"108MP"}},
-{n:"Tecno Camon 30",b:"Tecno",p:"PKR 78,999",price:78999,ram:"12GB",storage:"256GB",img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400",specs:{Camera:"50MP"}},
-{n:"Vivo V30 5G",b:"Vivo",p:"PKR 139,999",price:139999,ram:"12GB",storage:"256GB",img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400",specs:{Camera:"50MP"}},
-{n:"Oppo Reno 11",b:"Oppo",p:"PKR 124,999",price:124999,ram:"12GB",storage:"256GB",img:"https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400",specs:{Camera:"50MP"}},
-{n:"Xiaomi 14",b:"Xiaomi",p:"PKR 244,999",price:244999,ram:"12GB",storage:"512GB",img:"https://images.unsplash.com/photo-1546054454-aa26e2b734c7?w=400",specs:{Camera:"50MP"}},
-{n:"Realme 12 Pro+",b:"Realme",p:"PKR 149,999",price:149999,ram:"12GB",storage:"256GB",img:"https://images.unsplash.com/photo-1574944985070-8f30c4397863?w=400",specs:{Camera:"64MP"}}
+{n:"iPhone 15 Pro",b:"Apple",p:"PKR 359,999",price:359999,ram:"8GB",storage:"128GB",img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",specs:{Camera:"48MP", Battery:"3274 mAh", Display:"6.1 inch", Chip:"A17 Pro"}},
+{n:"Samsung S24 Ultra",b:"Samsung",p:"PKR 289,999",price:289999,ram:"12GB",storage:"256GB",img:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400",specs:{Camera:"200MP", Battery:"5000 mAh", Display:"6.8 inch", Chip:"Snapdragon 8 Gen 3"}},
+{n:"Infinix Note 40 Pro",b:"Infinix",p:"PKR 64,999",price:64999,ram:"12GB",storage:"256GB",img:"https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400",specs:{Camera:"108MP", Battery:"5000 mAh", Display:"6.78 inch", Chip:"Helio G99"}},
+{n:"Tecno Camon 30",b:"Tecno",p:"PKR 78,999",price:78999,ram:"12GB",storage:"256GB",img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400",specs:{Camera:"50MP", Battery:"5000 mAh", Display:"6.78 inch", Chip:"Dimensity 7020"}},
+{n:"Vivo V30 5G",b:"Vivo",p:"PKR 139,999",price:139999,ram:"12GB",storage:"256GB",img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400",specs:{Camera:"50MP", Battery:"5000 mAh", Display:"6.78 inch", Chip:"Snapdragon 7 Gen 3"}},
+{n:"Oppo Reno 11",b:"Oppo",p:"PKR 124,999",price:124999,ram:"12GB",storage:"256GB",img:"https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400",specs:{Camera:"50MP", Battery:"5000 mAh", Display:"6.7 inch", Chip:"Dimensity 7050"}},
+{n:"Xiaomi 14",b:"Xiaomi",p:"PKR 244,999",price:244999,ram:"12GB",storage:"512GB",img:"https://images.unsplash.com/photo-1546054454-aa26e2b734c7?w=400",specs:{Camera:"50MP", Battery:"4610 mAh", Display:"6.36 inch", Chip:"Snapdragon 8 Gen 3"}},
+{n:"Realme 12 Pro+",b:"Realme",p:"PKR 149,999",price:149999,ram:"12GB",storage:"256GB",img:"https://images.unsplash.com/photo-1574944985070-8f30c4397863?w=400",specs:{Camera:"64MP", Battery:"5000 mAh", Display:"6.7 inch", Chip:"Snapdragon 7s Gen 2"}}
 ];
+
+function triggerCelebration(){
+  if(typeof confetti !== 'undefined'){
+    confetti({ particleCount: 60, spread: 70, origin: { y: 0.6 } });
+  }
+}
 
 function loadPhones(){
   let saved=localStorage.getItem('mobiHubPhones');
@@ -271,22 +290,56 @@ function renderShop(list){
   grid.innerHTML='';
   list.forEach((ph, idx)=>{
     grid.innerHTML+=`
-    <div class="bg-white rounded-xl p-3 shadow border flex flex-col justify-between">
-      <div>
+    <div class="bg-white rounded-xl p-3 shadow border flex flex-col justify-between hover-scale">
+      <div onclick="openPhoneModal(${idx})" class="cursor-pointer">
         <img src="${ph.img}" class="w-full h-32 object-contain bg-gray-50 rounded" onerror="this.src='https://via.placeholder.com/150?text=Mobile'">
-        <h4 class="font-bold text-xs mt-2 truncate">${ph.n}</h4>
+        <h4 class="font-bold text-xs mt-2 truncate text-green-900">${ph.n}</h4>
         <p class="text-[10px] text-gray-500">${ph.b} • ${ph.ram}/${ph.storage}</p>
         <p class="font-bold text-green-700 text-sm mt-1">${ph.p}</p>
       </div>
       <div class="flex gap-1 mt-3">
-        <button onclick="addCompare(${idx})" class="flex-1 border text-[11px] py-1 rounded-full">Compare</button>
-        <button onclick="addCart(${idx})" class="flex-1 pti-green text-white text-[11px] py-1 rounded-full">Cart</button>
+        <button onclick="addCompare(${idx}); triggerCelebration();" class="flex-1 border text-[11px] py-1 rounded-full font-semibold">Compare</button>
+        <button onclick="addCart(${idx}); triggerCelebration();" class="flex-1 pti-green text-white text-[11px] py-1 rounded-full font-semibold">Cart</button>
       </div>
     </div>`;
   });
 }
 
-function addCart(i){ cart.push(phones[i]); document.getElementById('cartCount').innerText=cart.length; }
+// PHONE DETAILS WITH SPECS MODAL
+function openPhoneModal(idx){
+  const ph=phones[idx];
+  document.getElementById('modalName').innerText=ph.n;
+  document.getElementById('modalImg').src=ph.img;
+  
+  let specsHTML=`
+    <div><b>Brand:</b> ${ph.b}</div>
+    <div><b>Price:</b> ${ph.p}</div>
+    <div><b>RAM:</b> ${ph.ram}</div>
+    <div><b>Storage:</b> ${ph.storage}</div>
+    <div><b>Camera:</b> ${ph.specs?.Camera || '50MP'}</div>
+    <div><b>Battery:</b> ${ph.specs?.Battery || '5000 mAh'}</div>
+    <div><b>Display:</b> ${ph.specs?.Display || '6.7 inch'}</div>
+    <div><b>Chipset:</b> ${ph.specs?.Chip || 'Octa Core'}</div>
+  `;
+  document.getElementById('modalSpecs').innerHTML=specsHTML;
+  document.getElementById('modalAddCart').onclick=()=>{ addCart(idx); closeModal(); triggerCelebration(); };
+  document.getElementById('modalAddCompare').onclick=()=>{ addCompare(idx); closeModal(); triggerCelebration(); };
+  
+  document.getElementById('phoneModal').classList.remove('hidden');
+  document.getElementById('phoneModal').classList.add('flex');
+}
+
+function closeModal(){
+  document.getElementById('phoneModal').classList.add('hidden');
+  document.getElementById('phoneModal').classList.remove('flex');
+}
+
+function addCart(i){ 
+  cart.push(phones[i]); 
+  document.getElementById('cartCount').innerText=cart.length; 
+  alert('✓ Added to Cart: '+phones[i].n);
+}
+
 function addCompare(i){
   if(compareList.length>=3){alert('Max 3 allow hain'); return;}
   if(compareList.find(x=>x.n===phones[i].n)){alert('Already Added'); return;}
@@ -294,29 +347,33 @@ function addCompare(i){
   document.getElementById('compareCount').innerText=compareList.length;
   updateCompareArea();
 }
+
 function updateCompareArea(){
   const area=document.getElementById('compareArea');
   if(!area) return;
   area.innerHTML=compareList.length?compareList.map(p=>`<span class="bg-green-100 px-2 py-1 rounded-full mr-1 text-xs">${p.n} <button onclick="removeCompare('${p.n}')">x</button></span>`).join(''):'No phones selected';
 }
+
 function removeCompare(name){
   compareList=compareList.filter(p=>p.n!==name);
   updateCompareArea();
   document.getElementById('compareCount').innerText=compareList.length;
 }
+
 function clearCompare(){ compareList=[]; updateCompareArea(); document.getElementById('compareResult').innerHTML=''; document.getElementById('compareCount').innerText=0; }
+
 function doCompare(){
   const res=document.getElementById('compareResult');
   res.innerHTML='';
   compareList.forEach(p=>{
-    res.innerHTML+=`<div class="bg-white p-4 rounded-xl shadow border text-center"><img src="${p.img}" class="h-28 object-contain mx-auto"><h4 class="font-bold text-sm mt-2">${p.n}</h4><p class="font-bold text-green-700">${p.p}</p><p class="text-xs text-gray-500 mt-1">${p.ram} / ${p.storage}</p></div>`;
+    res.innerHTML+=`<div class="bg-white p-4 rounded-xl shadow border text-center"><img src="${p.img}" class="h-28 object-contain mx-auto"><h4 class="font-bold text-sm mt-2">${p.n}</h4><p class="font-bold text-green-700">${p.p}</p><p class="text-xs text-gray-500 mt-1">${p.ram} / ${p.storage} • ${p.specs?.Camera || ''}</p></div>`;
   });
 }
 
 function searchForCompare(q){
   if(!q){document.getElementById('compareSearchResults').innerHTML=''; return;}
   const f=phones.filter(p=>p.n.toLowerCase().includes(q.toLowerCase()));
-  document.getElementById('compareSearchResults').innerHTML=f.slice(0,4).map(p=>`<div class="bg-white p-2 rounded shadow flex justify-between text-xs"><span>${p.n}</span><button onclick="addCompare(${phones.indexOf(p)})" class="bg-green-800 text-white px-2 py-1 rounded-full">Add</button></div>`).join('');
+  document.getElementById('compareSearchResults').innerHTML=f.slice(0,4).map(p=>`<div class="bg-white p-2 rounded shadow flex justify-between text-xs"><span>${p.n}</span><button onclick="addCompare(${phones.indexOf(p)}); triggerCelebration();" class="bg-green-800 text-white px-2 py-1 rounded-full">Add</button></div>`).join('');
 }
 
 function trackOrder(){
@@ -363,19 +420,18 @@ function addNewPhoneFull(){
 
   phones.push({
     n:name, b:brand, p:"PKR "+priceNum.toLocaleString(), price:priceNum,
-    ram:ram, storage:storage, img:finalImg, specs:{Camera:camera}
+    ram:ram, storage:storage, img:finalImg, specs:{Camera:camera, Battery:"5000 mAh", Display:"6.7 inch", Chip:"Octa Core"}
   });
 
   try{
     savePhones();
     alert('✓ Mobile Successfully Added! Total Items: '+phones.length);
   }catch(e){
-    alert('Storage Limit reached. Please use Image URLs for additional items.');
+    alert('Storage Limit reached. Please use Image URLs.');
     phones.pop();
     return;
   }
 
-  // Clear Form
   document.getElementById('newPhoneName').value=''; document.getElementById('newPhoneBrand').value=''; document.getElementById('newPhonePrice').value='';
   document.getElementById('newPhoneRam').value=''; document.getElementById('newPhoneStorage').value=''; document.getElementById('newPhoneCamera').value='';
   document.getElementById('newPhoneUrl').value=''; document.getElementById('newPhoneImage').value='';
@@ -422,6 +478,7 @@ function adminLogin(){
     document.getElementById('adminLogin').classList.add('hidden');
     document.getElementById('adminPanel').classList.remove('hidden');
     renderAdminList();
+    triggerCelebration();
   }else{ alert('Wrong Password'); }
 }
 
