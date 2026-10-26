@@ -20,7 +20,7 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9; display: flex; flex-d
 .hover-scale:hover{transform: scale(1.02);}
 </style>
 </head>
-<body onload="triggerCelebration()">
+<body onload="triggerCelebration(); initBannerImage();">
 
 <nav class="pti-green text-white sticky top-0 z-50 shadow-lg">
 <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -64,7 +64,7 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9; display: flex; flex-d
 </div>
 </div>
 
-<!-- WELCOME & IMRAN KHAN BANNER SECTION -->
+<!-- WELCOME & BANNER SECTION -->
 <div class="max-w-6xl mx-auto px-4 py-10">
 <div class="bg-gradient-to-r from-green-900 to-emerald-800 rounded-3xl p-6 md:p-10 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
 <div class="flex-1 text-center md:text-left">
@@ -80,8 +80,8 @@ Mobi-Hub.Pk par aap ko miltay hain 100% original, PTA approved aur non-repaired 
 </div>
 <div class="w-full md:w-auto flex justify-center">
 <div class="relative bg-white/10 p-3 rounded-2xl backdrop-blur-md border border-white/20 shadow-2xl">
-<!-- Fixed Img URL for Leader -->
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Imran_Khan_in_2018.jpg/440px-Imran_Khan_in_2018.jpg" alt="Imran Khan" class="w-64 h-48 md:w-72 md:h-52 object-cover rounded-xl shadow-md bg-white">
+<!-- Dynamic Banner Image -->
+<img id="mainBannerImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Imran_Khan_in_2018.jpg/440px-Imran_Khan_in_2018.jpg" alt="Banner Image" class="w-64 h-48 md:w-72 md:h-52 object-cover rounded-xl shadow-md bg-white">
 <div class="absolute bottom-5 left-5 bg-green-950/80 text-white text-[11px] px-3 py-1.5 rounded-lg border border-green-600 font-semibold">
   ⭐ 100% Trusted Brand in Pakistan
 </div>
@@ -252,6 +252,16 @@ Mobi-Hub.Pk par aap ko miltay hain 100% original, PTA approved aur non-repaired 
 
 <div id="adminPanel" class="hidden mt-6 space-y-6">
 
+<!-- BANNER IMAGE SETTINGS CONTROL -->
+<div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-blue-600">
+<h3 class="font-bold text-blue-800"><i class="fa-solid fa-image mr-2"></i> Update Home Banner Image</h3>
+<p class="text-xs text-gray-500 mt-1">Yahan naya Image URL paste karein aur save karein taake home page par wahi tasveer nazar aaye.</p>
+<div class="mt-3 flex gap-2">
+<input id="adminBannerUrlInput" placeholder="https://... image link paste karein" class="flex-1 border-2 rounded-lg px-3 py-2 text-sm outline-none">
+<button onclick="updateBannerImage()" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-xs font-bold shadow hover:bg-blue-700">Save Banner</button>
+</div>
+</div>
+
 <!-- RECEIPT REQUESTS VERIFICATION CONTROL -->
 <div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-orange-500">
 <h3 class="font-bold text-orange-700 flex items-center justify-between">
@@ -367,6 +377,27 @@ function triggerCelebration(){
   }
 }
 
+function loadBannerImage(){
+  return localStorage.getItem('mobiHubBannerImg') || "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Imran_Khan_in_2018.jpg/440px-Imran_Khan_in_2018.jpg";
+}
+
+function initBannerImage(){
+  const url = loadBannerImage();
+  const imgElem = document.getElementById('mainBannerImg');
+  if(imgElem) imgElem.src = url;
+  const inputElem = document.getElementById('adminBannerUrlInput');
+  if(inputElem) inputElem.value = url;
+}
+
+function updateBannerImage(){
+  const url = document.getElementById('adminBannerUrlInput').value.trim();
+  if(!url){ alert('Please enter a valid image URL'); return; }
+  localStorage.setItem('mobiHubBannerImg', url);
+  initBannerImage();
+  triggerCelebration();
+  alert('✓ Banner image successfully updated!');
+}
+
 function loadPhones(){
   let saved=localStorage.getItem('mobiHubPhones');
   if(saved){try{return JSON.parse(saved);}catch(e){return defaultPhones;}}
@@ -425,7 +456,7 @@ function showPage(id){
   document.getElementById(id).classList.remove('hidden');
   if(id==='shop') renderShop(phones);
   if(id==='receipt') populateReceiptModels();
-  if(id==='admin') renderAdminReceiptList();
+  if(id==='admin') { renderAdminReceiptList(); initBannerImage(); }
   window.scrollTo(0,0);
 }
 
@@ -807,10 +838,12 @@ function resetToDefault(){
   if(confirm('Reset all phone data to default list?')){
     localStorage.removeItem('mobiHubPhones');
     localStorage.removeItem('mobiHubReceiptRequests');
+    localStorage.removeItem('mobiHubBannerImg');
     phones=[...defaultPhones];
     receiptRequests=[];
     savePhones();
     saveReceiptRequests();
+    initBannerImage();
     renderShop(phones); renderAdminList(); populateReceiptModels(); renderAdminReceiptList();
   }
 }
@@ -821,11 +854,12 @@ function adminLogin(){
     document.getElementById('adminPanel').classList.remove('hidden');
     renderAdminList();
     renderAdminReceiptList();
+    initBannerImage();
     triggerCelebration();
   }else{ alert('Wrong Password'); }
 }
 
-showPage('home'); renderShop(phones); populateReceiptModels(); updateStorageInfo();
+showPage('home'); renderShop(phones); populateReceiptModels(); updateStorageInfo(); initBannerImage();
 </script>
 </body>
 </html>
