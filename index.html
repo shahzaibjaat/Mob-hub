@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mobi-Hub.Pk - 50+ Phone Inventory System</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<!-- Fixed FontAwesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <!-- Canvas Confetti Library for Celebrations -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Poppins:wght@400;600;700&display=swap');
-body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
+body{font-family:'Poppins',sans-serif; background:#f8fdf9; display: flex; flex-direction: column; min-height: 100vh;}
 .urdu{font-family:'Noto Nastaliq Urdu',serif;}
 .pti-green{background:#0a5c36;}
 .page{animation: fadeIn 0.4s ease-in-out;}
@@ -42,6 +43,7 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 </div>
 </nav>
 
+<div class="flex-grow">
 <!-- HOME PAGE -->
 <div id="home" class="page">
 <div class="bg-gradient-to-br from-green-50 via-white to-emerald-50 py-12 px-6 text-center">
@@ -154,7 +156,7 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 </div>
 </div>
 
-<!-- RECEIPT PAGE (FIXED & IMPROVED) -->
+<!-- RECEIPT PAGE -->
 <div id="receipt" class="page hidden max-w-2xl mx-auto p-6">
 <h2 class="text-2xl font-bold text-green-800"><i class="fa-solid fa-receipt"></i> Online Receipt - Verified System</h2>
 <p class="text-xs text-gray-500 mt-1">Raseed request submit karein. Admin verification ke baad official stamp lag kar printable receipt show hogi.</p>
@@ -274,6 +276,58 @@ body{font-family:'Poppins',sans-serif; background:#f8fdf9;}
 </div>
 </div>
 </div>
+</div>
+
+<!-- PROFESSIONAL FOOTER (Inspired by Priceoye layout) -->
+<footer class="bg-[#052e16] text-white pt-10 pb-6 mt-12 border-t border-green-900">
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-xs">
+    <!-- Column 1: Customer Service & Links -->
+    <div>
+      <h3 class="font-bold text-sm mb-3 text-green-300 uppercase tracking-wider">Customer Service</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li><a href="#" onclick="showPage('track')" class="hover:underline">Help Center & Track Order</a></li>
+        <li><a href="#" class="hover:underline">Privacy Policy & Terms</a></li>
+        <li><a href="#" onclick="showPage('demand')" class="hover:underline">Installments & Demand Plan</a></li>
+        <li><a href="#" onclick="showPage('sell')" class="hover:underline">Sell on Mobi-Hub.Pk</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 2: About & Quick Nav -->
+    <div>
+      <h3 class="font-bold text-sm mb-3 text-green-300 uppercase tracking-wider">Mobi-Hub.Pk</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li><a href="#" onclick="showPage('home')" class="hover:underline">About Us</a></li>
+        <li><a href="#" onclick="showPage('shop')" class="hover:underline">Browse Shop Inventory</a></li>
+        <li><a href="#" onclick="showPage('compare')" class="hover:underline">Compare Phones</a></li>
+        <li><a href="#" onclick="showPage('receipt')" class="hover:underline">Verify Online Receipt</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Secure Payments & Social -->
+    <div>
+      <h3 class="font-bold text-sm mb-3 text-green-300 uppercase tracking-wider">Secure Payments Methods</h3>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="bg-white text-gray-900 px-2.5 py-1 rounded font-bold text-[10px]">JazzCash</span>
+        <span class="bg-white text-gray-900 px-2.5 py-1 rounded font-bold text-[10px]">HBL</span>
+        <span class="bg-white text-gray-900 px-2.5 py-1 rounded font-bold text-[10px]">VISA</span>
+        <span class="bg-white text-gray-900 px-2.5 py-1 rounded font-bold text-[10px]">Mastercard</span>
+        <span class="bg-white text-gray-900 px-2.5 py-1 rounded font-bold text-[10px]">COD</span>
+      </div>
+      <h3 class="font-bold text-sm mb-2 text-green-300 uppercase tracking-wider">Connect With Us</h3>
+      <div class="flex gap-3 text-lg">
+        <a href="https://wa.me/923126165602" target="_blank" class="hover:text-green-400"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#" class="hover:text-green-400"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="hover:text-green-400"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="hover:text-green-400"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#" class="hover:text-green-400"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 mt-8 pt-4 border-t border-green-800 text-center text-[11px] text-gray-400">
+    Copyright © 2026 Mobi-Hub.Pk. All Rights Reserved. Developed for GCUF Final Year Project.
+  </div>
+</footer>
 
 <script>
 const defaultPhones=[
@@ -371,7 +425,6 @@ function autoFillReceiptPrice(){
   }
 }
 
-// RECEIPT SYSTEM LOGIC (FIXED)
 function generateReceiptRequest(){
   const name=document.getElementById('rName').value.trim();
   const phone=document.getElementById('rPhone').value.trim();
